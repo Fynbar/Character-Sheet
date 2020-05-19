@@ -24,6 +24,7 @@ export class MonsterBuilderComponent implements OnInit {
   ) { }
   private monsters: Monster[] = [];
   private temp: Monster[] = [];
+  public buttonstring = '<div> Lemons <br/>my guy</div>';
   cols = [
     { field: 'name', header: 'Name' },
     { field: 'page', header: 'Page' },

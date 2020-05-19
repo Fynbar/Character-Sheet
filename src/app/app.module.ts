@@ -96,6 +96,7 @@ import { MonsterPageComponent } from './components/monster/monster-page/monster-
 // #region Service Imports
 import { PythonService } from './components/python.service';
 import { JSONService } from './components/json.service';
+import { DiceComponent } from './components/dice/dice.component';
 // #endregion
 
 @NgModule({
@@ -105,7 +106,8 @@ import { JSONService } from './components/json.service';
     MonsterPageComponent,
     MonsterBuilderComponent,
     MonsterComponent,
-    HomeComponent
+    HomeComponent,
+    DiceComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),
