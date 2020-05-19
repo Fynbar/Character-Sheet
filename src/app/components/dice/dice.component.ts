@@ -21,5 +21,14 @@ export class DiceComponent extends Dice implements OnInit {
     } else {
       this.dice = new Dice(...comps.map(c => this[c]));
     }
+    console.log(this.dice);
+  }
+
+  public get diceString(): string {
+    return this.dice ? this.dice.makeString : '...';
+  }
+
+  public rollDice($event): void {
+    console.log(this.dice.roll());
   }
 }

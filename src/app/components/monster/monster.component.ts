@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class MonsterComponent implements OnInit {
 
   constructor() { }
+  public buttonstring = '<app-dice diceType=12><br/></app-dice>';
+  public string2 = '<p-button label="cabbage"></p-button>';
 
   ngOnInit() {
-    console.log('Monster Page!');
+
   }
 
 }

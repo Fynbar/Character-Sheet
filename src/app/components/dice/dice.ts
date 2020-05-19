@@ -11,13 +11,30 @@ export class Dice {
         const diceAVG = this.diceNum * (this.diceType + 1) / 2;
         return this.constant + Math.floor(diceAVG);
     }
-    public get toString(): string {
+    public get makeString(): string {
         let conMod = '';
         if (this.constant > 0) {
-            conMod = '+ ' + this.constant.toString;
+            conMod = `+${this.constant}`;
         } else if (this.constant < 0) {
-            conMod = '- ' + this.constant.toString;
+            conMod = `${this.constant}`;
         }
-        return this.avg.toString + ' (' + this.diceNum.toString + 'd' + this.diceType.toString + conMod + ')';
+        return `${this.avg} (${this.diceNum}d${this.diceType}${conMod})`;
     }
+
+    public roll(): Roll {
+        const Rolls = [];
+        for (let i = 0; i < this.diceNum; i++) {
+            Rolls[i] = this.constant + Math.ceil(Math.random() * this.diceType);
+        }
+        return {
+            rolls: Rolls,
+            total: Rolls.reduce((sum, roll) => sum + roll, 0)
+        };
+    }
+
+}
+
+export interface Roll {
+    rolls: number[];
+    total: number;
 }
