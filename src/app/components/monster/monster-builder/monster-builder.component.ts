@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { JSONService } from '../../json.service';
 import { stringify } from 'querystring';
 // import * as data from '../../../../assets/data/mon_man_addition.json';
@@ -19,17 +19,25 @@ interface Monster {
 })
 
 export class MonsterBuilderComponent implements OnInit {
-  constructor(
-    private jsonService: JSONService
-  ) { }
-  private monsters: Monster[] = [];
-  private temp: Monster[] = [];
-  public buttonstring = '<div> Lemons <br/>my guy</div>';
+  // , AfterViewInit
+  // // @ViewChild('one') d1: ElementRef;
+  // @ViewChild('one', { read: ElementRef }) d1: ElementRef;
   cols = [
     { field: 'name', header: 'Name' },
     { field: 'page', header: 'Page' },
     // { field: 'see', header: 'See' },
   ];
+  constructor(
+    private jsonService: JSONService
+  ) { }
+  private monsters: Monster[] = [];
+  private temp: Monster[] = [];
+
+
+  // ngAfterViewInit() {
+  //   this.d1.nativeElement.insertAdjacentHTML('beforeend', '<app-dice [diceType]=12></app-dice> two');
+  // }
+
   ngOnInit() {
     // console.log(data);
     this.jsonService.getJSON('mon_man_addition').subscribe(data => {
@@ -47,21 +55,21 @@ export class MonsterBuilderComponent implements OnInit {
   }
 
   public copyInputMessage() {
-      const val = JSON.stringify(this.monsters);
-      // console.log(val);
-      const selBox = document.createElement('textarea');
-      selBox.style.position = 'fixed';
-      selBox.style.left = '0';
-      selBox.style.top = '0';
-      selBox.style.opacity = '0';
-      selBox.value = val;
-      document.body.appendChild(selBox);
-      selBox.focus();
-      selBox.select();
-      document.execCommand('copy');
-      document.body.removeChild(selBox);
-      console.log('Copied');
-    }
+    const val = JSON.stringify(this.monsters);
+    // console.log(val);
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    console.log('Copied');
+  }
 
   public onRowExpand(event, data) {
     // console.log(data);

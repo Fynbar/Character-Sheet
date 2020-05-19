@@ -1,7 +1,6 @@
-<div [innerHTML]="buttonstring"></div>
 <p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
 <p-accordion>
-    <p-accordionTab header="MonsterjSON" #jsonBlock>
+    <p-accordionTab header="MonsterJSON" #jsonBlock>
         {{monsters | json}}
     </p-accordionTab>
 </p-accordion>
