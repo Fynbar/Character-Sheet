@@ -1,3 +1,48 @@
-<p>
-    <textarea pInputTextarea [(ngModel)]="property"></textarea>
-</p>
+<p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
+<p-accordion>
+    <p-accordionTab header="MonsterjSON" #jsonBlock>
+        {{monsters | json}}
+    </p-accordionTab>
+</p-accordion>
+
+<p-table #dt [columns]="cols" [value]="filMon" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header" let-columns>
+        <!-- <tr>
+            <th [attr.colspan]="columns.length + 1">{{filMon.length}}</th>
+        </tr> -->
+        <tr>
+            <th style="width: 3em"></th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+            <!-- <th>
+                Filled
+            </th> -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+        <tr>
+            <td>
+                <a href="#" [pRowToggler]="rowData">
+                    <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                </a>
+            </td>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+            <!-- <td>
+                <i class="pi pi-check" *ngIf="rowData.flavor_text"></i>
+            </td> -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+        <tr>
+            <td [attr.colspan]="columns.length + 1">
+                <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                    <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea>
+                    <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
