@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Dice } from './dice';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dice',
-  templateUrl: './dice.component.html',
+  template: '<span (click)="rollDice($event)" innerHTML="{{diceString}}"></span>',
   styleUrls: ['./dice.component.css']
 })
 
@@ -12,9 +13,13 @@ export class DiceComponent extends Dice implements OnInit {
   @Input() diceType = 4;
   @Input() diceNum = 1;
   @Input() dice: Dice;
-  constructor() { super(); }
+  result: any;
+  constructor(private sanitized: DomSanitizer) {
+    super();
+  }
 
   ngOnInit() {
+    this.result = this.sanitized.bypassSecurityTrustHtml(this.diceString);
     const comps = ['diceType', 'diceNum', 'constant'];
     if (this.dice) {
       comps.forEach(c => this[c] = this.dice[c]);

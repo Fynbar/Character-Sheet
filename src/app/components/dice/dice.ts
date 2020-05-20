@@ -1,16 +1,16 @@
 export class Dice {
-    constant = 0;
-    diceType = 4;
-    diceNum = 1;
+    constant: number;
+    diceType: number;
+    diceNum: number;
     constructor(diceType?: number, diceNum?: number, constant?: number) {
-        this.constant = constant;
-        this.diceType = diceType;
-        this.diceNum = diceNum;
+        this.constant = constant ? Math.floor(constant) : 0;
+        this.diceType = diceType ? Math.floor(diceType) : 4;
+        this.diceNum = diceNum ? Math.floor(diceNum) : 1;
     }
     public get avg(): number {
-        const diceAVG = this.diceNum * (this.diceType + 1) / 2;
-        return this.constant + Math.floor(diceAVG);
+        return this.constant + Math.floor(this.diceNum * (this.diceType + 1) / 2);
     }
+
     public get makeString(): string {
         let conMod = '';
         if (this.constant > 0) {

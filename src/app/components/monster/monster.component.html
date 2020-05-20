@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <app-dice [diceType]=12></app-dice>
 </div>
 <div>
@@ -6,10 +6,11 @@
 </div>
 <div>
     <app-dice></app-dice>
-</div>
-<div [innerHTML]="buttonstring"></div>
-<div>{{buttonstring}}</div>
+    
+</div> -->
 
-<div [innerHTML]="string2"></div>
-<div>{{string2}}</div>
+{{ dice | dice }}
+<div innerHTML="{{buttonstring}}">{{buttonstring}}</div>
+
+<!-- <div [innerHTML]="{{string2}}">{{string2}}</div> -->
 <router-outlet></router-outlet>
