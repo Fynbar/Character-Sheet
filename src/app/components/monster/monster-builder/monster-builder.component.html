@@ -1,11 +1,11 @@
 <p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
 <p-accordion>
     <p-accordionTab header="MonsterJSON" #jsonBlock>
-        {{monsters | json}}
+        {{copyVal}}
     </p-accordionTab>
 </p-accordion>
 
-<p-table #dt [columns]="cols" [value]="monsters" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+<p-table #dt [columns]="cols" [value]="monsters" dataKey="name" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="header" let-columns>
         <!-- <tr>
             <th [attr.colspan]="columns.length + 1">{{filMon.length}}</th>

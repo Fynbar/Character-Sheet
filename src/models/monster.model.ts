@@ -1,29 +1,35 @@
 import { ConditionImmunity } from './condition.enum';
+import { Page } from './spell.model';
 
 export interface Monster {
     name: string;
     meta: string;
-    Speed: SpeedClass | string;
-    Skills?: { [key: string]: number };
-    Senses: Senses;
-    Languages: string[];
-    Challenge: string;
-    Traits?: { [key: string]: string }[];
-    Actions?: MonsterAction[];
-    img_url?: string;
+    speed: string | SpeedClass;
+    skills?: {
+        [key: string]: number;
+    };
+    senses: Senses;
+    languages: string[];
+    challenge: string;
+    traits?: {
+        [key: string]: string;
+    }[];
+    actions?: MonsterAction[];
+    imgurl?: string;
     id?: number;
-    Armor_Class: number;
-    Armor_Type: string;
-    Hit_Points: string;
-    Abilities: Abilities;
-    Saving_Throws?: Abilities;
-    Passive_Perception: number;
-    Legendary_Actions?: LegendaryActions;
-    Damage_Immunities?: string[];
-    Condition_Immunities?: ConditionImmunity[];
-    Damage_Resistances?: string[];
-    Damage_Vulnerabilities?: string[];
-    Reactions?: Reaction[];
+    armorClass: number;
+    armorType: string;
+    hitPoints: string;
+    abilities: Abilities;
+    savingThrows?: Abilities;
+    passivePerception: number;
+    legendaryActions?: LegendaryActions;
+    damageImmunities?: string[];
+    conditionImmunities?: ConditionImmunity[];
+    damageResistances?: string[];
+    damageVulnerabilities?: string[];
+    reactions?: Reaction[];
+    page?: Page;
 }
 
 export interface Abilities {
@@ -36,32 +42,32 @@ export interface Abilities {
 }
 
 export interface MonsterAction {
-    ActionsName?: string;
-    ActionsDescriptions?: string;
-    OtherActions?: string[];
+    actionsName?: string;
+    actionsDescriptions?: string;
+    otherActions?: string[];
 }
 
 export interface LegendaryActions {
-    Rules: string;
-    Actions: LegendaryActionsAction[];
+    rules: string;
+    actions: LegendaryActionsAction[];
 }
 
 export interface LegendaryActionsAction {
-    LegActionsName: string;
-    LegActionsDescriptions: string;
-    LegActionsPoints: number;
+    legActionsName: string;
+    legActionsDescriptions: string;
+    legActionsPoints: number;
 }
 
 export interface Reaction {
-    ActionsName: string;
-    ActionsDescriptions: string;
+    actionsName: string;
+    actionsDescriptions: string;
 }
 
 export interface Senses {
-    Darkvision?: number;
-    Blindsight?: number;
-    Truesight?: number;
-    Tremorsense?: number;
+    darkvision?: number;
+    blindsight?: number;
+    truesight?: number;
+    tremorsense?: number;
 }
 
 export interface SpeedClass {
