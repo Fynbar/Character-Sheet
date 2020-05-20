@@ -5,7 +5,7 @@
     </p-accordionTab>
 </p-accordion>
 
-<p-table #dt [columns]="cols" [value]="filMon" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+<p-table #dt [columns]="cols" [value]="monsters" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="header" let-columns>
         <!-- <tr>
             <th [attr.colspan]="columns.length + 1">{{filMon.length}}</th>
@@ -20,7 +20,7 @@
             </th> -->
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
         <tr>
             <td>
                 <a href="#" [pRowToggler]="rowData">
@@ -35,12 +35,14 @@
             </td> -->
         </tr>
     </ng-template>
-    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
         <tr>
             <td [attr.colspan]="columns.length + 1">
                 <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                    <!-- {{i}} -->
                     <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea>
-                    <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea>
+                    <div>{{fromPageDesc(rowData) | json}}</div>
+                    <!-- <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea> -->
                 </div>
             </td>
         </tr>

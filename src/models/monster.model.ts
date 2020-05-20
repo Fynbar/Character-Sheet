@@ -10,8 +10,8 @@ export interface Monster {
     Challenge: string;
     Traits?: { [key: string]: string }[];
     Actions?: MonsterAction[];
-    img_url: string;
-    id: number;
+    img_url?: string;
+    id?: number;
     Armor_Class: number;
     Armor_Type: string;
     Hit_Points: string;
