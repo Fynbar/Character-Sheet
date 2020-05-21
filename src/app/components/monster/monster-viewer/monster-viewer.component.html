@@ -8,7 +8,7 @@
     <div>Speed {{Monster.speedString}}</div>
 
 
-    <div class="p-grid">
+    <!-- <div class="p-grid">
         <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
             {{abbrev}}
         </div>
@@ -22,5 +22,22 @@
         <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
             {{Monster.modifierStrings[abbrev]}}
         </div>
+    </div> -->
+
+    <div class="ui-g">
+        <div class="ui-g-2" *ngFor="let abbrev of abilAbbrev; let i=index">
+            {{abbrev}}
+        </div>
     </div>
+    <div class="ui-g">
+        <div class="ui-g-2" *ngFor="let abbrev of abilAbbrev; let i=index">
+            {{Monster.abilities[abbrev]}}
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-2" *ngFor="let abbrev of abilAbbrev; let i=index">
+            {{Monster.modifierStrings[abbrev]}}
+        </div>
+    </div>
+
 </div>
