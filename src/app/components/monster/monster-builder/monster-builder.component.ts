@@ -3,6 +3,7 @@ import { abbrevToAbility, abilityAbbrev } from '../../../../models/ability.enum'
 import { JSONService } from '../../json.service';
 import { insertString } from '../../../common/string.functions';
 import { MonsterCreature } from './monsterCreature';
+import { map } from 'rxjs/operators';
 // import { ConsoleReporter } from 'jasmine';
 // import * as data from '../../../../assets/data/mon_man_addition.json';
 
@@ -44,15 +45,8 @@ export class MonsterBuilderComponent implements OnInit {
   ngOnInit() {
     // console.log(data);
     this.jsonService.getJSON('mon_man_addition').subscribe(data => {
-      // const i = 33;
-      this.monsters = data;
-      // this.monsters = data.slice(0, i);
-      // this.monsters = this.monsters.concat(data.slice(i, i + 1).map(s => this.readPageDesc(s)));
-      // this.monsters = this.monsters.concat(data.slice(i + 1));
-      // this.monsters = this.monsters.concat(data.slice(i, i + 1).map(s => this.readPageDesc(s)));
-      // console.log(this.monsters);
-      // console.log(this.filMon);
-    });
+        this.monsters = data;
+      });
   }
 
   public handleClick(event) {
@@ -99,8 +93,9 @@ export class MonsterBuilderComponent implements OnInit {
   }
 
   public get filMon(): any[] {
-    return this.monsters.filter((m, index) => index >= 99 && index <= 114);
-    // return this.monsters.map(m => this.readPageDesc(m));
+    return this.monsters;
+      // .filter((m, index) => index >= 99 && index <= 114);
+      // return this.monsters.map(m => this.readPageDesc(m))
   }
 
   public fromPageDesc(m: MonsterMonMan): MonsterCreature {

@@ -8,7 +8,7 @@
     <div>Speed {{Monster.speedString}}</div>
 
 
-    <!-- <div class="p-grid">
+    <div class="p-grid">
         <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
             {{abbrev}}
         </div>
@@ -22,22 +22,31 @@
         <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
             {{Monster.modifierStrings[abbrev]}}
         </div>
-    </div> -->
+    </div>
 
-    <div class="ui-g">
-        <div class="ui-g-2" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{abbrev}}
-        </div>
+    <div *ngFor="let t of Monster.traitNames; let i=index">
+        <b>{{t}}:</b> {{Monster.traits[t]}}
     </div>
-    <div class="ui-g">
-        <div class="ui-g-2" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{Monster.abilities[abbrev]}}
-        </div>
-    </div>
-    <div class="ui-g">
-        <div class="ui-g-2" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{Monster.modifierStrings[abbrev]}}
+
+    <div *ngIf="Monster.actions">
+        <h4 style="margin-bottom: 0px;">Actions</h4>
+        <div *ngFor="let a of Monster.actions; let i=index">
+            <b>{{a.actionName}}:</b> {{a.actionDesc.actionText.join('. ')}}
         </div>
     </div>
 
+    <div *ngIf="Monster.legendaryActions">
+        <h4 style="margin-bottom: 0px;">Legendary Actions</h4>
+        <div>{{Monster.legendaryActions.Rules}}</div>
+        <div *ngFor="let la of Monster.legendaryActions.legendaryActions; let i=index">
+            <b>{{la.actionName}}:</b> {{la.actionDesc.join('. ')}}
+        </div>
+    </div>
+
+    <div *ngIf="Monster.reactions">
+        <h4 style="margin-bottom: 0px;">Reactions</h4>
+        <div *ngFor="let r of Monster.Reactions; let i=index">
+            <b>{{r.actionName}}:</b> {{r.actionText.join('. ')}}
+        </div>
+    </div>
 </div>

@@ -13,5 +13,6 @@ export class MonsterViewerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.Monster);
   }
 }

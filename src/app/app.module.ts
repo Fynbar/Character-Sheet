@@ -101,6 +101,7 @@ import { DicePipe } from './common/dice.pipe';
 import { ModifierComponent } from './components/modifiers/modifier/modifier.component';
 import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
 import { MonsterViewerComponent } from './components/monster/monster-viewer/monster-viewer.component';
+import { DiceResultDialogComponent } from './components/dice/dice-result-dialog/dice-result-dialog.component';
 // #endregion
 
 @NgModule({
@@ -115,7 +116,8 @@ import { MonsterViewerComponent } from './components/monster/monster-viewer/mons
     DicePipe,
     ModifierComponent,
     ModifierBuilderComponent,
-    MonsterViewerComponent
+    MonsterViewerComponent,
+    DiceResultDialogComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),

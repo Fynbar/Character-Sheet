@@ -6,8 +6,9 @@ import { Page } from '../../../../models/spell.model';
 import { spaceJoin, spaceSplit, stripArray, commaSplit } from '../../../common/string.functions';
 import { Dice } from '../../dice/dice';
 import { MonsterMonMan } from './monster-builder.component';
+import { forEach } from '@angular/router/src/utils/collection';
 // tslint:disable:max-line-length
-const properties = ['name', 'meta', 'page', 'speed', 'skills', 'senses', 'languages', 'challenge', 'traits', 'actions', 'imgurl', 'id', 'armorClass', 'armorType', 'hitPoints', 'abilities', 'savingThrows', 'passivePerception', 'legendaryActions', 'damageImmunities', 'conditionImmunities', 'damageResistances', 'damageVulnerabilities', 'reactions'];
+const properties = ['name', 'meta', 'page', 'speed', 'skills', 'senses', 'languages', 'challenge', 'traits', 'actions', 'imgurl', 'id', 'armorClass', 'armorType', 'hitPoints', 'abilities', 'savingThrows', 'passivePerception', 'legendaryActions', 'damageImmunities', 'conditionImmunities', 'damageResistances', 'damageVulnerabilities', 'reactions', 'flavorText'];
 // tslint:enable:max-line-length
 export class MonsterCreature implements Monster {
     name: string;
@@ -42,6 +43,7 @@ export class MonsterCreature implements Monster {
     damageVulnerabilities?: string[];
     reactions?: Reaction[];
     page?: Page;
+    flavorText?: string;
 
     constructor(obj?: Monster) {
         if (obj) {
@@ -75,7 +77,9 @@ export class MonsterCreature implements Monster {
 
     public static fromPageDesc(m: MonsterMonMan): MonsterCreature {
         const sourcePage: Page = { page: m.page, book: Book.MM };
-        const value: any = { name: m.name, actions: [], traits: [], page: sourcePage, abilities: {} };
+        const value: any = {
+            name: m.name, actions: [], traits: [], page: sourcePage, abilities: {}, flavorText: m.see ? m.see : m.flavor_text
+        };
         const pageDesc = m.page_desc ? m.page_desc : '';
         const pageArray = pageDesc.split('\n');
         value.pageArray = pageArray;
@@ -114,7 +118,7 @@ export class MonsterCreature implements Monster {
         });
 
         this.setTraits(value);
-
+        // console.log(value.traits);
         this.setActions(value);
 
         this.setLegendaryActions(value);
@@ -135,8 +139,8 @@ export class MonsterCreature implements Monster {
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    actionObj.actionsName = element.trim().substring(0, nameIndex);
-                    actionObj.actionDesc = element.trim().substring(nameIndex + indStr.length).replace('ft.', 'ft').split('. ');
+                    actionObj.actionName = element.trim().substring(0, nameIndex);
+                    actionObj.actionText = element.trim().substring(nameIndex + indStr.length).replace(/ft./g, 'ft').split('. ');
                 } else if (actionObj.otherTraits) {
                     actionObj.otherTraits.push(element.trim());
                 } else {
@@ -147,7 +151,6 @@ export class MonsterCreature implements Monster {
                 return actionObj;
             });
         }
-        delete value.pageArray;
         return value;
     }
 
@@ -159,12 +162,12 @@ export class MonsterCreature implements Monster {
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    actionObj.actionsName = element.trim().substring(0, nameIndex);
-                    actionObj.actionDesc = element.trim().substring(nameIndex + indStr.length).replace('ft.', 'ft').split('. ');
+                    actionObj.actionName = element.trim().substring(0, nameIndex);
+                    actionObj.actionDesc = element.trim().substring(nameIndex + indStr.length).replace(/ft./g, 'ft').split('. ');
                     const costString = '(Costs ';
-                    const actionsPoints: number[] = [costString, ' Actions)'].map(seg => actionObj.actionsName.indexOf(seg));
+                    const actionsPoints: number[] = [costString, ' Actions)'].map(seg => actionObj.actionName.indexOf(seg));
                     if (Math.min(...actionsPoints) >= 0) {
-                        actionObj.actionsPoints = Number(actionObj.actionsName
+                        actionObj.actionsPoints = Number(actionObj.actionName
                             .substring(actionsPoints[0] + costString.length, actionsPoints[1]));
                     }
                 } else if (actionObj.otherTraits) {
@@ -186,11 +189,11 @@ export class MonsterCreature implements Monster {
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    actionObj.actionsName = element.trim().substring(0, nameIndex);
-                    const actionDesc = element.trim().substring(nameIndex + indStr.length).replace('ft.', 'ft').split('. ');
+                    actionObj.actionName = element.trim().substring(0, nameIndex);
+                    const actionDesc = element.trim().substring(nameIndex + indStr.length).replace(/ft./g, 'ft').split('. ');
                     /* Melee Weapon Attack: +5 to hit, reach 5 ft, one target.
                     Hit: 6 (1d6 + 3) slashing damage. */
-                    const actionDescObj: any = {};
+                    const actionDescObj: any = { actionText: actionDesc };
                     const attackIndicators = ['Attack:', 'Hit:'];
                     if (actionDesc.length === 2) {
                         if (attackIndicators.every((s, index) => actionDesc[index].indexOf(s) >= 0)) {
@@ -206,12 +209,12 @@ export class MonsterCreature implements Monster {
                             actionDescObj.damage = actionDesc[1]
                                 .substring(actionDesc[1].indexOf(attackIndicators[1] + attackIndicators[1].length));
                         } else {
-                            actionObj.hitOrDC = true;
-                            actionDescObj.desc = actionDesc;
+                            actionObj.hitOrDC = false;
+                            actionDescObj.text = actionDesc;
                         }
                     } else {
-                        actionObj.hitOrDC = true;
-                        actionDescObj.desc = actionDesc;
+                        actionObj.hitOrDC = false;
+                        actionDescObj.text = actionDesc;
                     }
                     actionObj.actionDesc = actionDescObj;
                 } else if (actionObj.otherTraits) {
@@ -227,20 +230,21 @@ export class MonsterCreature implements Monster {
 
     private static setTraits(value: any) {
         if (value.traits) {
-            value.traits = value.traits.map((element: string) => {
-                const traitObj: any = {};
+            const traitObj: { [key: string]: string[] } = {};
+            value.traits.forEach((element: string) => {
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    traitObj[element.substring(0, nameIndex)] = element.substring(nameIndex + indStr.length);
+                    traitObj[element.substring(0, nameIndex)] = [element.substring(nameIndex + indStr.length)];
                 } else if (traitObj.otherTraits) {
                     traitObj.otherTraits.push(element);
                 } else {
                     traitObj.otherTraits = [];
                     traitObj.otherTraits.push(element);
+                    console.log(value.name, 'AAA');
                 }
-                return traitObj;
             });
+            value.traits = traitObj;
         }
     }
 
@@ -384,6 +388,7 @@ export class MonsterCreature implements Monster {
     public get armorString() {
         return `${this.armorClass} ${this.armorType ? '(' + this.armorType + ')' : ''}`;
     }
+
     public get speedString() {
         let walk = `${this.speed.walking} ft.${this.speed.hover ? ' (Hover)' : ''}`;
         Object.keys(this.speed).forEach(s => {
@@ -399,6 +404,10 @@ export class MonsterCreature implements Monster {
         Object.keys(this.abilitiesModifiers)
             .forEach(a => obj[a] = this.abilitiesModifiers[a] < 0 ? `${this.abilitiesModifiers[a]}` : `+${this.abilitiesModifiers[a]}`);
         return obj;
+    }
+
+    public get traitNames(): string[] {
+        return this.traits ? Object.keys(this.traits) : [];
     }
 }
 

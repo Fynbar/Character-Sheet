@@ -21,6 +21,7 @@ export class MonsterPageComponent implements OnInit {
     private jsonService: JSONService
   ) { }
   public monsters: MonsterCreature[];
+  public expandedRows = {};
   // private temp: MonsterMonMan[] = [];
 
 
@@ -32,31 +33,7 @@ export class MonsterPageComponent implements OnInit {
     // console.log(data);
     this.jsonService.getJSON('mon_man_addition').pipe(map(mon => mon.map(m => MonsterCreature.fromPageDesc(m)))).subscribe(data => {
       this.monsters = data;
+      this.expandedRows[this.monsters[0].name] = true;
     });
-  }
-
-  public readPageDesc(str: MonsterMonMan): MonsterMonMan {
-    let s = str.page_desc ? str.page_desc : '';
-    // tslint:disable-next-line:max-line-length
-    let findIndecies = ['Speed', 'Languages', 'Damage Immunities', 'Condition Immunities', 'Damage Resistances', 'Senses', 'Skills', 'Challenge', 'Hit Points', 'Armor Class', 'Damage Vulnerabilities', 'Saving Throws', 'Damage Resistance'].concat(abilityAbbrev);
-    let indecies = findIndecies.map(find =>
-      s.indexOf(find)
-    ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
-    let newLine = '\n';
-    indecies.forEach((found, index) => s = insertString(s, newLine, found + index));
-    str.page_desc = s;
-    // console.log(str);
-    findIndecies = ['ACTIONS', 'REACTIONS', 'LEGENDARY ACTIONS'];
-    indecies = findIndecies.map(find =>
-      s.indexOf(find)
-    ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
-
-    newLine = '\n';
-    indecies.forEach((found, index) => {
-      s = insertString(s, newLine, found + index);
-      s = insertString(s, newLine, found + findIndecies[index].length + 2 * (index + 1));
-    });
-    str.page_desc = s;
-    return str;
   }
 }

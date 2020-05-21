@@ -43,7 +43,7 @@
                     <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea>
 
                     <!-- <div>{{readPageDesc(rowData.page_desc)}}</div> -->
-                    <app-monster-viewer [Monster]="fromPageDesc(rowData)"></app-monster-viewer>
+                    <!-- <app-monster-viewer [Monster]="fromPageDesc(rowData)"></app-monster-viewer> -->
                     <p-accordion>
                         <p-accordionTab header="Description">
                             <div>{{fromPageDesc(rowData) | json}}</div>
