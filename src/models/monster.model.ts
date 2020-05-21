@@ -1,9 +1,14 @@
 import { ConditionImmunity } from './condition.enum';
 import { Page } from './spell.model';
+import { Dice } from 'src/app/components/dice/dice';
 
 export interface Monster {
     name: string;
-    meta: string;
+    meta: {
+        size: string;
+        monsterType: string;
+        alignment: string;
+    };
     speed: string | SpeedClass;
     skills?: {
         [key: string]: number;
@@ -19,7 +24,7 @@ export interface Monster {
     id?: number;
     armorClass: number;
     armorType: string;
-    hitPoints: string;
+    hitPoints: Dice;
     abilities: Abilities;
     savingThrows?: Abilities;
     passivePerception: number;

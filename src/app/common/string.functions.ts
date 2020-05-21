@@ -10,19 +10,7 @@ export function stripArray(stringArray: string[]): string[] {
     }
     return stripArray(stringArray);
 }
-export function stripString(str: string): string {
-    if (str.length === 0) {
-        return str;
-    }
-    if (str.indexOf(' ') === 0) {
-        str = str.substring(1);
-    } else if (str.indexOf(' ', str.length - 2) === str.length - 1) {
-        str = str.substring(0, str.length - 1);
-    } else {
-        return str;
-    }
-    return stripString(str);
-}
+
 export function spaceJoin(strs: string[]): string {
     return strs.join(' ');
 }
@@ -32,4 +20,9 @@ export function spaceSplit(str: string): string[] {
 
 export function commaSplit(str: string): string[] {
     return str.split(', ');
-  }
+}
+
+
+export function insertString(mainStr: string, newStr: string, idx: number = 0): string {
+    return mainStr.slice(0, idx) + newStr + mainStr.slice(idx);
+}

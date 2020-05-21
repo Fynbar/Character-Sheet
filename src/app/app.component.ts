@@ -13,7 +13,9 @@ export class AppComponent {
     {
       routerLink: 'monster', label: 'Monster', items: [
         { routerLink: 'monster/view', label: 'Viewer' },
-        { routerLink: 'monster/build', label: 'Build' }]
+        { routerLink: 'monster/build', label: 'Build' },
+        { routerLink: 'monster/modify', label: 'Modify'}
+      ]
     },
     {
       routerLink: 'spells', label: 'Spells', items: [

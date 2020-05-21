@@ -24,11 +24,11 @@ export class Dice {
     public roll(): Roll {
         const Rolls = [];
         for (let i = 0; i < this.diceNum; i++) {
-            Rolls[i] = this.constant + Math.ceil(Math.random() * this.diceType);
+            Rolls[i] = Math.ceil(Math.random() * this.diceType);
         }
         return {
             rolls: Rolls,
-            total: Rolls.reduce((sum, roll) => sum + roll, 0)
+            total: this.constant + Rolls.reduce((sum, roll) => sum + roll, 0)
         };
     }
 

@@ -5,6 +5,7 @@ import { MonsterPageComponent } from './components/monster/monster-page/monster-
 import { MonsterBuilderComponent } from './components/monster/monster-builder/monster-builder.component';
 import { MonsterComponent } from './components/monster/monster.component';
 import { HomeComponent } from './components/home/home.component';
+import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
 
 
 
@@ -13,7 +14,9 @@ export const routes: Routes = [
   {
     path: 'monster', component: MonsterComponent, children: [
       { path: 'view', component: MonsterPageComponent },
-      { path: 'build', component: MonsterBuilderComponent }]
+      { path: 'build', component: MonsterBuilderComponent },
+      { path: 'modify', component: ModifierBuilderComponent },
+    ]
   },
   {
     path: 'spells', children: [

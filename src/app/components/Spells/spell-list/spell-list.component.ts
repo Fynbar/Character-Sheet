@@ -23,6 +23,6 @@ export class SpellListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.spells = this.spellList.filter(s => s.level === this.spellLevel || (s.level <= this.spellLevel && s.higher_level));
+    // this.spells = this.spellList.filter(s => s.level === this.spellLevel || (s.level <= this.spellLevel && s.higher_level));
   }
 }

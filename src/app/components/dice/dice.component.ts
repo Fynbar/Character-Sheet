@@ -26,7 +26,7 @@ export class DiceComponent extends Dice implements OnInit {
     } else {
       this.dice = new Dice(...comps.map(c => this[c]));
     }
-    console.log(this.dice);
+    // console.log(this.dice);
   }
 
   public get diceString(): string {

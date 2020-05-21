@@ -1,0 +1,26 @@
+<div *ngIf="Monster">
+    <div>{{ Monster.name}}</div>
+    <div>{{ Monster.metaString}}</div>
+    <div>Armor Class {{Monster.armorString}}</div>
+    <div>Hit Points
+        <app-dice [dice]="Monster.hitPoints"></app-dice>
+    </div>
+    <div>Speed {{Monster.speedString}}</div>
+
+
+    <div class="p-grid">
+        <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
+            {{abbrev}}
+        </div>
+    </div>
+    <div class="p-grid">
+        <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
+            {{Monster.abilities[abbrev]}}
+        </div>
+    </div>
+    <div class="p-grid">
+        <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
+            {{Monster.modifierStrings[abbrev]}}
+        </div>
+    </div>
+</div>

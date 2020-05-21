@@ -15,7 +15,7 @@ export class JSONService {
   dataFolderPath = 'assets/data/';
   jsonFileType = '.json';
   private jsonify(filename: string): string {
-    console.log(this.dataFolderPath + filename + this.jsonFileType);
+    // console.log(this.dataFolderPath + filename + this.jsonFileType);
     return this.dataFolderPath + filename + this.jsonFileType;
   }
 
