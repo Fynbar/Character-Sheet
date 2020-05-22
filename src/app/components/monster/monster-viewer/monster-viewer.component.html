@@ -15,12 +15,7 @@
     </div>
     <div class="p-grid">
         <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{Monster.abilities[abbrev]}}
-        </div>
-    </div>
-    <div class="p-grid">
-        <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{Monster.modifierStrings[abbrev]}}
+            {{Monster.abilities[abbrev]}} ({{Monster.modifierStrings[abbrev]}})
         </div>
     </div>
 

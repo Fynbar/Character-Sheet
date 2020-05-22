@@ -1,5 +1,5 @@
 export type ConditionImmunity = Condition ;
-
+// https://stackoverflow.com/questions/41179474/use-object-in-typescript-enum
 export enum Condition {
     Blinded = 'Blinded',
     Charmed = 'Charmed',

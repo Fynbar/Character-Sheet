@@ -40,19 +40,21 @@
             <td [attr.colspan]="columns.length + 1">
                 <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
                     <!-- {{i}} -->
-                    <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea>
+                    <!-- <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea> -->
 
                     <!-- <div>{{readPageDesc(rowData.page_desc)}}</div> -->
                     <!-- <app-monster-viewer [Monster]="fromPageDesc(rowData)"></app-monster-viewer> -->
-                    <p-accordion>
+                    {{rowData| json}}
+                    <!-- <p-accordion>
+                        
                         <p-accordionTab header="Description">
                             <div>{{fromPageDesc(rowData) | json}}</div>
                         </p-accordionTab>
 
-                        <!-- <p-accordionTab header="Flavor Text">
+                     <p-accordionTab header="Flavor Text">
                             <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea>
-                        </p-accordionTab> -->
-                    </p-accordion>
+                        </p-accordionTab>
+                    </p-accordion> -->
 
                 </div>
             </td>
