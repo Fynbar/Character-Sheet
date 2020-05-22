@@ -94,8 +94,8 @@ import { MonsterPageComponent } from './components/monster/monster-page/monster-
 // #endregion
 
 // #region Service Imports
-import { PythonService } from './components/python.service';
-import { JSONService } from './components/json.service';
+import { PythonService } from './services/python.service';
+import { JSONService } from './services/json.service';
 import { DiceComponent } from './components/dice/dice.component';
 import { DicePipe } from './common/dice.pipe';
 import { ModifierComponent } from './components/modifiers/modifier/modifier.component';

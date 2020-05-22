@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JSONService } from '../../json.service';
+import { JSONService } from '../../../services/json.service';
 import { MonsterMonMan } from '../monster-builder/monster-builder.component';
 import { insertString } from '../../../common/string.functions';
 import { abilityAbbrev } from 'src/models/ability.enum';

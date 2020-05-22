@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { abbrevToAbility, abilityAbbrev } from '../../../../models/ability.enum';
-import { JSONService } from '../../json.service';
+import { JSONService } from '../../../services/json.service';
 import { insertString } from '../../../common/string.functions';
 import { MonsterCreature } from './monsterCreature';
 import { map } from 'rxjs/operators';
+import { DndApiService } from 'src/app/services/dnd-api.service';
 // import { ConsoleReporter } from 'jasmine';
 // import * as data from '../../../../assets/data/mon_man_addition.json';
 
@@ -32,7 +33,8 @@ export class MonsterBuilderComponent implements OnInit {
     { field: 'see', header: 'See' },
   ];
   constructor(
-    private jsonService: JSONService
+    private jsonService: JSONService,
+    private dndService: DndApiService
   ) { }
   private monsters: MonsterMonMan[] = [];
   private temp: MonsterMonMan[] = [];
@@ -43,10 +45,12 @@ export class MonsterBuilderComponent implements OnInit {
   // }
 
   ngOnInit() {
+    this.dndService.getAllMonstersFromAPI().subscribe(data => this.monsters = data);
     // console.log(data);
-    this.jsonService.getJSON('mon_man_addition').subscribe(data => {
-        this.monsters = data;
-      });
+    // this.jsonService.getJSON('mon_man_addition').subscribe(data => {
+    //     this.monsters = data;
+    //   });
+
   }
 
   public handleClick(event) {
