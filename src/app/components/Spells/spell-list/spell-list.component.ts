@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Spells, Spell } from 'src/models/spell.model';
+import { Spells, Spell } from '../../../../models/spells/spell.model';
 
 
 @Component({

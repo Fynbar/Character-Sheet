@@ -1,6 +1,6 @@
 import { Rarity } from './itemRarity.enum';
 import { ItemFilterType } from './itemFilterType.enum';
-import { WeightSpeeds } from './weightSpeeds.model';
+import { WeightSpeeds } from './rules/weightSpeeds.model';
 
 export interface Character {
     character: CharacterClass;

@@ -1,51 +1,68 @@
-import { ConditionImmunity } from 'src/models/condition.enum';
-import { Abilities, LegendaryActions, Monster, MonsterAction, Reaction, Senses, SpeedClass } from 'src/models/monster.model';
-import { Book } from 'src/models/sourceBook.enum';
-import { abilityAbbrev } from '../../../../models/ability.enum';
-import { Page } from '../../../../models/spell.model';
-import { spaceJoin, spaceSplit, stripArray, commaSplit } from '../../../common/string.functions';
-import { Dice } from '../../dice/dice';
-import { MonsterMonMan } from './monster-builder.component';
+import { ConditionImmunity, Condition } from 'src/models/rules/condition.enum';
+import { Abilities, LegendaryActionElement, Monster, ActionElement, ReactionElement, Senses, Meta, Speed, Skills } from './monster.model';
+import { Book } from 'src/models/rules/sourceBook.enum';
+import { abilityAbbrev, ability } from '../../rules/ability.enum';
+import { Page } from '../../spells/spell.model';
+import { spaceJoin, spaceSplit, stripArray, commaSplit } from '../../../app/common/string.functions';
+import { Dice } from '../../../app/components/dice/dice';
+import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
 import { forEach } from '@angular/router/src/utils/collection';
+import { APIMonster, ProficiencyName, Proficiency } from '../api-monster/apiMonster.model';
+// import { ReactionElement, LegendaryActionElement, ActionElement } from '../api-monster/SpecialAbility';
+
 // tslint:disable:max-line-length
-const properties = ['name', 'meta', 'page', 'speed', 'skills', 'senses', 'languages', 'challenge', 'traits', 'actions', 'imgurl', 'id', 'armorClass', 'armorType', 'hitPoints', 'abilities', 'savingThrows', 'passivePerception', 'legendaryActions', 'damageImmunities', 'conditionImmunities', 'damageResistances', 'damageVulnerabilities', 'reactions', 'flavorText'];
+const properties = [
+    'name', // string;
+    'meta', //  Meta;
+    'page', // Page;
+    'speed', //  Speed;
+    'skills', //  Skills;
+    'senses', //  Senses;
+    'languages', //  string[];
+    'challenge', // string;
+    'traits', // { [key', // string]', // string[] };
+    'actions', // ActionElement[];
+    'armorClass', //  number;
+    'hitPoints', //  Dice;
+    'abilities', // Abilities;
+    'passivePerception', //  number;
+    'flavorText', // string;
+    'armorType', //  string;
+    'damageImmunities', //  string[];
+    'savingThrows', //  Abilities;
+    'Legendary', //  LegendaryActionElement[];
+    'conditionImmunities', //  ConditionImmunity[];
+    'damageResistances', //  string[];
+    'reactions', //  ReactionElement[];
+    'damageVulnerabilities', //  string[];
+];
 // tslint:enable:max-line-length
 export class MonsterCreature implements Monster {
     name: string;
-    meta: {
-        size: string;
-        monsterType: string;
-        alignment: string;
-    };
-    speed: SpeedClass;
-    skills?: {
-        [key: string]: number;
-    };
-    senses: Senses;
-    languages: string[];
+    meta?: Meta;
+    page: Page;
+    speed?: Speed;
+    skills?: Skills;
+    senses?: Senses;
+    languages?: string[];
     challenge: string;
-    traits?: {
-        [key: string]: string;
-    }[];
-    actions?: MonsterAction[];
-    imgurl?: string;
-    id?: number;
-    armorClass: number;
-    armorType: string;
-    hitPoints: Dice;
+    traits: { [key: string]: string[] };
+    actions: ActionElement[];
+    armorClass?: number;
+    hitPoints?: Dice;
     abilities: Abilities;
-    savingThrows?: Abilities;
-    passivePerception: number;
-    legendaryActions?: LegendaryActions;
+    passivePerception?: number;
+    flavorText: string;
+    armorType?: string;
     damageImmunities?: string[];
+    savingThrows?: Abilities;
+    Legendary?: LegendaryActionElement[];
     conditionImmunities?: ConditionImmunity[];
     damageResistances?: string[];
+    reactions?: ReactionElement[];
     damageVulnerabilities?: string[];
-    reactions?: Reaction[];
-    page?: Page;
-    flavorText?: string;
 
-    constructor(obj?: Monster) {
+    constructor(obj?: Monster | APIMonster) {
         if (obj) {
             const missingProp = [];
             properties.forEach(element => {
@@ -63,7 +80,7 @@ export class MonsterCreature implements Monster {
                 monsterType: 's',
                 alignment: 's'
             };
-            this.speed = { walking: 30, hover: false };
+            this.speed = { walk: 30, hover: false };
             this.armorClass = 2;
             this.armorType = 's';
             this.hitPoints = new Dice();
@@ -74,6 +91,82 @@ export class MonsterCreature implements Monster {
         }
     }
 
+    public static fromAPIMonster(m: APIMonster): MonsterCreature {
+
+        const monster = new MonsterCreature(m);
+        monster.armorClass = m.armor_class;
+        monster.challenge = String(m.challenge_rating);
+        monster.meta = {
+            size: m.size,
+            alignment: m.alignment,
+            monsterType: m.type
+        };
+        // if (m.other_speeds) {
+        //     console.log(`${m.name}: ${JSON.stringify(m.other_speeds)}`);
+        // }
+
+        if (m.subtype) {
+            monster.meta.monsterSubType = m.subtype;
+        }
+        const abilities = {};
+        ability.forEach(a => abilities[a.substring(0, 3).toUpperCase()] = m[a.toLowerCase()]);
+        monster.abilities = abilities;
+        const hitDice: number[] = m.hit_dice.split('d').map(d => Number(d));
+        monster.hitPoints = new Dice(hitDice[1], hitDice[0], hitDice[0] * monster.abilitiesModifiers.CON);
+        if (m.damage_vulnerabilities) {
+            monster.damageVulnerabilities = m.damage_vulnerabilities;
+        }
+        if (m.damage_resistances) {
+            monster.damageResistances = m.damage_resistances;
+        }
+        if (m.damage_immunities) {
+            monster.damageImmunities = m.damage_immunities;
+        }
+        if (m.condition_immunities) {
+            monster.conditionImmunities = m.condition_immunities.map(c => c.name).filter(c => Condition[c]);
+        }
+        let speedObj: Speed = { walk: 30, hover: false }; // APIMonsterSpeed;
+        // speedObj.
+        Object.keys(m.speed).forEach(s => {
+            if (s !== 'hover') {
+                speedObj[s] = Number(m.speed[s].split(' ')[0]);
+            } else {
+                speedObj[s] = m.speed[s];
+            }
+        });
+        speedObj = speedObj;
+        monster.speed = speedObj;
+
+        monster.languages = commaSplit(m.languages);
+        let proficiencyObj = { savingThrows: {}, skills: {} };
+        m.proficiencies.forEach((prof: Proficiency) => {
+            const profName: string[] = prof.name.split(': ');
+            if (profName[0] === 'Saving Throw') {
+                proficiencyObj.savingThrows[profName[1]] = prof.value;
+            } else if (profName[0] === 'Skill') {
+                proficiencyObj.skills[profName[1]] = prof.value;
+            }
+        });
+        proficiencyObj = proficiencyObj;
+        monster.savingThrows = proficiencyObj.savingThrows;
+        monster.skills = proficiencyObj.skills;
+
+        const senseObj: Senses = {};
+        Object.keys(m.senses).forEach(s => {
+            if (s !== 'passive_perception') {
+                senseObj[s] = Number(m.senses[s].split(' ')[0]);
+            } else {
+                monster.passivePerception = m.speed[s];
+            }
+        });
+        /*
+        specialAbilities?: SpecialAbility[];
+        actions?: ActionElement[];
+        legendaryActions?: LegendaryActionElement[];
+        reactions?: LegendaryActionElement[];
+        otherSpeeds?: OtherSpeed[];*/
+        return monster;
+    }
 
     public static fromPageDesc(m: MonsterMonMan): MonsterCreature {
         const sourcePage: Page = { page: m.page, book: Book.MM };
@@ -121,7 +214,7 @@ export class MonsterCreature implements Monster {
         // console.log(value.traits);
         this.setActions(value);
 
-        this.setLegendaryActions(value);
+        this.setLegendary(value);
 
         this.setReactions(value);
         const unecessaryProps = [''];
@@ -131,21 +224,21 @@ export class MonsterCreature implements Monster {
         return monster;
     }
 
-
     private static setReactions(value: any) {
         if (value.reaction) {
             value.reactions = value.reaction.map((element: string) => {
-                const actionObj: any = {};
+                const actionObj: ReactionElement = { name: '', desc: '' };
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    actionObj.actionName = element.trim().substring(0, nameIndex);
-                    actionObj.actionText = element.trim().substring(nameIndex + indStr.length).replace(/ft./g, 'ft').split('. ');
-                } else if (actionObj.otherTraits) {
-                    actionObj.otherTraits.push(element.trim());
+                    actionObj.name = element.trim().substring(0, nameIndex);
+                    actionObj.desc = element.trim().substring(nameIndex + indStr.length);
+                    const actionDesc = actionObj.desc.replace(/ft./g, 'ft').split('. ');
+                } else if (actionObj.otherActions) {
+                    actionObj.otherActions.push(element.trim());
                 } else {
-                    actionObj.otherTraits = [];
-                    actionObj.otherTraits.push(element.trim());
+                    actionObj.otherActions = [];
+                    actionObj.otherActions.push(element.trim());
                 }
                 // console.log(actionObj);
                 return actionObj;
@@ -154,50 +247,52 @@ export class MonsterCreature implements Monster {
         return value;
     }
 
-    private static setLegendaryActions(value: any) {
+    private static setLegendary(value: any) {
         if (value.legendary) {
-            const legendaryObj: any = { rules: value.legendary[0] };
-            legendaryObj.legendaryActions = value.legendary.slice(1).map((element: string) => {
-                const actionObj: any = { actionsPoints: 1 };
+            value.LegendaryRules = value.legendary[0];
+            value.legendaryActions = value.legendary.slice(1).map((element: string) => {
+                const actionObj: LegendaryActionElement = { points: 1, name: '', desc: '' };
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    actionObj.actionName = element.trim().substring(0, nameIndex);
-                    actionObj.actionDesc = element.trim().substring(nameIndex + indStr.length).replace(/ft./g, 'ft').split('. ');
+                    actionObj.name = element.trim().substring(0, nameIndex);
+                    actionObj.desc = element.trim().substring(nameIndex + indStr.length);
+                    const actionDesc = actionObj.desc.replace(/ft./g, 'ft').split('. ');
                     const costString = '(Costs ';
-                    const actionsPoints: number[] = [costString, ' Actions)'].map(seg => actionObj.actionName.indexOf(seg));
-                    if (Math.min(...actionsPoints) >= 0) {
-                        actionObj.actionsPoints = Number(actionObj.actionName
-                            .substring(actionsPoints[0] + costString.length, actionsPoints[1]));
+                    const actionPoints: number[] = [costString, ' Actions)'].map(seg => actionObj.name.indexOf(seg));
+                    if (Math.min(...actionPoints) >= 0) {
+                        actionObj.points = Number(actionObj.name
+                            .substring(actionPoints[0] + costString.length, actionPoints[1]));
                     }
-                } else if (actionObj.otherTraits) {
-                    actionObj.otherTraits.push(element.trim());
+                } else if (actionObj.otherActions) {
+                    actionObj.otherActions.push(element.trim());
                 } else {
-                    actionObj.otherTraits = [];
-                    actionObj.otherTraits.push(element.trim());
+                    actionObj.otherActions = [];
+                    actionObj.otherActions.push(element.trim());
                 }
                 return actionObj;
             });
-            value.legendaryActions = legendaryObj;
         }
     }
 
     private static setActions(value: any) {
         if (value.actions) {
             value.actions = value.actions.map((element: string) => {
-                const actionObj: any = {};
+                const actionObj: ActionElement = { name: '', desc: '' };
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
-                    actionObj.actionName = element.trim().substring(0, nameIndex);
-                    const actionDesc = element.trim().substring(nameIndex + indStr.length).replace(/ft./g, 'ft').split('. ');
+                    actionObj.name = element.trim().substring(0, nameIndex);
+                    actionObj.desc = element.trim().substring(nameIndex + indStr.length);
+                    const actionDesc = actionObj.desc.replace(/ft./g, 'ft').split('. ');
                     /* Melee Weapon Attack: +5 to hit, reach 5 ft, one target.
                     Hit: 6 (1d6 + 3) slashing damage. */
-                    const actionDescObj: any = { actionText: actionDesc };
+                    const actionDescObj: any = {  };
                     const attackIndicators = ['Attack:', 'Hit:'];
                     if (actionDesc.length === 2) {
                         if (attackIndicators.every((s, index) => actionDesc[index].indexOf(s) >= 0)) {
-                            actionObj.hitOrDC = true;
+                            console.log(`${value.name}: ${actionObj.desc}. ${actionObj.desc}`);
+                            // actionObj.hitOrDC = true;
                             const descArray = commaSplit(actionDesc[0]
                                 .substring(actionDesc[0].indexOf(attackIndicators[0]) + attackIndicators[0].length));
                             // Melee Weapon Attack: +5 to hit, reach 5 ft, one target.
@@ -209,19 +304,19 @@ export class MonsterCreature implements Monster {
                             actionDescObj.damage = actionDesc[1]
                                 .substring(actionDesc[1].indexOf(attackIndicators[1] + attackIndicators[1].length));
                         } else {
-                            actionObj.hitOrDC = false;
-                            actionDescObj.text = actionDesc;
+                            // actionObj.hitOrDC = false;
+                            // actionDescObj.text = actionDesc;
                         }
                     } else {
-                        actionObj.hitOrDC = false;
-                        actionDescObj.text = actionDesc;
+                        // actionObj.hitOrDC = false;
+                        // actionDescObj.text = actionDesc;
                     }
-                    actionObj.actionDesc = actionDescObj;
-                } else if (actionObj.otherTraits) {
-                    actionObj.otherTraits.push(element.trim());
+                    // actionObj.actionDesc = actionDescObj;
+                } else if (actionObj.otherActions) {
+                    actionObj.otherActions.push(element.trim());
                 } else {
-                    actionObj.otherTraits = [];
-                    actionObj.otherTraits.push(element.trim());
+                    actionObj.otherActions = [];
+                    actionObj.otherActions.push(element.trim());
                 }
                 return actionObj;
             });
@@ -305,7 +400,7 @@ export class MonsterCreature implements Monster {
                 }
             } else if (this.propChecker('Speed', lineSS)) {
                 const speeds = spaceJoin(lineSS.splice(1)).split(', ').map(s => spaceSplit(s.replace('ft.', '')));
-                const speedObj: any = { walking: Number(speeds[0][0]) };
+                const speedObj: any = { walk: Number(speeds[0][0]) };
                 speeds.splice(1).forEach(s => speedObj[s[0]] = Number(s[1]));
                 speedObj.hover = line.indexOf('hover') >= 0;
                 value.speed = speedObj;
@@ -381,6 +476,7 @@ export class MonsterCreature implements Monster {
         abilityAbbrev.forEach(aa => modObj[aa] = Math.floor((this.abilities[aa] - 10) / 2));
         return modObj;
     }
+
     public get metaString() {
         return `${this.meta.size} ${this.meta.monsterType}, ${this.meta.alignment}`;
     }
@@ -390,7 +486,7 @@ export class MonsterCreature implements Monster {
     }
 
     public get speedString() {
-        let walk = `${this.speed.walking} ft.${this.speed.hover ? ' (Hover)' : ''}`;
+        let walk = `${this.speed.walk} ft.${this.speed.hover ? ' (Hover)' : ''}`;
         Object.keys(this.speed).forEach(s => {
             if (s !== 'walking' && s !== 'hover') {
                 walk = walk + `, ${s} ${this.speed[s]} ft.`;
@@ -408,6 +504,12 @@ export class MonsterCreature implements Monster {
 
     public get traitNames(): string[] {
         return this.traits ? Object.keys(this.traits) : [];
+    }
+
+    public get proficiency(): number {
+        if (this.savingThrows) {
+            return Math.min(...Object.keys(this.savingThrows).map(ab => this.savingThrows[ab] - this.abilitiesModifiers[ab]));
+        }
     }
 }
 

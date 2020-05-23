@@ -1,0 +1,191 @@
+import { ConditionImmunity } from '../../rules/condition.enum';
+import { Page } from '../../spells/spell.model';
+import { Dice } from 'src/app/components/dice/dice';
+import { Dc, Spellcasting, SpecialAbilityUsage, Options, ActionDamage, ActionUsage, Attack } from '../api-monster/apiMonster.model';
+
+export interface Monster {
+    name: string;
+    meta?: Meta;
+    page: Page;
+    speed?: Speed;
+    skills?: Skills;
+    senses?: Senses;
+    languages?: string[];
+    challenge: string;
+    traits: { [key: string]: string[] };
+    actions: ActionElement[];
+    armorClass?: number;
+    hitPoints?: Dice;
+    abilities: Abilities;
+    passivePerception?: number;
+    flavorText: string;
+    armorType?: string;
+    damageImmunities?: string[];
+    savingThrows?: Abilities;
+    Legendary?: LegendaryActionElement[];
+    LegendaryRules?: string;
+    conditionImmunities?: ConditionImmunity[];
+    damageResistances?: string[];
+    reactions?: ReactionElement[];
+    damageVulnerabilities?: string[];
+}
+
+export interface Abilities {
+    STR?: number;
+    DEX?: number;
+    CON?: number;
+    INT?: number;
+    WIS?: number;
+    CHA?: number;
+}
+
+export interface MonsterAction {
+    actionsName?: string;
+    actionsDescriptions?: string;
+    otherActions?: string[];
+}
+
+export interface Legendary {
+    rules: string;
+    actions: LegendaryAction[];
+}
+
+export interface LegendaryAction {
+    legActionsName: string;
+    legActionsDescriptions: string;
+    legActionsPoints: number;
+}
+
+
+export interface Senses {
+    darkvision?: number;
+    blindsight?: number;
+    truesight?: number;
+    tremorsense?: number;
+}
+
+
+export interface SpeedClass {
+    walking: number;
+    hover: boolean;
+    swim?: number;
+    fly?: number;
+    burrow?: number;
+    climb?: number;
+}
+
+
+export interface Abilities {
+    STR?: number | null;
+    DEX?: number;
+    CON?: number;
+    INT?: number;
+    WIS?: number;
+    CHA?: number;
+}
+
+export interface ActionDesc {
+    actionText: string[];
+    hit?: number | null;
+    range?: number | null;
+    desc?: Desc | null;
+    damage?: string;
+    text?: string[];
+}
+
+export enum Desc {
+    OneCreature = 'one creature',
+    OneTarget = 'one target',
+    OneTargetInTheSwarmSSpace = 'one target in the swarm\'s space',
+}
+
+
+export interface Legendary {
+    rules: string;
+    Legendary: LegendaryAction[];
+}
+
+export interface LegendaryAction {
+    actionsPoints: number;
+    actionName: string;
+    actionDesc: string[];
+}
+
+export interface Meta {
+    size: string;
+    alignment?: string;
+    monsterType: string;
+    monsterSubType?: string;
+}
+
+export enum Book {
+    MonMan = 'mon man',
+}
+
+export interface Reaction {
+    actionName: string;
+    actionText: string[];
+}
+
+export interface SavingThrows {
+    Dex?: number;
+    Con?: number;
+    Wis?: number | null;
+    Cha?: number | null;
+    lnt?: number;
+    History?: number;
+    Str?: number;
+    'Int '?: number;
+}
+
+export interface Skills {
+    Perception?: number;
+    Stealth?: number;
+    Arcana?: number;
+    Deception?: number;
+    Insight?: number;
+    Intimidation?: number;
+    Survival?: number;
+    Religion?: number;
+    Persuasion?: number;
+    History?: number;
+    Athletics?: number;
+}
+
+export interface Speed {
+    walk: number;
+    fly?: number;
+    hover: boolean;
+    climb?: number;
+    burrow?: number;
+    swim?: number;
+    '60'?: null;
+}
+
+export interface Trait extends Action {
+    spellcasting?: Spellcasting;
+    usage?: SpecialAbilityUsage;
+}
+
+export interface ActionElement extends Action {
+    options?: Options;
+    usage?: ActionUsage;
+    attacks?: Attack[];
+    damageDice?: Dice;
+}
+
+export interface LegendaryActionElement extends Action {
+    points: number;
+}
+
+
+interface Action {
+    name: string;
+    desc: string;
+    otherActions?: string[];
+    attackBonus?: number;
+    damage?: ActionDamage[];
+    dc?: Dc;
+}
+
+export type ReactionElement = Action;

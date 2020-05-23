@@ -1,4 +1,4 @@
-import { Normal } from './character.model';
+import { Normal } from '../character.model';
 export interface WeightSpeeds {
     normal: Normal;
     encumbered: null;

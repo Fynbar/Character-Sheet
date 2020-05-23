@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JSONService } from '../../../services/json.service';
-import { MonsterMonMan } from '../monster-builder/monster-builder.component';
+import { MonsterMonMan } from '../../../../models/monsters/mon-man-text-monster/monsterMonMan';
 import { insertString } from '../../../common/string.functions';
-import { abilityAbbrev } from 'src/models/ability.enum';
-import { MonsterCreature } from '../monster-builder/monsterCreature';
+import { abilityAbbrev } from 'src/models/rules/ability.enum';
+import { MonsterCreature } from '../../../../models/monsters/final-monster/monsterCreature';
 import { map } from 'rxjs/operators';
 
 @Component({

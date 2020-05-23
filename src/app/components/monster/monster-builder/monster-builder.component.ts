@@ -1,21 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { abbrevToAbility, abilityAbbrev } from '../../../../models/ability.enum';
+import { abbrevToAbility, abilityAbbrev } from '../../../../models/rules/ability.enum';
+import { APIMonster, Convert } from '../../../../models/monsters/api-monster/apiMonster.model';
 import { JSONService } from '../../../services/json.service';
 import { insertString } from '../../../common/string.functions';
-import { MonsterCreature } from './monsterCreature';
+import { MonsterCreature } from '../../../../models/monsters/final-monster/monsterCreature';
 import { map } from 'rxjs/operators';
 import { DndApiService } from 'src/app/services/dnd-api.service';
-// import { ConsoleReporter } from 'jasmine';
-// import * as data from '../../../../assets/data/mon_man_addition.json';
-
-
-export interface MonsterMonMan {
-  see: null | string;
-  page: number | null;
-  name: string;
-  page_desc?: string;
-  flavor_text?: string;
-}
+import { MonsterMonMan } from 'src/models/monsters/mon-man-text-monster/monsterMonMan';
 
 @Component({
   selector: 'app-monster-builder',
@@ -33,11 +24,12 @@ export class MonsterBuilderComponent implements OnInit {
     { field: 'see', header: 'See' },
   ];
   constructor(
-    private jsonService: JSONService,
-    private dndService: DndApiService
+    private jsonService: JSONService
   ) { }
-  private monsters: MonsterMonMan[] = [];
-  private temp: MonsterMonMan[] = [];
+  public monsters: APIMonster[] = [];
+  public txtmonsters: MonsterCreature[] = [];
+  public filMon: MonsterCreature[] = [];
+  private temp: APIMonster[] = [];
 
 
   // ngAfterViewInit() {
@@ -45,40 +37,42 @@ export class MonsterBuilderComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.dndService.getAllMonstersFromAPI().subscribe(data => this.monsters = data);
+    this.jsonService.getJSON('mon_man_addition').subscribe(data => this.txtmonsters = data.map(m => this.fromPageDesc(m)));
     // console.log(data);
-    // this.jsonService.getJSON('mon_man_addition').subscribe(data => {
-    //     this.monsters = data;
-    //   });
-
-  }
-
-  public handleClick(event) {
-    this.jsonService.saveJSON('mon_man_addition', this.monsters).subscribe(data => {
-      console.log(event);
-      console.log('Saved!');
+    this.jsonService.getJSON('apiMons').subscribe(data => {
+      this.monsters = data;
+      this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
     });
+
   }
+
+  // public handleClick(event) {
+  //   this.jsonService.saveJSON('mon_man_addition', this.monsters).subscribe(data => {
+  //     console.log(event);
+  //     console.log('Saved!');
+  //   });
+  // }
 
   public get copyVal(): string {
-    return JSON.stringify(this.monsters);
+    return JSON.stringify(this.txtmonsters);
+    // return JSON.stringify(this.monsters);
     // return JSON.stringify(this.filMon);
   }
 
   public copyInputMessage() {
     const val = this.copyVal;
     // console.log(val);
-    const selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
+    const s = document.createElement('textarea');
+    s.style.position = 'fixed';
+    s.style.left = '0';
+    s.style.top = '0';
+    s.style.opacity = '0';
+    s.value = val;
+    document.body.appendChild(s);
+    s.focus();
+    s.select();
     document.execCommand('copy');
-    document.body.removeChild(selBox);
+    document.body.removeChild(s);
     console.log('Copied');
   }
 
@@ -96,41 +90,41 @@ export class MonsterBuilderComponent implements OnInit {
     return this.monsters.map(m => m.name);
   }
 
-  public get filMon(): any[] {
-    return this.monsters;
-      // .filter((m, index) => index >= 99 && index <= 114);
-      // return this.monsters.map(m => this.readPageDesc(m))
-  }
+  // public get filMon(): any[] {
+  //   return this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
+  //     // .filter((m, index) => index >= 99 && index <= 114);
+  //     // return this.monsters.map(m => this.readPageDesc(m))
+  // }
 
   public fromPageDesc(m: MonsterMonMan): MonsterCreature {
     return MonsterCreature.fromPageDesc(m);
   }
 
-  public readPageDesc(str: MonsterMonMan): MonsterMonMan {
-    let s = str.page_desc ? str.page_desc : '';
-    // tslint:disable-next-line:max-line-length
-    let findIndecies = ['Speed', 'Languages', 'Damage Immunities', 'Condition Immunities', 'Damage Resistances', 'Senses', 'Skills', 'Challenge', 'Hit Points', 'Armor Class', 'Damage Vulnerabilities', 'Saving Throws', 'Damage Resistance'].concat(abilityAbbrev);
-    let indecies = findIndecies.map(find =>
-      s.indexOf(find)
-    ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
-    let newLine = '\n';
-    indecies.forEach((found, index) => s = insertString(s, newLine, found + index));
-    str.page_desc = s;
-    // console.log(str);
-    findIndecies = ['ACTIONS', 'REACTIONS', 'LEGENDARY ACTIONS'];
-    indecies = findIndecies.map(find =>
-      s.indexOf(find)
-    ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
+  // public readPageDesc(str: APIMonster): APIMonster {
+  //   let s = str.page_desc ? str.page_desc : '';
+  // tslint:disable-next-line:max-line-length
+  //   let findIndecies = ['Speed', 'Languages', 'Damage Immunities', 'Condition Immunities', 'Damage Resistances', 'Senses', 'Skills', 'Challenge', 'Hit Points', 'Armor Class', 'Damage Vulnerabilities', 'Saving Throws', 'Damage Resistance'].concat(abilityAbbrev);
+  //   let indecies = findIndecies.map(find =>
+  //     s.indexOf(find)
+  //   ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
+  //   let newLine = '\n';
+  //   indecies.forEach((found, index) => s = insertString(s, newLine, found + index));
+  //   str.page_desc = s;
+  //   // console.log(str);
+  //   findIndecies = ['ACTIONS', 'REACTIONS', 'LEGENDARY ACTIONS'];
+  //   indecies = findIndecies.map(find =>
+  //     s.indexOf(find)
+  //   ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
 
-    newLine = '\n';
-    indecies.forEach((found, index) => {
-      s = insertString(s, newLine, found + index);
-      s = insertString(s, newLine, found + findIndecies[index].length + 2 * (index + 1));
-    });
-    str.page_desc = s;
-    return str;
-  }
-  // public set filMon(monsters: MonsterMonMan[]) {
+  //   newLine = '\n';
+  //   indecies.forEach((found, index) => {
+  //     s = insertString(s, newLine, found + index);
+  //     s = insertString(s, newLine, found + findIndecies[index].length + 2 * (index + 1));
+  //   });
+  //   str.page_desc = s;
+  //   return str;
+  // }
+  // public set filMon(monsters: APIMonster[]) {
   //   monsters.forEach(m =>
   //     this.temp[this.monsterNames.indexOf(m.name)] = m
   //   );

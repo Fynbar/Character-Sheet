@@ -1,7 +1,6 @@
 // tslint:disable:no-shadowed-variable
 // tslint:disable:curly
 // tslint:disable:object-literal-key-quotes
-
 // To parse this data:
 //
 //   import { Convert } from './file';
@@ -11,17 +10,19 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
+import { DamageStatusType, abilityAbbreviations, Condition } from 'src/models/rules/condition.enum';
+
 export interface APIMonster {
-    id: string;
+    _id: string;
     index: string;
     name: string;
     size: Size;
     type: APIMonsterType;
     subtype: null | string;
     alignment: Alignment;
-    armorClass: number;
-    hitPoints: number;
-    hitDice: string;
+    armor_class: number;
+    hit_points: number;
+    hit_dice: string;
     speed: APIMonsterSpeed;
     strength: number;
     dexterity: number;
@@ -30,31 +31,19 @@ export interface APIMonster {
     wisdom: number;
     charisma: number;
     proficiencies: Proficiency[];
-    damageVulnerabilities: string[];
-    damageResistances: string[];
-    damageImmunities: string[];
-    conditionImmunities: ConditionImmunity[];
+    damage_vulnerabilities: string[];
+    damage_resistances: string[];
+    damage_immunities: string[];
+    condition_immunities: ConditionImmunity[];
     senses: Senses;
     languages: string;
-    challengeRating: number;
-    specialAbilities?: SpecialAbility[];
+    challenge_rating: number;
+    special_abilities?: Trait[];
     actions?: ActionElement[];
-    legendaryActions?: LegendaryActionElement[];
-
-    reactions?: LegendaryActionElement[];
-    otherSpeeds?: OtherSpeed[];
-}
-
-export interface ActionElement {
-    name: string;
-    desc: string;
-    options?: Options;
-    attackBonus?: number;
-    dc?: Dc;
-    damage?: ActionDamage[];
-    usage?: ActionUsage;
-    attacks?: Attack[];
-    damageDice?: string;
+    legendary_actions?: LegendaryActionElement[];
+    url: string;
+    reactions?: ReactionElement[];
+    other_speeds?: OtherSpeed[];
 }
 
 export interface Attack {
@@ -64,54 +53,21 @@ export interface Attack {
 }
 
 export interface FromElement {
-    damageType: ConditionImmunity;
-    damageDice: string;
-    damageBonus: number;
+    damage_type: DamageStatusType;
+    damage_dice: string;
+    damage_bonus: number;
 }
 
 export interface ConditionImmunity {
-    name: ConditionImmunityName;
-
+    name: Condition;
+    url: string;
 }
 
-export enum ConditionImmunityName {
-    Acid = 'Acid',
-    Blinded = 'Blinded',
-    Bludgeoning = 'Bludgeoning',
-    Cha = 'CHA',
-    Charmed = 'Charmed',
-    Cold = 'Cold',
-    Con = 'CON',
-    Deafened = 'Deafened',
-    Dex = 'DEX',
-    Exhaustion = 'Exhaustion',
-    Fire = 'Fire',
-    Frightened = 'Frightened',
-    Grappled = 'Grappled',
-    Int = 'INT',
-    Lightning = 'Lightning',
-    Necrotic = 'Necrotic',
-    Paralyzed = 'Paralyzed',
-    Petrified = 'Petrified',
-    Piercing = 'Piercing',
-    Poison = 'Poison',
-    Poisoned = 'Poisoned',
-    Prone = 'Prone',
-    Psychic = 'Psychic',
-    Radiant = 'Radiant',
-    Restrained = 'Restrained',
-    Slashing = 'Slashing',
-    Str = 'STR',
-    Stunned = 'Stunned',
-    Thunder = 'Thunder',
-    Unconscious = 'Unconscious',
-    Wis = 'WIS',
-}
 
 export interface Dc {
-    dcType: ConditionImmunity;
-    dcValue: number;
-    successType: SuccessType;
+    dc_type: abilityAbbreviations;
+    dc_value: number;
+    success_type: SuccessType;
 }
 
 export enum SuccessType {
@@ -122,9 +78,9 @@ export enum SuccessType {
 }
 
 export interface ActionDamage {
-    damageType?: ConditionImmunity;
-    damageDice?: string;
-    damageBonus?: number;
+    damage_type?: DamageStatusType;
+    damage_dice?: string;
+    damage_bonus?: number;
     dc?: Dc;
     choose?: number;
     type?: DamageType;
@@ -158,9 +114,36 @@ export interface ActionUsage {
     type: PurpleType;
     times?: number;
     dice?: Dice;
-    minValue?: number;
-    restTypes?: RESTType[];
+    min_value?: number;
+    rest_types?: RESTType[];
 }
+
+export interface Trait extends Action {
+    spellcasting?: Spellcasting;
+    usage?: SpecialAbilityUsage;
+}
+
+export interface ActionElement extends Action {
+    options?: Options;
+    usage?: ActionUsage;
+    attacks?: Attack[];
+    damage_dice?: string;
+}
+
+export interface LegendaryActionElement extends Action {
+    points: number;
+}
+
+
+interface Action {
+    name: string;
+    desc: string;
+    attack_bonus?: number;
+    damage?: ActionDamage[];
+    dc?: Dc;
+}
+
+export type ReactionElement = Action;
 
 export enum Dice {
     The1D6 = '1d6',
@@ -196,13 +179,7 @@ export enum Alignment {
     Unaligned = 'unaligned',
 }
 
-export interface LegendaryActionElement {
-    name: string;
-    desc: string;
-    attackBonus?: number;
-    damage?: FromElement[];
-    dc?: Dc;
-}
+
 
 export interface OtherSpeed {
     form: string;
@@ -238,7 +215,7 @@ export enum Darkvision {
 
 export interface Proficiency {
     name: ProficiencyName;
-
+    url: URL;
     value: number;
 }
 
@@ -267,34 +244,34 @@ export enum ProficiencyName {
     SkillSurvival = 'Skill: Survival',
 }
 
-// export enum URL {
-//     APIProficienciesSavingThrowCha = '/api/proficiencies/saving-throw-cha',
-//     APIProficienciesSavingThrowCon = '/api/proficiencies/saving-throw-con',
-//     APIProficienciesSavingThrowDex = '/api/proficiencies/saving-throw-dex',
-//     APIProficienciesSavingThrowInt = '/api/proficiencies/saving-throw-int',
-//     APIProficienciesSavingThrowStr = '/api/proficiencies/saving-throw-str',
-//     APIProficienciesSavingThrowWis = '/api/proficiencies/saving-throw-wis',
-//     APIProficienciesSkillAcrobatics = '/api/proficiencies/skill-acrobatics',
-//     APIProficienciesSkillArcana = '/api/proficiencies/skill-arcana',
-//     APIProficienciesSkillAthletics = '/api/proficiencies/skill-athletics',
-//     APIProficienciesSkillDeception = '/api/proficiencies/skill-deception',
-//     APIProficienciesSkillHistory = '/api/proficiencies/skill-history',
-//     APIProficienciesSkillInsight = '/api/proficiencies/skill-insight',
-//     APIProficienciesSkillIntimidation = '/api/proficiencies/skill-intimidation',
-//     APIProficienciesSkillInvestigation = '/api/proficiencies/skill-investigation',
-//     APIProficienciesSkillMedicine = '/api/proficiencies/skill-medicine',
-//     APIProficienciesSkillNature = '/api/proficiencies/skill-nature',
-//     APIProficienciesSkillPerception = '/api/proficiencies/skill-perception',
-//     APIProficienciesSkillPerformance = '/api/proficiencies/skill-performance',
-//     APIProficienciesSkillPersuasion = '/api/proficiencies/skill-persuasion',
-//     APIProficienciesSkillReligion = '/api/proficiencies/skill-religion',
-//     APIProficienciesSkillStealth = '/api/proficiencies/skill-stealth',
-//     APIProficienciesSkillSurvival = '/api/proficiencies/skill-survival',
-// }
+export enum URL {
+    APIProficienciesSavingThrowCha = '/api/proficiencies/saving-throw-cha',
+    APIProficienciesSavingThrowCon = '/api/proficiencies/saving-throw-con',
+    APIProficienciesSavingThrowDex = '/api/proficiencies/saving-throw-dex',
+    APIProficienciesSavingThrowInt = '/api/proficiencies/saving-throw-int',
+    APIProficienciesSavingThrowStr = '/api/proficiencies/saving-throw-str',
+    APIProficienciesSavingThrowWis = '/api/proficiencies/saving-throw-wis',
+    APIProficienciesSkillAcrobatics = '/api/proficiencies/skill-acrobatics',
+    APIProficienciesSkillArcana = '/api/proficiencies/skill-arcana',
+    APIProficienciesSkillAthletics = '/api/proficiencies/skill-athletics',
+    APIProficienciesSkillDeception = '/api/proficiencies/skill-deception',
+    APIProficienciesSkillHistory = '/api/proficiencies/skill-history',
+    APIProficienciesSkillInsight = '/api/proficiencies/skill-insight',
+    APIProficienciesSkillIntimidation = '/api/proficiencies/skill-intimidation',
+    APIProficienciesSkillInvestigation = '/api/proficiencies/skill-investigation',
+    APIProficienciesSkillMedicine = '/api/proficiencies/skill-medicine',
+    APIProficienciesSkillNature = '/api/proficiencies/skill-nature',
+    APIProficienciesSkillPerception = '/api/proficiencies/skill-perception',
+    APIProficienciesSkillPerformance = '/api/proficiencies/skill-performance',
+    APIProficienciesSkillPersuasion = '/api/proficiencies/skill-persuasion',
+    APIProficienciesSkillReligion = '/api/proficiencies/skill-religion',
+    APIProficienciesSkillStealth = '/api/proficiencies/skill-stealth',
+    APIProficienciesSkillSurvival = '/api/proficiencies/skill-survival',
+}
 
 export interface Senses {
     darkvision?: Darkvision;
-    passivePerception: number;
+    passive_perception: number;
     blindsight?: Blindsight;
     truesight?: Blindsight;
     tremorsense?: Blindsight;
@@ -309,22 +286,12 @@ export enum Size {
     Tiny = 'Tiny',
 }
 
-export interface SpecialAbility {
-    name: string;
-    desc: string;
-    dc?: Dc;
-    spellcasting?: Spellcasting;
-    usage?: SpecialAbilityUsage;
-    damage?: FromElement[];
-    attackBonus?: number;
-}
-
 export interface Spellcasting {
     level?: number;
     ability: ConditionImmunity;
     dc?: number;
     modifier?: number;
-    componentsRequired: ComponentsRequired[];
+    components_required: ComponentsRequired[];
     school?: School;
     slots?: { [key: string]: number };
     spells: Spell[];
@@ -345,7 +312,7 @@ export enum School {
 export interface Spell {
     name: string;
     level?: number;
-
+    url: string;
     usage?: SpellUsage;
     note?: string;
     notes?: string;
@@ -364,7 +331,7 @@ export enum FluffyType {
 export interface SpecialAbilityUsage {
     type: PurpleType;
     times?: number;
-    restTypes?: RESTType[];
+    rest_types?: RESTType[];
 }
 
 export interface APIMonsterSpeed {
@@ -551,16 +518,16 @@ function r(name: string) {
 
 const typeMap: any = {
     'APIMonster': o([
-        { json: '_id', js: 'id', typ: '' },
+        { json: '_id', js: '_id', typ: '' },
         { json: 'index', js: 'index', typ: '' },
         { json: 'name', js: 'name', typ: '' },
         { json: 'size', js: 'size', typ: r('Size') },
         { json: 'type', js: 'type', typ: r('APIMonsterType') },
         { json: 'subtype', js: 'subtype', typ: u(null, '') },
         { json: 'alignment', js: 'alignment', typ: r('Alignment') },
-        { json: 'armor_class', js: 'armorClass', typ: 0 },
-        { json: 'hit_points', js: 'hitPoints', typ: 0 },
-        { json: 'hit_dice', js: 'hitDice', typ: '' },
+        { json: 'armor_class', js: 'armor_class', typ: 0 },
+        { json: 'hit_points', js: 'hit_points', typ: 0 },
+        { json: 'hit_dice', js: 'hit_dice', typ: '' },
         { json: 'speed', js: 'speed', typ: r('APIMonsterSpeed') },
         { json: 'strength', js: 'strength', typ: 0 },
         { json: 'dexterity', js: 'dexterity', typ: 0 },
@@ -569,30 +536,30 @@ const typeMap: any = {
         { json: 'wisdom', js: 'wisdom', typ: 0 },
         { json: 'charisma', js: 'charisma', typ: 0 },
         { json: 'proficiencies', js: 'proficiencies', typ: a(r('Proficiency')) },
-        { json: 'damage_vulnerabilities', js: 'damageVulnerabilities', typ: a('') },
-        { json: 'damage_resistances', js: 'damageResistances', typ: a('') },
-        { json: 'damage_immunities', js: 'damageImmunities', typ: a('') },
-        { json: 'condition_immunities', js: 'conditionImmunities', typ: a(r('ConditionImmunity')) },
+        { json: 'damage_vulnerabilities', js: 'damage_vulnerabilities', typ: a('') },
+        { json: 'damage_resistances', js: 'damage_resistances', typ: a('') },
+        { json: 'damage_immunities', js: 'damage_immunities', typ: a('') },
+        { json: 'condition_immunities', js: 'condition_immunities', typ: a(r('ConditionImmunity')) },
         { json: 'senses', js: 'senses', typ: r('Senses') },
         { json: 'languages', js: 'languages', typ: '' },
-        { json: 'challenge_rating', js: 'challengeRating', typ: 3.14 },
-        { json: 'special_abilities', js: 'specialAbilities', typ: u(undefined, a(r('SpecialAbility'))) },
+        { json: 'challenge_rating', js: 'challenge_rating', typ: 3.14 },
+        { json: 'special_abilities', js: 'special_abilities', typ: u(undefined, a(r('SpecialAbility'))) },
         { json: 'actions', js: 'actions', typ: u(undefined, a(r('ActionElement'))) },
-        { json: 'legendary_actions', js: 'legendaryActions', typ: u(undefined, a(r('LegendaryActionElement'))) },
-        // { json: 'url', js: 'url', typ: '' },
+        { json: 'legendary_actions', js: 'legendary_actions', typ: u(undefined, a(r('LegendaryActionElement'))) },
+        { json: 'url', js: 'url', typ: '' },
         { json: 'reactions', js: 'reactions', typ: u(undefined, a(r('LegendaryActionElement'))) },
-        { json: 'other_speeds', js: 'otherSpeeds', typ: u(undefined, a(r('OtherSpeed'))) },
+        { json: 'other_speeds', js: 'other_speeds', typ: u(undefined, a(r('OtherSpeed'))) },
     ], false),
     'ActionElement': o([
         { json: 'name', js: 'name', typ: '' },
         { json: 'desc', js: 'desc', typ: '' },
         { json: 'options', js: 'options', typ: u(undefined, r('Options')) },
-        { json: 'attack_bonus', js: 'attackBonus', typ: u(undefined, 0) },
+        { json: 'attack_bonus', js: 'attack_bonus', typ: u(undefined, 0) },
         { json: 'dc', js: 'dc', typ: u(undefined, r('Dc')) },
         { json: 'damage', js: 'damage', typ: u(undefined, a(r('ActionDamage'))) },
         { json: 'usage', js: 'usage', typ: u(undefined, r('ActionUsage')) },
         { json: 'attacks', js: 'attacks', typ: u(undefined, a(r('Attack'))) },
-        { json: 'damage_dice', js: 'damageDice', typ: u(undefined, '') },
+        { json: 'damage_dice', js: 'damage_dice', typ: u(undefined, '') },
     ], false),
     'Attack': o([
         { json: 'name', js: 'name', typ: '' },
@@ -600,23 +567,23 @@ const typeMap: any = {
         { json: 'damage', js: 'damage', typ: u(undefined, a(r('FromElement'))) },
     ], false),
     'FromElement': o([
-        { json: 'damage_type', js: 'damageType', typ: r('ConditionImmunity') },
-        { json: 'damage_dice', js: 'damageDice', typ: '' },
-        { json: 'damage_bonus', js: 'damageBonus', typ: 0 },
+        { json: 'damage_type', js: 'damage_type', typ: r('ConditionImmunity') },
+        { json: 'damage_dice', js: 'damage_dice', typ: '' },
+        { json: 'damage_bonus', js: 'damage_bonus', typ: 0 },
     ], false),
     'ConditionImmunity': o([
         { json: 'name', js: 'name', typ: r('ConditionImmunityName') },
-        // { json: 'url', js: 'url', typ: '' },
+        { json: 'url', js: 'url', typ: '' },
     ], false),
     'Dc': o([
-        { json: 'dc_type', js: 'dcType', typ: r('ConditionImmunity') },
-        { json: 'dc_value', js: 'dcValue', typ: 0 },
-        { json: 'success_type', js: 'successType', typ: r('SuccessType') },
+        { json: 'dc_type', js: 'dc_type', typ: r('ConditionImmunity') },
+        { json: 'dc_value', js: 'dc_value', typ: 0 },
+        { json: 'success_type', js: 'success_type', typ: r('SuccessType') },
     ], false),
     'ActionDamage': o([
-        { json: 'damage_type', js: 'damageType', typ: u(undefined, r('ConditionImmunity')) },
-        { json: 'damage_dice', js: 'damageDice', typ: u(undefined, '') },
-        { json: 'damage_bonus', js: 'damageBonus', typ: u(undefined, 0) },
+        { json: 'damage_type', js: 'damage_type', typ: u(undefined, r('ConditionImmunity')) },
+        { json: 'damage_dice', js: 'damage_dice', typ: u(undefined, '') },
+        { json: 'damage_bonus', js: 'damage_bonus', typ: u(undefined, 0) },
         { json: 'dc', js: 'dc', typ: u(undefined, r('Dc')) },
         { json: 'choose', js: 'choose', typ: u(undefined, 0) },
         { json: 'type', js: 'type', typ: u(undefined, r('DamageType')) },
@@ -636,13 +603,13 @@ const typeMap: any = {
         { json: 'type', js: 'type', typ: r('PurpleType') },
         { json: 'times', js: 'times', typ: u(undefined, 0) },
         { json: 'dice', js: 'dice', typ: u(undefined, r('Dice')) },
-        { json: 'min_value', js: 'minValue', typ: u(undefined, 0) },
-        { json: 'rest_types', js: 'restTypes', typ: u(undefined, a(r('RESTType'))) },
+        { json: 'min_value', js: 'min_value', typ: u(undefined, 0) },
+        { json: 'rest_types', js: 'rest_types', typ: u(undefined, a(r('RESTType'))) },
     ], false),
     'LegendaryActionElement': o([
         { json: 'name', js: 'name', typ: '' },
         { json: 'desc', js: 'desc', typ: '' },
-        { json: 'attack_bonus', js: 'attackBonus', typ: u(undefined, 0) },
+        { json: 'attack_bonus', js: 'attack_bonus', typ: u(undefined, 0) },
         { json: 'damage', js: 'damage', typ: u(undefined, a(r('FromElement'))) },
         { json: 'dc', js: 'dc', typ: u(undefined, r('Dc')) },
     ], false),
@@ -656,12 +623,12 @@ const typeMap: any = {
     ], false),
     'Proficiency': o([
         { json: 'name', js: 'name', typ: r('ProficiencyName') },
-        // { json: 'url', js: 'url', typ: r('URL') },
+        { json: 'url', js: 'url', typ: r('URL') },
         { json: 'value', js: 'value', typ: 0 },
     ], false),
     'Senses': o([
         { json: 'darkvision', js: 'darkvision', typ: u(undefined, r('Darkvision')) },
-        { json: 'passive_perception', js: 'passivePerception', typ: 0 },
+        { json: 'passive_perception', js: 'passive_perception', typ: 0 },
         { json: 'blindsight', js: 'blindsight', typ: u(undefined, r('Blindsight')) },
         { json: 'truesight', js: 'truesight', typ: u(undefined, r('Blindsight')) },
         { json: 'tremorsense', js: 'tremorsense', typ: u(undefined, r('Blindsight')) },
@@ -673,14 +640,14 @@ const typeMap: any = {
         { json: 'spellcasting', js: 'spellcasting', typ: u(undefined, r('Spellcasting')) },
         { json: 'usage', js: 'usage', typ: u(undefined, r('SpecialAbilityUsage')) },
         { json: 'damage', js: 'damage', typ: u(undefined, a(r('FromElement'))) },
-        { json: 'attack_bonus', js: 'attackBonus', typ: u(undefined, 0) },
+        { json: 'attack_bonus', js: 'attack_bonus', typ: u(undefined, 0) },
     ], false),
     'Spellcasting': o([
         { json: 'level', js: 'level', typ: u(undefined, 0) },
         { json: 'ability', js: 'ability', typ: r('ConditionImmunity') },
         { json: 'dc', js: 'dc', typ: u(undefined, 0) },
         { json: 'modifier', js: 'modifier', typ: u(undefined, 0) },
-        { json: 'components_required', js: 'componentsRequired', typ: a(r('ComponentsRequired')) },
+        { json: 'components_required', js: 'components_required', typ: a(r('ComponentsRequired')) },
         { json: 'school', js: 'school', typ: u(undefined, r('School')) },
         { json: 'slots', js: 'slots', typ: u(undefined, m(0)) },
         { json: 'spells', js: 'spells', typ: a(r('Spell')) },
@@ -688,7 +655,7 @@ const typeMap: any = {
     'Spell': o([
         { json: 'name', js: 'name', typ: '' },
         { json: 'level', js: 'level', typ: u(undefined, 0) },
-        // { json: 'url', js: 'url', typ: '' },
+        { json: 'url', js: 'url', typ: '' },
         { json: 'usage', js: 'usage', typ: u(undefined, r('SpellUsage')) },
         { json: 'note', js: 'note', typ: u(undefined, '') },
         { json: 'notes', js: 'notes', typ: u(undefined, '') },
@@ -700,7 +667,7 @@ const typeMap: any = {
     'SpecialAbilityUsage': o([
         { json: 'type', js: 'type', typ: r('PurpleType') },
         { json: 'times', js: 'times', typ: u(undefined, 0) },
-        { json: 'rest_types', js: 'restTypes', typ: u(undefined, a(r('RESTType'))) },
+        { json: 'rest_types', js: 'rest_types', typ: u(undefined, a(r('RESTType'))) },
     ], false),
     'APIMonsterSpeed': o([
         { json: 'walk', js: 'walk', typ: u(undefined, r('Burrow')) },
@@ -832,30 +799,30 @@ const typeMap: any = {
         'Skill: Stealth',
         'Skill: Survival',
     ],
-    // 'URL': [
-    //     '/api/proficiencies/saving-throw-cha',
-    //     '/api/proficiencies/saving-throw-con',
-    //     '/api/proficiencies/saving-throw-dex',
-    //     '/api/proficiencies/saving-throw-int',
-    //     '/api/proficiencies/saving-throw-str',
-    //     '/api/proficiencies/saving-throw-wis',
-    //     '/api/proficiencies/skill-acrobatics',
-    //     '/api/proficiencies/skill-arcana',
-    //     '/api/proficiencies/skill-athletics',
-    //     '/api/proficiencies/skill-deception',
-    //     '/api/proficiencies/skill-history',
-    //     '/api/proficiencies/skill-insight',
-    //     '/api/proficiencies/skill-intimidation',
-    //     '/api/proficiencies/skill-investigation',
-    //     '/api/proficiencies/skill-medicine',
-    //     '/api/proficiencies/skill-nature',
-    //     '/api/proficiencies/skill-perception',
-    //     '/api/proficiencies/skill-performance',
-    //     '/api/proficiencies/skill-persuasion',
-    //     '/api/proficiencies/skill-religion',
-    //     '/api/proficiencies/skill-stealth',
-    //     '/api/proficiencies/skill-survival',
-    // ],
+    'URL': [
+        '/api/proficiencies/saving-throw-cha',
+        '/api/proficiencies/saving-throw-con',
+        '/api/proficiencies/saving-throw-dex',
+        '/api/proficiencies/saving-throw-int',
+        '/api/proficiencies/saving-throw-str',
+        '/api/proficiencies/saving-throw-wis',
+        '/api/proficiencies/skill-acrobatics',
+        '/api/proficiencies/skill-arcana',
+        '/api/proficiencies/skill-athletics',
+        '/api/proficiencies/skill-deception',
+        '/api/proficiencies/skill-history',
+        '/api/proficiencies/skill-insight',
+        '/api/proficiencies/skill-intimidation',
+        '/api/proficiencies/skill-investigation',
+        '/api/proficiencies/skill-medicine',
+        '/api/proficiencies/skill-nature',
+        '/api/proficiencies/skill-perception',
+        '/api/proficiencies/skill-performance',
+        '/api/proficiencies/skill-persuasion',
+        '/api/proficiencies/skill-religion',
+        '/api/proficiencies/skill-stealth',
+        '/api/proficiencies/skill-survival',
+    ],
     'Size': [
         'Gargantuan',
         'Huge',
@@ -909,3 +876,4 @@ const typeMap: any = {
         'undead',
     ],
 };
+

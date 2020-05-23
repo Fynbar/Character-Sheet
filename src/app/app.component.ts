@@ -19,7 +19,7 @@ export class AppComponent {
     },
     {
       routerLink: 'spells', label: 'Spells', items: [
-        { routerLink: 'spells/list', label: 'SpellList' },
+        { routerLink: 'spells/list', label: 'Spell List' },
         // { routerLink: 'psychro', label: 'Psychrometric' }
       ]
     }

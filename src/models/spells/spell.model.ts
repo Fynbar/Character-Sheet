@@ -1,9 +1,9 @@
-import { DurationUnits, CastingTimeUnits } from './timeUnits.enum';
-import { Book } from './sourceBook.enum';
+import { DurationUnits, CastingTimeUnits } from '../rules/timeUnits.enum';
+import { Book } from '../rules/sourceBook.enum';
 import { spellSchool } from './spellSchool.enum';
 import { spellSavingThrow } from './spellSavingThrow.enum';
-import { RangeUnits } from './rangeUnits.enum';
-import { characterClass, druidDomain, Oath, Patron } from './characterClass.enum';
+import { RangeUnits } from '../rules/rangeUnits.enum';
+import { characterClass, druidDomain, Oath, Patron } from '../characterClass.enum';
 
 export type Spells = Spell[];
 export interface Spell {
