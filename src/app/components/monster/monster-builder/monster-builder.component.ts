@@ -7,6 +7,7 @@ import { MonsterCreature } from '../../../../models/monsters/final-monster/monst
 import { map } from 'rxjs/operators';
 import { DndApiService } from 'src/app/services/dnd-api.service';
 import { MonsterMonMan } from 'src/models/monsters/mon-man-text-monster/monsterMonMan';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-monster-builder',
@@ -26,26 +27,34 @@ export class MonsterBuilderComponent implements OnInit {
   constructor(
     private jsonService: JSONService
   ) { }
+  public checked = true;
   public monsters: APIMonster[] = [];
   public txtmonsters: MonsterCreature[] = [];
   public filMon: MonsterCreature[] = [];
   private temp: APIMonster[] = [];
-
+  public mon2: any[] = [];
 
   // ngAfterViewInit() {
   //   this.d1.nativeElement.insertAdjacentHTML('beforeend', '<app-dice [diceType]=12></app-dice> two');
   // }
 
   ngOnInit() {
-    this.jsonService.getJSON('mon_man_addition').subscribe(data => this.txtmonsters = data.map(m => this.fromPageDesc(m)));
     // console.log(data);
-    this.jsonService.getJSON('apiMons').subscribe(data => {
-      this.monsters = data;
+    forkJoin(this.jsonService.getJSON('apiMons'), this.jsonService.getJSON('mon_man_addition')).subscribe(data => {
+      this.monsters = data[0];
       this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
+      const names = this.monsters.map(n => n.name);
+      this.mon2 = data[1].filter(f => names.indexOf(f.name) < 0);
+      console.log(`Got rid of ${data[1].length - this.mon2.length}`);
+      this.txtmonsters = this.mon2.map(m => this.fromPageDesc(m));
     });
 
   }
+  public get data() {
+    return this.checked ? [this.mon2, this.txtmonsters] : [this.monsters, this.filMon];
+  }
 
+  // checked? mon2[i]: filMon[i]
   // public handleClick(event) {
   //   this.jsonService.saveJSON('mon_man_addition', this.monsters).subscribe(data => {
   //     console.log(event);

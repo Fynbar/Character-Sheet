@@ -12,8 +12,7 @@ export interface Monster {
     senses?: Senses;
     languages?: string[];
     challenge: string;
-    traits: { [key: string]: string[] };
-    actions: ActionElement[];
+    traits: Trait[];
     armorClass?: number;
     hitPoints?: Dice;
     abilities: Abilities;
@@ -22,8 +21,8 @@ export interface Monster {
     armorType?: string;
     damageImmunities?: string[];
     savingThrows?: Abilities;
-    Legendary?: LegendaryActionElement[];
-    LegendaryRules?: string;
+    legendary?: LegendaryActionElement[];
+    legendaryRules?: string;
     conditionImmunities?: ConditionImmunity[];
     damageResistances?: string[];
     reactions?: ReactionElement[];

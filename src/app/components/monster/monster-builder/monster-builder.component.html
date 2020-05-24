@@ -1,63 +1,74 @@
-<p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
-<p-accordion>
-    <p-accordionTab header="MonsterJSON" #jsonBlock>
-        {{copyVal}}
-    </p-accordionTab>
-</p-accordion>
+<h3>Shown - {{checked? 'Monster Manual':'SRD'}}</h3>
+<p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+<div *ngIf="filMon && txtmonsters">
+    <p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
 
-<p-table #dt [columns]="cols" [value]="monsters" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-    <ng-template pTemplate="header" let-columns>
-        <!-- <tr>
+    <p-accordion>
+        <p-accordionTab header="MonsterJSON" #jsonBlock>
+            {{copyVal}}
+        </p-accordionTab>
+    </p-accordion>
+
+    <p-table #dt [columns]="cols" [value]="data[0]" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <ng-template pTemplate="header" let-columns>
+            <!-- <tr>
             <th [attr.colspan]="columns.length + 1">{{filMon.length}}</th>
         </tr> -->
-        <tr>
-            <th style="width: 3em"></th>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
-            <!-- <th>
+            <tr>
+                <th style="width: 3em"></th>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+                <!-- <th>
                 Filled
             </th> -->
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
-        <tr>
-            <td>
-                <a href="#" [pRowToggler]="rowData">
-                    <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
-                </a>
-            </td>
-            <td *ngFor="let col of columns">
-                {{rowData[col.field]}}
-            </td>
-            <!-- <td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
+            <tr>
+                <td>
+                    <a href="#" [pRowToggler]="rowData">
+                        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                    </a>
+                </td>
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+                <!-- <td>
                 <i class="pi pi-check" *ngIf="rowData.flavor_text"></i>
             </td> -->
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
-        <tr>
-            <td [attr.colspan]="columns.length + 1">
-                <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
-                    <!-- {{i}} -->
-                    <!-- <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea> -->
-                    <!-- {{rowData| json}} -->
-                    <div>{{filMon[i]| json}}</div>
-                    <!-- <app-monster-viewer [Monster]="fromPageDesc(rowData)"></app-monster-viewer> -->
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
+            <tr>
+                <td [attr.colspan]="columns.length + 1">
+                    <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                        <!-- {{i}} -->
+                        <!-- <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea> -->
+                        <!-- {{rowData| json}} -->
+                        <app-monster-viewer [Monster]="data[1][i]"></app-monster-viewer>
 
-                    <p-accordion>
-                        <p-accordionTab header="Description">
-                            {{monsters[i]| json}}
-                            <!-- <div>{{fromPageDesc(rowData) | json}}</div> -->
-                        </p-accordionTab>
-                        <!-- <p-accordionTab header="Flavor Text">
-                            {{filmon[i]| json}}
-                            <!-- <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea>
-                        </p-accordionTab> -->
-                    </p-accordion> -->
 
-                </div>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+
+                        <p-accordion>
+                            <p-accordionTab header="Description">
+
+                                <textarea pInputTextarea [(ngModel)]="rowData.page_desc" autoResize="autoResize"></textarea>
+                                <!-- <div>{{fromPageDesc(rowData) | json}}</div> -->
+                            </p-accordionTab>
+                            <!-- {{rowData| json}} -->
+                            <p-accordionTab header="Flavor Text">
+                                <!-- 
+                            {{filmon[i]| json}}-->
+                                <div>{{data[1][i]| json}}</div>
+                                <!-- 
+                            <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea>-->
+                            </p-accordionTab>
+                        </p-accordion>
+
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

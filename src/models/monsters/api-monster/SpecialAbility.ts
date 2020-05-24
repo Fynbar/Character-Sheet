@@ -1,5 +1,13 @@
 import { Dc, Spellcasting, SpecialAbilityUsage, Options, ActionDamage, ActionUsage, Attack } from './apiMonster.model';
 
+interface Action {
+    name: string;
+    desc: string;
+    attack_bonus?: number;
+    damage?: ActionDamage[];
+    dc?: Dc;
+}
+
 
 export interface Trait extends Action {
     spellcasting?: Spellcasting;
@@ -17,13 +25,5 @@ export interface LegendaryActionElement extends Action {
     points: number;
 }
 
-
-interface Action {
-    name: string;
-    desc: string;
-    attack_bonus?: number;
-    damage?: ActionDamage[];
-    dc?: Dc;
-}
 
 export type ReactionElement = Action;

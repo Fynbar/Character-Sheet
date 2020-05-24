@@ -10,7 +10,9 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-import { DamageStatusType, abilityAbbreviations, Condition } from 'src/models/rules/condition.enum';
+import { abilityAbbreviations, Condition } from '../../../models/rules/condition.enum';
+import { DamageStatusType } from '../../rules/damageStatusType';
+import { Dice } from '../../../app/components/dice/dice';
 
 export interface APIMonster {
     _id: string;
@@ -65,9 +67,15 @@ export interface ConditionImmunity {
 
 
 export interface Dc {
-    dc_type: abilityAbbreviations;
-    dc_value: number;
-    success_type: SuccessType;
+    dc_type?: {
+        name: abilityAbbreviations;
+        url: string;
+    };
+    dc_value?: number;
+    success_type?: SuccessType;
+    dcType?: abilityAbbreviations;
+    dcValue?: number;
+    successType?: SuccessType;
 }
 
 export enum SuccessType {
@@ -78,9 +86,14 @@ export enum SuccessType {
 }
 
 export interface ActionDamage {
-    damage_type?: DamageStatusType;
+    damage_type?: {
+        name: DamageStatusType;
+        url: string;
+    };
     damage_dice?: string;
     damage_bonus?: number;
+    damageType?: string;
+    damageDice?: Dice;
     dc?: Dc;
     choose?: number;
     type?: DamageType;
@@ -116,6 +129,8 @@ export interface ActionUsage {
     dice?: Dice;
     min_value?: number;
     rest_types?: RESTType[];
+    minValue?: number;
+    restTypes?: RESTType[];
 }
 
 export interface Trait extends Action {
@@ -145,9 +160,9 @@ interface Action {
 
 export type ReactionElement = Action;
 
-export enum Dice {
-    The1D6 = '1d6',
-}
+// export enum Dice {
+//     The1D6 = '1d6',
+// }
 
 export enum RESTType {
     Long = 'long',
@@ -301,6 +316,12 @@ export enum ComponentsRequired {
     M = 'M',
     S = 'S',
     V = 'V',
+}
+
+export enum betterComponentsRequired {
+    material = 'M',
+    somatic = 'S',
+    vocal = 'V',
 }
 
 export enum School {

@@ -7,6 +7,21 @@ export class Dice {
         this.diceType = diceType ? Math.floor(diceType) : 4;
         this.diceNum = diceNum ? Math.floor(diceNum) : 1;
     }
+
+    public static fromString(HP: string): Dice {
+        let d: number[];
+        let c: number;
+        if (HP.indexOf('+') > 0 || HP.indexOf('-') > 0) {
+            const HPs = HP.split(' ');
+            d = HPs[0].split('d').map(e => Number(e));
+            c = HPs[1] === '+' ? Number(HPs[2]) : -1 * (Number(HPs[2]));
+        } else {
+            d = HP.split('d').map(e => Number(e));
+            c = 0;
+        }
+        return new Dice(d[1], d[0], c);
+
+    }
     public get avg(): number {
         return this.constant + Math.floor(this.diceNum * (this.diceType + 1) / 2);
     }
