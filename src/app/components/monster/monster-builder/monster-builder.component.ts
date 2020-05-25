@@ -63,7 +63,7 @@ export class MonsterBuilderComponent implements OnInit {
   // }
 
   public get copyVal(): string {
-    return JSON.stringify(this.txtmonsters);
+    return JSON.stringify(this.checked ? this.txtmonsters : this.filMon);
     // return JSON.stringify(this.monsters);
     // return JSON.stringify(this.filMon);
   }
@@ -109,30 +109,31 @@ export class MonsterBuilderComponent implements OnInit {
     return MonsterCreature.fromPageDesc(m);
   }
 
-  // public readPageDesc(str: APIMonster): APIMonster {
-  //   let s = str.page_desc ? str.page_desc : '';
-  // tslint:disable-next-line:max-line-length
-  //   let findIndecies = ['Speed', 'Languages', 'Damage Immunities', 'Condition Immunities', 'Damage Resistances', 'Senses', 'Skills', 'Challenge', 'Hit Points', 'Armor Class', 'Damage Vulnerabilities', 'Saving Throws', 'Damage Resistance'].concat(abilityAbbrev);
-  //   let indecies = findIndecies.map(find =>
-  //     s.indexOf(find)
-  //   ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
-  //   let newLine = '\n';
-  //   indecies.forEach((found, index) => s = insertString(s, newLine, found + index));
-  //   str.page_desc = s;
-  //   // console.log(str);
-  //   findIndecies = ['ACTIONS', 'REACTIONS', 'LEGENDARY ACTIONS'];
-  //   indecies = findIndecies.map(find =>
-  //     s.indexOf(find)
-  //   ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
+  public readPageDesc(str: MonsterMonMan): MonsterMonMan {
+    let s = str.page_desc ? str.page_desc : '';
+    // tslint:disable-next-line:max-line-length
+    let findIndecies = ['Speed', 'Languages', 'Damage Immunities', 'Condition Immunities', 'Damage Resistances', 'Senses', 'Skills', 'Challenge', 'Hit Points', 'Armor Class', 'Damage Vulnerabilities', 'Saving Throws', 'Damage Resistance'].concat(abilityAbbrev);
+    let indecies = findIndecies.map(find =>
+      s.indexOf(find)
+    ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
+    let newLine = '\n';
+    indecies.forEach((found, index) => s = insertString(s, newLine, found + index));
+    str.page_desc = s;
+    // console.log(str);
+    findIndecies = ['ACTIONS', 'REACTIONS', 'LEGENDARY ACTIONS'];
+    indecies = findIndecies.map(find =>
+      s.indexOf(find)
+    ).filter(n => n >= 0).sort((a, b) => a > b ? 1 : -1);
 
-  //   newLine = '\n';
-  //   indecies.forEach((found, index) => {
-  //     s = insertString(s, newLine, found + index);
-  //     s = insertString(s, newLine, found + findIndecies[index].length + 2 * (index + 1));
-  //   });
-  //   str.page_desc = s;
-  //   return str;
-  // }
+    newLine = '\n';
+    indecies.forEach((found, index) => {
+      s = insertString(s, newLine, found + index);
+      s = insertString(s, newLine, found + findIndecies[index].length + 2 * (index + 1));
+    });
+    str.page_desc = s;
+    return str;
+  }
+
   // public set filMon(monsters: APIMonster[]) {
   //   monsters.forEach(m =>
   //     this.temp[this.monsterNames.indexOf(m.name)] = m

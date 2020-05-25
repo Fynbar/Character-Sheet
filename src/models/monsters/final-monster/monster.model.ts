@@ -177,7 +177,6 @@ export interface LegendaryActionElement extends Action {
     points: number;
 }
 
-
 interface Action {
     name: string;
     desc: string;

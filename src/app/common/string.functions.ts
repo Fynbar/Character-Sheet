@@ -26,3 +26,20 @@ export function commaSplit(str: string): string[] {
 export function insertString(mainStr: string, newStr: string, idx: number = 0): string {
     return mainStr.slice(0, idx) + newStr + mainStr.slice(idx);
 }
+
+export function findBetweenStrings(bodyStr: string, strA: string, ...strsB: string[]) {
+    let idx = strA === '' ? [0] : [bodyStr.indexOf(strA)];
+    idx = idx.concat(strsB.map(strB => bodyStr.toLowerCase().indexOf(strB)));
+    let s = '';
+    const len = idx.map(o => 0 - idx[0]).filter(f => f > 0);
+    // var obj = {a:1,b:2};
+    if (idx[0] >= 0 && len.length > 0) {
+        // console.log(bodyStr.substring(idx[0] + strA.length, idx[1]));
+        s = bodyStr.substring(idx[0] + strA.length, Math.min(...len));
+    }
+    // console.log(strA, ...strsB, s);
+    return s;
+}
+
+
+

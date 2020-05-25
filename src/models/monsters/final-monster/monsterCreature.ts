@@ -1,18 +1,22 @@
-import { Condition, ConditionImmunity } from 'src/models/rules/condition.enum';
-import { lowerDamageType } from 'src/models/rules/damageStatusType';
-import { Book } from 'src/models/rules/sourceBook.enum';
-import { commaSplit, spaceJoin, spaceSplit, stripArray } from '../../../app/common/string.functions';
+import { Condition, ConditionImmunity } from '../../rules/condition.enum';
+import { lowerDamageType } from '../../rules/damageStatusType';
+import { Book } from '../../rules/sourceBook.enum';
+import { commaSplit, spaceJoin, spaceSplit, stripArray, findBetweenStrings } from '../../../app/common/string.functions';
 import { Dice } from '../../../app/components/dice/dice';
 import { ability, abilityAbbrev } from '../../rules/ability.enum';
 import { Page } from '../../spells/spell.model';
 import {
-    ActionDamage, APIMonster, Proficiency, PurpleType, Trait, School, betterComponentsRequired
+    ActionDamage, APIMonster, Proficiency, PurpleType, Trait, School, betterComponentsRequired, FluffyType
 } from '../api-monster/apiMonster.model';
 import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
 import {
     Abilities, ActionElement, LegendaryActionElement, Meta, Monster, ReactionElement, Senses, Skills, Speed
 } from './monster.model';
+import { characterClass } from '../../characterClass.enum';
+import { enumValuesArray } from '../../../app/common/enumKeysArray';
 
+const classNames = enumValuesArray(characterClass);
+const lowerClassNames = classNames.map(s => s.toLowerCase);
 
 // tslint:disable:max-line-length
 const properties = [
@@ -34,11 +38,7 @@ const properties = [
     'armorType', //  string;
     'damageImmunities', //  string[];
     'savingThrows', //  Abilities;
-    'legendary', //  legendaryActionElement[];
-    'conditionImmunities', //  ConditionImmunity[];
-    'damageResistances', //  string[];
-    'reactions', //  ReactionElement[];
-    'damageVulnerabilities', 'legendaryRules'
+    'legendary', 'conditionImmunities', 'damageResistances', 'reactions', 'damageVulnerabilities', 'legendaryRules'
 ];
 // tslint:enable:max-line-length
 export class MonsterCreature implements Monster {
@@ -328,11 +328,9 @@ export class MonsterCreature implements Monster {
                 if (nameIndex >= 0) {
                     actionObj.name = element.trim().substring(0, nameIndex);
                     actionObj.desc = element.trim().substring(nameIndex + indStr.length);
-                    const costString = '(Costs ';
-                    const actionPoints: number[] = [costString, ' Actions)'].map(seg => actionObj.name.indexOf(seg));
-                    if (Math.min(...actionPoints) >= 0) {
-                        actionObj.points = Number(actionObj.name
-                            .substring(actionPoints[0] + costString.length, actionPoints[1]));
+                    const points: string = findBetweenStrings(actionObj.name, '(Costs ', ' Actions)');
+                    if (points.length >= 0) {
+                        actionObj.points = Number(points);
                     }
                     // const actionDesc = actionObj.desc.replace(/ft./g, 'ft').split('. ');
                     const attackIndicators = ['Attack:', 'Hit:'];
@@ -347,10 +345,9 @@ export class MonsterCreature implements Monster {
 
                         actionObj.damage = actionDesc[1].split('plus').map(damString => {
                             const damageObj: ActionDamage = {};
-                            const damageDice = [damString.trim().indexOf('(', attackIndecies[1] + attackIndicators[1].length)];
-                            damageDice.push(actionDesc[1].indexOf(')', damageDice[0]));
-                            damageObj.damageDice = Dice.fromString(actionDesc[1].substring(damageDice[0] + 1, damageDice[1]));
-                            spaceSplit(actionDesc[1].substring(damageDice[1] + 1).trim()).forEach(f => {
+                            const damageDice = actionDesc[1].indexOf(')');
+                            damageObj.damageDice = Dice.fromString(findBetweenStrings(actionDesc[1].trim(), '(', ')'));
+                            spaceSplit(actionDesc[1].substring(damageDice + 1).trim()).forEach(f => {
                                 if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
                                     damageObj.damageType = lowerDamageType[f.toLowerCase()];
                                 }
@@ -498,109 +495,10 @@ export class MonsterCreature implements Monster {
                         };
                     }
                     if (traitObj.name.toLowerCase() === sp) {
-                        console.log(`${value.name}: ${traitObj.name}`);
-                        // const places = ['', 'st', 'nd', 'rd'];
-                        // const ainj = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-                        const SpellLevels = [
-                            'Cantrips', '1st level', '2nd level', '3rd level', '4th level',
-                            '5th level', '6th level', '7th level', '8th level', '9th level'
-                        ];
-                        // console.log(SpellLevels);
-                        // const spellAbility = 'spellcasting ability';
-                        const indecies: number[] = SpellLevels.map(s => traitObj.desc.indexOf(s)).filter(f => f >= 0);
-                        // console.log(indecies);
-                        const sections = indecies.map((set, i) =>
-                            i === indecies.length ? traitObj.desc.substring(set) : traitObj.desc.substring(set, indecies[i + 1])
-                        ).map(s => s.split(':'));
-                        // console.log(sections);
-                        const Slots: { [key: string]: number } = {};
-                        sections.forEach((el, i) => {
-                            if (i > 0) {
-                                const idx = [el[0].indexOf('('), el[0].toLowerCase().indexOf(' slot')];
-                                if (idx.every(ind => ind >= 0)) {
-                                    Slots[i.toString()] = Number(el[0].substring(idx[0] + 1, idx[1]));
-                                } else {
-                                    console.log(`${value.name}: ${el[0]}`);
-                                }
-                            }
-                        });
-
-                        const Spells = []; // {'name': 'Sacred Flame', 'level': 0,}
-                        sections.forEach((el, i) => {
-                            el[1].split(',').forEach(e =>
-                                Spells.push({ name: e.trim(), level: i })
-                            );
-                        });
-                        // spells.sort((a,b) => {});
-                        const spellObj: any = { spells: Spells, slots: Slots };
-                        const schools = ['cleric', 'druid', 'wizard'];
-                        const bodyStr = traitObj.desc.substring(0, Math.min(...indecies));
-                        const spellLevel = findBetweenStrings(bodyStr, 'a ', '-level');
-                        spellObj.spellLevel = Number(spellLevel.substr(0, spellLevel.length - 2));
-                        spellObj.spellcastingAbility = findBetweenStrings(bodyStr, 'ability is ', ' (').substr(0, 3).toUpperCase();
-                        spellObj.dc = Number(findBetweenStrings(bodyStr, 'save DC ', ',', ')'));
-                        spellObj.modifier = spellObj.dc - 8;
-                        spellObj.componentsRequired = { V: true, S: true, M: true };
-                        spaceSplit(bodyStr.toLowerCase()).forEach(s => {
-                            if (schools.indexOf(s) >= 0) {
-                                spellObj.school = s;
-                            } else if (betterComponentsRequired[s]) {
-                                spellObj.componentsRequired[betterComponentsRequired[s]] = false;
-                            }
-                        });
-                        traitObj.spellcasting = spellObj;
+                        MonsterCreature.spellCastingBuilder(traitObj, value.name);
 
                     } else if (traitObj.name.toLowerCase() === isp) {
-                // tslint:disable:max-line-length
-                /*"name": "Innate Spellcasting",
-                "desc": "The giant's innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components:
-                At will: detect magic, fog cloud, light
-                3/day each: feather fall, fly, misty step, telekinesis
-                1/day each: control weather, gaseous form",
-                "spellcasting": {
-                    "ability": {
-                        "name": "CHA",
-                        "url": "/api/ability-scores/cha"
-                    },
-                    "components_required": [],
-                    "spells": [{
-                            "name": "Detect Magic",
-                            "url": "/api/spells/detect-magic",
-                            "usage": {
-                                "type": "at will"
-                            }
-                        },
-                        {
-                            "name": "Fog Cloud",
-                            "url": "/api/spells/fog-cloud",
-                            "usage": {
-                                "type": "at will"
-                            }
-                        },
-                        {
-                            "name": "Light",
-                            "url": "/api/spells/light",
-                            "usage": {
-                                "type": "at will"
-                            }
-                        },
-                        {
-                            "name": "Feather Fall",
-                            "url": "/api/spells/feather-fall",
-                            "usage": {
-                                "type": "per day",
-                                "times": 3
-                            }
-                        },
-                        {
-                            "name": "Fly",
-                            "url": "/api/spells/fly",
-                            "usage": {
-                                "type": "per day",
-                                "times": 3
-                            }
-                        },
-            */
+                        MonsterCreature.innateSpellcastingBuilder(traitObj, value.name);
                     }
                 } else {
                     traitObj.desc = element;
@@ -610,6 +508,87 @@ export class MonsterCreature implements Monster {
                 return traitObj;
             });
         }
+    }
+
+    private static innateSpellcastingBuilder(traitObj: Trait, name: string) {
+        const SpellUsage = [
+            'at will'
+        ].concat(['1/day', '2/day', '3/day', '4/day',
+            '5/day', '6/day', '7/day', '8/day', '9/day'].reverse());
+        const indecies: number[] = SpellUsage.map(s => traitObj.desc.toLowerCase().indexOf(s)).filter(f => f >= 0);
+        // console.log(indecies);
+        const sections = indecies.map((set, i) => i === indecies.length ?
+            traitObj.desc.substring(set) : traitObj.desc.substring(set, indecies[i + 1])).map(s => s.split(':'));
+        const Spells = []; // { 'name': 'Fly', 'url': '/api/spells/fly', 'usage': { 'type': 'per day', 'times': 3}}
+        sections.forEach((el, i) => {
+            const Usage = el[0].toLowerCase().indexOf(SpellUsage[0]) >= 0 ?
+                { type: FluffyType.AtWill, } :
+                { type: FluffyType.PerDay, times: Number(findBetweenStrings(el[0], '', '/day')) };
+            el[1].split(',').forEach(e => Spells.push({ name: e.trim(), usage: Usage }));
+        });
+        // spells.sort((a,b) => {});
+        const spellObj: any = { spells: Spells };
+        // const schools = ['cleric', 'druid', 'wizard'];
+        const bodyStr = traitObj.desc.substring(0, Math.min(...indecies));
+        spellObj.spellcastingAbility = findBetweenStrings(bodyStr, 'ability is ', ' (', '.').substr(0, 3).toUpperCase();
+        spellObj.dc = Number(findBetweenStrings(bodyStr.toLowerCase(), ' dc ', ',', ')'));
+        spellObj.modifier = spellObj.dc - 8;
+        traitObj.spellcasting = spellObj;
+        if (isNaN(spellObj.dc)) {
+            console.log(`Innate DC error: ${name}`);
+        }
+    }
+
+    private static spellCastingBuilder(traitObj: Trait, name: string) {
+        const SpellLevels = [
+            'Cantrips', '1st level', '2nd level', '3rd level', '4th level',
+            '5th level', '6th level', '7th level', '8th level', '9th level'
+        ];
+        // console.log(SpellLevels);
+        // const spellAbility = 'spellcasting ability';
+        const indecies: number[] = SpellLevels.map(s => traitObj.desc.indexOf(s)).filter(f => f >= 0);
+        // console.log(indecies);
+        const sections = indecies.map((set, i) => i === indecies.length ?
+            traitObj.desc.substring(set) : traitObj.desc.substring(set, indecies[i + 1])).map(s => s.split(':'));
+        // console.log(sections);
+        const Slots: {
+            [key: string]: number;
+        } = {};
+        sections.forEach((el, i) => {
+            if (i > 0) {
+                const idx = [el[0].indexOf('('), el[0].toLowerCase().indexOf(' slot')];
+                if (idx.every(ind => ind >= 0)) {
+                    Slots[i.toString()] = Number(el[0].substring(idx[0] + 1, idx[1]));
+                } else {
+                    console.log(`Slot error: ${name}-${el[0]}`);
+                }
+            }
+        });
+        const Spells = []; // {'name': 'Sacred Flame', 'level': 0,}
+        sections.forEach((el, i) => {
+            el[1].split(',').forEach(e => Spells.push({ name: e.trim(), level: i }));
+        });
+        // spells.sort((a,b) => {});
+        const spellObj: any = { spells: Spells, slots: Slots };
+        const bodyStr = traitObj.desc.substring(0, Math.min(...indecies));
+        const spellLevel = findBetweenStrings(bodyStr, 'a ', '-level');
+        spellObj.spellLevel = Number(spellLevel.substr(0, spellLevel.length - 2));
+        spellObj.spellcastingAbility = findBetweenStrings(bodyStr, 'ability is ', ' (').substr(0, 3).toUpperCase();
+        spellObj.dc = Number(findBetweenStrings(bodyStr, 'save DC ', ',', ')'));
+        spellObj.modifier = spellObj.dc - 8;
+        spellObj.componentsRequired = { V: true, S: true, M: true };
+        spaceSplit(bodyStr.toLowerCase()).forEach(s => {
+            if (lowerClassNames.indexOf(s) >= 0) {
+                spellObj.school = s;
+            } else if (betterComponentsRequired[s]) {
+                spellObj.componentsRequired[betterComponentsRequired[s]] = false;
+            }
+        });
+        if (isNaN(spellObj.dc)) {
+            console.log(`Spellcasting DC error: ${name}`);
+        }
+        traitObj.spellcasting = spellObj;
+
     }
 
     private static setMetaData(value: any) {
@@ -677,8 +656,8 @@ export class MonsterCreature implements Monster {
                 const skills = spaceJoin(lineSS.splice(1)).replace(/\s/g, '').split(',');
                 const skillObj: any = {};
                 skills.forEach(s => {
-                    let plusMinusIndex;
-                    let skillValue;
+                    let plusMinusIndex: number;
+                    let skillValue: number;
                     if (s.indexOf('-') > 0) {
                         plusMinusIndex = s.indexOf('-');
                         skillValue = -1 * Number(s.substring(plusMinusIndex, s.length));
@@ -695,9 +674,7 @@ export class MonsterCreature implements Monster {
                 const senseObj: any = {};
                 const y = spaceSplit(senses.splice(-1)[0]).map(s => s.toLowerCase());
                 value.passivePerception = Number(y[y.indexOf('perception') + 1]);
-                // console.log(senses.map(s => spaceSplit(s))); // .splice(0, senses.length - 1));
                 senses.map(s => spaceSplit(s)).forEach(s => {
-                    // console.log(s[s.length - 1], );
                     senseObj[spaceJoin(s.splice(0, s.length - 1))] = Number(s[s.length - 1].replace('ft.', ''));
                 });
                 value.senses = senseObj;
@@ -707,6 +684,9 @@ export class MonsterCreature implements Monster {
                         value.abilities[aa] = Number(lineSS[lineSS.indexOf(aa) + 1]);
                     }
                 });
+                if (Object.keys(value.abilities).some(c => isNaN(value.abilities[c]))) {
+                    console.log(value.name, JSON.stringify(value.abilities));
+                }
             } else if (this.propChecker('Languages', lineSS)) {
                 value.languages = spaceJoin(lineSS.splice(1)).split(', ');
             } else if (this.propChecker('Challenge', lineSS)) {
@@ -782,16 +762,5 @@ export class MonsterCreature implements Monster {
     }
 }
 
-function findBetweenStrings(bodyStr: string, strA: string, strB: string, strC?: string) {
-    const idx = [bodyStr.indexOf(strA), bodyStr.toLowerCase().indexOf(strB)];
-    // console.log(strA, strB);
-    if (idx.every(ind => ind >= 0) && idx[0] < idx[1]) {
-        // console.log(bodyStr.substring(idx[0] + strA.length, idx[1]));
-        return bodyStr.substring(idx[0] + strA.length, idx[1]);
-    } else if (strC) {
-        return (findBetweenStrings(bodyStr, strA, strC));
-    } else {
-        return '';
-    }
-}
+
 

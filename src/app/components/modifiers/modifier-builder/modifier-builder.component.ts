@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
+import { ModifierComponent } from '../modifier/modifier.component';
 
 @Component({
   selector: 'app-modifier-builder',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modifier-builder.component.css']
 })
 export class ModifierBuilderComponent implements OnInit {
+  public modifiedCreature: MonsterCreature;
+  public modificationa: ModifierComponent[];
 
   constructor() { }
 
+
   ngOnInit() {
+
   }
 
 }
