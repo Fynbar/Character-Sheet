@@ -28,16 +28,18 @@ export function insertString(mainStr: string, newStr: string, idx: number = 0): 
 }
 
 export function findBetweenStrings(bodyStr: string, strA: string, ...strsB: string[]) {
-    let idx = strA === '' ? [0] : [bodyStr.indexOf(strA)];
-    idx = idx.concat(strsB.map(strB => bodyStr.toLowerCase().indexOf(strB)));
+
+    let idx = strA === '' ? [0] : [bodyStr.toLowerCase().indexOf(strA.toLowerCase())];
+    idx = idx.concat(strsB.map(strB => bodyStr.toLowerCase().indexOf(strB.toLowerCase())));
     let s = '';
-    const len = idx.map(o => 0 - idx[0]).filter(f => f > 0);
-    // var obj = {a:1,b:2};
+    // console.log(idx);
+    const len = idx.map(o => o - idx[0] - strA.length).filter(f => f > 0);
+    // console.log(idx[0] >= 0 && len.length > 0, len);
     if (idx[0] >= 0 && len.length > 0) {
-        // console.log(bodyStr.substring(idx[0] + strA.length, idx[1]));
-        s = bodyStr.substring(idx[0] + strA.length, Math.min(...len));
+        // console.log(bodyStr[idx[0] + strA.length], Math.min(...len));
+        s = bodyStr.substr(idx[0] + strA.length, Math.min(...len));
+        // console.log(strA, ...strsB, s);
     }
-    // console.log(strA, ...strsB, s);
     return s;
 }
 

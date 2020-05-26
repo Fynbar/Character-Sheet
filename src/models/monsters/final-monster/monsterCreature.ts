@@ -14,7 +14,10 @@ import {
 } from './monster.model';
 import { characterClass } from '../../characterClass.enum';
 import { enumValuesArray } from '../../../app/common/enumKeysArray';
-import { challengeRating } from 'src/models/rules/challengeRating.enum';
+import { ChallengeRating } from 'src/models/rules/challengeRating.enum';
+import { Weapon } from 'src/models/equipment/weapon.model';
+import { Action } from 'rxjs/internal/scheduler/Action';
+import { WeaponAttack } from 'src/app/components/equipment/weapon/weapon-attack';
 
 const classNames = enumValuesArray(characterClass);
 const lowerClassNames = classNames.map(s => s.toLowerCase);
@@ -97,10 +100,11 @@ export class MonsterCreature implements Monster {
         }
     }
 
-    public static fromAPIMonster(m: APIMonster): MonsterCreature {
+    public static fromAPIMonster(m: APIMonster, weaponList?: Weapon[]): MonsterCreature {
         const monster = new MonsterCreature(m);
+        const weaponNames = weaponList ? weaponList.map(w => w.name.toLowerCase()) : [];
         monster.armorClass = m.armor_class;
-        monster.challenge = m.challenge_rating <= 1 && m.challenge_rating >= 0 ?
+        monster.challenge = m.challenge_rating < 1 && m.challenge_rating > 0 ?
             `1/${String(1 / m.challenge_rating)}` : String(m.challenge_rating);
         monster.meta = {
             size: m.size,
@@ -173,7 +177,13 @@ export class MonsterCreature implements Monster {
         // specialAbilities ?: SpecialAbility[];
         // console.log(m.name);
         monster.actions = m.actions ? m.actions.map((a: ActionElement) => {
-            if (a.damage) {
+            const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
+            if (a.otherActions) {
+                console.log(`${m.name}: ${a.name}`);
+            }
+            if (weaponindex >= 0) {
+                return new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency);
+            } else if (a.damage) {
                 a.damage = a.damage.map((d: ActionDamage) => {
                     if (d.damage_dice) {
                         const dice = d.damage_dice.split('d').map(n => Number(n));
@@ -214,7 +224,8 @@ export class MonsterCreature implements Monster {
         return monster;
     }
 
-    public static fromPageDesc(m: MonsterMonMan): MonsterCreature {
+    public static fromPageDesc(m: MonsterMonMan, weaponList?: Weapon[]): MonsterCreature {
+        const weaponNames = weaponList ? weaponList.map(w => w.name.toLowerCase()) : [];
         const sourcePage: Page = { page: m.page, book: Book.MM };
         const value: any = {
             name: m.name, actions: [], traits: [], page: sourcePage, abilities: {}, flavorText: m.see ? m.see : m.flavor_text
@@ -257,7 +268,7 @@ export class MonsterCreature implements Monster {
         });
 
         this.setTraits(value);
-        // console.log(value.traits);
+
         this.setActions(value);
 
         this.setLegendary(value);
@@ -265,9 +276,10 @@ export class MonsterCreature implements Monster {
         this.setReactions(value);
         const unecessaryProps = [''];
         const monster = new MonsterCreature(value);
-
-        // unecessaryProps.forEach(prop => delete value.prop);
-        // console.log(monster.name, monster.abilitiesModifiers);
+        monster.actions = monster.actions.map(a => {
+            const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
+            return weaponindex >= 0 ? new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency) : a;
+        });
         return monster;
     }
 
@@ -696,8 +708,8 @@ export class MonsterCreature implements Monster {
             } else if (this.propChecker('Languages', lineSS)) {
                 value.languages = spaceJoin(lineSS.splice(1)).split(', ');
             } else if (this.propChecker('Challenge', lineSS)) {
-                const str = spaceJoin(lineSS.splice(1));
-                value.challenge = str.substring(0, str.indexOf(' ('));
+                value.challenge = findBetweenStrings(line, 'llenge', '(').trim();
+                // console.log(`${value.name}: ${value.challenge}`);
             } else if (this.propChecker('Damage Resistances', lineSS) || this.propChecker('Damage Resistance', lineSS)) {
                 value.damageResistances = spaceJoin(lineSS.splice(2)).split(', ');
             } else if (this.propChecker('Damage Immunities', lineSS)) {
@@ -763,7 +775,7 @@ export class MonsterCreature implements Monster {
 
     public get proficiency(): number {
         if (this.challenge) {
-            return challengeRating[this.challenge].proficiency;
+            return ChallengeRating.challengeRating[this.challenge].proficiency;
         } else if (this.savingThrows) {
             return Math.min(...Object.keys(this.savingThrows).map(ab => this.savingThrows[ab] - this.abilitiesModifiers[ab]));
         }
@@ -772,7 +784,7 @@ export class MonsterCreature implements Monster {
     public get exp(): number {
         if (this.challenge) {
             // console.log(JSON.stringify(challengeRating[this.challenge]));
-            return challengeRating[this.challenge].exp;
+            return ChallengeRating.challengeRating[this.challenge].exp;
         }
     }
 

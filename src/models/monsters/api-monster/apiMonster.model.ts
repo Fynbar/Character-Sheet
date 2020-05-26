@@ -92,7 +92,7 @@ export interface ActionDamage {
     };
     damage_dice?: string;
     damage_bonus?: number;
-    damageType?: string;
+    damageType?: DamageStatusType;
     damageDice?: Dice;
     dc?: Dc;
     choose?: number;

@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { DndApiService } from 'src/app/services/dnd-api.service';
 import { MonsterMonMan } from 'src/models/monsters/mon-man-text-monster/monsterMonMan';
 import { forkJoin } from 'rxjs';
+import { Weapon } from 'src/models/equipment/weapon.model';
 
 @Component({
   selector: 'app-monster-builder',
@@ -33,7 +34,7 @@ export class MonsterBuilderComponent implements OnInit {
   public filMon: MonsterCreature[] = [];
   private temp: APIMonster[] = [];
   public mon2: any[] = [];
-
+  public weapons: Weapon[] = [];
   // ngAfterViewInit() {
   //   this.d1.nativeElement.insertAdjacentHTML('beforeend', '<app-dice [diceType]=12></app-dice> two');
   // }
@@ -43,12 +44,13 @@ export class MonsterBuilderComponent implements OnInit {
     forkJoin(this.jsonService.getJSON('apiMons'), this.jsonService.getJSON('mon_man_addition'), this.jsonService.getWeaponJSON())
       .subscribe(data => {
         this.monsters = data[0];
-        this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
+        this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m, data[2]));
         const names = this.monsters.map(n => n.name);
         this.mon2 = data[1].filter(f => names.indexOf(f.name) < 0);
-        console.log(`Got rid of ${data[1].length - this.mon2.length}`);
-        this.txtmonsters = this.mon2.map(m => this.fromPageDesc(m));
-        console.log(data[2]);
+        console.log(data[1].filter(f => names.indexOf(f.name) > 0));
+        this.txtmonsters = this.mon2.map(m => MonsterCreature.fromPageDesc(m, data[2]));
+        this.weapons = data[2];
+        console.log(this.weapons);
       });
 
   }
@@ -98,9 +100,9 @@ export class MonsterBuilderComponent implements OnInit {
   //     // return this.monsters.map(m => this.readPageDesc(m))
   // }
 
-  public fromPageDesc(m: MonsterMonMan): MonsterCreature {
-    return MonsterCreature.fromPageDesc(m);
-  }
+  // public fromPageDesc(m: MonsterMonMan): MonsterCreature {
+  //   return MonsterCreature.fromPageDesc(m);
+  // }
 
   public readPageDesc(str: MonsterMonMan): MonsterMonMan {
     let s = str.page_desc ? str.page_desc : '';

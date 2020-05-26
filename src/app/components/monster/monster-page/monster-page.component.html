@@ -31,7 +31,7 @@
     <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
         <tr>
             <td [attr.colspan]="columns.length + 1">
-                <app-monster-viewer [Monster]="rowData"></app-monster-viewer>
+                <app-stat-block [Monster]="rowData"></app-stat-block>
             </td>
         </tr>
     </ng-template>

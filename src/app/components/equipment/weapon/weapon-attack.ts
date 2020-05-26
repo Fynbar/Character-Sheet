@@ -4,6 +4,7 @@ import { Dice } from '../../dice/dice';
 import { Attack, ActionUsage, Options, Dc, ActionDamage } from 'src/models/monsters/api-monster/apiMonster.model';
 import { Weapon, WeaponRange, CategoryRange } from 'src/models/equipment/weapon.model';
 import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
+import { DamageStatusType } from 'src/models/rules/damageStatusType';
 
 
 export class WeaponAttack implements ActionElement {
@@ -23,7 +24,6 @@ export class WeaponAttack implements ActionElement {
   name: string;
   // desc: string;
   weapon: Weapon;
-  otherActions?: string[] = [];
   attackBonus?: number;
   damage?: ActionDamage[] = [];
   // options?: Options;
@@ -35,10 +35,11 @@ export class WeaponAttack implements ActionElement {
   modifers: Abilities;
   proficiency: number;
   /* creature: Monster */
-  constructor(weapon: Weapon, monster: MonsterCreature) {
+  constructor(weapon: Weapon, abilitiesModifiers: Abilities, proficiency: number) {
+    // console.log(monster);
     this.weapon = weapon;
-    this.modifers = monster.abilitiesModifiers;
-    this.proficiency = monster.proficiency;
+    this.modifers = abilitiesModifiers;
+    this.proficiency = proficiency;
     let rollBonus: number;
     if (weapon.weaponRange === WeaponRange.Ranged) {
       rollBonus = this.modifers.DEX;
@@ -54,18 +55,20 @@ export class WeaponAttack implements ActionElement {
       damageType: weapon.damage.damageType,
       damageDice: Dice.fromString(`${weapon.damage.damageDice}${damageBonus >= 0 ? '+' : '-'}${damageBonus}`)
     }];
+    // console.log(this);
+      // `${monster.name}, ${weapon.name}`);
   }
 
   // Javelin: Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
 
   get attackRangeString() {
     let s = 'Weapon Attack';
-    s = `${this.weapon.weaponRange}${this.weapon.throwRange && this.weapon.weaponRange === WeaponRange.Melee ? 'or Ranged' : ''} ${s}`;
-    return `${s},`;
+    s = `${this.weapon.weaponRange}${this.weapon.throwRange && this.weapon.weaponRange === WeaponRange.Melee ? ' or Ranged' : ''} ${s}`;
+    return s;
   }
 
   get damageHitString(): string[] {
-    return this.damage.map(dam => `Hit: ${dam} ${this.weapon.damage.damageType} damage.`);
+    return this.damage.map(dam => `Hit: ${dam.damageDice.makeString} ${this.weapon.damage.damageType} damage.`);
   }
 
   get rangeString(): string {

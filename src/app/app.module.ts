@@ -100,7 +100,7 @@ import { DiceComponent } from './components/dice/dice.component';
 import { DicePipe } from './common/dice.pipe';
 import { ModifierComponent } from './components/modifiers/modifier/modifier.component';
 import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
-import { MonsterViewerComponent } from './components/monster/monster-viewer/monster-viewer.component';
+import { StatBlockComponent } from './components/monster/stat-block/stat-block.component';
 import { DiceResultDialogComponent } from './components/dice/dice-result-dialog/dice-result-dialog.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
@@ -119,7 +119,7 @@ import { WeaponComponent } from './components/equipment/weapon/weapon.component'
     DicePipe,
     ModifierComponent,
     ModifierBuilderComponent,
-    MonsterViewerComponent,
+    StatBlockComponent,
     DiceResultDialogComponent,
     NotesComponent,
     EquipmentComponent,

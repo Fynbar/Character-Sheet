@@ -3,11 +3,11 @@ import { MonsterCreature } from '../../../../models/monsters/final-monster/monst
 import { abbrevToAbility, abilityAbbrev } from '../../../../models/rules/ability.enum';
 
 @Component({
-  selector: 'app-monster-viewer',
-  templateUrl: './monster-viewer.component.html',
-  styleUrls: ['./monster-viewer.component.css']
+  selector: 'app-stat-block',
+  templateUrl: './stat-block.component.html',
+  styleUrls: ['./stat-block.component.css']
 })
-export class MonsterViewerComponent implements OnInit {
+export class StatBlockComponent implements OnInit {
   @Input() Monster: MonsterCreature;
   abilAbbrev: string[] = abilityAbbrev;
   constructor() { }

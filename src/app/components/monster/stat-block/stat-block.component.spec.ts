@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonsterViewerComponent } from './monster-viewer.component';
+import { StatBlockComponent } from './stat-block.component';
 
-describe('MonsterViewerComponent', () => {
-  let component: MonsterViewerComponent;
-  let fixture: ComponentFixture<MonsterViewerComponent>;
+describe('StatBlockComponent', () => {
+  let component: StatBlockComponent;
+  let fixture: ComponentFixture<StatBlockComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonsterViewerComponent ]
+      declarations: [ StatBlockComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MonsterViewerComponent);
+    fixture = TestBed.createComponent(StatBlockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

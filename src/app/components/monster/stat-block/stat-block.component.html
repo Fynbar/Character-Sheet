@@ -1,5 +1,5 @@
 <div *ngIf="Monster">
-    <h3 class="view-header">{{ Monster.name}}</h3>
+    <h3 class="remove-bottom-margin remove-top-margin">{{ Monster.name}}</h3>
     <div>{{ Monster.metaString}}</div>
     <div>Armor Class: {{Monster.armorString}}</div>
     <div>Hit Points:
@@ -33,14 +33,14 @@
     </div>
 
     <div *ngIf="Monster.actions">
-        <h4 class="view-header">Actions</h4>
+        <h4 class="remove-bottom-margin">Actions</h4>
         <div *ngFor="let a of Monster.actions; let i=index">
             <b>{{a.name}}:</b> {{a.desc}}
         </div>
     </div>
 
     <div *ngIf="Monster.legendary">
-        <h4 class="view-header">Legendary Actions</h4>
+        <h4 class="remove-bottom-margin">Legendary Actions</h4>
         <div>{{Monster.legendaryRules}}</div>
         <div *ngFor="let la of Monster.legendary; let i=index">
             <b>{{la.name}}:</b> {{la.desc}}
@@ -48,7 +48,7 @@
     </div>
 
     <div *ngIf="Monster.reactions">
-        <h4 class="view-header">Reactions</h4>
+        <h4 class="remove-bottom-margin">Reactions</h4>
         <div *ngFor="let r of Monster.Reactions; let i=index">
             <b>{{r.name}}:</b> {{r.desc}}
         </div>
