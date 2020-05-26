@@ -28,17 +28,28 @@ export function insertString(mainStr: string, newStr: string, idx: number = 0): 
 }
 
 export function findBetweenStrings(bodyStr: string, strA: string, ...strsB: string[]) {
-
-    let idx = strA === '' ? [0] : [bodyStr.toLowerCase().indexOf(strA.toLowerCase())];
-    idx = idx.concat(strsB.map(strB => bodyStr.toLowerCase().indexOf(strB.toLowerCase())));
+    // const strings = [strA].concat(...strsB);
+    const idx = strA === '' ? [0] : [bodyStr.toLowerCase().indexOf(strA.toLowerCase())];
+    for (const i in strsB) {
+        if (strsB[i]) {
+            idx.push(bodyStr.toLowerCase().indexOf(strsB[i].toLowerCase(), idx[0] + strA.length));
+        }
+    }
     let s = '';
-    // console.log(idx);
+
     const len = idx.map(o => o - idx[0] - strA.length).filter(f => f > 0);
+    // if (strA.toUpperCase() === 'DC') {
+    //     console.log(strA, strA.length);
+    //     console.log(idx, len, bodyStr.substr(idx[0]));
+    //     console.log(bodyStr.substring(idx[0], idx[0] + strA.length));
+    // }
     // console.log(idx[0] >= 0 && len.length > 0, len);
     if (idx[0] >= 0 && len.length > 0) {
-        // console.log(bodyStr[idx[0] + strA.length], Math.min(...len));
         s = bodyStr.substr(idx[0] + strA.length, Math.min(...len));
-        // console.log(strA, ...strsB, s);
+        // if (strA.toUpperCase().trim() === 'DC ') {
+        //     console.log(bodyStr[idx[0] + strA.length], Math.min(...len));
+        //     console.log(strA, ...strsB, s);
+        // }
     }
     return s;
 }

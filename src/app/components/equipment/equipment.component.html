@@ -23,7 +23,7 @@
                     <i class="pi pi-times" (click)="weightFilter=[null, weightSlider[1]];eqt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="showWeightX"></i>
                     <p-slider *ngIf="weightSlider" range="true" [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="weightFilter" [min]="weightSlider[0]" [max]="weightSlider[1]" (onChange)="onWeightChange($event, eqt)"></p-slider>
                 </div> -->
-                <p-dropdown *ngSwitchCase="'equipment_category'" [options]="categories" [style]="{'width':'100%'}" (onChange)="eqt.filter($event.value, col.field, 'equals')"></p-dropdown>
+                <p-dropdown *ngSwitchCase="'equipmentCategory'" [options]="categories" [style]="{'width':'100%'}" (onChange)="eqt.filter($event.value, col.field, 'equals')"></p-dropdown>
                 <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="eqt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
                 <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="eqt.filter($event.target.value, col.field, 'custom')"> -->
             </th>

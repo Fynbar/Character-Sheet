@@ -3,8 +3,8 @@
             "_id": "5eb89d650b1bb138c5676081",
             "index": "abacus",
             "name": "Abacus",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -16,8 +16,8 @@
             "_id": "5eb89d650b1bb138c5676082",
             "index": "acid-vial",
             "name": "Acid (vial)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -33,8 +33,8 @@
             "_id": "5eb89d650b1bb138c5676085",
             "index": "alchemists-fire-flask",
             "name": "Alchemist's fire (flask)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -51,8 +51,8 @@
             "_id": "5eb89d650b1bb138c567608a",
             "index": "amulet",
             "name": "Amulet",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Holy Symbol",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Holy Symbol",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -68,8 +68,8 @@
             "_id": "5eb89d650b1bb138c5676089",
             "index": "antitoxin-vial",
             "name": "Antitoxin (vial)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -84,8 +84,8 @@
             "_id": "5eb89d650b1bb138c5676084",
             "index": "arrow",
             "name": "Arrow",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Ammunition",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Ammunition",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -97,8 +97,8 @@
             "_id": "5eb89d650b1bb138c567608f",
             "index": "backpack",
             "name": "Backpack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -110,8 +110,8 @@
             "_id": "5eb89d650b1bb138c5676096",
             "index": "ball-bearings-bag-of-1000",
             "name": "Ball bearings (bag of 1,000)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -128,8 +128,8 @@
             "_id": "5eb89d650b1bb138c5676091",
             "index": "barrel",
             "name": "Barrel",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -141,8 +141,8 @@
             "_id": "5eb89d650b1bb138c5676092",
             "index": "basket",
             "name": "Basket",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 4,
                 "unit": "sp"
@@ -154,8 +154,8 @@
             "_id": "5eb89d650b1bb138c5676093",
             "index": "bedroll",
             "name": "Bedroll",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -167,8 +167,8 @@
             "_id": "5eb89d650b1bb138c5676094",
             "index": "bell",
             "name": "Bell",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -180,8 +180,8 @@
             "_id": "5eb89d650b1bb138c5676095",
             "index": "blanket",
             "name": "Blanket",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -193,8 +193,8 @@
             "_id": "5eb89d650b1bb138c5676097",
             "index": "block-and-tackle",
             "name": "Block and tackle",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -209,8 +209,8 @@
             "_id": "5eb89d650b1bb138c5676086",
             "index": "blowgun-needle",
             "name": "Blowgun needle",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Ammunition",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Ammunition",
             "cost": {
                 "quantity": 2,
                 "unit": "cp"
@@ -222,8 +222,8 @@
             "_id": "5eb89d650b1bb138c5676099",
             "index": "book",
             "name": "Book",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -238,8 +238,8 @@
             "_id": "5eb89d650b1bb138c5676098",
             "index": "bottle-glass",
             "name": "Bottle, glass",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -251,8 +251,8 @@
             "_id": "5eb89d650b1bb138c567609a",
             "index": "bucket",
             "name": "Bucket",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -264,8 +264,8 @@
             "_id": "5eb89d650b1bb138c56760ea",
             "index": "burglars-pack",
             "name": "Burglar's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 16,
                 "unit": "gp"
@@ -325,8 +325,8 @@
             "_id": "5eb89d650b1bb138c567609c",
             "index": "caltrops",
             "name": "Caltrops",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -344,8 +344,8 @@
             "_id": "5eb89d650b1bb138c567609b",
             "index": "candle",
             "name": "Candle",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "cp"
@@ -360,8 +360,8 @@
             "_id": "5eb89d650b1bb138c567609d",
             "index": "case-crossbow-bolt",
             "name": "Case, crossbow bolt",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -376,8 +376,8 @@
             "_id": "5eb89d650b1bb138c567609e",
             "index": "case-map-or-scroll",
             "name": "Case, map or scroll",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -392,8 +392,8 @@
             "_id": "5eb89d650b1bb138c56760a1",
             "index": "chain-10-feet",
             "name": "Chain (10 feet)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -408,8 +408,8 @@
             "_id": "5eb89d650b1bb138c567609f",
             "index": "chalk-1-piece",
             "name": "Chalk (1 piece)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "cp"
@@ -421,8 +421,8 @@
             "_id": "5eb89d650b1bb138c56760a0",
             "index": "chest",
             "name": "Chest",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -434,8 +434,8 @@
             "_id": "5eb89d650b1bb138c56760b8",
             "index": "climbers-kit",
             "name": "Climber's Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -450,8 +450,8 @@
             "_id": "5eb89d650b1bb138c56760a2",
             "index": "clothes-common",
             "name": "Clothes, common",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -463,8 +463,8 @@
             "_id": "5eb89d650b1bb138c56760a3",
             "index": "clothes-costume",
             "name": "Clothes, costume",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -476,8 +476,8 @@
             "_id": "5eb89d650b1bb138c56760a6",
             "index": "clothes-fine",
             "name": "Clothes, fine",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 15,
                 "unit": "gp"
@@ -489,8 +489,8 @@
             "_id": "5eb89d650b1bb138c56760a4",
             "index": "clothes-travelers",
             "name": "Clothes, traveler's",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -502,8 +502,8 @@
             "_id": "5eb89d650b1bb138c56760a5",
             "index": "component-pouch",
             "name": "Component pouch",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -518,8 +518,8 @@
             "_id": "5eb89d650b1bb138c5676088",
             "index": "crossbow-bolt",
             "name": "Crossbow bolt",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Ammunition",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Ammunition",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -531,8 +531,8 @@
             "_id": "5eb89d650b1bb138c56760a7",
             "index": "crowbar",
             "name": "Crowbar",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -547,8 +547,8 @@
             "_id": "5eb89d650b1bb138c567608b",
             "index": "crystal",
             "name": "Crystal",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Arcane focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Arcane focus",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -563,8 +563,8 @@
             "_id": "5eb89d650b1bb138c56760e9",
             "index": "diplomats-pack",
             "name": "Diplomat's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 39,
                 "unit": "gp"
@@ -620,8 +620,8 @@
             "_id": "5eb89d650b1bb138c56760ba",
             "index": "disguise-kit",
             "name": "Disguise Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -636,8 +636,8 @@
             "_id": "5eb89d650b1bb138c56760eb",
             "index": "dungeoneers-pack",
             "name": "Dungeoneer's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 12,
                 "unit": "gp"
@@ -681,8 +681,8 @@
             "_id": "5eb89d650b1bb138c56760ac",
             "index": "emblem",
             "name": "Emblem",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Holy Symbol",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Holy Symbol",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -698,8 +698,8 @@
             "_id": "5eb89d650b1bb138c56760ec",
             "index": "entertainers-pack",
             "name": "Entertainer's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 40,
                 "unit": "gp"
@@ -739,8 +739,8 @@
             "_id": "5eb89d650b1bb138c56760ed",
             "index": "explorers-pack",
             "name": "Explorer's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -784,8 +784,8 @@
             "_id": "5eb89d650b1bb138c56760ad",
             "index": "fishing-tackle",
             "name": "Fishing tackle",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -800,8 +800,8 @@
             "_id": "5eb89d650b1bb138c56760ae",
             "index": "flask-or-tankard",
             "name": "Flask or tankard",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "cp"
@@ -813,8 +813,8 @@
             "_id": "5eb89d650b1bb138c56760b9",
             "index": "forgery-kit",
             "name": "Forgery Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 15,
                 "unit": "gp"
@@ -829,8 +829,8 @@
             "_id": "5eb89d650b1bb138c56760af",
             "index": "grappling-hook",
             "name": "Grappling hook",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -842,8 +842,8 @@
             "_id": "5eb89d650b1bb138c56760b0",
             "index": "hammer",
             "name": "Hammer",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -855,8 +855,8 @@
             "_id": "5eb89d650b1bb138c56760b1",
             "index": "hammer-sledge",
             "name": "Hammer, sledge",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -868,8 +868,8 @@
             "_id": "5eb89d650b1bb138c56760bd",
             "index": "healers-kit",
             "name": "Healer's Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -884,8 +884,8 @@
             "_id": "5eb89d650b1bb138c56760bb",
             "index": "herbalism-kit",
             "name": "Herbalism Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -900,8 +900,8 @@
             "_id": "5eb89d650b1bb138c56760b3",
             "index": "holy-water-flask",
             "name": "Holy water (flask)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -919,8 +919,8 @@
             "_id": "5eb89d650b1bb138c56760b2",
             "index": "hourglass",
             "name": "Hourglass",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -932,8 +932,8 @@
             "_id": "5eb89d650b1bb138c56760b4",
             "index": "hunting-trap",
             "name": "Hunting trap",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -950,8 +950,8 @@
             "_id": "5eb89d650b1bb138c56760b6",
             "index": "ink-1-ounce-bottle",
             "name": "Ink (1 ounce bottle)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -963,8 +963,8 @@
             "_id": "5eb89d650b1bb138c56760b5",
             "index": "ink-pen",
             "name": "Ink pen",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "cp"
@@ -976,8 +976,8 @@
             "_id": "5eb89d650b1bb138c56760b7",
             "index": "jug-or-pitcher",
             "name": "Jug or pitcher",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "cp"
@@ -989,8 +989,8 @@
             "_id": "5eb89d650b1bb138c56760be",
             "index": "ladder-10-foot",
             "name": "Ladder (10-foot)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "sp"
@@ -1002,8 +1002,8 @@
             "_id": "5eb89d650b1bb138c56760c0",
             "index": "lamp",
             "name": "Lamp",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -1018,8 +1018,8 @@
             "_id": "5eb89d650b1bb138c56760c1",
             "index": "lantern-bullseye",
             "name": "Lantern, bullseye",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1034,8 +1034,8 @@
             "_id": "5eb89d650b1bb138c56760c2",
             "index": "lantern-hooded",
             "name": "Lantern, hooded",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1050,8 +1050,8 @@
             "_id": "5eb89d650b1bb138c56760c3",
             "index": "lock",
             "name": "Lock",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1066,8 +1066,8 @@
             "_id": "5eb89d650b1bb138c56760c4",
             "index": "magnifying-glass",
             "name": "Magnifying glass",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 100,
                 "unit": "gp"
@@ -1083,8 +1083,8 @@
             "_id": "5eb89d650b1bb138c56760c6",
             "index": "manacles",
             "name": "Manacles",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -1100,8 +1100,8 @@
             "_id": "5eb89d650b1bb138c56760bc",
             "index": "mess-kit",
             "name": "Mess Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 2,
                 "unit": "sp"
@@ -1116,8 +1116,8 @@
             "_id": "5eb89d650b1bb138c56760c5",
             "index": "mirror-steel",
             "name": "Mirror, steel",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1129,8 +1129,8 @@
             "_id": "5eb89d650b1bb138c56760c7",
             "index": "oil-flask",
             "name": "Oil (flask)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "sp"
@@ -1149,8 +1149,8 @@
             "_id": "5eb89d650b1bb138c567608e",
             "index": "orb",
             "name": "Orb",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Arcane focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Arcane focus",
             "cost": {
                 "quantity": 20,
                 "unit": "gp"
@@ -1165,8 +1165,8 @@
             "_id": "5eb89d650b1bb138c56760ca",
             "index": "paper-one-sheet",
             "name": "Paper (one sheet)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "sp"
@@ -1178,8 +1178,8 @@
             "_id": "5eb89d650b1bb138c56760c8",
             "index": "parchment-one-sheet",
             "name": "Parchment (one sheet)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "sp"
@@ -1191,8 +1191,8 @@
             "_id": "5eb89d650b1bb138c56760c9",
             "index": "perfume-vial",
             "name": "Perfume (vial)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1204,8 +1204,8 @@
             "_id": "5eb89d650b1bb138c56760cb",
             "index": "pick-miners",
             "name": "Pick, miner's",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -1217,8 +1217,8 @@
             "_id": "5eb89d650b1bb138c56760cc",
             "index": "piton",
             "name": "Piton",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -1230,8 +1230,8 @@
             "_id": "5eb89d650b1bb138c56760cf",
             "index": "poison-basic-vial",
             "name": "Poison, basic (vial)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 100,
                 "unit": "gp"
@@ -1246,8 +1246,8 @@
             "_id": "5eb89d650b1bb138c56760bf",
             "index": "poisoners-kit",
             "name": "Poisoner's Kit",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Kit",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Kit",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -1262,8 +1262,8 @@
             "_id": "5eb89d650b1bb138c56760cd",
             "index": "pole-10-foot",
             "name": "Pole (10-foot)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -1275,8 +1275,8 @@
             "_id": "5eb89d650b1bb138c56760ce",
             "index": "pot-iron",
             "name": "Pot, iron",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -1288,8 +1288,8 @@
             "_id": "5eb89d650b1bb138c56760d0",
             "index": "potion-of-healing",
             "name": "Potion of healing",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -1304,8 +1304,8 @@
             "_id": "5eb89d650b1bb138c56760d1",
             "index": "pouch",
             "name": "Pouch",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -1320,8 +1320,8 @@
             "_id": "5eb89d650b1bb138c56760ef",
             "index": "priests-pack",
             "name": "Priest's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 19,
                 "unit": "gp"
@@ -1357,8 +1357,8 @@
             "_id": "5eb89d650b1bb138c56760d3",
             "index": "quiver",
             "name": "Quiver",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1373,8 +1373,8 @@
             "_id": "5eb89d650b1bb138c56760d2",
             "index": "ram-portable",
             "name": "Ram, portable",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 4,
                 "unit": "gp"
@@ -1389,8 +1389,8 @@
             "_id": "5eb89d650b1bb138c56760d4",
             "index": "rations-1-day",
             "name": "Rations (1 day)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -1405,8 +1405,8 @@
             "_id": "5eb89d650b1bb138c56760d6",
             "index": "reliquary",
             "name": "Reliquary",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Holy Symbol",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Holy Symbol",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1422,8 +1422,8 @@
             "_id": "5eb89d650b1bb138c56760d5",
             "index": "robes",
             "name": "Robes",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1435,8 +1435,8 @@
             "_id": "5eb89d650b1bb138c567608c",
             "index": "rod",
             "name": "Rod",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Arcane focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Arcane focus",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1451,8 +1451,8 @@
             "_id": "5eb89d650b1bb138c56760d8",
             "index": "rope-hempen-50-feet",
             "name": "Rope, hempen (50 feet)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1467,8 +1467,8 @@
             "_id": "5eb89d650b1bb138c56760d7",
             "index": "rope-silk-50-feet",
             "name": "Rope, silk (50 feet)",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1483,8 +1483,8 @@
             "_id": "5eb89d650b1bb138c56760d9",
             "index": "sack",
             "name": "Sack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "cp"
@@ -1496,8 +1496,8 @@
             "_id": "5eb89d650b1bb138c56760da",
             "index": "scale-merchants",
             "name": "Scale, merchant's",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1512,8 +1512,8 @@
             "_id": "5eb89d650b1bb138c56760ee",
             "index": "scholars-pack",
             "name": "Scholar's Pack",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Equipment Pack",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Equipment Pack",
             "cost": {
                 "quantity": 40,
                 "unit": "gp"
@@ -1545,8 +1545,8 @@
             "_id": "5eb89d650b1bb138c56760db",
             "index": "sealing-wax",
             "name": "Sealing wax",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -1558,8 +1558,8 @@
             "_id": "5eb89d650b1bb138c56760dc",
             "index": "shovel",
             "name": "Shovel",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -1571,8 +1571,8 @@
             "_id": "5eb89d650b1bb138c56760dd",
             "index": "signal-whistle",
             "name": "Signal whistle",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -1584,8 +1584,8 @@
             "_id": "5eb89d650b1bb138c56760e0",
             "index": "signet-ring",
             "name": "Signet ring",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1597,8 +1597,8 @@
             "_id": "5eb89d650b1bb138c5676087",
             "index": "sling-bullet",
             "name": "Sling bullet",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Ammunition",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Ammunition",
             "cost": {
                 "quantity": 1,
                 "unit": "cp"
@@ -1610,8 +1610,8 @@
             "_id": "5eb89d650b1bb138c56760de",
             "index": "soap",
             "name": "Soap",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "cp"
@@ -1623,8 +1623,8 @@
             "_id": "5eb89d650b1bb138c56760df",
             "index": "spellbook",
             "name": "Spellbook",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -1639,8 +1639,8 @@
             "_id": "5eb89d650b1bb138c56760e1",
             "index": "spike-iron",
             "name": "Spike, iron",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "sp"
@@ -1652,8 +1652,8 @@
             "_id": "5eb89d650b1bb138c56760a8",
             "index": "sprig-of-mistletoe",
             "name": "Sprig of mistletoe",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Druidic focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Druidic focus",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1668,8 +1668,8 @@
             "_id": "5eb89d650b1bb138c56760e3",
             "index": "spyglass",
             "name": "Spyglass",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1000,
                 "unit": "gp"
@@ -1684,8 +1684,8 @@
             "_id": "5eb89d650b1bb138c567608d",
             "index": "staff",
             "name": "Staff",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Arcane focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Arcane focus",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1700,8 +1700,8 @@
             "_id": "5eb89d650b1bb138c56760e2",
             "index": "tent-two-person",
             "name": "Tent, two-person",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -1716,8 +1716,8 @@
             "_id": "5eb89d650b1bb138c56760e4",
             "index": "tinderbox",
             "name": "Tinderbox",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -1733,8 +1733,8 @@
             "_id": "5eb89d650b1bb138c56760e6",
             "index": "torch",
             "name": "Torch",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "cp"
@@ -1749,8 +1749,8 @@
             "_id": "5eb89d650b1bb138c56760a9",
             "index": "totem",
             "name": "Totem",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Druidic focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Druidic focus",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1765,8 +1765,8 @@
             "_id": "5eb89d650b1bb138c56760e5",
             "index": "vial",
             "name": "Vial",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1778,8 +1778,8 @@
             "_id": "5eb89d650b1bb138c5676090",
             "index": "wand",
             "name": "Wand",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Arcane focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Arcane focus",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1794,8 +1794,8 @@
             "_id": "5eb89d650b1bb138c56760e8",
             "index": "waterskin",
             "name": "Waterskin",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 2,
                 "unit": "sp"
@@ -1807,8 +1807,8 @@
             "_id": "5eb89d650b1bb138c56760e7",
             "index": "whetstone",
             "name": "Whetstone",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Standard Gear",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Standard Gear",
             "cost": {
                 "quantity": 1,
                 "unit": "cp"
@@ -1820,8 +1820,8 @@
             "_id": "5eb89d650b1bb138c56760ab",
             "index": "wooden-staff",
             "name": "Wooden staff",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Druidic focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Druidic focus",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1836,8 +1836,8 @@
             "_id": "5eb89d650b1bb138c56760aa",
             "index": "yew-wand",
             "name": "Yew wand",
-            "equipment_category": "Adventuring Gear",
-            "gear_category": "Druidic focus",
+            "equipmentCategory": "Adventuring Gear",
+            "gearCategory": "Druidic focus",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1853,8 +1853,8 @@
             "_id": "5eb89d650b1bb138c56760f0",
             "index": "alchemists-supplies",
             "name": "Alchemist's supplies",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -1869,8 +1869,8 @@
             "_id": "5eb89d650b1bb138c5676103",
             "index": "bagpipes",
             "name": "Bagpipes",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 30,
                 "unit": "gp"
@@ -1885,8 +1885,8 @@
             "_id": "5eb89d650b1bb138c56760f1",
             "index": "brewers-supplies",
             "name": "Brewer's supplies",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 20,
                 "unit": "gp"
@@ -1901,8 +1901,8 @@
             "_id": "5eb89d650b1bb138c56760f2",
             "index": "calligraphers-supplies",
             "name": "Calligrapher's supplies",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -1917,8 +1917,8 @@
             "_id": "5eb89d650b1bb138c56760f3",
             "index": "carpenters-tools",
             "name": "Carpenter's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 8,
                 "unit": "gp"
@@ -1933,8 +1933,8 @@
             "_id": "5eb89d650b1bb138c56760f4",
             "index": "cartographers-tools",
             "name": "Cartographer's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 15,
                 "unit": "gp"
@@ -1949,8 +1949,8 @@
             "_id": "5eb89d650b1bb138c56760f5",
             "index": "cobblers-tools",
             "name": "Cobbler's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -1965,8 +1965,8 @@
             "_id": "5eb89d650b1bb138c56760f6",
             "index": "cooks-utensils",
             "name": "Cook's utensils",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -1981,8 +1981,8 @@
             "_id": "5eb89d650b1bb138c5676101",
             "index": "dice-set",
             "name": "Dice set",
-            "equipment_category": "Tools",
-            "tool_category": "Gaming Sets",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Gaming Sets",
             "cost": {
                 "quantity": 1,
                 "unit": "sp"
@@ -1997,8 +1997,8 @@
             "_id": "5eb89d650b1bb138c5676104",
             "index": "drum",
             "name": "Drum",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 6,
                 "unit": "gp"
@@ -2013,8 +2013,8 @@
             "_id": "5eb89d650b1bb138c5676105",
             "index": "dulcimer",
             "name": "Dulcimer",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -2029,8 +2029,8 @@
             "_id": "5eb89d650b1bb138c5676106",
             "index": "flute",
             "name": "Flute",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -2045,8 +2045,8 @@
             "_id": "5eb89d650b1bb138c56760f7",
             "index": "glassblowers-tools",
             "name": "Glassblower's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 30,
                 "unit": "gp"
@@ -2061,8 +2061,8 @@
             "_id": "5eb89d650b1bb138c5676109",
             "index": "horn",
             "name": "Horn",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 3,
                 "unit": "gp"
@@ -2077,8 +2077,8 @@
             "_id": "5eb89d650b1bb138c56760f8",
             "index": "jewelers-tools",
             "name": "Jeweler's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -2093,8 +2093,8 @@
             "_id": "5eb89d650b1bb138c56760fc",
             "index": "leatherworkers-tools",
             "name": "Leatherworker's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -2109,8 +2109,8 @@
             "_id": "5eb89d650b1bb138c5676107",
             "index": "lute",
             "name": "Lute",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 35,
                 "unit": "gp"
@@ -2125,8 +2125,8 @@
             "_id": "5eb89d650b1bb138c5676108",
             "index": "lyre",
             "name": "Lyre",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 30,
                 "unit": "gp"
@@ -2141,8 +2141,8 @@
             "_id": "5eb89d650b1bb138c56760f9",
             "index": "masons-tools",
             "name": "Mason's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -2157,8 +2157,8 @@
             "_id": "5eb89d650b1bb138c567610c",
             "index": "navigators-tools",
             "name": "Navigator's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Other Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Other Tools",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -2173,8 +2173,8 @@
             "_id": "5eb89d650b1bb138c56760fa",
             "index": "painters-supplies",
             "name": "Painter's supplies",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -2189,8 +2189,8 @@
             "_id": "5eb89d650b1bb138c567610b",
             "index": "pan-flute",
             "name": "Pan flute",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 12,
                 "unit": "gp"
@@ -2205,8 +2205,8 @@
             "_id": "5eb89d650b1bb138c5676102",
             "index": "playing-card-set",
             "name": "Playing card set",
-            "equipment_category": "Tools",
-            "tool_category": "Gaming Sets",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Gaming Sets",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -2221,8 +2221,8 @@
             "_id": "5eb89d650b1bb138c56760fb",
             "index": "potters-tools",
             "name": "Potter's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -2237,8 +2237,8 @@
             "_id": "5eb89d650b1bb138c567610a",
             "index": "shawm",
             "name": "Shawm",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -2253,8 +2253,8 @@
             "_id": "5eb89d650b1bb138c56760fd",
             "index": "smiths-tools",
             "name": "Smith's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 20,
                 "unit": "gp"
@@ -2269,8 +2269,8 @@
             "_id": "5eb89d650b1bb138c5676112",
             "index": "thieves-tools",
             "name": "Thieves' tools",
-            "equipment_category": "Tools",
-            "tool_category": "Other Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Other Tools",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -2285,8 +2285,8 @@
             "_id": "5eb89d650b1bb138c56760fe",
             "index": "tinkers-tools",
             "name": "Tinker's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -2301,8 +2301,8 @@
             "_id": "5eb89d650b1bb138c567610d",
             "index": "viol",
             "name": "Viol",
-            "equipment_category": "Tools",
-            "tool_category": "Musical Instrument",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Musical Instrument",
             "cost": {
                 "quantity": 30,
                 "unit": "gp"
@@ -2317,8 +2317,8 @@
             "_id": "5eb89d650b1bb138c5676100",
             "index": "weavers-tools",
             "name": "Weaver's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -2333,8 +2333,8 @@
             "_id": "5eb89d650b1bb138c56760ff",
             "index": "woodcarvers-tools",
             "name": "Woodcarver's tools",
-            "equipment_category": "Tools",
-            "tool_category": "Artisan's Tools",
+            "equipmentCategory": "Tools",
+            "toolCategory": "Artisan's Tools",
             "cost": {
                 "quantity": 1,
                 "unit": "gp"
@@ -2350,8 +2350,8 @@
             "_id": "5eb89d650b1bb138c5676128",
             "index": "animal-feed-1-day",
             "name": "Animal Feed (1 day)",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 5,
                 "unit": "cp"
@@ -2363,8 +2363,8 @@
             "_id": "5eb89d650b1bb138c567611d",
             "index": "barding-breastplate",
             "name": "Barding: Breastplate",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 1600,
                 "unit": "gp"
@@ -2379,8 +2379,8 @@
             "_id": "5eb89d650b1bb138c5676122",
             "index": "barding-chain-mail",
             "name": "Barding: Chain mail",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 300,
                 "unit": "gp"
@@ -2395,8 +2395,8 @@
             "_id": "5eb89d650b1bb138c567611e",
             "index": "barding-chain-shirt",
             "name": "Barding: Chain shirt",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 200,
                 "unit": "gp"
@@ -2411,8 +2411,8 @@
             "_id": "5eb89d650b1bb138c567611f",
             "index": "barding-half-plate",
             "name": "Barding: Half plate",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 3000,
                 "unit": "gp"
@@ -2427,8 +2427,8 @@
             "_id": "5eb89d650b1bb138c567611b",
             "index": "barding-hide",
             "name": "Barding: Hide",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 40,
                 "unit": "gp"
@@ -2443,8 +2443,8 @@
             "_id": "5eb89d650b1bb138c5676118",
             "index": "barding-leather",
             "name": "Barding: Leather",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 40,
                 "unit": "gp"
@@ -2459,8 +2459,8 @@
             "_id": "5eb89d650b1bb138c5676117",
             "index": "barding-padded",
             "name": "Barding: Padded",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 20,
                 "unit": "gp"
@@ -2475,8 +2475,8 @@
             "_id": "5eb89d650b1bb138c5676123",
             "index": "barding-plate",
             "name": "Barding: Plate",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 6000,
                 "unit": "gp"
@@ -2491,8 +2491,8 @@
             "_id": "5eb89d650b1bb138c5676120",
             "index": "barding-ring-mail",
             "name": "Barding: Ring mail",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 12,
                 "unit": "gp"
@@ -2507,8 +2507,8 @@
             "_id": "5eb89d650b1bb138c567611c",
             "index": "barding-scale-mail",
             "name": "Barding: Scale mail",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 200,
                 "unit": "gp"
@@ -2523,8 +2523,8 @@
             "_id": "5eb89d650b1bb138c5676121",
             "index": "barding-splint",
             "name": "Barding: Splint",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 800,
                 "unit": "gp"
@@ -2539,8 +2539,8 @@
             "_id": "5eb89d650b1bb138c5676119",
             "index": "barding-studded-leather",
             "name": "Barding: Studded Leather",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 180,
                 "unit": "gp"
@@ -2555,8 +2555,8 @@
             "_id": "5eb89d650b1bb138c5676125",
             "index": "bit-and-bridle",
             "name": "Bit and bridle",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 2,
                 "unit": "gp"
@@ -2568,8 +2568,8 @@
             "_id": "5eb89d650b1bb138c567610e",
             "index": "camel",
             "name": "Camel",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -2585,8 +2585,8 @@
             "_id": "5eb89d650b1bb138c5676124",
             "index": "carriage",
             "name": "Carriage",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 100,
                 "unit": "gp"
@@ -2598,8 +2598,8 @@
             "_id": "5eb89d650b1bb138c5676126",
             "index": "cart",
             "name": "Cart",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 15,
                 "unit": "gp"
@@ -2611,8 +2611,8 @@
             "_id": "5eb89d650b1bb138c5676127",
             "index": "chariot",
             "name": "Chariot",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 250,
                 "unit": "gp"
@@ -2624,8 +2624,8 @@
             "_id": "5eb89d650b1bb138c567610f",
             "index": "donkey",
             "name": "Donkey",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 8,
                 "unit": "gp"
@@ -2641,8 +2641,8 @@
             "_id": "5eb89d650b1bb138c5676111",
             "index": "elephant",
             "name": "Elephant",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 200,
                 "unit": "gp"
@@ -2658,8 +2658,8 @@
             "_id": "5eb89d650b1bb138c5676130",
             "index": "galley",
             "name": "Galley",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Waterborne Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Waterborne Vehicles",
             "cost": {
                 "quantity": 30000,
                 "unit": "gp"
@@ -2674,8 +2674,8 @@
             "_id": "5eb89d650b1bb138c5676113",
             "index": "horse-draft",
             "name": "Horse, draft",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -2691,8 +2691,8 @@
             "_id": "5eb89d650b1bb138c5676114",
             "index": "horse-riding",
             "name": "Horse, riding",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 75,
                 "unit": "gp"
@@ -2708,8 +2708,8 @@
             "_id": "5eb89d650b1bb138c5676131",
             "index": "keelboat",
             "name": "Keelboat",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Waterborne Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Waterborne Vehicles",
             "cost": {
                 "quantity": 3000,
                 "unit": "gp"
@@ -2727,8 +2727,8 @@
             "_id": "5eb89d650b1bb138c5676132",
             "index": "longship",
             "name": "Longship",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Waterborne Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Waterborne Vehicles",
             "cost": {
                 "quantity": 10000,
                 "unit": "gp"
@@ -2743,8 +2743,8 @@
             "_id": "5eb89d650b1bb138c5676115",
             "index": "mastiff",
             "name": "Mastiff",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 25,
                 "unit": "gp"
@@ -2760,8 +2760,8 @@
             "_id": "5eb89d650b1bb138c5676110",
             "index": "mule",
             "name": "Mule",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 8,
                 "unit": "gp"
@@ -2777,8 +2777,8 @@
             "_id": "5eb89d650b1bb138c5676116",
             "index": "pony",
             "name": "Pony",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 30,
                 "unit": "gp"
@@ -2794,8 +2794,8 @@
             "_id": "5eb89d650b1bb138c567612c",
             "index": "riding",
             "name": "Riding",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 10,
                 "unit": "gp"
@@ -2807,8 +2807,8 @@
             "_id": "5eb89d650b1bb138c5676134",
             "index": "rowboat",
             "name": "Rowboat",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Waterborne Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Waterborne Vehicles",
             "cost": {
                 "quantity": 50,
                 "unit": "gp"
@@ -2826,8 +2826,8 @@
             "_id": "5eb89d650b1bb138c5676129",
             "index": "saddle-exotic",
             "name": "Saddle, Exotic",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 60,
                 "unit": "gp"
@@ -2842,8 +2842,8 @@
             "_id": "5eb89d650b1bb138c567612a",
             "index": "saddle-military",
             "name": "Saddle, Military",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 20,
                 "unit": "gp"
@@ -2858,8 +2858,8 @@
             "_id": "5eb89d650b1bb138c567612b",
             "index": "saddle-pack",
             "name": "Saddle, Pack",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 5,
                 "unit": "gp"
@@ -2874,8 +2874,8 @@
             "_id": "5eb89d650b1bb138c567612d",
             "index": "saddlebags",
             "name": "Saddlebags",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 4,
                 "unit": "gp"
@@ -2887,8 +2887,8 @@
             "_id": "5eb89d650b1bb138c5676135",
             "index": "sailing-ship",
             "name": "Sailing ship",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Waterborne Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Waterborne Vehicles",
             "cost": {
                 "quantity": 10000,
                 "unit": "gp"
@@ -2903,8 +2903,8 @@
             "_id": "5eb89d650b1bb138c567612e",
             "index": "sled",
             "name": "Sled",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 20,
                 "unit": "gp"
@@ -2916,8 +2916,8 @@
             "_id": "5eb89d650b1bb138c567612f",
             "index": "stabling-1-day",
             "name": "Stabling (1 day)",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 5,
                 "unit": "sp"
@@ -2929,8 +2929,8 @@
             "_id": "5eb89d650b1bb138c5676133",
             "index": "wagon",
             "name": "Wagon",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Tack, Harness, and Drawn Vehicles",
             "cost": {
                 "quantity": 35,
                 "unit": "gp"
@@ -2942,8 +2942,8 @@
             "_id": "5eb89d650b1bb138c567611a",
             "index": "warhorse",
             "name": "Warhorse",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Mounts and Other Animals",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Mounts and Other Animals",
             "cost": {
                 "quantity": 400,
                 "unit": "gp"
@@ -2959,8 +2959,8 @@
             "_id": "5eb89d650b1bb138c5676136",
             "index": "warship",
             "name": "Warship",
-            "equipment_category": "Mounts and Vehicles",
-            "vehicle_category": "Waterborne Vehicles",
+            "equipmentCategory": "Mounts and Vehicles",
+            "vehicleCategory": "Waterborne Vehicles",
             "cost": {
                 "quantity": 25000,
                 "unit": "gp"
@@ -3967,15 +3967,15 @@
             "_id": "5eb89d650b1bb138c567607a",
             "index": "breastplate",
             "name": "Breastplate",
-            "equipment_category": "Armor",
-            "armor_category": "Medium",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Medium",
+            "armorClass": {
                 "base": 14,
-                "dex_bonus": true,
-                "max_bonus": 2
+                "dexBonus": true,
+                "maxBonus": 2
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": false,
+            "strMinimum": 0,
+            "stealthDisadvantage": false,
             "weight": 20,
             "cost": {
                 "quantity": 400,
@@ -3987,15 +3987,15 @@
             "_id": "5eb89d650b1bb138c567607e",
             "index": "chain-mail",
             "name": "Chain Mail",
-            "equipment_category": "Armor",
-            "armor_category": "Heavy",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Heavy",
+            "armorClass": {
                 "base": 16,
-                "dex_bonus": false,
-                "max_bonus": null
+                "dexBonus": false,
+                "maxBonus": null
             },
-            "str_minimum": 13,
-            "stealth_disadvantage": true,
+            "strMinimum": 13,
+            "stealthDisadvantage": true,
             "weight": 55,
             "cost": {
                 "quantity": 75,
@@ -4007,15 +4007,15 @@
             "_id": "5eb89d650b1bb138c5676078",
             "index": "chain-shirt",
             "name": "Chain Shirt",
-            "equipment_category": "Armor",
-            "armor_category": "Medium",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Medium",
+            "armorClass": {
                 "base": 13,
-                "dex_bonus": true,
-                "max_bonus": 2
+                "dexBonus": true,
+                "maxBonus": 2
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": false,
+            "strMinimum": 0,
+            "stealthDisadvantage": false,
             "weight": 20,
             "cost": {
                 "quantity": 50,
@@ -4027,15 +4027,15 @@
             "_id": "5eb89d650b1bb138c567607c",
             "index": "half-plate",
             "name": "Half Plate",
-            "equipment_category": "Armor",
-            "armor_category": "Medium",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Medium",
+            "armorClass": {
                 "base": 15,
-                "dex_bonus": true,
-                "max_bonus": 2
+                "dexBonus": true,
+                "maxBonus": 2
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": true,
+            "strMinimum": 0,
+            "stealthDisadvantage": true,
             "weight": 40,
             "cost": {
                 "quantity": 750,
@@ -4047,15 +4047,15 @@
             "_id": "5eb89d650b1bb138c5676077",
             "index": "hide",
             "name": "Hide",
-            "equipment_category": "Armor",
-            "armor_category": "Medium",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Medium",
+            "armorClass": {
                 "base": 12,
-                "dex_bonus": true,
-                "max_bonus": 2
+                "dexBonus": true,
+                "maxBonus": 2
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": false,
+            "strMinimum": 0,
+            "stealthDisadvantage": false,
             "weight": 12,
             "cost": {
                 "quantity": 10,
@@ -4067,15 +4067,15 @@
             "_id": "5eb89d650b1bb138c5676075",
             "index": "leather",
             "name": "Leather",
-            "equipment_category": "Armor",
-            "armor_category": "Light",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Light",
+            "armorClass": {
                 "base": 11,
-                "dex_bonus": true,
-                "max_bonus": null
+                "dexBonus": true,
+                "maxBonus": null
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": false,
+            "strMinimum": 0,
+            "stealthDisadvantage": false,
             "weight": 10,
             "cost": {
                 "quantity": 10,
@@ -4087,15 +4087,15 @@
             "_id": "5eb89d650b1bb138c5676076",
             "index": "padded",
             "name": "Padded",
-            "equipment_category": "Armor",
-            "armor_category": "Light",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Light",
+            "armorClass": {
                 "base": 11,
-                "dex_bonus": true,
-                "max_bonus": null
+                "dexBonus": true,
+                "maxBonus": null
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": true,
+            "strMinimum": 0,
+            "stealthDisadvantage": true,
             "weight": 8,
             "cost": {
                 "quantity": 5,
@@ -4107,15 +4107,15 @@
             "_id": "5eb89d650b1bb138c5676083",
             "index": "plate",
             "name": "Plate",
-            "equipment_category": "Armor",
-            "armor_category": "Heavy",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Heavy",
+            "armorClass": {
                 "base": 18,
-                "dex_bonus": false,
-                "max_bonus": null
+                "dexBonus": false,
+                "maxBonus": null
             },
-            "str_minimum": 15,
-            "stealth_disadvantage": true,
+            "strMinimum": 15,
+            "stealthDisadvantage": true,
             "weight": 65,
             "cost": {
                 "quantity": 1500,
@@ -4127,15 +4127,15 @@
             "_id": "5eb89d650b1bb138c567607d",
             "index": "ring-mail",
             "name": "Ring Mail",
-            "equipment_category": "Armor",
-            "armor_category": "Heavy",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Heavy",
+            "armorClass": {
                 "base": 14,
-                "dex_bonus": false,
-                "max_bonus": null
+                "dexBonus": false,
+                "maxBonus": null
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": true,
+            "strMinimum": 0,
+            "stealthDisadvantage": true,
             "weight": 40,
             "cost": {
                 "quantity": 30,
@@ -4147,15 +4147,15 @@
             "_id": "5eb89d650b1bb138c5676079",
             "index": "scale-mail",
             "name": "Scale Mail",
-            "equipment_category": "Armor",
-            "armor_category": "Medium",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Medium",
+            "armorClass": {
                 "base": 14,
-                "dex_bonus": true,
-                "max_bonus": 2
+                "dexBonus": true,
+                "maxBonus": 2
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": true,
+            "strMinimum": 0,
+            "stealthDisadvantage": true,
             "weight": 45,
             "cost": {
                 "quantity": 50,
@@ -4167,15 +4167,15 @@
             "_id": "5eb89d650b1bb138c5676080",
             "index": "shield",
             "name": "Shield",
-            "equipment_category": "Armor",
-            "armor_category": "Shield",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Shield",
+            "armorClass": {
                 "base": 2,
-                "dex_bonus": false,
-                "max_bonus": null
+                "dexBonus": false,
+                "maxBonus": null
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": false,
+            "strMinimum": 0,
+            "stealthDisadvantage": false,
             "weight": 6,
             "cost": {
                 "quantity": 10,
@@ -4187,15 +4187,15 @@
             "_id": "5eb89d650b1bb138c567607f",
             "index": "splint",
             "name": "Splint",
-            "equipment_category": "Armor",
-            "armor_category": "Heavy",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Heavy",
+            "armorClass": {
                 "base": 17,
-                "dex_bonus": false,
-                "max_bonus": null
+                "dexBonus": false,
+                "maxBonus": null
             },
-            "str_minimum": 15,
-            "stealth_disadvantage": true,
+            "strMinimum": 15,
+            "stealthDisadvantage": true,
             "weight": 60,
             "cost": {
                 "quantity": 200,
@@ -4207,15 +4207,15 @@
             "_id": "5eb89d650b1bb138c567607b",
             "index": "studded-leather",
             "name": "Studded Leather",
-            "equipment_category": "Armor",
-            "armor_category": "Light",
-            "armor_class": {
+            "equipmentCategory": "Armor",
+            "armorCategory": "Light",
+            "armorClass": {
                 "base": 12,
-                "dex_bonus": true,
-                "max_bonus": null
+                "dexBonus": true,
+                "maxBonus": null
             },
-            "str_minimum": 0,
-            "stealth_disadvantage": false,
+            "strMinimum": 0,
+            "stealthDisadvantage": false,
             "weight": 13,
             "cost": {
                 "quantity": 45,

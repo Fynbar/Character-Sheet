@@ -22,7 +22,7 @@ export class WeaponAttack implements ActionElement {
             }]
         }], */
   name: string;
-  // desc: string;
+  desc: string;
   weapon: Weapon;
   attackBonus?: number;
   damage?: ActionDamage[] = [];
@@ -30,13 +30,12 @@ export class WeaponAttack implements ActionElement {
   // usage?: ActionUsage;
   // attacks?: Attack[];
   // damageDice?: Dice;
-  private d = 'DEX';
-  private s = 'STR';
   modifers: Abilities;
   proficiency: number;
   /* creature: Monster */
-  constructor(weapon: Weapon, abilitiesModifiers: Abilities, proficiency: number) {
+  constructor(weapon: Weapon, abilitiesModifiers: Abilities, proficiency: number, desc?) {
     // console.log(monster);
+    this.desc = desc;
     this.weapon = weapon;
     this.modifers = abilitiesModifiers;
     this.proficiency = proficiency;
@@ -53,13 +52,14 @@ export class WeaponAttack implements ActionElement {
     const damageBonus = this.attackBonus + weapon.damage.damageBonus;
     this.damage = [{
       damageType: weapon.damage.damageType,
-      damageDice: Dice.fromString(`${weapon.damage.damageDice}${damageBonus >= 0 ? '+' : '-'}${damageBonus}`)
+      damageDice: Dice.fromString(`${weapon.damage.damageDice}${damageBonus >= 0 ? ' + ' : ' '}${damageBonus}`)
     }];
+    // if (damageBonus < 0) {
+    //   console.log(this.damage[0].damageDice.makeString, weapon.damage.damageDice, damageBonus);
+    // }
     // console.log(this);
-      // `${monster.name}, ${weapon.name}`);
+    // `${monster.name}, ${weapon.name}`);
   }
-
-  // Javelin: Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
 
   get attackRangeString() {
     let s = 'Weapon Attack';
@@ -68,7 +68,7 @@ export class WeaponAttack implements ActionElement {
   }
 
   get damageHitString(): string[] {
-    return this.damage.map(dam => `Hit: ${dam.damageDice.makeString} ${this.weapon.damage.damageType} damage.`);
+    return this.damage.map(dam => `Hit: ${dam.damageDice.makeString} ${this.weapon.damage.damageType.toLowerCase()} damage.`);
   }
 
   get rangeString(): string {
@@ -96,7 +96,7 @@ export class WeaponAttack implements ActionElement {
     }
   }
 
-  public get desc(): string {
+  public get stringVersion(): string {
     return `${this.attackRangeString}: ${this.hitString} ${this.rangeString} one target. ${this.damageHitString[0]}`;
   }
 

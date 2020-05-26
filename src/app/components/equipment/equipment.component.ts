@@ -24,7 +24,7 @@ const categoriesNames = ['Adventuring Gear',
 export class EquipmentComponent implements OnInit {
   @ViewChild('eqt') tableRef;
   cols: Columns = [{ field: 'name', header: 'Name' },
-  { field: 'equipment_category', header: 'Equipment Category' },
+  { field: 'equipmentCategory', header: 'Equipment Category' },
   { field: 'cost', header: 'Cost' },
   { field: 'weight', header: 'Weight' }];
   constructor(
@@ -33,33 +33,11 @@ export class EquipmentComponent implements OnInit {
   public checked = true;
   public items: Item[] = [];
   public categories = [{ label: 'All Categories', value: null }].concat(...categoriesNames);
-  public weightFilter: number[] = [null, null];
-  public weightTimeout;
-  public weightSlider: number[] = [null, null];
+
 
   ngOnInit() {
     this.jsonService.getEquipmentJSON().subscribe(data => {
-      // const weights = data.map(w => w.weight ? w.weight : 0);
-      // this.weightSlider = [Math.min(...weights), Math.max(...weights)];
-      // this.weightFilter = [null, Math.max(...weights)];
       this.items = data;
-      // console.log(data);
-
     });
-    // console.log(categoriesNames);
   }
-  // get showWeightX() {
-  //   return this.weightFilter[0] || this.weightFilter[1] === this.weightSlider[1];
-  // }
-  // onWeightChange(event, dt) {
-  //   console.log(event);
-  //   if (this.weightTimeout) {
-  //     clearTimeout(this.weightTimeout);
-  //   }
-
-  //   this.weightTimeout = setTimeout(() => {
-  //     dt.filter(event.values, 'weight', 'inRange');
-  //     // dt.filter(event.values[1], 'weight', 'lte');
-  //   }, 250);
-  // }
 }

@@ -3,10 +3,10 @@ import { lowerDamageType } from '../../rules/damageStatusType';
 import { Book } from '../../rules/sourceBook.enum';
 import { commaSplit, spaceJoin, spaceSplit, stripArray, findBetweenStrings } from '../../../app/common/string.functions';
 import { Dice } from '../../../app/components/dice/dice';
-import { ability, abilityAbbrev } from '../../rules/ability.enum';
+import { ability, abilityAbbrev, abbrevToAbility } from '../../rules/ability.enum';
 import { Page } from '../../spells/spell.model';
 import {
-    ActionDamage, APIMonster, Proficiency, PurpleType, Trait, School, betterComponentsRequired, FluffyType
+    ActionDamage, APIMonster, Proficiency, PurpleType, Trait, School, betterComponentsRequired, FluffyType, SuccessType, DamageType
 } from '../api-monster/apiMonster.model';
 import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
 import {
@@ -41,8 +41,7 @@ const properties = [
     'flavorText', // string;
     'armorType', //  string;
     'damageImmunities', //  string[];
-    'savingThrows', //  Abilities;
-    'legendary', 'conditionImmunities', 'damageResistances', 'reactions', 'damageVulnerabilities', 'legendaryRules'
+    'savingThrows', 'completed', 'legendary', 'conditionImmunities', 'damageResistances', 'reactions', 'damageVulnerabilities', 'legendaryRules'
 ];
 // tslint:enable:max-line-length
 export class MonsterCreature implements Monster {
@@ -70,6 +69,7 @@ export class MonsterCreature implements Monster {
     damageResistances?: string[];
     reactions?: ReactionElement[];
     damageVulnerabilities?: string[];
+    completed?: boolean;
 
     constructor(obj?: Monster | APIMonster) {
         if (obj) {
@@ -83,20 +83,28 @@ export class MonsterCreature implements Monster {
             });
             // console.log(`${this.name} is Missing: ${missingProp.join(', ')}`);
         } else {
-            this.name = '';
+            this.name = 'Monster';
             this.meta = {
                 size: '',
                 monsterType: '',
                 alignment: ''
             };
             this.speed = { walk: 30, hover: false };
-            this.armorClass = 2;
+            this.armorClass = 10;
             this.armorType = '';
             this.hitPoints = new Dice();
-            this.abilities = {};
-            this.senses = {};
-            this.languages = ['-'];
-            this.challenge = '';
+            this.abilities = {
+                STR: 10,
+                DEX: 10,
+                CON: 10,
+                INT: 10,
+                WIS: 10,
+                CHA: 10,
+            };
+            // this.senses = {};
+            this.languages = ['Common'];
+            this.challenge = '0';
+            this.completed = false;
         }
     }
 
@@ -123,16 +131,16 @@ export class MonsterCreature implements Monster {
         monster.abilities = abilities;
         const hitDice: number[] = m.hit_dice.split('d').map(d => Number(d));
         monster.hitPoints = new Dice(hitDice[1], hitDice[0], hitDice[0] * monster.abilitiesModifiers.CON);
-        if (m.damage_vulnerabilities) {
+        if (m.damage_vulnerabilities.length > 0) {
             monster.damageVulnerabilities = m.damage_vulnerabilities;
         }
-        if (m.damage_resistances) {
+        if (m.damage_resistances.length > 0) {
             monster.damageResistances = m.damage_resistances;
         }
-        if (m.damage_immunities) {
+        if (m.damage_immunities.length > 0) {
             monster.damageImmunities = m.damage_immunities;
         }
-        if (m.condition_immunities) {
+        if (m.condition_immunities.length > 0) {
             monster.conditionImmunities = m.condition_immunities.map(c => c.name).filter(c => Condition[c]);
         }
         let speedObj: Speed = { walk: 30, hover: false }; // APIMonsterSpeed;
@@ -158,9 +166,12 @@ export class MonsterCreature implements Monster {
             }
         });
         proficiencyObj = proficiencyObj;
-        monster.savingThrows = proficiencyObj.savingThrows;
-        monster.skills = proficiencyObj.skills;
-
+        if (Object.keys(proficiencyObj.savingThrows).length > 0) {
+            monster.savingThrows = proficiencyObj.savingThrows;
+        }
+        if (Object.keys(proficiencyObj.skills).length > 0) {
+            monster.skills = proficiencyObj.skills;
+        }
         const senseObj: Senses = {};
         Object.keys(m.senses).forEach(s => {
             if (s !== 'passive_perception') {
@@ -182,7 +193,7 @@ export class MonsterCreature implements Monster {
                 console.log(`${m.name}: ${a.name}`);
             }
             if (weaponindex >= 0) {
-                return new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency);
+                return new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a.desc);
             } else if (a.damage) {
                 a.damage = a.damage.map((d: ActionDamage) => {
                     if (d.damage_dice) {
@@ -270,7 +281,7 @@ export class MonsterCreature implements Monster {
         this.setTraits(value);
 
         this.setActions(value);
-
+        value.actions = this.setMulitaAttacks(value.name, value.actions);
         this.setLegendary(value);
 
         this.setReactions(value);
@@ -278,7 +289,8 @@ export class MonsterCreature implements Monster {
         const monster = new MonsterCreature(value);
         monster.actions = monster.actions.map(a => {
             const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
-            return weaponindex >= 0 ? new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency) : a;
+            return weaponindex >= 0 ?
+                new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a.desc) : a;
         });
         return monster;
     }
@@ -404,34 +416,184 @@ export class MonsterCreature implements Monster {
                     actionObj.desc = element.trim().substring(nameIndex + indStr.length);
                     const attackIndicators = ['Attack:', 'Hit:'];
                     const attackIndecies = attackIndicators.map(s => actionObj.desc.indexOf(s));
-                    if (attackIndecies.every(n => n >= 0)) {
+                    if (attackIndecies.concat(actionObj.desc.indexOf('DC')).every(n => n >= 0)) {
+                        // if (attackIndecies.every(n => n >= 0)) {
                         const actionDesc: string[] = [actionObj.desc.substring(attackIndecies[0], attackIndecies[1])]
                             .concat(actionObj.desc.substring(attackIndecies[1]).replace(/ft./g, 'ft').split('. '));
                         const descArray = commaSplit(actionDesc[0]
                             .substring(actionDesc[0].indexOf(attackIndicators[0]) + attackIndicators[0].length));
                         // Melee Weapon Attack: +5 to hit, reach 5 ft, one target.
                         actionObj.attackBonus = Number(spaceSplit(descArray[0].trim())[0]);
-
+                        // if (actionDesc[1].indexOf('plus') >= 0 || actionDesc[1].indexOf(', or') >= 0) {
+                        //     console.log(`Plus/or ${value.name}: ${actionObj.name}. ${actionObj.desc}`);
+                        // }
                         actionObj.damage = actionDesc[1].split('plus').map(damString => {
                             const damageObj: ActionDamage = {};
-                            const damageDice = [damString.trim().indexOf('(', attackIndecies[1] + attackIndicators[1].length)];
-                            damageDice.push(actionDesc[1].indexOf(')', damageDice[0]));
-                            damageObj.damageDice = Dice.fromString(actionDesc[1].substring(damageDice[0] + 1, damageDice[1]));
-                            spaceSplit(actionDesc[1].substring(damageDice[1] + 1).trim()).forEach(f => {
+                            const sub = findBetweenStrings(damString, '(', ')');
+                            damageObj.damageDice = Dice.fromString(sub);
+                            spaceSplit(damString.substring(damString.indexOf(sub) + 1).trim()).forEach(f => {
                                 if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
                                     damageObj.damageType = lowerDamageType[f.toLowerCase()];
                                 }
                             });
                             return damageObj;
                         });
-                    } else if (actionObj.name.toLowerCase().indexOf('multiattack') >= 0) {
-                        // console.log(`${value.name}: ${actionObj.name}. ${actionObj.desc}`);
-                        actionObj.options = {
-                            choose: 1,
-                            from: [
-                                []
-                            ]
+
+                        if (actionDesc[1].toLowerCase().indexOf(', or') >= 0) {
+                            // console.log(`Plus/or ${value.name}: ${actionObj.name}. ${actionObj.desc}`);
+                            // console.log(actionObj.damage);
+                        }
+
+                        const actionExplanation = actionDesc.slice(1).join('. ');
+
+                        const DCobj: any = {
+                            dcValue: Number(findBetweenStrings(actionExplanation, 'DC ', ' ', ')').trim()),
+                            successType: actionExplanation.indexOf('half') >= 0 ? SuccessType.Half : SuccessType.None
                         };
+                        spaceSplit(actionExplanation).forEach(f => {
+                            // console.log(f);
+                            if (!DCobj.dcType && ability.map(s => s.toLowerCase()).indexOf(f.toLowerCase()) >= 0) {
+                                // console.log(f);
+                                DCobj.dcType = f.substring(0, 3).toUpperCase();
+                            }
+                        });
+                        if (DCobj.dcType) {
+                            if (actionExplanation.indexOf('damage',
+                                actionExplanation.toLowerCase().indexOf('dc')) >= 0) {
+                                // console.log(`${value.name}: ${actionObj.name}.`);
+                                const obj: any = {};
+                                let s;
+                                const k = ['(', ')'].map((l, index) => actionExplanation.indexOf(l,
+                                    actionExplanation.toLowerCase().indexOf('dc')) + 1 - index);
+                                s = actionExplanation.substring(k[0], k[1]);
+                                // actionExplanation.indexOf(')',
+                                //     actionExplanation.toLowerCase().indexOf('dc')));
+                                // console.log(actionExplanation, s);
+                                spaceSplit(actionExplanation.substring(k[1]).trim()).forEach(f => {
+                                    if (!obj.damageType && lowerDamageType[f.toLowerCase()]) {
+                                        obj.damageType = lowerDamageType[f.toLowerCase()];
+                                    }
+                                });
+                                if (obj.damageType) {
+                                    obj.damageDice = Dice.fromString(s);
+                                    actionObj.damage.push(obj);
+                                }
+
+                            }
+                        }
+                        if (actionExplanation.indexOf('escape DC') >= 0) {
+                            DCobj.dcType = 'STR';
+                        }
+                        actionObj.dc = DCobj;
+                        // console.log(DCobj);
+                    } else if (attackIndecies.every(n => n >= 0)) {
+                        const actionDesc: string[] = [actionObj.desc.substring(attackIndecies[0], attackIndecies[1])]
+                            .concat(actionObj.desc.substring(attackIndecies[1]).replace(/ft./g, 'ft').split('. '));
+                        const descArray = commaSplit(actionDesc[0]
+                            .substring(actionDesc[0].indexOf(attackIndicators[0]) + attackIndicators[0].length));
+                        // Melee Weapon Attack: +5 to hit, reach 5 ft, one target.
+                        actionObj.attackBonus = Number(spaceSplit(descArray[0].trim())[0]);
+                        if (actionDesc[1].indexOf('plus') >= 0 || actionDesc[1].indexOf(', or') >= 0) {
+                        }
+                        if (actionDesc[1].indexOf(', or') >= 0) {
+                            actionObj.damage = actionDesc[1].split(', or').map(damString => {
+                                const damageObj: ActionDamage = {};
+                                const sub = findBetweenStrings(actionDesc[1], '(', ')');
+                                damageObj.damageDice = Dice.fromString(sub);
+                                spaceSplit(actionDesc[1].substring(actionDesc[1].indexOf(sub) + 1).trim()).forEach(f => {
+                                    if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
+                                        damageObj.damageType = lowerDamageType[f.toLowerCase()];
+                                    }
+                                });
+                                return damageObj;
+                            });
+                        } else {
+                            actionObj.damage = actionDesc[1].split('plus').map(damString => {
+                                const damageObj: ActionDamage = {};
+                                const sub = findBetweenStrings(damString, '(', ')');
+                                damageObj.damageDice = Dice.fromString(sub);
+                                spaceSplit(damString.substring(damString.indexOf(sub) + 1).trim()).forEach(f => {
+                                    if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
+                                        damageObj.damageType = lowerDamageType[f.toLowerCase()];
+                                    }
+                                });
+
+                                return damageObj;
+                            });
+                            if (actionDesc[1].toLowerCase().indexOf(', or') >= 0) {
+                                console.log(`Plus/or ${value.name}: ${actionObj.name}. ${actionObj.desc}`);
+                                console.log(actionObj.damage);
+
+                            }
+                        }
+                    } else if (actionObj.name.toLowerCase().indexOf('multiattack') >= 0) {
+                        const choices = 1 + (actionObj.desc.match(/or /g) || []).length;
+                        const empty = [];
+                        let i = 0;
+                        while (i < choices) {
+                            empty.push([]);
+                            i++;
+                        }
+
+                        actionObj.options = {
+                            choose: choices,
+                            from: empty
+                        };
+
+                    } else if (actionObj.desc.indexOf('DC') >= 0) {
+                        // if (attackIndecies.every(n => n >= 0)) {
+                        const actionDesc: string[] = [actionObj.desc.substring(attackIndecies[0], attackIndecies[1])]
+                            .concat(actionObj.desc.substring(attackIndecies[1]).replace(/ft./g, 'ft').split('. '));
+                        // const descArray = commaSplit(actionDesc[0]
+                        //     .substring(actionDesc[0].indexOf(attackIndicators[0]) + attackIndicators[0].length));
+                        // Melee Weapon Attack: +5 to hit, reach 5 ft, one target.
+                        // actionObj.attackBonus = Number(spaceSplit(descArray[0].trim())[0]);
+
+                        actionObj.damage = [];
+                        const actionExplanation = actionDesc.slice(1).join('. ');
+
+                        const DCobj: any = {
+                            dcValue: Number(findBetweenStrings(actionExplanation, 'DC ', ' ', ')').trim()),
+                            successType: actionExplanation.indexOf('half') >= 0 ? SuccessType.Half : SuccessType.None
+                        };
+                        spaceSplit(actionExplanation).forEach(f => {
+                            if (!DCobj.dcType && ability.map(s => s.toLowerCase()).indexOf(f.toLowerCase()) >= 0) {
+                                DCobj.dcType = f.substring(0, 3).toUpperCase();
+                            }
+                        });
+                        if (DCobj.dcType) {
+                            if (actionExplanation.indexOf('damage',
+                                actionExplanation.toLowerCase().indexOf('dc')) >= 0) {
+                                // console.log(`${value.name}: ${actionObj.name}.`);
+                                const obj: any = {};
+                                let s;
+                                const k = ['(', ')'].map((l, index) => actionExplanation.indexOf(l,
+                                    actionExplanation.toLowerCase().indexOf('dc')) + 1 - index);
+                                // console.log(k);
+                                s = actionExplanation.substring(k[0], k[1]);
+
+                                // actionExplanation.indexOf(')',
+                                //     actionExplanation.toLowerCase().indexOf('dc')));
+                                // console.log(actionExplanation, s);
+                                spaceSplit(actionExplanation.substring(k[1]).trim()).forEach(f => {
+                                    if (!obj.damageType && lowerDamageType[f.toLowerCase()]) {
+                                        obj.damageType = lowerDamageType[f.toLowerCase()];
+                                    }
+                                });
+                                if (obj.damageType) {
+                                    obj.damageDice = Dice.fromString(s);
+                                    actionObj.damage.push(obj);
+                                    // console.log(obj);
+                                    // console.log(DCobj);
+
+                                }
+
+                            }
+                        }
+                        if (actionExplanation.indexOf('escape DC') >= 0) {
+                            DCobj.dcType = 'STR';
+                        }
+                        actionObj.dc = DCobj;
                     } else {
                         // actionObj.desc = element;
                         // console.log(`${value.name}: ${actionObj.name}. ${actionObj.desc}`);
@@ -477,6 +639,51 @@ export class MonsterCreature implements Monster {
                 return actionObj;
             });
         }
+    }
+
+    private static setMulitaAttacks(name, actions) {
+        let actionNames = actions.map(a => a.name);
+        // 'drow makes two shortsword attacks'
+        const useIt = 'use its ';
+        // one with its bite and two with its claws
+        return actions.map(actionObj => {
+            if (actionObj.name.toLowerCase().indexOf('multiattack') >= 0) {
+                actionNames = actionNames.filter(f => actionObj.desc.toLowerCase().indexOf(f.toLowerCase()) >= 0).map(s => s.toLowerCase());
+                console.log(`${name}: ${actionObj.name}. ${actionObj.desc}`);
+                const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
+                actionNames.forEach(n => {
+                    if (actionObj.desc.toLowerCase().indexOf(`${useIt}${n.toLowerCase()}`) >= 0) {
+                        actionObj.options.from.map(a => a.push({ name: n, count: 1 }));
+                    }
+                });
+
+                numbers.forEach((n, index) => {
+                    actionNames.forEach(m => {
+                        if (actionObj.desc.toLowerCase().indexOf(`${n} with its ${m}`) >= 0) {
+                            actionObj.options.from.forEach(a => a.push({ name: m, count: index }));
+                        }
+                        if (actionObj.desc.toLowerCase().indexOf(`makes ${n} ${m}`) >= 0) {
+                            actionObj.options.from.forEach(a => a.push({ name: n, count: index }));
+                        }
+                        const k = findBetweenStrings(actionObj.desc.toLowerCase(), `makes ${n} `, 'attack').trim();
+                        if (k.length > 0 && k.toLowerCase().indexOf(actionNames) < 0) {
+                            actionObj.options.from.forEach(a => a.push({ name: k, count: index }));
+                        }
+                    });
+                });
+
+
+                // options = {
+                //     choose: 1,
+                //     from: [
+                //         []
+                //     ]
+                // };
+                console.log(actionObj.options);
+                return actionObj;
+            } else { return actionObj; }
+        });
+
     }
 
     private static setTraits(value: any) {

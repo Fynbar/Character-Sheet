@@ -13,6 +13,6 @@ export function generateCols(keys: string[]): Columns {
     }));
 }
 
-export function generateFieldHTML(cols: Columns): string { return cols.map(c => `<td>((rowData.${c.field}}}<td>`).join('\n'); }
+export function generateFieldHTML(cols: Columns): string { return cols.map(c => `<td>{{rowData.${c.field}}}</td>`).join('\n'); }
 
-export function generateHeaderHTML(cols: Columns): string { return cols.map(c => `<th>${c.header}<th>`).join('\n'); }
+export function generateHeaderHTML(cols: Columns): string { return cols.map(c => `<th>${c.header}</th>`).join('\n'); }

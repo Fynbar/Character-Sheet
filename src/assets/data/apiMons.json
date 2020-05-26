@@ -8174,7 +8174,7 @@
                                 "url": "/api/ability-scores/dex"
                             },
                             "dc_value": 12,
-                            "success_type": "hafl"
+                            "success_type": "half"
                         },
                         "damage": [{
                             "damage_type": {
@@ -19911,7 +19911,7 @@
                         "url": "/api/ability-scores/con"
                     },
                     "dc_value": 19,
-                    "success_type": "nhalfone"
+                    "success_type": "half"
                 },
                 "damage": [{
                     "damage_type": {

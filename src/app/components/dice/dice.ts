@@ -11,12 +11,25 @@ export class Dice {
     public static fromString(HP: string): Dice {
         let d: number[];
         let c: number;
-        if (HP.indexOf('+') > 0 || HP.indexOf('-') > 0) {
-            const HPs = HP.split(' ');
-            d = HPs[0].split('d').map(e => Number(e));
-            c = HPs[1] === '+' ? Number(HPs[2]) : -1 * (Number(HPs[2]));
+        let hitDice = HP.trim();
+        if (hitDice.indexOf('(') >= 0) {
+            hitDice = hitDice.substr(hitDice.indexOf('(') + 1);
+        }
+        if (hitDice.indexOf(')') >= 0) {
+            hitDice = hitDice.substr(0, hitDice.indexOf(')'));
+        }
+        const signs = ['+', '-'];
+        if (hitDice.indexOf('+') > 0) {
+            const HPs = hitDice.split('+');
+            d = HPs[0].split('d').map(e => Number(e.trim()));
+            c = (Number(HPs[1].trim()));
+        } else if (hitDice.indexOf('-') > 0) {
+            const HPs = hitDice.split('-');
+            d = HPs[0].split('d').map(e => Number(e.trim()));
+            c = -1 * (Number(HPs[1].trim()));
+            // console.log(hitDice, d, c);
         } else {
-            d = HP.split('d').map(e => Number(e));
+            d = hitDice.split('d').map(e => Number(e));
             c = 0;
         }
         return new Dice(d[1], d[0], c);
