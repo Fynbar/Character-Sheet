@@ -1,11 +1,11 @@
 <div *ngIf="Monster">
     <h3 class="view-header">{{ Monster.name}}</h3>
     <div>{{ Monster.metaString}}</div>
-    <div>Armor Class {{Monster.armorString}}</div>
-    <div>Hit Points
+    <div>Armor Class: {{Monster.armorString}}</div>
+    <div>Hit Points:
         <app-dice [dice]="Monster.hitPoints"></app-dice>
     </div>
-    <div>Speed {{Monster.speedString}}</div>
+    <div>Speed: {{Monster.speedString}}</div>
 
 
     <div class="p-grid">
@@ -18,6 +18,15 @@
             {{Monster.abilities[abbrev]}} ({{Monster.modifierStrings[abbrev]}})
         </div>
     </div>
+
+    <div *ngIf="Monster.savingThrows">Saving Throws: {{Monster.saveString}}</div>
+    <div *ngIf="Monster.skills">Skills: {{Monster.skillString}}</div>
+    <div *ngIf="Monster.senses">Senses: {{Monster.senseString}}</div>
+    <div *ngIf="Monster.Languages">Languages: {{Monster.languageString}}</div>
+
+    <div>Challange Rating: {{Monster.challenge}} ({{Monster.exp| number}} XP)</div>
+
+
 
     <div *ngFor="let t of Monster.traits let i=index">
         <b>{{t.name}}:</b> {{t.desc}}

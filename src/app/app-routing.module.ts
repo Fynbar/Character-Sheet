@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Route, Routes, RouterModule } from '@angular/router';
 import { SpellListComponent } from './components/Spells/spell-list/spell-list.component';
 import { MonsterPageComponent } from './components/monster/monster-page/monster-page.component';
 import { MonsterBuilderComponent } from './components/monster/monster-builder/monster-builder.component';
 import { MonsterComponent } from './components/monster/monster.component';
 import { HomeComponent } from './components/home/home.component';
 import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
+import { EquipmentComponent } from './components/equipment/equipment.component';
+import { MenuItem } from 'primeng/api/menuitem';
 
 
 
@@ -24,12 +26,30 @@ export const routes: Routes = [
       // { path: 'psychro', component: PsychrometricComponent }
     ]
   },
+  {
+    path: 'equipment', component: EquipmentComponent, children: [
+      // { path: 'weapons', component: wea },
+      // { path: 'psychro', component: PsychrometricComponent }
+    ]
+  },
   // { path: '**', redirectTo: 'home', pathMatch: 'full' },
   // { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
+function routeToMenuItem(r: Route, p?: string): MenuItem {
+  const path = p ? `${p}/${r.path}` : r.path;
+  const menu: MenuItem = { routerLink: path, label: `${r.path[0].toUpperCase()}${r.path.slice(1).toLowerCase()}` };
+  if (r.children) {
+    menu.items = r.children.map(c => routeToMenuItem(c, path));
+  }
+  return menu;
+}
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  public static generateMenuItems(): MenuItem[] {
+    return routes.filter(f => !f.redirectTo).map(r => routeToMenuItem(r));
+  }
+}

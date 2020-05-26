@@ -14,6 +14,7 @@ import {
 } from './monster.model';
 import { characterClass } from '../../characterClass.enum';
 import { enumValuesArray } from '../../../app/common/enumKeysArray';
+import { challengeRating } from 'src/models/rules/challengeRating.enum';
 
 const classNames = enumValuesArray(characterClass);
 const lowerClassNames = classNames.map(s => s.toLowerCase);
@@ -99,7 +100,8 @@ export class MonsterCreature implements Monster {
     public static fromAPIMonster(m: APIMonster): MonsterCreature {
         const monster = new MonsterCreature(m);
         monster.armorClass = m.armor_class;
-        monster.challenge = String(m.challenge_rating);
+        monster.challenge = m.challenge_rating <= 1 && m.challenge_rating >= 0 ?
+            `1/${String(1 / m.challenge_rating)}` : String(m.challenge_rating);
         monster.meta = {
             size: m.size,
             alignment: m.alignment,
@@ -667,7 +669,9 @@ export class MonsterCreature implements Monster {
                     }
                     skillObj[s.substring(0, plusMinusIndex)] = skillValue;
                 });
-                value.skills = skillObj;
+                if (Object.keys(skillObj).length > 0) {
+                    value.skills = skillObj;
+                }
                 // .map(s => spaceSplit(s));
             } else if (this.propChecker('Senses', lineSS)) {
                 const senses = spaceJoin(lineSS.splice(1)).replace(' ft.', 'ft.').replace('ft.', '').split(', ');
@@ -677,7 +681,9 @@ export class MonsterCreature implements Monster {
                 senses.map(s => spaceSplit(s)).forEach(s => {
                     senseObj[spaceJoin(s.splice(0, s.length - 1))] = Number(s[s.length - 1].replace('ft.', ''));
                 });
-                value.senses = senseObj;
+                if (Object.keys(senseObj).length > 0) {
+                    value.senses = senseObj;
+                }
             } else if (abilityAbbrev.indexOf(lineSS[0]) >= 0) {
                 abilityAbbrev.forEach(aa => {
                     if (line.indexOf(aa) >= 0) {
@@ -737,7 +743,7 @@ export class MonsterCreature implements Monster {
     public get speedString() {
         let walk = `${this.speed.walk} ft.${this.speed.hover ? ' (Hover)' : ''}`;
         Object.keys(this.speed).forEach(s => {
-            if (s !== 'walking' && s !== 'hover') {
+            if (s !== 'walk' && s !== 'hover') {
                 walk = walk + `, ${s} ${this.speed[s]} ft.`;
             }
         });
@@ -756,8 +762,60 @@ export class MonsterCreature implements Monster {
     }
 
     public get proficiency(): number {
-        if (this.savingThrows) {
+        if (this.challenge) {
+            return challengeRating[this.challenge].proficiency;
+        } else if (this.savingThrows) {
             return Math.min(...Object.keys(this.savingThrows).map(ab => this.savingThrows[ab] - this.abilitiesModifiers[ab]));
+        }
+    }
+
+    public get exp(): number {
+        if (this.challenge) {
+            // console.log(JSON.stringify(challengeRating[this.challenge]));
+            return challengeRating[this.challenge].exp;
+        }
+    }
+
+    public get senseString(): string {
+        if (this.senses) {
+            return Object.keys(this.senses)
+                .map(s => `${s}: ${this.senses[s]} ft.`)
+                .join(', ');
+        } else {
+            return '';
+        }
+    }
+
+    public get saveString(): string {
+        if (this.savingThrows) {
+            return Object.keys(this.savingThrows)
+                .map(s => this.savingThrows[s] > 0 ?
+                    `${s.toUpperCase()}: +${this.savingThrows[s]}` : `${s.toUpperCase()}: ${this.savingThrows[s]}`)
+                .join(', ');
+        } else {
+            return '';
+        }
+    }
+
+
+    public get languageString(): string {
+        if (this.languages) {
+            // console.log(JSON.stringify(challengeRating[this.challenge]));
+            return this.languages.join(', ');
+        } else {
+            return '-';
+        }
+    }
+
+
+    public get skillString(): string {
+        if (this.skills) {
+            // console.log(JSON.stringify(challengeRating[this.challenge]));
+            return Object.keys(this.skills)
+                .map(s => this.skills[s] > 0 ? `${s}: +${this.skills[s]}` : `${s}: ${this.skills[s]}`)
+                .join(', ');
+        } else {
+            return '';
         }
     }
 }

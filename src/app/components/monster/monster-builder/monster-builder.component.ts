@@ -40,32 +40,25 @@ export class MonsterBuilderComponent implements OnInit {
 
   ngOnInit() {
     // console.log(data);
-    forkJoin(this.jsonService.getJSON('apiMons'), this.jsonService.getJSON('mon_man_addition')).subscribe(data => {
-      this.monsters = data[0];
-      this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
-      const names = this.monsters.map(n => n.name);
-      this.mon2 = data[1].filter(f => names.indexOf(f.name) < 0);
-      console.log(`Got rid of ${data[1].length - this.mon2.length}`);
-      this.txtmonsters = this.mon2.map(m => this.fromPageDesc(m));
-    });
+    forkJoin(this.jsonService.getJSON('apiMons'), this.jsonService.getJSON('mon_man_addition'), this.jsonService.getWeaponJSON())
+      .subscribe(data => {
+        this.monsters = data[0];
+        this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
+        const names = this.monsters.map(n => n.name);
+        this.mon2 = data[1].filter(f => names.indexOf(f.name) < 0);
+        console.log(`Got rid of ${data[1].length - this.mon2.length}`);
+        this.txtmonsters = this.mon2.map(m => this.fromPageDesc(m));
+        console.log(data[2]);
+      });
 
   }
   public get data() {
     return this.checked ? [this.mon2, this.txtmonsters] : [this.monsters, this.filMon];
   }
 
-  // checked? mon2[i]: filMon[i]
-  // public handleClick(event) {
-  //   this.jsonService.saveJSON('mon_man_addition', this.monsters).subscribe(data => {
-  //     console.log(event);
-  //     console.log('Saved!');
-  //   });
-  // }
 
   public get copyVal(): string {
     return JSON.stringify(this.checked ? this.txtmonsters : this.filMon);
-    // return JSON.stringify(this.monsters);
-    // return JSON.stringify(this.filMon);
   }
 
   public copyInputMessage() {

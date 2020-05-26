@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent {
   title = 'CharacterSheet';
-  public items: MenuItem[] = [
+  public items: MenuItem[] = AppRoutingModule.generateMenuItems()
+  /* [
     { routerLink: 'home', label: 'Home' },
     {
       routerLink: 'monster', label: 'Monster', items: [
@@ -23,5 +26,5 @@ export class AppComponent {
         // { routerLink: 'psychro', label: 'Psychrometric' }
       ]
     }
-  ];
+  ] */;
 }

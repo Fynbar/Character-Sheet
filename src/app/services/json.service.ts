@@ -4,6 +4,7 @@ import { map, tap } from 'rxjs/operators';
 // import { ThermoStateData } from '../models/thermo-state.model';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { EquipmentCategory, Item } from 'src/models/equipment/equipment.model';
 // import { EndCondition } from './deform/beam-bending/beam-bending.component';
 
 @Injectable({
@@ -25,6 +26,24 @@ export class JSONService {
 
   public saveJSON(filename: string, post: any): Observable<any> {
     return this.http.post(this.jsonify(filename), post);
+  }
+
+  public getEquipmentJSON(equipmentCategory?: EquipmentCategory): Observable<Item[]> {
+    let response = this.getJSON('apiEquipment');
+    if (equipmentCategory) {
+      response = response.pipe(map(r => r[equipmentCategory]));
+    } else {
+      response = response.pipe(map(z =>
+        [].concat(...Object.keys(z)
+          .map(o => z[o]))
+      ));
+    }
+    return response;
+  }
+
+  public getWeaponJSON(): Observable<Item[]> {
+    return this.getEquipmentJSON(EquipmentCategory.Weapon);
+    // return this.getEquipmentJSON('Weapon');
   }
 }
 

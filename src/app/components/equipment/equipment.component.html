@@ -1,0 +1,63 @@
+<p-table #eqt [columns]="cols" [value]="items" dataKey="name" [paginator]="true" [rows]="30" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header" let-columns>
+
+        <tr>
+            <th style="width: 3em"></th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <div *ngSwitchCase="'name'" class="ui-inputgroup">
+                    <span class="ui-float-label">
+                      <input id="float-input"  pInputText type="text" size="30" (input)="eqt.filter($event.target.value, col.field, 'contains')">
+                      <!-- <input id="float-input" type="text"  pInputText>  -->
+                      <label for="float-input">Name</label>
+                  </span>
+                </div>
+                <!-- <div *ngSwitchCase="'weight'">
+                    {{weightFilter[0]}} {{weightFilter[1]}}
+                    <i class="pi pi-times" (click)="weightFilter=[null, weightSlider[1]];eqt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="showWeightX"></i>
+                    <p-slider *ngIf="weightSlider" range="true" [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="weightFilter" [min]="weightSlider[0]" [max]="weightSlider[1]" (onChange)="onWeightChange($event, eqt)"></p-slider>
+                </div> -->
+                <p-dropdown *ngSwitchCase="'equipment_category'" [options]="categories" [style]="{'width':'100%'}" (onChange)="eqt.filter($event.value, col.field, 'equals')"></p-dropdown>
+                <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="eqt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
+                <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="eqt.filter($event.target.value, col.field, 'custom')"> -->
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
+        <tr>
+            <td>
+                <a href="#" [pRowToggler]="rowData">
+                    <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                </a>
+            </td>
+            <ng-template ngFor let-col [ngForOf]="cols" let-i="index">
+                <td [ngSwitch]="col.field">
+                    <span *ngSwitchCase="'cost'">
+            {{rowData[col.field].quantity}} {{rowData[col.field].unit}}
+          </span>
+                    <span *ngSwitchDefault>
+            {{rowData[col.field]}}
+          </span>
+                </td>
+            </ng-template>
+            <!-- <td>
+          <i class="pi pi-check" *ngIf="rowData.flavor_text"></i>
+      </td> -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
+        <tr>
+            <td [attr.colspan]="columns.length + 1">
+                <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                    <div></div>{{rowData| json}}
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -103,6 +103,8 @@ import { ModifierBuilderComponent } from './components/modifiers/modifier-builde
 import { MonsterViewerComponent } from './components/monster/monster-viewer/monster-viewer.component';
 import { DiceResultDialogComponent } from './components/dice/dice-result-dialog/dice-result-dialog.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { EquipmentComponent } from './components/equipment/equipment.component';
+import { WeaponComponent } from './components/equipment/weapon/weapon.component';
 // #endregion
 
 @NgModule({
@@ -119,7 +121,9 @@ import { NotesComponent } from './components/notes/notes.component';
     ModifierBuilderComponent,
     MonsterViewerComponent,
     DiceResultDialogComponent,
-    NotesComponent
+    NotesComponent,
+    EquipmentComponent,
+    WeaponComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),
