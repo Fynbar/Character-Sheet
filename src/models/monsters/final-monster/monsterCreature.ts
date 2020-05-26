@@ -1,23 +1,20 @@
+// tslint:disable:max-line-length
+import { WeaponAttack } from 'src/app/components/equipment/weapon/weapon-attack';
+import { Weapon } from 'src/models/equipment/weapon.model';
+import { ChallengeRating } from 'src/models/rules/challengeRating.enum';
+import { enumValuesArray } from '../../../app/common/enumKeysArray';
+import { breakBySubstrings, cap, commaSplit, findBetweenStrings, getAllNumbersInString, spaceJoin, spaceSplit, stripArray } from '../../../app/common/string.functions';
+import { Dice } from '../../../app/components/dice/dice';
+import { characterClass } from '../../characterClass.enum';
+import { ability, abilityAbbrev } from '../../rules/ability.enum';
 import { Condition, ConditionImmunity } from '../../rules/condition.enum';
 import { lowerDamageType } from '../../rules/damageStatusType';
 import { Book } from '../../rules/sourceBook.enum';
-import { commaSplit, spaceJoin, spaceSplit, stripArray, findBetweenStrings } from '../../../app/common/string.functions';
-import { Dice } from '../../../app/components/dice/dice';
-import { ability, abilityAbbrev, abbrevToAbility } from '../../rules/ability.enum';
 import { Page } from '../../spells/spell.model';
-import {
-    ActionDamage, APIMonster, Proficiency, PurpleType, Trait, School, betterComponentsRequired, FluffyType, SuccessType, DamageType
-} from '../api-monster/apiMonster.model';
+import { ActionDamage, APIMonster, betterComponentsRequired, FluffyType, Proficiency, PurpleType, RESTType, SuccessType, Trait } from '../api-monster/apiMonster.model';
 import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
-import {
-    Abilities, ActionElement, LegendaryActionElement, Meta, Monster, ReactionElement, Senses, Skills, Speed
-} from './monster.model';
-import { characterClass } from '../../characterClass.enum';
-import { enumValuesArray } from '../../../app/common/enumKeysArray';
-import { ChallengeRating } from 'src/models/rules/challengeRating.enum';
-import { Weapon } from 'src/models/equipment/weapon.model';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { WeaponAttack } from 'src/app/components/equipment/weapon/weapon-attack';
+import { Abilities, ActionElement, LegendaryActionElement, Meta, Monster, ReactionElement, Senses, Skills, Speed } from './monster.model';
+// tslint:enable:max-line-length
 
 const classNames = enumValuesArray(characterClass);
 const lowerClassNames = classNames.map(s => s.toLowerCase);
@@ -119,10 +116,6 @@ export class MonsterCreature implements Monster {
             alignment: m.alignment,
             monsterType: m.type
         };
-        // if (m.other_speeds) {
-        //     console.log(`${m.name}: ${JSON.stringify(m.other_speeds)}`);
-        // }
-
         if (m.subtype) {
             monster.meta.monsterSubType = m.subtype;
         }
@@ -154,7 +147,6 @@ export class MonsterCreature implements Monster {
         });
         speedObj = speedObj;
         monster.speed = speedObj;
-
         monster.languages = commaSplit(m.languages);
         let proficiencyObj = { savingThrows: {}, skills: {} };
         m.proficiencies.forEach((prof: Proficiency) => {
@@ -173,13 +165,21 @@ export class MonsterCreature implements Monster {
             monster.skills = proficiencyObj.skills;
         }
         const senseObj: Senses = {};
+
         Object.keys(m.senses).forEach(s => {
             if (s !== 'passive_perception') {
                 senseObj[s] = Number(m.senses[s].split(' ')[0]);
             } else {
-                monster.passivePerception = m.speed[s];
+                monster.passivePerception = m.senses[s];
             }
         });
+        if (Object.keys(senseObj).length > 0) {
+            monster.senses = senseObj;
+            // console.log(monster.name, monster.senses, m.senses);
+        } else if (monster.senses) {
+            delete monster.senses;
+        }
+        // console.log(Object.keys(senseObj).length > 0, monster.name);
         if (m.special_abilities) {
             monster.traits = m.special_abilities/* .map(t => {
                         return t;
@@ -187,11 +187,22 @@ export class MonsterCreature implements Monster {
         }
         // specialAbilities ?: SpecialAbility[];
         // console.log(m.name);
-        monster.actions = m.actions ? m.actions.map((a: ActionElement) => {
+        monster.actions = m.actions ? m.actions.map((a: ActionElement, inflex) => {
             const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
             if (a.otherActions) {
                 console.log(`${m.name}: ${a.name}`);
             }
+            if (a.attacks) {
+                const s = breakBySubstrings(a.desc, ...a.attacks.map(at => at.name));
+                // let s = ;
+                // console.log(value.actions);
+                // console.log(s);
+                // followingAttacks = true;
+                a.attacks = this.setActions({ actions: s.slice(1) });
+                a.desc = s[0];
+                // console.log(m.name, s, a);
+            }
+
             if (weaponindex >= 0) {
                 return new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a.desc);
             } else if (a.damage) {
@@ -280,7 +291,7 @@ export class MonsterCreature implements Monster {
 
         this.setTraits(value);
 
-        this.setActions(value);
+        value.actions = this.setActions(value);
         value.actions = this.setMulitaAttacks(value.name, value.actions);
         this.setLegendary(value);
 
@@ -357,6 +368,8 @@ export class MonsterCreature implements Monster {
                     const points: string = findBetweenStrings(actionObj.name, '(Costs ', ' Actions)');
                     if (points.length >= 0) {
                         actionObj.points = Number(points);
+                        actionObj.name = actionObj.name.slice(0, actionObj.name.indexOf('(Cost')).trim();
+
                     }
                     // const actionDesc = actionObj.desc.replace(/ft./g, 'ft').split('. ');
                     const attackIndicators = ['Attack:', 'Hit:'];
@@ -407,16 +420,30 @@ export class MonsterCreature implements Monster {
 
     private static setActions(value: any) {
         if (value.actions) {
-            value.actions = value.actions.map((element: string) => {
-                const actionObj: ActionElement = { name: '', desc: '' };
+            // let followingAttacks = false;
+            let followingAttacks;
+            let baseActionLength = value.actions.length;
+            return value.actions.map((element: string, ixden) => {
+                let actionObj: ActionElement = { name: '', desc: '' };
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
-                if (nameIndex >= 0) {
+                if (nameIndex >= 0 && !followingAttacks) {
                     actionObj.name = element.trim().substring(0, nameIndex);
                     actionObj.desc = element.trim().substring(nameIndex + indStr.length);
                     const attackIndicators = ['Attack:', 'Hit:'];
                     const attackIndecies = attackIndicators.map(s => actionObj.desc.indexOf(s));
-                    if (attackIndecies.concat(actionObj.desc.indexOf('DC')).every(n => n >= 0)) {
+                    const attackOptions = ['all', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+                    if (attackOptions.some(n => actionObj.desc.indexOf(`s ${n} of the following`) >= 0)
+                        && actionObj.name.toLowerCase().indexOf('multiattack') < 0) {
+                        // console.log(`${value.name}: ${actionObj.name}. ${actionObj.desc}`);
+                        let s;
+                        baseActionLength = ixden + 1;
+                        s = value.actions.slice(baseActionLength);
+                        // console.log(value.actions);
+                        // console.log(s);
+                        followingAttacks = true;
+                        actionObj.attacks = this.setActions({ actions: s });
+                    } else if (attackIndecies.concat(actionObj.desc.indexOf('DC')).every(n => n >= 0)) {
                         // if (attackIndecies.every(n => n >= 0)) {
                         const actionDesc: string[] = [actionObj.desc.substring(attackIndecies[0], attackIndecies[1])]
                             .concat(actionObj.desc.substring(attackIndecies[1]).replace(/ft./g, 'ft').split('. '));
@@ -599,36 +626,7 @@ export class MonsterCreature implements Monster {
                         // console.log(`${value.name}: ${actionObj.name}. ${actionObj.desc}`);
                         // actionDescObj.text = actionDesc;
                     }
-                    const r = 'recharge';
-                    const pd = '/day';
-                    if (actionObj.name.toLowerCase().indexOf(r) >= 0) {
-                        // console.log(`${value.name}: ${actionObj.name}`);
-                        const i = actionObj.name.toLowerCase().indexOf(r);
-
-                        const k = actionObj.name.substring(i + r.length);
-                        // console.log(actionObj.name, i, k);
-
-                        const minMax = k.split('').map(f => Number(f)).filter(f => !isNaN(f) && f > 0);
-                        // console.log(minMax);
-                        actionObj.usage = {
-                            type: PurpleType.RechargeAfterREST,
-                            dice: new Dice(Math.max(...minMax)),
-                            minValue: Math.min(...minMax)
-                        };
-                    } else if (actionObj.name.toLowerCase().indexOf(pd) >= 0) {
-                        // console.log(`${value.name}: ${actionObj.name}`);
-                        const i = actionObj.name.toLowerCase().indexOf('(');
-                        const j = actionObj.name.toLowerCase().indexOf(pd);
-
-                        const k = Number(actionObj.name.substring(i + 1, j));
-                        // console.log(actionObj.name, i, k);
-
-                        // const minMax = k.split('').map(f => Number(f)).filter(f => !isNaN(f));
-                        actionObj.usage = {
-                            type: PurpleType.PerDay,
-                            times: k
-                        };
-                    }
+                    actionObj = MonsterCreature.checkforUsageSpecification(actionObj, value.name);
                     // actionObj.actionDesc = actionDescObj;
                 } else if (actionObj.otherActions) {
                     actionObj.otherActions.push(element.trim());
@@ -637,8 +635,49 @@ export class MonsterCreature implements Monster {
                     actionObj.otherActions.push(element.trim());
                 }
                 return actionObj;
-            });
+            }).slice(0, baseActionLength);
         }
+    }
+
+    private static checkforUsageSpecification(actrait: ActionElement | Trait, name: string) {
+        const r = 'recharge';
+        const pd = '/day';
+        const rest = ' rest';
+        const i = actrait.name.toLowerCase().indexOf('(');
+        const isRecharge = actrait.name.toLowerCase().indexOf(r);
+        const isRest = actrait.name.toLowerCase().indexOf(rest);
+        if (isRecharge >= 0 && isRest >= 0) {
+            const k = actrait.name.substring(isRecharge + r.length);
+            const rests = [' long', ' short'].filter(f => actrait.name.toLowerCase().indexOf(f) >= 0)
+                .map(restType => RESTType[cap(restType.trim())]);
+            actrait.name = actrait.name.slice(0, i).trim();
+            actrait.usage = {
+                type: PurpleType.RechargeAfterREST,
+                restTypes: rests
+            };
+        } else if (isRecharge >= 0) {
+            const k = actrait.name.substring(isRecharge + r.length);
+            const minMax = getAllNumbersInString(k);
+            actrait.name = actrait.name.slice(0, i).trim();
+            actrait.usage = {
+                type: PurpleType.RechargeOnRoll,
+                dice: new Dice(Math.max(...minMax)),
+                minValue: Math.min(...minMax)
+            };
+        } else if (actrait.name.toLowerCase().indexOf(pd) >= 0) {
+            console.log(`${name}: ${actrait.name}`);
+            const j = actrait.name.toLowerCase().indexOf(pd);
+            const k = Number(actrait.name.substring(i + 1, j));
+            // console.log(actrait.name, i, k);
+            // const minMax = k.split('').map(f => Number(f)).filter(f => !isNaN(f));
+            actrait.name = actrait.name.slice(0, i).trim();
+            console.log(`${name}: ${actrait.name}`);
+            actrait.usage = {
+                type: PurpleType.PerDay,
+                times: k
+            };
+        }
+        return actrait;
     }
 
     private static setMulitaAttacks(name, actions) {
@@ -649,7 +688,7 @@ export class MonsterCreature implements Monster {
         return actions.map(actionObj => {
             if (actionObj.name.toLowerCase().indexOf('multiattack') >= 0) {
                 actionNames = actionNames.filter(f => actionObj.desc.toLowerCase().indexOf(f.toLowerCase()) >= 0).map(s => s.toLowerCase());
-                console.log(`${name}: ${actionObj.name}. ${actionObj.desc}`);
+                // console.log(`${name}: ${actionObj.name}. ${actionObj.desc}`);
                 const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
                 actionNames.forEach(n => {
                     if (actionObj.desc.toLowerCase().indexOf(`${useIt}${n.toLowerCase()}`) >= 0) {
@@ -679,7 +718,7 @@ export class MonsterCreature implements Monster {
                 //         []
                 //     ]
                 // };
-                console.log(actionObj.options);
+                // console.log(actionObj.options);
                 return actionObj;
             } else { return actionObj; }
         });
@@ -690,7 +729,7 @@ export class MonsterCreature implements Monster {
         if (value.traits) {
             value.traits = value.traits.map((element: string) => {
                 // const traitObj: { [key: string]: string[] } = {};
-                const traitObj: Trait = { name: '', desc: '' };
+                let traitObj: Trait = { name: '', desc: '' };
                 const indStr = '. ';
                 const nameIndex = element.indexOf(indStr);
                 if (nameIndex >= 0) {
@@ -699,22 +738,13 @@ export class MonsterCreature implements Monster {
                     // } else if (traitObj.otherTraits) {
                     //     traitObj.otherTraits.push(element);
 
-                    const pd = '/day';
+                    // const pd = '/day';
                     const sp = 'spellcasting';
                     const isp = 'innate spellcasting';
-                    if (traitObj.name.toLowerCase().indexOf(pd) >= 0) {
-                        const i = traitObj.name.toLowerCase().indexOf('(');
-                        const j = traitObj.name.toLowerCase().indexOf(pd);
 
-                        const k = Number(traitObj.name.substring(i + 1, j));
-                        // console.log(traitObj.name, i, k);
+                    traitObj = MonsterCreature.checkforUsageSpecification(traitObj, value.name);
 
-                        // const minMax = k.split('').map(f => Number(f)).filter(f => !isNaN(f));
-                        traitObj.usage = {
-                            type: PurpleType.PerDay,
-                            times: k
-                        };
-                    }
+
                     if (traitObj.name.toLowerCase() === sp) {
                         MonsterCreature.spellCastingBuilder(traitObj, value.name);
 
@@ -1016,7 +1046,6 @@ export class MonsterCreature implements Monster {
         }
     }
 
-
     public get languageString(): string {
         if (this.languages) {
             // console.log(JSON.stringify(challengeRating[this.challenge]));
@@ -1038,6 +1067,3 @@ export class MonsterCreature implements Monster {
         }
     }
 }
-
-
-

@@ -135,7 +135,7 @@ export interface ActionUsage {
 
 export interface Trait extends Action {
     spellcasting?: Spellcasting;
-    usage?: SpecialAbilityUsage;
+    usage?: ActionUsage;
 }
 
 export interface ActionElement extends Action {

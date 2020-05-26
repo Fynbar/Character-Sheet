@@ -29,13 +29,18 @@
 
 
     <div *ngFor="let t of Monster.traits let i=index">
-        <b>{{t.name}}:</b> {{t.desc}}
+        <b>{{t.name}}{{toRechargeString(t)}}:</b> {{t.desc}}
     </div>
 
     <div *ngIf="Monster.actions">
         <h4 class="remove-bottom-margin">Actions</h4>
         <div *ngFor="let a of Monster.actions; let i=index">
-            <b>{{a.name}}:</b> {{a.desc}}
+            <b>{{a.name}}{{toRechargeString(a)}}:</b> {{a.desc}}
+            <div *ngIf="a.attacks">
+                <div class="slight-indent" *ngFor="let at of a.attacks">
+                    <b>{{at.name}}:</b> {{at.desc}}
+                </div>
+            </div>
         </div>
     </div>
 
@@ -43,7 +48,7 @@
         <h4 class="remove-bottom-margin">Legendary Actions</h4>
         <div>{{Monster.legendaryRules}}</div>
         <div *ngFor="let la of Monster.legendary; let i=index">
-            <b>{{la.name}}:</b> {{la.desc}}
+            <b>{{la.name}}{{toLegendaryPointString(la)}}:</b> {{la.desc}}
         </div>
     </div>
 

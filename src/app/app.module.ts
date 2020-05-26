@@ -105,6 +105,7 @@ import { DiceResultDialogComponent } from './components/dice/dice-result-dialog/
 import { NotesComponent } from './components/notes/notes.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 import { WeaponComponent } from './components/equipment/weapon/weapon.component';
+import { NumberToWordsPipe } from './common/number-to-words.pipe';
 // #endregion
 
 @NgModule({
@@ -123,7 +124,8 @@ import { WeaponComponent } from './components/equipment/weapon/weapon.component'
     DiceResultDialogComponent,
     NotesComponent,
     EquipmentComponent,
-    WeaponComponent
+    WeaponComponent,
+    NumberToWordsPipe
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),

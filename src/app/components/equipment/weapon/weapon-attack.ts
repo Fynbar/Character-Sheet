@@ -99,6 +99,4 @@ export class WeaponAttack implements ActionElement {
   public get stringVersion(): string {
     return `${this.attackRangeString}: ${this.hitString} ${this.rangeString} one target. ${this.damageHitString[0]}`;
   }
-
-
 }

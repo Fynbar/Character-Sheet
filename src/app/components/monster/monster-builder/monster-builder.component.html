@@ -1,7 +1,7 @@
 MultiAttackers: {{multiAttackers}}
 <h3>Shown - {{checked? 'Monster Manual':'SRD'}}</h3>
 <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
-<div *ngIf="filMon && txtmonsters">
+<div *ngIf="copyVal">
     <p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
 
     <p-accordion>

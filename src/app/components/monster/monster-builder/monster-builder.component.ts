@@ -4,7 +4,7 @@ import { APIMonster, Convert } from '../../../../models/monsters/api-monster/api
 import { JSONService } from '../../../services/json.service';
 import { insertString } from '../../../common/string.functions';
 import { MonsterCreature } from '../../../../models/monsters/final-monster/monsterCreature';
-import { map } from 'rxjs/operators';
+import { map, flatMap, tap } from 'rxjs/operators';
 import { DndApiService } from 'src/app/services/dnd-api.service';
 import { MonsterMonMan } from 'src/models/monsters/mon-man-text-monster/monsterMonMan';
 import { forkJoin } from 'rxjs';
@@ -30,11 +30,11 @@ export class MonsterBuilderComponent implements OnInit {
     private jsonService: JSONService
   ) { }
   public checked = true;
-  public monsters: APIMonster[] = [];
-  public txtmonsters: MonsterCreature[] = [];
-  public filMon: MonsterCreature[] = [];
-  private temp: APIMonster[] = [];
-  public mon2: any[] = [];
+  public apiMonsters: APIMonster[] = [];
+  public jsonMonstersFormatted: MonsterCreature[] = [];
+  public apiMonstersFormatted: MonsterCreature[] = [];
+  // private temp: APIMonster[] = [];
+  public jsonMonsters: MonsterMonMan[] = [];
   public weapons: Weapon[] = [];
   selectedMonsters = [];
   // ngAfterViewInit() {
@@ -42,39 +42,49 @@ export class MonsterBuilderComponent implements OnInit {
   // }
 
   ngOnInit() {
-    console.log(generateFieldHTML(this.cols));
-    forkJoin(this.jsonService.getJSON('apiMons'), this.jsonService.getJSON('mon_man_addition'), this.jsonService.getWeaponJSON())
-      .subscribe(data => {
-        console.log(data);
-        this.monsters = data[0];
-        this.filMon = this.monsters.map(m => MonsterCreature.fromAPIMonster(m, data[2]));
-        const names = this.monsters.map(n => n.name);
-        this.mon2 = data[1].filter(f => names.indexOf(f.name) < 0);
-        // console.log(data[1].filter(f => names.indexOf(f.name) > 0));
-        this.txtmonsters = this.mon2.map(m => MonsterCreature.fromPageDesc(m, data[2]));
-        this.weapons = data[2];
-        this.selectedMonsters = this.txtmonsters.filter((_, index) => this.mon2[index].completed && this.txtmonsters[index].completed);
-        // console.log(this.weapons);
-      });
+    // console.log(generateFieldHTML(this.cols));
+    this.jsonService.getWeaponJSON().pipe(tap(w => this.weapons = w), flatMap(_ =>
+      forkJoin(this.jsonService.getJSON('apiMons'),
+        this.jsonService.getJSON('mon_man_addition'),
+        this.jsonService.getJSON('monsterManualAdditions')
+      )
+    )).subscribe(data => {
+      // console.log(data);
+      this.apiMonsters = data[0];
+      this.apiMonstersFormatted = this.apiMonsters.map(m => MonsterCreature.fromAPIMonster(m, this.weapons));
+      const names = this.apiMonsters.map(n => n.name);
+
+
+      this.jsonMonsters = data[1].filter(f => names.indexOf(f.name) < 0);
+      this.jsonMonsters.forEach((c, i) => console.log(c.name, data[2][i].name));
+      // console.log(data[1].filter(f => names.indexOf(f.name) > 0));
+
+      console.log(data[2].length, this.jsonMonsters.length);
+      this.jsonMonstersFormatted = data[2].filter(f => names.indexOf(f.name) < 0)
+        .map((c, i) => c.completed ? c : MonsterCreature.fromPageDesc(this.jsonMonsters[i], this.weapons));
+      console.log(data[2]);
+      this.selectedMonsters = this.jsonMonstersFormatted.filter(c => c.completed);
+      // console.log(this.weapons);
+    });
   }
   public onRowSelect(event) {
     const names = this.selectedMonsters.map(m => m.name);
-    this.txtmonsters.forEach(m => m.completed = names.indexOf(m.name) >= 0);
-    this.mon2.forEach(m => m.completed = names.indexOf(m.name) >= 0);
-    console.log(this.selectedMonsters);
+    this.jsonMonstersFormatted.forEach(m => m.completed = names.indexOf(m.name) >= 0);
+    // this.jsonMonsters.forEach(m => m.completed = names.indexOf(m.name) >= 0);
+    // console.log(this.selectedMonsters);
   }
 
 
   public get data() {
-    return this.checked ? [this.mon2, this.txtmonsters] : [this.monsters, this.filMon];
+    return this.checked ? [this.jsonMonsters, this.jsonMonstersFormatted] : [this.apiMonsters, this.apiMonstersFormatted];
   }
 
   public get multiAttackers() {
-    return this.txtmonsters.filter(f => f.actions.some(s => s.name.toLowerCase() === 'multiattack')).length;
+    return this.jsonMonstersFormatted.filter(f => f.actions.some(s => s.name.toLowerCase() === 'multiattack')).length;
   }
 
   public get copyVal(): string {
-    return JSON.stringify(this.checked ? this.txtmonsters : this.mon2);
+    return JSON.stringify(this.checked ? this.jsonMonstersFormatted : this.apiMonstersFormatted);
   }
 
   public copyInputMessage() {
@@ -96,16 +106,16 @@ export class MonsterBuilderComponent implements OnInit {
 
   public onRowExpand(event, data) {
     // console.log(data);
-    console.log(this.monsters);
-    this.monsters = this.temp;
+    // console.log(this.apiMonsters);
+    // this.apiMonsters = this.temp;
   }
 
   public get monLen(): number {
-    return this.monsters.length;
+    return this.apiMonsters.length;
   }
 
   public get monsterNames(): string[] {
-    return this.monsters.map(m => m.name);
+    return this.apiMonsters.map(m => m.name);
   }
 
   // public get filMon(): any[] {
