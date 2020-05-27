@@ -9,7 +9,7 @@ import { DndApiService } from 'src/app/services/dnd-api.service';
 import { MonsterMonMan } from 'src/models/monsters/mon-man-text-monster/monsterMonMan';
 import { forkJoin } from 'rxjs';
 import { Weapon } from 'src/models/equipment/weapon.model';
-import { generateFieldHTML } from '../../equipment/Column';
+import { generateFieldHTML } from '../../equipment/column.model';
 
 @Component({
   selector: 'app-monster-builder',
@@ -44,26 +44,25 @@ export class MonsterBuilderComponent implements OnInit {
   ngOnInit() {
     // console.log(generateFieldHTML(this.cols));
     this.jsonService.getWeaponJSON().pipe(tap(w => this.weapons = w), flatMap(_ =>
-      forkJoin(this.jsonService.getJSON('apiMons'),
-        this.jsonService.getJSON('mon_man_addition'),
-        this.jsonService.getJSON('monsterManualAdditions')
-      )
+      this.jsonService.getJSON('baseFiles/volo_addition')
     )).subscribe(data => {
       // console.log(data);
-      this.apiMonsters = data[0];
-      this.apiMonstersFormatted = this.apiMonsters.map(m => MonsterCreature.fromAPIMonster(m, this.weapons));
-      const names = this.apiMonsters.map(n => n.name);
+      // this.apiMonsters = data[0];
+      // this.apiMonstersFormatted = this.apiMonsters.map(m => MonsterCreature.fromAPIMonster(m, this.weapons));
+      // const names = this.apiMonsters.map(n => n.name);
+      this.jsonMonsters = data.sort((a, b) => a.name < b.name ? -1 : 1);
 
 
-      this.jsonMonsters = data[1].filter(f => names.indexOf(f.name) < 0);
-      this.jsonMonsters.forEach((c, i) => console.log(c.name, data[2][i].name));
-      // console.log(data[1].filter(f => names.indexOf(f.name) > 0));
+      // console.log(data[2].length, this.jsonMonsters.length);
+      // this.jsonMonstersFormatted = data[2].filter(f => names.indexOf(f.name) < 0)
+      //   .map((c, i) => c.completed ? new MonsterCreature(c) : MonsterCreature.fromPageDesc(this.jsonMonsters[i], this.weapons));
 
-      console.log(data[2].length, this.jsonMonsters.length);
-      this.jsonMonstersFormatted = data[2].filter(f => names.indexOf(f.name) < 0)
-        .map((c, i) => c.completed ? c : MonsterCreature.fromPageDesc(this.jsonMonsters[i], this.weapons));
-      console.log(data[2]);
-      this.selectedMonsters = this.jsonMonstersFormatted.filter(c => c.completed);
+      // this.jsonMonstersFormatted.map(m => {
+      //   m.completed = m.completed ? m.completed : m.actions.map(a => a.name.toLowerCase()).indexOf('multiattack') < 0;
+      //   return m;
+      // });
+
+      // this.selectedMonsters = this.jsonMonstersFormatted.filter(c => c.completed);
       // console.log(this.weapons);
     });
   }
@@ -80,11 +79,12 @@ export class MonsterBuilderComponent implements OnInit {
   }
 
   public get multiAttackers() {
-    return this.jsonMonstersFormatted.filter(f => f.actions.some(s => s.name.toLowerCase() === 'multiattack')).length;
+    return this.jsonMonstersFormatted.filter(f => !f.completed && f.actions.some(s => s.name.toLowerCase() === 'multiattack')).length;
   }
 
   public get copyVal(): string {
-    return JSON.stringify(this.checked ? this.jsonMonstersFormatted : this.apiMonstersFormatted);
+    // return JSON.stringify(this.checked ? this.jsonMonstersFormatted : this.jsonMonsters);
+    return JSON.stringify(this.jsonMonsters);
   }
 
   public copyInputMessage() {
@@ -118,15 +118,21 @@ export class MonsterBuilderComponent implements OnInit {
     return this.apiMonsters.map(m => m.name);
   }
 
-  // public get filMon(): any[] {
-  //   return this.monsters.map(m => MonsterCreature.fromAPIMonster(m));
-  //     // .filter((m, index) => index >= 99 && index <= 114);
-  //     // return this.monsters.map(m => this.readPageDesc(m))
-  // }
+  public get autoFormattedMonters(): any[] {
+    return this.jsonMonsters.map(m => {
+      try {
+        return this.fromPageDesc(m);
+      } catch {
+        return m;
+      }
+    });
+    // .filter((m, index) => index >= 99 && index <= 114);
+    // return this.monsters.map(m => this.readPageDesc(m))
+  }
 
-  // public fromPageDesc(m: MonsterMonMan): MonsterCreature {
-  //   return MonsterCreature.fromPageDesc(m);
-  // }
+  public fromPageDesc(m: MonsterMonMan): MonsterCreature {
+    return MonsterCreature.fromPageDesc(m);
+  }
 
   public readPageDesc(str: MonsterMonMan): MonsterMonMan {
     let s = str.page_desc ? str.page_desc : '';
@@ -153,13 +159,16 @@ export class MonsterBuilderComponent implements OnInit {
     return str;
   }
 
-  // public set filMon(monsters: APIMonster[]) {
+  // public set autoFormattedMonters(monsters: APIMonster[]) {
   //   monsters.forEach(m =>
   //     this.temp[this.monsterNames.indexOf(m.name)] = m
   //   );
   //   console.log(this.monsters);
   // }
 
+  updateMonster(e, i) {
+    this.jsonMonstersFormatted[i] = e;
+  }
 }
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConditionImmunity } from 'src/models/rules/condition.enum';
-import { DamageStatusType } from 'src/models/rules/damageStatusType';
+import { DamageType } from 'src/models/rules/damage-type';
 import { ActionElement, ReactionElement, LegendaryActionElement, Trait } from 'src/models/monsters/final-monster/monster.model';
 
 enum ModType {
@@ -12,7 +12,7 @@ enum ModType {
   factor = 'factor'
 }
 
-type ModValue = number | string | ConditionImmunity | DamageStatusType | ActionElement | ReactionElement | LegendaryActionElement | Trait;
+type ModValue = number | string | ConditionImmunity | DamageType | ActionElement | ReactionElement | LegendaryActionElement | Trait;
 
 @Component({
   selector: 'app-modifier',

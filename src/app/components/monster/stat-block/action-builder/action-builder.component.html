@@ -1,0 +1,99 @@
+<span *ngIf="action">
+  <!-- <h4 class="remove-bottom-margin">Actions</h4> -->
+
+  <div *ngIf="readOnly; then thenBlock else elseBlock"></div>
+</span>
+
+<ng-template #thenBlock>
+    <span (click)="actionClick(action)"><b>{{action.name}}{{toRechargeString(action)}}:</b> {{action.desc}}</span>
+    <div *ngIf="action.attacks">
+        <div class="slight-indent" *ngFor="let at of action.attacks">
+            <b>{{at.name}}:</b> {{at.desc}}
+        </div>
+    </div>
+    <!-- Content to render when condition is true. -->
+</ng-template>
+
+<ng-template #elseBlock>
+    <p-accordion>
+        <p-accordionTab header="{{action.name}}">
+
+            <div class="ui-fluid p-formgrid p-grid">
+                <div class="p-field p-col-8 p-md-4" *ngIf="action.name">
+                    <label for="{{action.name}}">Name</label>
+                    <input name="{{action.name}}" id="{{action.name}}" type="text" pInputText [(ngModel)]="action.name">
+                    <!-- [(ngModel)]="action.name" pInputText>
+               import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";> -->
+                </div>
+                <div class="p-field p-col-4 p-md-2" *ngIf="action.usage">
+                    <label for="usage">Restriction</label>
+                    <p-dropdown id="usage" [options]="purpleTypes" inputId="value" [(ngModel)]="action.usage" ngDefaultControl placeholder="Usage Restriction"></p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12" *ngIf="action.desc">
+                    <label for="description">Description</label>
+                    <textarea id="description" type="text" [autoResize]="true" pInputTextarea [(ngModel)]="action.desc"></textarea>
+                </div>
+
+                <div class="p-col-12" *ngIf="action.name">
+                    <div *ngIf="isMultiattack" class="p-field p-col-12 p-md-6">
+                        <label for="Choose">Choose</label>
+                        <input name="Choose" id="actionname" type="text" pInputText [(ngModel)]="options.choose" pKeyFilter="int">
+
+                        <ng-template ngFor let-option [ngForOf]="options.from" let-i="index">
+
+                            <h4>Option {{i+1}}
+                                <p-button icon="pi pi-plus" (onClick)="addOption(i)"></p-button>
+                                <p-button icon="pi pi-minus" (onClick)="removeOption(i)"></p-button>
+                            </h4>
+
+                            <div class="p-grid" *ngFor="let choice of option; let j = index">
+
+                                <div class="p-col-3 p-md-2" *ngIf="!givenActionNames">
+                                    <label for="attack{{i}}.{{j}}">Attack Name</label>
+                                    <input name="attack{{i}}.{{j}}" id="attackname" type="text" pInputText [(ngModel)]="choice.name">
+                                </div>
+                                <div class="p-col-5 p-md-2" *ngIf="givenActionNames">
+                                    <label for="attack{{i}}.{{j}}">Attack {{i+1}}-{{j+1}}</label>
+                                    <!-- <p-dropdown id="type{{i}}.{{j}}" [options]="choiceTypes" [(ngModel)]="choice.type" (onChange)="typeDropdownChange($event, i, j)"></p-dropdown> -->
+                                    <p-dropdown id="attack{{i}}.{{j}}" [options]="attackTypes" [(ngModel)]="choice.name"></p-dropdown>
+                                    <!-- (onChange)="typeDropdownChange($event, i, j)"> </p-dropdown> -->
+                                </div>
+                                <div class="p-col-3 p-md-2">
+                                    <label for="type{{i}}.{{j}}">Type {{choice.name}}</label>
+                                    <p-dropdown id="type{{i}}.{{j}}" [options]="choiceTypes" [(ngModel)]="choice.type"></p-dropdown>
+                                </div>
+                                <div class="p-col-2 p-md-1">
+                                    <label for="count{{i}}.{{j}}">Count {{choice.name}}</label>
+                                    <input name="count{{i}}.{{j}}" id="count{{i}}.{{j}}" type="text" pInputText [(ngModel)]="choice.count" pKeyFilter="int">
+                                </div>
+
+                                <div class="p-col-2">
+                                    <div>
+                                        <p-button class="smaller-button" icon="pi pi-plus" (onClick)="addChoice(i, j)"></p-button>
+                                    </div>
+                                    <div>
+                                        <p-button class="smaller-button" icon="pi pi-minus" (onClick)="removeChoice(i, j)"></p-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <!-- <span *ngSwitchDefault> -->
+                    <!-- {{action.name===='Multiattack'}} -->
+
+                </div>
+
+                <!-- <div class="p-col-2">
+            <p-button icon="pi pi-plus" (onClick)="addState(i)"></p-button>
+            <p-button icon="pi pi-minus" (onClick)="removeState(i)"></p-button>
+        </div> -->
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+</ng-template>
+
+<ng-template #ifNameList>
+
+    <ng-template>

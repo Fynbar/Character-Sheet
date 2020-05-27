@@ -1,5 +1,7 @@
 import { Item } from './equipment.model';
-import { DamageStatusType } from '../rules/damageStatusType';
+import { DamageType } from '../rules/damage-type';
+
+export type Weapons = Weapon[];
 
 export interface Weapon extends Item {
     weaponCategory: WeaponCategory;
@@ -21,7 +23,7 @@ export enum CategoryRange {
 export interface Damage {
     damageDice: string;
     damageBonus: number;
-    damageType: DamageStatusType;
+    damageType: DamageType;
 }
 export interface WeaponProperty {
     // url: string;

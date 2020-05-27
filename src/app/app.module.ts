@@ -1,12 +1,8 @@
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpErrorInterceptor } from './common/http-error.interceptor';
-
 // #region PrimeNG modules
 import { AccordionModule } from 'primeng/Accordion';
 // import { DialogService } from 'primeng/api';
@@ -83,29 +79,30 @@ import { TreeModule } from 'primeng/Tree';
 import { TreeTableModule } from 'primeng/TreeTable';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { VirtualScrollerModule } from 'primeng/VirtualScroller';
-// #endregion
-
-// #region Component Imports
-import { MonsterBuilderComponent } from './components/monster/monster-builder/monster-builder.component';
-import { MonsterComponent } from './components/monster/monster.component';
-import { HomeComponent } from './components/home/home.component';
-import { SpellListComponent } from './components/Spells/spell-list/spell-list.component';
-import { MonsterPageComponent } from './components/monster/monster-page/monster-page.component';
-// #endregion
-
-// #region Service Imports
-import { PythonService } from './services/python.service';
-import { JSONService } from './services/json.service';
-import { DiceComponent } from './components/dice/dice.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { DicePipe } from './common/dice.pipe';
-import { ModifierComponent } from './components/modifiers/modifier/modifier.component';
-import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
-import { StatBlockComponent } from './components/monster/stat-block/stat-block.component';
+// #endregion
+// #region Service Imports
+import { NumberToWordsPipe } from './common/number-to-words.pipe';
+import { JSONService } from './services/json.service';
+import { PythonService } from './services/python.service';
+// #endregion
+// #region Component Imports
 import { DiceResultDialogComponent } from './components/dice/dice-result-dialog/dice-result-dialog.component';
-import { NotesComponent } from './components/notes/notes.component';
+import { DiceComponent } from './components/dice/dice.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 import { WeaponComponent } from './components/equipment/weapon/weapon.component';
-import { NumberToWordsPipe } from './common/number-to-words.pipe';
+import { HomeComponent } from './components/home/home.component';
+import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
+import { ModifierComponent } from './components/modifiers/modifier/modifier.component';
+import { MonsterBuilderComponent } from './components/monster/monster-builder/monster-builder.component';
+import { MonsterPageComponent } from './components/monster/monster-page/monster-page.component';
+import { MonsterComponent } from './components/monster/monster.component';
+import { ActionBuilderComponent } from './components/monster/stat-block/action-builder/action-builder.component';
+import { StatBlockComponent } from './components/monster/stat-block/stat-block.component';
+import { NotesComponent } from './components/notes/notes.component';
+import { SpellListComponent } from './components/Spells/spell-list/spell-list.component';
 // #endregion
 
 @NgModule({
@@ -125,7 +122,8 @@ import { NumberToWordsPipe } from './common/number-to-words.pipe';
     NotesComponent,
     EquipmentComponent,
     WeaponComponent,
-    NumberToWordsPipe
+    NumberToWordsPipe,
+    ActionBuilderComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),

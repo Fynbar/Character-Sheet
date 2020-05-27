@@ -1,6 +1,6 @@
-MultiAttackers: {{multiAttackers}}
+<!-- MultiAttackers: {{multiAttackers}}
 <h3>Shown - {{checked? 'Monster Manual':'SRD'}}</h3>
-<p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+<p-inputSwitch [(ngModel)]="checked"></p-inputSwitch> -->
 <div *ngIf="copyVal">
     <p-button (onClick)="copyInputMessage()" label="Copy JSON"></p-button>
 
@@ -10,7 +10,7 @@ MultiAttackers: {{multiAttackers}}
         </p-accordionTab>
     </p-accordion>
 
-    <p-table #dt [columns]="cols" [value]="data[1]" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowSelect($event)"
+    <p-table #dt [columns]="cols" [value]="this.jsonMonsters" dataKey="name" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowSelect($event)"
         [(selection)]="selectedMonsters" selectionMode="single">
         <ng-template pTemplate="header" let-columns>
             <tr>
@@ -38,9 +38,10 @@ MultiAttackers: {{multiAttackers}}
                 </td>
                 <td>{{rowData.name}}
                 </td>
-                <td>{{checked? rowData.page.book: 'SRD'}}
+                <!-- <td>{{checked? rowData.page.book: 'SRD'}} -->
+                <td>{{rowData.page}}
                 </td>
-                <td>{{checked?rowData.challenge:rowData.challenge_rating}}
+                <td>{{rowData.challenge}}
                 </td>
                 <!-- <td>
                 <i class="pi pi-check" *ngIf="rowData.flavor_text"></i>
@@ -52,28 +53,29 @@ MultiAttackers: {{multiAttackers}}
                 <td [attr.colspan]="columns.length + 2">
                     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
                         <!-- {{i}} -->
-                        <!-- <textarea [(ngModel)]="rowData.page_desc" autoResize="autoResize" pInputTextarea></textarea> -->
+                        <textarea [(ngModel)]="rowData.name" autoResize="true"></textarea>
+                        <div>{{autoFormattedMonters[i] | json}}</div>
+                        <textarea pInputTextarea [(ngModel)]="rowData.page_desc" columns="50" autoResize="true"></textarea>
+                        <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" columns="50" autoResize="autoResize"></textarea>
+
                         <!-- {{rowData| json}} -->
-                        <app-stat-block [Monster]="data[1][i]"></app-stat-block>
-
-
-
-                        <p-accordion>
-                            <p-accordionTab header="Description">
-                                <textarea pInputTextarea [(ngModel)]="data[0][i].page_desc" autoResize="autoResize"></textarea>
-                                <!-- <div>{{fromPageDesc(rowData) | json}}</div> -->
-                            </p-accordionTab>
-                            <!-- {{rowData| json}} -->
-                            <p-accordionTab header="Flavor Text">
-                                <!-- 
-                            {{filmon[i]| json}}-->
-                                <div>{{data[1][i]| json}}</div>
-                                <!-- 
-                            <textarea pInputTextarea [(ngModel)]="rowData.flavor_text" autoResize="autoResize"></textarea>-->
-                            </p-accordionTab>
-                        </p-accordion>
-
+                        <!-- <app-stat-block (updatedCreature)="updateMonster($event, i)" [Monster]="rowData">
+                        </app-stat-block>
+                      -->
                     </div>
+                    <!--
+                </td>
+            </tr>
+            <tr>
+                <td [attr.colspan]="columns.length + 2">
+                    <p-accordion>
+                        <p-accordionTab header="Description">
+                            <textarea pInputTextarea [(ngModel)]="rowData.page_desc" columns="50" autoResize="autoResize"></textarea>
+                        </p-accordionTab>
+                        <p-accordionTab header="JSON">
+                            {{rowData | json}}
+                        </p-accordionTab>
+                    </p-accordion>-->
                 </td>
             </tr>
         </ng-template>

@@ -1,0 +1,11 @@
+.remove-bottom-margin {
+    margin-bottom: 0px;
+}
+
+.remove-top-margin {
+    margin-top: 0px;
+}
+
+.slight-indent {
+    padding-left: 10px;
+}

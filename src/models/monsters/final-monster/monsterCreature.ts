@@ -8,10 +8,10 @@ import { Dice } from '../../../app/components/dice/dice';
 import { characterClass } from '../../characterClass.enum';
 import { ability, abilityAbbrev } from '../../rules/ability.enum';
 import { Condition, ConditionImmunity } from '../../rules/condition.enum';
-import { lowerDamageType } from '../../rules/damageStatusType';
+import { lowerDamageType } from '../../rules/damage-type';
 import { Book } from '../../rules/sourceBook.enum';
 import { Page } from '../../spells/spell.model';
-import { ActionDamage, APIMonster, betterComponentsRequired, FluffyType, Proficiency, PurpleType, RESTType, SuccessType, Trait } from '../api-monster/apiMonster.model';
+import { ActionDamage, APIMonster, betterComponentsRequired, FluffyType, Proficiency, PurpleType, RESTType, SuccessType, Trait, Dc } from '../api-monster/apiMonster.model';
 import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
 import { Abilities, ActionElement, LegendaryActionElement, Meta, Monster, ReactionElement, Senses, Skills, Speed } from './monster.model';
 // tslint:enable:max-line-length
@@ -181,12 +181,8 @@ export class MonsterCreature implements Monster {
         }
         // console.log(Object.keys(senseObj).length > 0, monster.name);
         if (m.special_abilities) {
-            monster.traits = m.special_abilities/* .map(t => {
-                        return t;
-        }) */;
+            monster.traits = m.special_abilities.map(t => MonsterCreature.convertAPIDamageandDC(t));
         }
-        // specialAbilities ?: SpecialAbility[];
-        // console.log(m.name);
         monster.actions = m.actions ? m.actions.map((a: ActionElement, inflex) => {
             const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
             if (a.otherActions) {
@@ -194,48 +190,22 @@ export class MonsterCreature implements Monster {
             }
             if (a.attacks) {
                 const s = breakBySubstrings(a.desc, ...a.attacks.map(at => at.name));
-                // let s = ;
-                // console.log(value.actions);
-                // console.log(s);
-                // followingAttacks = true;
                 a.attacks = this.setActions({ actions: s.slice(1) });
                 a.desc = s[0];
-                // console.log(m.name, s, a);
             }
-
+            a = this.convertAPIDamageandDC(a);
             if (weaponindex >= 0) {
-                return new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a.desc);
-            } else if (a.damage) {
-                a.damage = a.damage.map((d: ActionDamage) => {
-                    if (d.damage_dice) {
-                        const dice = d.damage_dice.split('d').map(n => Number(n));
-                        d.damageDice = new Dice(dice[1], dice[0], d.damage_bonus);
-                        delete d.damage_dice; delete d.damage_bonus;
-                    }
-                    if (d.damage_type) {
-                        // const dice = d.damage_ice.split('d').map(n => Number(n));
-                        d.damageType = d.damage_type.name;
-                        delete d.damage_type;
-                    }
-                    return d;
-                });
-            }
-            if (a.dc) {
-                a.dc = {
-                    dcType: a.dc.dc_type.name,
-                    dcValue: a.dc.dc_value,
-                    successType: a.dc.success_type
-                };
+                a = new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a);
             }
             return a;
         }) : [];
         // console.log(m.name);
         if (m.legendary_actions) {
-            monster.legendary = m.legendary_actions;
+            monster.legendary = m.legendary_actions.map(l => MonsterCreature.convertAPIDamageandDC(l));
         }
 
         if (m.reactions) {
-            monster.reactions = m.reactions;
+            monster.reactions = m.reactions.map(r => MonsterCreature.convertAPIDamageandDC(r));
         }
         // actions ?: ActionElement[];
         // legendary ?: LegendaryActionElement[];
@@ -244,6 +214,50 @@ export class MonsterCreature implements Monster {
 
         otherSpeeds?: OtherSpeed[];*/
         return monster;
+    }
+
+    private static convertAPIDamageandDC<T>(a): T {
+        if (a.attack_bonus) {
+            a.attackBonus = a.attack_bonus;
+            delete a.attack_bonus;
+        }
+        if (a.usage) {
+            Object.keys(a.usage).forEach(g => {
+                const s = g.split('_').map((k, i) => i > 0 ? cap(k) : k).join('');
+                a.usage[s] = a.usage[g];
+                if (s !== g) {
+                    // console.log(g, s);
+                    delete a.usage[g];
+                }
+            });
+            if (a.usage.dice) {
+                a.usage.dice = Dice.fromString(a.usage.dice);
+            }
+        }
+        if (a.damage) {
+            a.damage = a.damage.map((d: ActionDamage) => {
+                if (d.damage_dice) {
+                    const dice = d.damage_dice.split('d').map(n => Number(n));
+                    d.damageDice = new Dice(dice[1], dice[0], d.damage_bonus);
+                    delete d.damage_dice;
+                    delete d.damage_bonus;
+                }
+                if (d.damage_type) {
+                    // const dice = d.damage_ice.split('d').map(n => Number(n));
+                    d.damageType = d.damage_type.name;
+                    delete d.damage_type;
+                }
+                return d;
+            });
+        }
+        if (a.dc) {
+            a.dc = {
+                dcType: a.dc.dc_type.name,
+                dcValue: a.dc.dc_value,
+                successType: a.dc.success_type
+            };
+        }
+        return a;
     }
 
     public static fromPageDesc(m: MonsterMonMan, weaponList?: Weapon[]): MonsterCreature {
@@ -301,7 +315,7 @@ export class MonsterCreature implements Monster {
         monster.actions = monster.actions.map(a => {
             const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
             return weaponindex >= 0 ?
-                new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a.desc) : a;
+                new WeaponAttack(weaponList[weaponindex], monster.abilitiesModifiers, monster.proficiency, a) : a;
         });
         return monster;
     }
@@ -366,10 +380,13 @@ export class MonsterCreature implements Monster {
                     actionObj.name = element.trim().substring(0, nameIndex);
                     actionObj.desc = element.trim().substring(nameIndex + indStr.length);
                     const points: string = findBetweenStrings(actionObj.name, '(Costs ', ' Actions)');
-                    if (points.length >= 0) {
+                    if (points.length > 0) {
                         actionObj.points = Number(points);
+                        // console.log(actionObj.name);
+                        // actionObj.name = actionObj.name.slice(0, actionObj.name.indexOf('(Cost')+).trim();
+                        // console.log(actionObj.name);
                         actionObj.name = actionObj.name.slice(0, actionObj.name.indexOf('(Cost')).trim();
-
+                        // console.log(actionObj.name);
                     }
                     // const actionDesc = actionObj.desc.replace(/ft./g, 'ft').split('. ');
                     const attackIndicators = ['Attack:', 'Hit:'];
@@ -643,6 +660,7 @@ export class MonsterCreature implements Monster {
         const r = 'recharge';
         const pd = '/day';
         const rest = ' rest';
+        const points: string = findBetweenStrings(actrait.name, '(', ')');
         const i = actrait.name.toLowerCase().indexOf('(');
         const isRecharge = actrait.name.toLowerCase().indexOf(r);
         const isRest = actrait.name.toLowerCase().indexOf(rest);
@@ -665,17 +683,24 @@ export class MonsterCreature implements Monster {
                 minValue: Math.min(...minMax)
             };
         } else if (actrait.name.toLowerCase().indexOf(pd) >= 0) {
-            console.log(`${name}: ${actrait.name}`);
+            // console.log(`${name}: ${actrait.name}`);
             const j = actrait.name.toLowerCase().indexOf(pd);
             const k = Number(actrait.name.substring(i + 1, j));
             // console.log(actrait.name, i, k);
             // const minMax = k.split('').map(f => Number(f)).filter(f => !isNaN(f));
             actrait.name = actrait.name.slice(0, i).trim();
-            console.log(`${name}: ${actrait.name}`);
+            // console.log(`${name}: ${actrait.name}`);
             actrait.usage = {
                 type: PurpleType.PerDay,
                 times: k
             };
+        } else if (points.length > 0) {
+            actrait.name = actrait.name.slice(0, i).trim();
+            actrait.usage = {
+                type: PurpleType.other,
+                restrictionsDesc: points
+            };
+
         }
         return actrait;
     }

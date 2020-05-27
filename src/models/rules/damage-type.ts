@@ -1,4 +1,4 @@
-export enum DamageStatusType {
+export enum DamageType {
     Acid = 'Acid',
     Bludgeoning = 'Bludgeoning',
     Cold = 'Cold',

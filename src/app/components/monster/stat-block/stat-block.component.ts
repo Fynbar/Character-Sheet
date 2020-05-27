@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MonsterCreature } from '../../../../models/monsters/final-monster/monsterCreature';
 import { abbrevToAbility, abilityAbbrev } from '../../../../models/rules/ability.enum';
 import { ActionElement, LegendaryActionElement } from '../../../../models/monsters/final-monster/monster.model';
-import { FluffyType, RESTType, PurpleType, Trait } from 'src/models/monsters/api-monster/apiMonster.model';
+import { FluffyType, Trait } from 'src/models/monsters/api-monster/apiMonster.model';
+import { toRechargeString } from './to-recharge-string';
 
 @Component({
   selector: 'app-stat-block',
@@ -11,35 +12,38 @@ import { FluffyType, RESTType, PurpleType, Trait } from 'src/models/monsters/api
 })
 export class StatBlockComponent implements OnInit {
   @Input() Monster: MonsterCreature;
+  @Output() updatedCreature: EventEmitter<MonsterCreature> = new EventEmitter();
   abilAbbrev: string[] = abilityAbbrev;
+  readOnly = true;
   constructor() { }
 
   ngOnInit() {
     console.log(this.Monster);
+    this.readOnly = this.Monster.completed;
   }
 
-  toRechargeString(action: ActionElement | Trait) {
-    let s;
-    let r = '';
-    if (action.usage) {
-      if (action.usage.type === PurpleType.RechargeAfterREST) {
-        s = [
-          action.usage.restTypes.indexOf(RESTType.Long) >= 0 ? 'Long' : '',
-          action.usage.restTypes.length > 1 ? 'or' : '',
-          action.usage.restTypes.indexOf(RESTType.Short) >= 0 ? 'Short' : ''
-        ].filter(f => f.length > 0);
-        r = ` (Recharge after ${s.join(' ')} Rest)`;
-      } else if (action.usage.type === PurpleType.RechargeOnRoll) {
-        s = action.usage.dice.diceType !== action.usage.minValue ? `${action.usage.minValue}-` : '';
-        r = ` (Recharge ${s}${action.usage.dice.diceType})`;
-      } else if (action.usage.type === PurpleType.PerDay) {
-        r = ` (${action.usage.times}/day)`;
-      }
-    }
-    return r;
+  public toRechargeString(action: ActionElement | Trait) {
+    return toRechargeString(action);
   }
 
-  toLegendaryPointString(action: LegendaryActionElement) {
+  public toLegendaryPointString(action: LegendaryActionElement) {
     return action.points > 1 ? ` (Costs ${action.points} Actions)` : '';
   }
+
+  updateAction(e, i) {
+    console.log(e);
+    this.Monster.actions[i] = e;
+    this.outputMonster();
+  }
+
+
+  private outputMonster() {
+    this.updatedCreature.emit(this.Monster);
+  }
+
+  get actionNames() {
+    return this.Monster.actions.map(a => a.name).filter(name => name !== 'Multiattack');
+  }
 }
+
+

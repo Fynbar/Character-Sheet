@@ -11,7 +11,7 @@
 // match the expected interface, even if the JSON is valid.
 
 import { abilityAbbreviations, Condition } from '../../../models/rules/condition.enum';
-import { DamageStatusType } from '../../rules/damageStatusType';
+import { DamageType } from '../../rules/damage-type';
 import { Dice } from '../../../app/components/dice/dice';
 
 export interface APIMonster {
@@ -55,9 +55,15 @@ export interface Attack {
 }
 
 export interface FromElement {
-    damage_type: DamageStatusType;
-    damage_dice: string;
-    damage_bonus: number;
+    damage_type?: {
+        name: DamageType;
+        url: string;
+    };
+    damage_dice?: string;
+    damage_bonus?: number;
+    damageType?: DamageType;
+    damageDice?: Dice;
+    damageBonus?: number;
 }
 
 export interface ConditionImmunity {
@@ -87,22 +93,22 @@ export enum SuccessType {
 
 export interface ActionDamage {
     damage_type?: {
-        name: DamageStatusType;
+        name: DamageType;
         url: string;
     };
     damage_dice?: string;
     damage_bonus?: number;
-    damageType?: DamageStatusType;
+    damageType?: DamageType;
     damageDice?: Dice;
     dc?: Dc;
     choose?: number;
-    type?: DamageType;
+    type?: string;
     from?: FromElement[];
 }
 
-export enum DamageType {
-    Damage = 'damage',
-}
+// export enum DamageType {
+//     Damage = 'damage',
+// }
 
 export interface Options {
     choose: number;
@@ -125,6 +131,7 @@ export enum FromType {
 
 export interface ActionUsage {
     type: PurpleType;
+    restrictionsDesc?: string;
     times?: number;
     dice?: Dice;
     min_value?: number;
@@ -170,6 +177,7 @@ export enum RESTType {
 }
 
 export enum PurpleType {
+    other = 'other restriction',
     PerDay = 'per day',
     RechargeAfterREST = 'recharge after rest',
     RechargeOnRoll = 'recharge on roll',

@@ -32,18 +32,13 @@
         <b>{{t.name}}{{toRechargeString(t)}}:</b> {{t.desc}}
     </div>
 
+
     <div *ngIf="Monster.actions">
         <h4 class="remove-bottom-margin">Actions</h4>
         <div *ngFor="let a of Monster.actions; let i=index">
-            <b>{{a.name}}{{toRechargeString(a)}}:</b> {{a.desc}}
-            <div *ngIf="a.attacks">
-                <div class="slight-indent" *ngFor="let at of a.attacks">
-                    <b>{{at.name}}:</b> {{at.desc}}
-                </div>
-            </div>
+            <app-action-builder [actionNames]="actionNames" (updatedActions)="updateAction($event, i)" [readOnly]="readOnly" [action]="a"></app-action-builder>
         </div>
     </div>
-
     <div *ngIf="Monster.legendary">
         <h4 class="remove-bottom-margin">Legendary Actions</h4>
         <div>{{Monster.legendaryRules}}</div>
