@@ -16,6 +16,8 @@ export function toRechargeString(action: ActionElement | Trait) {
             r = ` (Recharge ${s}${action.usage.dice.diceType})`;
         } else if (action.usage.type === PurpleType.PerDay) {
             r = ` (${action.usage.times}/day)`;
+        } else if (action.usage.type === PurpleType.other) {
+            r = ` (${action.usage.restrictionsDesc})`;
         }
     }
     return r;

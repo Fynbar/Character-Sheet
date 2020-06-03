@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EquipmentComponent } from './equipment.component';
 // import { JSONService } from '..';
 import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 import { JSONService } from 'src/app/services/json.service';
 import { Item, monetaryUnit, EquipmentCategory } from 'src/models/equipment/equipment.model';
-import { Table, TableModule } from '../../../../node_modules/primeng/Table/table';
-import { Dropdown, DropdownModule } from '../../../../node_modules/primeng/Dropdown/dropdown';
+import { Table, TableModule } from 'primeng/table/table.d';
+import { Dropdown, DropdownModule } from 'primeng/dropdown/dropdown.d';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 
 describe('EquipmentComponent', () => {
@@ -37,7 +37,7 @@ describe('EquipmentComponent', () => {
         Table,
         TableModule,
         Dropdown,
-        DropdownModule,
+        DropdownModule
       ]
     })
       .compileComponents();

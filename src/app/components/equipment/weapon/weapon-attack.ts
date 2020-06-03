@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Monster, ActionElement, Abilities } from '../../../../models/monsters/final-monster/monster.model';
-import { Dice } from '../../dice/dice';
+import { Die } from '../../dice/dice';
 import { Attack, ActionUsage, Options, Dc, ActionDamage } from '../../../../models/monsters/api-monster/apiMonster.model';
 import { Weapon, WeaponRange, CategoryRange } from '../../../../models/equipment/weapon.model';
 import { MonsterCreature } from '../../../../models/monsters/final-monster/monsterCreature';
@@ -18,10 +18,10 @@ export class WeaponAttack implements ActionElement {
   proficiency: number;
   // isTwoHanded = false;
   constructor(weapon: Weapon, abilitiesModifiers: Abilities, proficiency: number, action?: ActionElement) {
-    this.damage = action.damage.map((ad: ActionDamage) => {
+    this.damage = action.damage ? action.damage.map((ad: ActionDamage) => {
       if (ad.damage_dice) {
         const dice = ad.damage_dice.split('d').map(n => Number(n));
-        ad.damageDice = new Dice(dice[1], dice[0], ad.damage_bonus);
+        ad.damageDice = new Die(dice[1], dice[0], ad.damage_bonus);
         delete ad.damage_dice; delete ad.damage_bonus;
       }
       if (ad.damage_type) {
@@ -30,7 +30,7 @@ export class WeaponAttack implements ActionElement {
         delete ad.damage_type;
       }
       return ad;
-    });
+    }) : [];
     // console.log(weapon.name, desc);
     this.desc = action.desc;
     // this.damage = action.damage;
@@ -51,7 +51,7 @@ export class WeaponAttack implements ActionElement {
     const damageBonus = this.attackBonus + weapon.damage.damageBonus;
     let d: ActionDamage = {
       damageType: DamageType[weapon.damage.damageType],
-      damageDice: Dice.fromString(`${weapon.damage.damageDice}${damageBonus >= 0 ? ' + ' : ' '}${damageBonus}`)
+      damageDice: Die.fromString(`${weapon.damage.damageDice}${damageBonus >= 0 ? ' + ' : ' '}${damageBonus}`)
     };
     if (weapon.the2HDamage) {
       // this.isTwoHanded = true;
@@ -61,7 +61,7 @@ export class WeaponAttack implements ActionElement {
         from: [d,
           {
             damageType: weapon.the2HDamage.damageType,
-            damageDice: Dice.fromString(`${weapon.the2HDamage.damageDice}${damageBonus >= 0 ? ' + ' : ' '}${damageBonus}`)
+            damageDice: Die.fromString(`${weapon.the2HDamage.damageDice}${damageBonus >= 0 ? ' + ' : ' '}${damageBonus}`)
           }]
       };
     }

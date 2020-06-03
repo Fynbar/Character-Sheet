@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 import { JSONService } from 'src/app/services/json.service';
 import { MonsterMonMan } from 'src/models/monsters/mon-man-text-monster/monsterMonMan';
-import { InputSwitch, InputSwitchModule } from '../../../../../node_modules/primeng/InputSwitch/public_api';
-import { ButtonModule, Button } from '../../../../../node_modules/primeng/Button/button';
-import { TableModule, Table } from '../../../../../node_modules/primeng/Table/table';
-import { Accordion, AccordionModule } from '../../../../../node_modules/primeng/Accordion/accordion';
-import { CheckboxModule, Checkbox } from '../../../../../node_modules/primeng/Checkbox/checkbox';
+import { InputSwitch, InputSwitchModule } from 'primeng/inputSwitch/inputswitch.d';
+import { ButtonModule, Button } from 'primeng/button/button.d';
+import { TableModule, Table } from 'primeng/table/table.d';
+import { Accordion, AccordionModule } from 'primeng/accordion/accordion.d';
+import { CheckboxModule, Checkbox } from 'primeng/checkbox/checkbox.d';
 
 describe('MonsterBuilderComponent', () => {
   let component: MonsterBuilderComponent;

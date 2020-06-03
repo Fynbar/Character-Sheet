@@ -6,4 +6,5 @@ export interface MonsterMonMan {
   name: string;
   page_desc?: string;
   flavor_text?: string;
+  completed?: boolean;
 }

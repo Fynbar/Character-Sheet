@@ -12,7 +12,7 @@
 
 import { abilityAbbreviations, Condition } from '../../../models/rules/condition.enum';
 import { DamageType } from '../../rules/damage-type';
-import { Dice } from '../../../app/components/dice/dice';
+import { Die } from '../../../app/components/dice/dice';
 
 export interface APIMonster {
     _id: string;
@@ -62,7 +62,7 @@ export interface FromElement {
     damage_dice?: string;
     damage_bonus?: number;
     damageType?: DamageType;
-    damageDice?: Dice;
+    damageDice?: Die;
     damageBonus?: number;
 }
 
@@ -99,7 +99,7 @@ export interface ActionDamage {
     damage_dice?: string;
     damage_bonus?: number;
     damageType?: DamageType;
-    damageDice?: Dice;
+    damageDice?: Die;
     dc?: Dc;
     choose?: number;
     type?: string;
@@ -133,7 +133,7 @@ export interface ActionUsage {
     type: PurpleType;
     restrictionsDesc?: string;
     times?: number;
-    dice?: Dice;
+    dice?: Die;
     min_value?: number;
     rest_types?: RESTType[];
     minValue?: number;

@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Dice } from '../components/dice/dice';
+import { Die } from '../components/dice/dice';
 
 @Pipe({
   name: 'dice'
 })
 export class DicePipe implements PipeTransform {
 
-  transform(dice: Dice, args?: any): string {
+  transform(dice: Die, args?: any): string {
     return dice.makeString;
   }
 

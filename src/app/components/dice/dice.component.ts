@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Dice } from './dice';
+import { Die } from './dice';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -8,11 +8,11 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./dice.component.css']
 })
 
-export class DiceComponent extends Dice implements OnInit {
+export class DiceComponent extends Die implements OnInit {
   @Input() constant = 0;
   @Input() diceType = 4;
   @Input() diceNum = 1;
-  @Input() dice: Dice;
+  @Input() dice: Die;
   diceRoll: any;
   history = [];
   constructor(private sanitized: DomSanitizer) {
@@ -25,7 +25,7 @@ export class DiceComponent extends Dice implements OnInit {
     if (this.dice) {
       comps.forEach(c => this[c] = this.dice[c]);
     } else {
-      this.dice = new Dice(...comps.map(c => this[c]));
+      this.dice = new Die(...comps.map(c => this[c]));
     }
     // console.log(this.dice);
   }

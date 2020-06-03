@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiceComponent } from './dice.component';
+import { DialogModule } from 'primeng/dialog/dialog.d';
+import { ButtonModule } from 'primeng/button/button.d';
 
 describe('DiceComponent', () => {
   let component: DiceComponent;
@@ -8,9 +10,13 @@ describe('DiceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiceComponent ]
+      declarations: [DiceComponent],
+      imports: [
+        DialogModule,
+        ButtonModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

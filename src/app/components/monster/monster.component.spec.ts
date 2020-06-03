@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MonsterComponent } from './monster.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MonsterComponent', () => {
   let component: MonsterComponent;
@@ -8,9 +9,13 @@ describe('MonsterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonsterComponent ]
+      declarations: [MonsterComponent],
+      imports: [
+        RouterTestingModule,
+        // MenubarModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 import { ConditionImmunity } from '../../rules/condition.enum';
 import { Page } from '../../spells/spell.model';
-import { Dice } from 'src/app/components/dice/dice';
+import { Die } from 'src/app/components/dice/dice';
 import { Dc, Spellcasting, SpecialAbilityUsage, Options, ActionDamage, ActionUsage, Attack } from '../api-monster/apiMonster.model';
 
 export interface Monster {
@@ -14,7 +14,7 @@ export interface Monster {
     challenge: string;
     traits: Trait[];
     armorClass?: number;
-    hitPoints?: Dice;
+    hitPoints?: Die;
     abilities: Abilities;
     passivePerception?: number;
     flavorText: string;
@@ -170,7 +170,7 @@ export interface ActionElement extends Action {
     options?: Options;
     usage?: ActionUsage;
     attacks?: Attack[];
-    damageDice?: Dice;
+    damageDice?: Die;
 }
 
 export interface LegendaryActionElement extends Action {

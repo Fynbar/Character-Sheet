@@ -3,8 +3,8 @@ import { WeaponAttack } from 'src/app/components/equipment/weapon/weapon-attack'
 import { Weapon } from 'src/models/equipment/weapon.model';
 import { ChallengeRating } from 'src/models/rules/challengeRating.enum';
 import { enumValuesArray } from '../../../app/common/enumKeysArray';
-import { breakBySubstrings, cap, commaSplit, findBetweenStrings, getAllNumbersInString, spaceJoin, spaceSplit, stripArray } from '../../../app/common/string.functions';
-import { Dice } from '../../../app/components/dice/dice';
+import { breakBySubstrings, cap, commaSplit, findBetweenStrings, getAllNumbersInString, spaceJoin, spaceSplit, propertizeName } from '../../../app/common/string.functions';
+import { Die } from '../../../app/components/dice/dice';
 import { characterClass } from '../../characterClass.enum';
 import { ability, abilityAbbrev } from '../../rules/ability.enum';
 import { Condition, ConditionImmunity } from '../../rules/condition.enum';
@@ -53,7 +53,7 @@ export class MonsterCreature implements Monster {
     traits: Trait[];
     actions: ActionElement[];
     armorClass?: number;
-    hitPoints?: Dice;
+    hitPoints?: Die;
     abilities: Abilities;
     passivePerception?: number;
     flavorText: string;
@@ -89,7 +89,7 @@ export class MonsterCreature implements Monster {
             this.speed = { walk: 30, hover: false };
             this.armorClass = 10;
             this.armorType = '';
-            this.hitPoints = new Dice();
+            this.hitPoints = new Die();
             this.abilities = {
                 STR: 10,
                 DEX: 10,
@@ -123,7 +123,7 @@ export class MonsterCreature implements Monster {
         ability.forEach(a => abilities[a.substring(0, 3).toUpperCase()] = m[a.toLowerCase()]);
         monster.abilities = abilities;
         const hitDice: number[] = m.hit_dice.split('d').map(d => Number(d));
-        monster.hitPoints = new Dice(hitDice[1], hitDice[0], hitDice[0] * monster.abilitiesModifiers.CON);
+        monster.hitPoints = new Die(hitDice[1], hitDice[0], hitDice[0] * monster.abilitiesModifiers.CON);
         if (m.damage_vulnerabilities.length > 0) {
             monster.damageVulnerabilities = m.damage_vulnerabilities;
         }
@@ -231,14 +231,14 @@ export class MonsterCreature implements Monster {
                 }
             });
             if (a.usage.dice) {
-                a.usage.dice = Dice.fromString(a.usage.dice);
+                a.usage.dice = Die.fromString(a.usage.dice);
             }
         }
         if (a.damage) {
             a.damage = a.damage.map((d: ActionDamage) => {
                 if (d.damage_dice) {
                     const dice = d.damage_dice.split('d').map(n => Number(n));
-                    d.damageDice = new Dice(dice[1], dice[0], d.damage_bonus);
+                    d.damageDice = new Die(dice[1], dice[0], d.damage_bonus);
                     delete d.damage_dice;
                     delete d.damage_bonus;
                 }
@@ -262,7 +262,7 @@ export class MonsterCreature implements Monster {
 
     public static fromPageDesc(m: MonsterMonMan, weaponList?: Weapon[]): MonsterCreature {
         const weaponNames = weaponList ? weaponList.map(w => w.name.toLowerCase()) : [];
-        const sourcePage: Page = { page: m.page, book: Book.MM };
+        const sourcePage: Page = { page: m.page, book: Book.Volo };
         const value: any = {
             name: m.name, actions: [], traits: [], page: sourcePage, abilities: {}, flavorText: m.see ? m.see : m.flavor_text
         };
@@ -312,6 +312,7 @@ export class MonsterCreature implements Monster {
         this.setReactions(value);
         const unecessaryProps = [''];
         const monster = new MonsterCreature(value);
+        // console.log(monster);
         monster.actions = monster.actions.map(a => {
             const weaponindex = weaponNames.indexOf(a.name.toLowerCase());
             return weaponindex >= 0 ?
@@ -402,7 +403,7 @@ export class MonsterCreature implements Monster {
                         actionObj.damage = actionDesc[1].split('plus').map(damString => {
                             const damageObj: ActionDamage = {};
                             const damageDice = actionDesc[1].indexOf(')');
-                            damageObj.damageDice = Dice.fromString(findBetweenStrings(actionDesc[1].trim(), '(', ')'));
+                            damageObj.damageDice = Die.fromString(findBetweenStrings(actionDesc[1].trim(), '(', ')'));
                             spaceSplit(actionDesc[1].substring(damageDice + 1).trim()).forEach(f => {
                                 if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
                                     damageObj.damageType = lowerDamageType[f.toLowerCase()];
@@ -474,7 +475,7 @@ export class MonsterCreature implements Monster {
                         actionObj.damage = actionDesc[1].split('plus').map(damString => {
                             const damageObj: ActionDamage = {};
                             const sub = findBetweenStrings(damString, '(', ')');
-                            damageObj.damageDice = Dice.fromString(sub);
+                            damageObj.damageDice = Die.fromString(sub);
                             spaceSplit(damString.substring(damString.indexOf(sub) + 1).trim()).forEach(f => {
                                 if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
                                     damageObj.damageType = lowerDamageType[f.toLowerCase()];
@@ -519,7 +520,7 @@ export class MonsterCreature implements Monster {
                                     }
                                 });
                                 if (obj.damageType) {
-                                    obj.damageDice = Dice.fromString(s);
+                                    obj.damageDice = Die.fromString(s);
                                     actionObj.damage.push(obj);
                                 }
 
@@ -543,7 +544,7 @@ export class MonsterCreature implements Monster {
                             actionObj.damage = actionDesc[1].split(', or').map(damString => {
                                 const damageObj: ActionDamage = {};
                                 const sub = findBetweenStrings(actionDesc[1], '(', ')');
-                                damageObj.damageDice = Dice.fromString(sub);
+                                damageObj.damageDice = Die.fromString(sub);
                                 spaceSplit(actionDesc[1].substring(actionDesc[1].indexOf(sub) + 1).trim()).forEach(f => {
                                     if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
                                         damageObj.damageType = lowerDamageType[f.toLowerCase()];
@@ -555,7 +556,7 @@ export class MonsterCreature implements Monster {
                             actionObj.damage = actionDesc[1].split('plus').map(damString => {
                                 const damageObj: ActionDamage = {};
                                 const sub = findBetweenStrings(damString, '(', ')');
-                                damageObj.damageDice = Dice.fromString(sub);
+                                damageObj.damageDice = Die.fromString(sub);
                                 spaceSplit(damString.substring(damString.indexOf(sub) + 1).trim()).forEach(f => {
                                     if (!damageObj.damageType && lowerDamageType[f.toLowerCase()]) {
                                         damageObj.damageType = lowerDamageType[f.toLowerCase()];
@@ -625,7 +626,7 @@ export class MonsterCreature implements Monster {
                                     }
                                 });
                                 if (obj.damageType) {
-                                    obj.damageDice = Dice.fromString(s);
+                                    obj.damageDice = Die.fromString(s);
                                     actionObj.damage.push(obj);
                                     // console.log(obj);
                                     // console.log(DCobj);
@@ -679,7 +680,7 @@ export class MonsterCreature implements Monster {
             actrait.name = actrait.name.slice(0, i).trim();
             actrait.usage = {
                 type: PurpleType.RechargeOnRoll,
-                dice: new Dice(Math.max(...minMax)),
+                dice: new Die(Math.max(...minMax)),
                 minValue: Math.min(...minMax)
             };
         } else if (actrait.name.toLowerCase().indexOf(pd) >= 0) {
@@ -712,7 +713,11 @@ export class MonsterCreature implements Monster {
         // one with its bite and two with its claws
         return actions.map(actionObj => {
             if (actionObj.name.toLowerCase().indexOf('multiattack') >= 0) {
+                // console.log(name, actionObj);
                 actionNames = actionNames.filter(f => actionObj.desc.toLowerCase().indexOf(f.toLowerCase()) >= 0).map(s => s.toLowerCase());
+                if (!actionObj.options) {
+                    actionObj.options = { from: [[]], choose: 1 };
+                }
                 // console.log(`${name}: ${actionObj.name}. ${actionObj.desc}`);
                 const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
                 actionNames.forEach(n => {
@@ -895,7 +900,7 @@ export class MonsterCreature implements Monster {
             const lineSS = spaceSplit(line.trim());
             if (this.propChecker('Armor Class', lineSS)) {
                 let AC = lineSS.splice(2);
-                AC = stripArray(AC);
+                AC = AC.map(a => a.trim());
                 // console.log(AC);
                 value.armorClass = AC[0];
                 const armorType = spaceJoin(AC.splice(1));
@@ -917,7 +922,7 @@ export class MonsterCreature implements Monster {
                         d = HP.split('d').map(e => Number(e));
                         c = 0;
                     }
-                    value.hitPoints = new Dice(d[1], d[0], c);
+                    value.hitPoints = new Die(d[1], d[0], c);
                     // { constant: c, dice_type: d[1], dice_num: d[0] };
                 } else {
                     console.log(`Hit dice Error: ${value.name}`);
@@ -965,7 +970,7 @@ export class MonsterCreature implements Monster {
                     }
                 });
                 if (Object.keys(value.abilities).some(c => isNaN(value.abilities[c]))) {
-                    console.log(value.name, JSON.stringify(value.abilities));
+                    console.log(value.name, JSON.stringify(Object.keys(value.abilities).filter(c => isNaN(value.abilities[c]))));
                 }
             } else if (this.propChecker('Languages', lineSS)) {
                 value.languages = spaceJoin(lineSS.splice(1)).split(', ');
@@ -1036,10 +1041,12 @@ export class MonsterCreature implements Monster {
     }
 
     public get proficiency(): number {
-        if (this.challenge) {
+        if (ChallengeRating.challengeRating[this.challenge]) {
             return ChallengeRating.challengeRating[this.challenge].proficiency;
         } else if (this.savingThrows) {
             return Math.min(...Object.keys(this.savingThrows).map(ab => this.savingThrows[ab] - this.abilitiesModifiers[ab]));
+        } else {
+            return 2;
         }
     }
 
@@ -1091,4 +1098,30 @@ export class MonsterCreature implements Monster {
             return '';
         }
     }
+
+    public defineActions(): void {
+        this.actions.filter(a => a.name.length > 0).forEach((a, index) =>
+            Object.defineProperty(this, propertizeName(a.name), {
+                get() {
+                    const act = this.actions[index];
+                    return act;
+                },
+                set(act) {
+                    this.actions[index] = act;
+                }
+            })
+        );
+    }
+
+    // public static defineActions(monster: MonsterCreature): MonsterCreature {
+    //     monster.actions.forEach((a, index) =>
+    //         Object.defineProperty(monster, a.name.replace(/\s/g, ''), {
+    //             get() {
+    //                 const act = monster.actions[index];
+    //                 return act;
+    //             }
+    //         })
+    //     );
+    //     return monster;
+    // }
 }

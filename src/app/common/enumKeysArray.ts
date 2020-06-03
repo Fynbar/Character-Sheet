@@ -3,5 +3,5 @@ export function enumKeysArray(E) {
 } // ['A', 'B']}
 
 export function enumValuesArray(E) {
-    return enumKeysArray(E).map(k => E[k as any]);
+    return Object.keys(E).filter(k => typeof E[k as any] === 'number').map(k => E[k as any]);
 }

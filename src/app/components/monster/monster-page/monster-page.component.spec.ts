@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MonsterPageComponent } from './monster-page.component';
+import { TableModule } from 'primeng/table/table.d';
 
 describe('MonsterPageComponent', () => {
   let component: MonsterPageComponent;
@@ -8,9 +9,10 @@ describe('MonsterPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonsterPageComponent ]
+      declarations: [MonsterPageComponent],
+      imports: [TableModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

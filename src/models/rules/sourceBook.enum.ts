@@ -4,4 +4,5 @@ export enum Book {
     Scag = 'scag',
     TrotSpells = 'trot spells',
     MM = 'mon man',
+    Volo = 'Volo'
 }

@@ -1,16 +1,3 @@
-export function stripArray(stringArray: string[]): string[] {
-    const emptyArray = ['', ' '];
-    // console.log(stringArray[stringArray.length - 1], stringArray[stringArray.length - 1] === '\s');
-    if (emptyArray.indexOf(stringArray[0]) >= 0 || stringArray[0].length === 0) {
-        stringArray = stringArray.splice(1);
-        // } else if (emptyArray.indexOf(stringArray[stringArray.length - 1]) >= 0) {
-        //   stringArray = stringArray.splice(-1);
-    } else {
-        return stringArray;
-    }
-    return stripArray(stringArray);
-}
-
 export function spaceJoin(strs: string[]): string {
     return strs.join(' ');
 }
@@ -69,10 +56,14 @@ export function breakBySubstrings(bodyStr: string, ...strs: string[]) {
     return s;
 }
 
-
-
-
 export function getAllNumbersInString(k: string): number[] {
     return k.split('').map(f => Number(f)).filter(f => !isNaN(f) && f > 0).map(n => Number(n));
 }
 
+export function sortFunction(a: string | number, b: string | number) {
+    return a < b ? -1 : 1;
+}
+
+export function propertizeName(str: string): string {
+    return spaceSplit(str).map((s, i) => i === 0 ? s.toLowerCase() : cap(s.toLowerCase())).join('');
+}

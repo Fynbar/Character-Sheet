@@ -1,14 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { MenubarModule } from '../../node_modules/primeng/Menubar/menubar';
+import { MenubarModule, Menubar } from 'primeng/menubar/menubar.d';
 
+console.log(MenubarModule);
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MenubarModule
+        // MenubarModule,
+        Menubar
       ],
       declarations: [
         AppComponent

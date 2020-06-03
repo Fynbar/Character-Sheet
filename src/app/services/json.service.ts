@@ -52,13 +52,31 @@ export class JSONService {
     return response;
   }
 
-  public getWeaponJSON(): Observable<any[]> {
-    return this.getEquipmentJSON(EquipmentCategory.Weapon);
+  public getWeaponJSON(): Observable<Weapon[]> {
+    return this.getEquipmentJSON(EquipmentCategory.Weapon).pipe(map(ws => ws.map(w => itemToWeapon(w))));
     // .pipe(map(s => s.map(w => WeaponComponent.weaponFromAPI(w))));
     // return this.getEquipmentJSON('Weapon');
+  }
+
+  public getWeaponListOrganized(): Observable<{ label: string, items: { label: string, value: Weapon }[] }[]> {
+    return this.getWeaponJSON().pipe(
+      map(ws => {
+        let categoryTypes = ws.map(w => w.categoryRange);
+        categoryTypes = categoryTypes.filter((f, i) => categoryTypes.indexOf(f) === i);
+        return categoryTypes.map(c => (
+          {
+            label: c,
+            items: ws.filter(f => f.categoryRange === c).map(w => ({ label: w.name, value: w }))
+          }));
+      }
+      ), tap(z => console.log(z))
+    );
   }
 }
 
 function stringFromAPI(str): string {
   return str.split('_').map((s, i) => i === 0 ? s : `${s[0]}${s.slice(1)}`).join('');
 }
+
+export function itemToWeapon(w): Weapon { return w; }
+

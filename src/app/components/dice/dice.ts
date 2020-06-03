@@ -1,4 +1,7 @@
-export class Dice {
+export type Dice = Die[];
+
+
+export class Die {
     constant: number;
     diceType: number;
     diceNum: number;
@@ -8,7 +11,12 @@ export class Dice {
         this.diceNum = diceNum ? Math.floor(diceNum) : 1;
     }
 
-    public static fromString(HP: string): Dice {
+
+    public static RollMany(dice: Die[]): Roll[] {
+        return dice.map(d => d.roll());
+    }
+
+    public static fromString(HP: string): Die {
         let d: number[];
         let c: number;
         let hitDice = HP.trim();
@@ -32,7 +40,7 @@ export class Dice {
             d = hitDice.split('d').map(e => Number(e));
             c = 0;
         }
-        return new Dice(d[1], d[0], c);
+        return new Die(d[1], d[0], c);
 
     }
     public get avg(): number {
@@ -59,8 +67,9 @@ export class Dice {
             total: this.constant + Rolls.reduce((sum, roll) => sum + roll, 0)
         };
     }
-
 }
+
+
 
 export interface Roll {
     rolls: number[];

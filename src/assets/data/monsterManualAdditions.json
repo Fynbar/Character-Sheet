@@ -1725,12 +1725,12 @@
                     "choose": 1,
                     "from": [
                         [{
-                            "count": "2",
+                            "count": 2,
                             "name": "morning star",
                             "type": "melee"
                         }],
                         [{
-                            "count": "2",
+                            "count": 2,
                             "name": "javelin",
                             "type": "melee"
                         }],
@@ -3826,7 +3826,7 @@
                     "choose": 1,
                     "from": [
                         [{
-                            "count": "2",
+                            "count": 2,
                             "name": "tentacle",
                             "type": "melee"
                         }]
@@ -5181,7 +5181,7 @@
                     "from": [
                         [{
                             "name": "greatclub",
-                            "count": "2"
+                            "count": 2
                         }],
                         [{
                                 "count": 1,
@@ -6116,23 +6116,23 @@
                     "choose": 2,
                     "from": [
                         [{
-                                "count": "2",
+                                "count": 2,
                                 "name": "glaive",
                                 "type": "melee"
                             },
                             {
-                                "count": "1",
+                                "count": 1,
                                 "name": "incite rampage",
                                 "type": "ability"
                             }
                         ],
                         [{
-                                "count": "2",
+                                "count": 2,
                                 "name": "longbow",
                                 "type": "ranged"
                             },
                             {
-                                "count": "1",
+                                "count": 1,
                                 "name": "incite rampage",
                                 "type": "ability"
                             }
@@ -8874,7 +8874,7 @@
                         ],
                         [{
                             "name": "Trident",
-                            "count": "2",
+                            "count": 2,
                             "type": "magic"
                         }]
                     ]
@@ -10616,7 +10616,7 @@
                             },
                             {
                                 "name": "Teleport",
-                                "count": "1",
+                                "count": 1,
                                 "type": "ability"
                             }
                         ],
@@ -10631,7 +10631,7 @@
                             }
                         ],
                         [{
-                            "count": "2",
+                            "count": 2,
                             "name": "Greataxe",
                             "type": "melee"
                         }],
@@ -11951,7 +11951,7 @@
                         }],
                         [{
                             "name": "Shortbow",
-                            "count": "4",
+                            "count": 4,
                             "type": "ranged"
                         }]
                     ]
@@ -12825,7 +12825,7 @@
                                 "type": "melee"
                             },
                             {
-                                "count": "2",
+                                "count": 2,
                                 "name": "Claws",
                                 "type": "melee"
                             }
@@ -12835,7 +12835,7 @@
                                 "type": "melee"
                             },
                             {
-                                "count": "2",
+                                "count": 2,
                                 "name": "Trident",
                                 "type": "melee"
                             }
@@ -15027,7 +15027,7 @@
                     "choose": 1,
                     "from": [
                         [{
-                            "count": "2",
+                            "count": 2,
                             "name": "Slam",
                             "type": "melee"
                         }]
@@ -15414,7 +15414,7 @@
                     "from": [
                         [{
                             "name": "Longbow",
-                            "count": "2",
+                            "count": 2,
                             "type": "ranged"
                         }],
                         [{
@@ -15428,7 +15428,7 @@
                             },
                             {
                                 "name": "Constrict",
-                                "count": "1",
+                                "count": 1,
                                 "type": "melee"
                             }
                         ]
@@ -15860,7 +15860,7 @@
                     "choose": 1,
                     "from": [
                         [{
-                            "count": "2",
+                            "count": 2,
                             "name": "Scimitar",
                             "type": "melee"
                         }]
