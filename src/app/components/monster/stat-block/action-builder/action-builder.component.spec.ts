@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ActionBuilderComponent } from './action-builder.component';
+import { AccordionModule } from 'primeng/accordion/accordion.d';
+import { DropdownModule } from 'primeng/dropdown/dropdown.d';
 
 describe('ActionBuilderComponent', () => {
   let component: ActionBuilderComponent;
@@ -8,9 +10,10 @@ describe('ActionBuilderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ActionBuilderComponent ]
+      declarations: [ActionBuilderComponent],
+      imports: [AccordionModule, DropdownModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
