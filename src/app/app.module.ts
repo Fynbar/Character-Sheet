@@ -26,7 +26,7 @@ import { DeferModule } from 'primeng/defer';
 import { DialogModule } from 'primeng/dialog';
 import { DragDropModule } from 'primeng/dragdrop';
 import { DropdownModule } from 'primeng/dropdown';
-import { DynamicDialogModule } from 'primeng/dynamicDialog';
+import { DynamicDialogModule, DialogService } from 'primeng/dynamicDialog';
 import { EditorModule } from 'primeng/editor';
 import { FieldsetModule } from 'primeng/fieldset';
 import { FileUploadModule } from 'primeng/fileupload';
@@ -97,7 +97,7 @@ import { EquipmentComponent } from './components/equipment/equipment.component';
 import { WeaponComponent } from './components/equipment/weapon/weapon.component';
 import { HomeComponent } from './components/home/home.component';
 import { ModifierBuilderComponent } from './components/modifiers/modifier-builder/modifier-builder.component';
-import { ModifierComponent } from './components/modifiers/modifier/modifier.component';
+// import { ModifierComponent } from './components/modifiers/modifier/modifier.component';
 import { MonsterBuilderComponent } from './components/monster/monster-builder/monster-builder.component';
 import { MonsterPageComponent } from './components/monster/monster-page/monster-page.component';
 import { MonsterComponent } from './components/monster/monster.component';
@@ -117,7 +117,7 @@ import { SpellListComponent } from './components/Spells/spell-list/spell-list.co
     HomeComponent,
     DiceComponent,
     DicePipe,
-    ModifierComponent,
+    // ModifierComponent,
     ModifierBuilderComponent,
     StatBlockComponent,
     DiceResultDialogComponent,
@@ -213,7 +213,8 @@ import { SpellListComponent } from './components/Spells/spell-list/spell-list.co
   ],
   providers: [
     PythonService,
-    JSONService
+    JSONService,
+    DialogService
   ],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,7 @@
             <!-- <th>
               Filled
           </th> -->
+            <th style="width: 3em"></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
@@ -20,17 +21,22 @@
                     <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
                 </a>
             </td>
-            <td *ngFor="let col of columns">
-                {{rowData[col.field]}}
+            <!-- </td> -->
+            <td>{{rowData.name}}
             </td>
-            <!-- <td>
-              <i class="pi pi-check" *ngIf="rowData.flavor_text"></i>
-          </td> -->
+            <!-- <td>{{checked? rowData.page.book: 'SRD'}} -->
+            <td>{{rowData.page.book}} p.{{rowData.page.page}}
+            </td>
+            <td>{{rowData.challenge}}
+            </td>
+            <td>
+                <i class="pi pi-pencil" (click)="editMonster(rowData, i)"></i>
+            </td>
         </tr>
     </ng-template>
     <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
         <tr>
-            <td [attr.colspan]="columns.length + 1">
+            <td [attr.colspan]="columns.length + 2">
                 <app-stat-block [Monster]="rowData"></app-stat-block>
             </td>
         </tr>
