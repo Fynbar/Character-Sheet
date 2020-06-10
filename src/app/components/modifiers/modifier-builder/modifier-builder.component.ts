@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
 import { ModifiedMonster, CreatureModifier } from '../modifier/modifier.component';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicDialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+// import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
+
 
 @Component({
   selector: 'app-modifier-builder',

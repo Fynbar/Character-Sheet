@@ -1,56 +1,60 @@
 <div *ngIf="Monster">
-    <h3 class="remove-bottom-margin remove-top-margin">{{ Monster.name}}</h3>
-    <div>{{ Monster.metaString}}</div>
-    <div>Armor Class: {{Monster.armorString}}</div>
-    <div>Hit Points:
-        <app-dice [dice]="Monster.hitPoints"></app-dice>
-    </div>
-    <div>Speed: {{Monster.speedString}}</div>
-
-
-    <div class="p-grid">
-        <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{abbrev}}
+    <div *ngIf="Monster.isComplete else name">
+        <h3 class="remove-bottom-margin remove-top-margin">{{ Monster.name}}</h3>
+        <div>{{ Monster.metaString}}</div>
+        <div>Armor Class: {{Monster.armorString}}</div>
+        <div>Hit Points:
+            <app-dice [dice]="Monster.hitPoints"></app-dice>
         </div>
-    </div>
-    <div class="p-grid">
-        <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
-            {{Monster.abilities[abbrev]}} ({{Monster.modifierStrings[abbrev]}})
+        <div>Speed: {{Monster.speedString}}</div>
+
+
+        <div class="p-grid">
+            <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
+                {{abbrev}}
+            </div>
         </div>
-    </div>
-
-    <div *ngIf="Monster.savingThrows">Saving Throws: {{Monster.saveString}}</div>
-    <div *ngIf="Monster.skills">Skills: {{Monster.skillString}}</div>
-    <div *ngIf="Monster.senses">Senses: {{Monster.senseString}}</div>
-    <div *ngIf="Monster.languages">Languages: {{Monster.languageString}}</div>
-
-    <div>Challange Rating: {{Monster.challenge}} ({{Monster.exp| number}} XP)</div>
-
-
-
-    <div *ngFor="let t of Monster.traits let i=index">
-        <b>{{t.name}}{{toRechargeString(t)}}:</b> {{t.desc}}
-    </div>
-
-
-    <div *ngIf="Monster.actions">
-        <h4 class="remove-bottom-margin">Actions</h4>
-        <div *ngFor="let a of Monster.actions; let i=index">
-            <app-action-builder [actionNames]="actionNames" (updatedActions)="updateAction($event, i)" [readOnly]="readOnly" [action]="a"></app-action-builder>
+        <div class="p-grid">
+            <div class="p-col" *ngFor="let abbrev of abilAbbrev; let i=index">
+                {{Monster.abilities[abbrev]}} ({{Monster.modifierStrings[abbrev]}})
+            </div>
         </div>
-    </div>
-    <div *ngIf="Monster.legendary">
-        <h4 class="remove-bottom-margin">Legendary Actions</h4>
-        <div>{{Monster.legendaryRules}}</div>
-        <div *ngFor="let la of Monster.legendary; let i=index">
-            <b>{{la.name}}{{toLegendaryPointString(la)}}:</b> {{la.desc}}
-        </div>
-    </div>
 
-    <div *ngIf="Monster.reactions">
-        <h4 class="remove-bottom-margin">Reactions</h4>
-        <div *ngFor="let r of Monster.reactions; let i=index">
-            <b>{{r.name}}:</b> {{r.desc}}
+        <div *ngIf="Monster.savingThrows">Saving Throws: {{Monster.saveString}}</div>
+        <div *ngIf="Monster.skills">Skills: {{Monster.skillString}}</div>
+        <div *ngIf="Monster.senses">Senses: {{Monster.senseString}}</div>
+        <div *ngIf="Monster.languages">Languages: {{Monster.languageString}}</div>
+
+        <div>Challange Rating: {{Monster.challenge}} ({{Monster.exp| number}} XP)</div>
+
+
+
+        <div *ngFor="let t of Monster.traits let i=index">
+            <b>{{t.name}}{{toRechargeString(t)}}:</b> {{t.desc}}
+        </div>
+
+
+        <div *ngIf="Monster.actions">
+            <h4 class="remove-bottom-margin">Actions</h4>
+            <div *ngFor="let a of Monster.actions; let i=index">
+                <app-action-builder [actionNames]="actionNames" (updatedActions)="updateAction($event, i)" [readOnly]="readOnly" [action]="a"></app-action-builder>
+            </div>
+        </div>
+        <div *ngIf="Monster.legendary">
+            <h4 class="remove-bottom-margin">Legendary Actions</h4>
+            <div>{{Monster.legendaryRules}}</div>
+            <div *ngFor="let la of Monster.legendary; let i=index">
+                <b>{{la.name}}{{toLegendaryPointString(la)}}:</b> {{la.desc}}
+            </div>
+        </div>
+
+        <div *ngIf="Monster.reactions">
+            <h4 class="remove-bottom-margin">Reactions</h4>
+            <div *ngFor="let r of Monster.reactions; let i=index">
+                <b>{{r.name}}:</b> {{r.desc}}
+            </div>
         </div>
     </div>
 </div>
+
+<ng-template #name> {{Monster.name}}</ng-template>

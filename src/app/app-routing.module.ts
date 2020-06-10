@@ -17,7 +17,7 @@ export const routes: Routes = [
     path: 'monster', component: MonsterComponent, children: [
       { path: 'view', component: MonsterPageComponent },
       { path: 'build', component: MonsterBuilderComponent },
-      { path: 'modify', component: ModifierBuilderComponent },
+      // { path: 'modify', component: ModifierBuilderComponent },
     ]
   },
   {
@@ -32,8 +32,8 @@ export const routes: Routes = [
       // { path: 'psychro', component: PsychrometricComponent }
     ]
   },
-  // { path: '**', redirectTo: 'home', pathMatch: 'full' },
-  // { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 function routeToMenuItem(r: Route, p?: string): MenuItem {

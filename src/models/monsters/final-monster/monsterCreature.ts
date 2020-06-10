@@ -1099,8 +1099,17 @@ export class MonsterCreature implements Monster {
         }
     }
 
+    public get isComplete() {
+        const s: boolean[] = [];
+        s.push(!abilityAbbrev.some(aa => isNaN(this.abilities[aa])));
+        return s.every(e => e);
+    }
+
+
     public defineActions(): void {
-        this.actions.filter(a => a.name.length > 0).forEach((a, index) =>
+        console.log(this.name);
+        this.actions = this.actions.filter(a => a.name.length > 0);
+        this.actions.forEach((a, index) =>
             Object.defineProperty(this, propertizeName(a.name), {
                 get() {
                     const act = this.actions[index];

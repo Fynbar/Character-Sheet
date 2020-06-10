@@ -26,7 +26,7 @@ import { DeferModule } from 'primeng/defer';
 import { DialogModule } from 'primeng/dialog';
 import { DragDropModule } from 'primeng/dragdrop';
 import { DropdownModule } from 'primeng/dropdown';
-import { DynamicDialogModule, DialogService } from 'primeng/dynamicDialog';
+import { DynamicDialogModule, DialogService, DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicDialog';
 import { EditorModule } from 'primeng/editor';
 import { FieldsetModule } from 'primeng/fieldset';
 import { FileUploadModule } from 'primeng/fileupload';
@@ -211,10 +211,15 @@ import { SpellListComponent } from './components/Spells/spell-list/spell-list.co
     BrowserAnimationsModule,
     AppRoutingModule
   ],
+  entryComponents: [
+    ModifierBuilderComponent
+  ],
   providers: [
     PythonService,
     JSONService,
-    DialogService
+    DialogService,
+    DynamicDialogRef,
+    DynamicDialogConfig
   ],
   bootstrap: [AppComponent]
 })
