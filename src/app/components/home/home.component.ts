@@ -14,6 +14,14 @@ export class HomeComponent implements OnInit {
     this.service.sayHi().subscribe(d =>
       console.log(d)
     );
-  }
 
+    this.service.saveHi().subscribe(d =>
+      console.log(d)
+    );
+
+    this.service.saveJSONFile('test2', { name: 'Greg' }).subscribe(d =>
+      console.log(d)
+    );
+
+  }
 }

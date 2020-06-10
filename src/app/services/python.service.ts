@@ -21,6 +21,20 @@ export class PythonService {
     );
   }
 
+  public saveHi() {
+    return this.http.post(this.URL, { name: 'Greg' }).pipe(
+      // map(data => data as JSON),
+      tap(data => console.log(data))
+    );
+  }
+
+  public saveJSONFile(filename: string, jsonFile: any) {
+    return this.http.post(this.URL + 'saveJSON', { name: filename, body: jsonFile }).pipe(
+      // map(data => data as JSON),
+      tap(data => console.log(data))
+    );
+  }
+
   public getAllEmployees() {
     return this.http.get(this.URL + 'employees').pipe(map(data => data as JSON));
   }
