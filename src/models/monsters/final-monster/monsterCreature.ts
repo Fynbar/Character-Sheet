@@ -14,6 +14,8 @@ import { Page } from '../../spells/spell.model';
 import { ActionDamage, APIMonster, betterComponentsRequired, FluffyType, Proficiency, PurpleType, RESTType, SuccessType, Trait, Dc } from '../api-monster/apiMonster.model';
 import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
 import { Abilities, ActionElement, LegendaryActionElement, Meta, Monster, ReactionElement, Senses, Skills, Speed } from './monster.model';
+import { someisNan } from 'src/app/common/boolean.functions';
+// import { someisNan } from './allisNan';
 // tslint:enable:max-line-length
 
 const classNames = enumValuesArray(characterClass);
@@ -1102,6 +1104,9 @@ export class MonsterCreature implements Monster {
     public get isComplete() {
         const s: boolean[] = [];
         s.push(!abilityAbbrev.some(aa => isNaN(this.abilities[aa])));
+        this.skills ? s.push(!someisNan(this.skills)) : s.push(true);
+        this.savingThrows ? s.push(!someisNan(this.savingThrows)) : s.push(true);
+        // console.log(s);
         return s.every(e => e);
     }
 
@@ -1134,3 +1139,5 @@ export class MonsterCreature implements Monster {
     //     return monster;
     // }
 }
+
+

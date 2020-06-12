@@ -21,6 +21,7 @@ export class DiceComponent extends Die implements OnInit {
 
   ngOnInit() {
     // this.result = this.sanitized.bypassSecurityTrustHtml(this.diceString);
+    console.log(this);
     const comps = ['diceType', 'diceNum', 'constant'];
     if (this.dice) {
       comps.forEach(c => this[c] = this.dice[c]);
@@ -35,11 +36,12 @@ export class DiceComponent extends Die implements OnInit {
   }
 
   public rollDice($event): void {
-    this.diceRoll = this.dice.roll();
+    this.diceRoll = this.roll();
   }
 
   public closeDiceDialog($event): void {
-    this.diceRoll = this.history.push(this.diceRoll);
+    this.history.push(this.diceRoll);
+    this.diceRoll = null;
   }
   public get displayDice() {
     return this.diceRoll ? true : false;

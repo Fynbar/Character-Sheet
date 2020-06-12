@@ -61,7 +61,11 @@ export class ModifiedMonster implements Monster {
   constructor(private monster: MonsterCreature) {
     this.modifiedCreature = monster;
   }
+  public static FromMonster(monster: Monster) {
+    return new ModifiedMonster(new MonsterCreature(monster));
+  }
 }
+
 
 export interface CreatureModifier {
   modifiedProperty: string;

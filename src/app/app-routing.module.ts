@@ -17,7 +17,7 @@ export const routes: Routes = [
     path: 'monster', component: MonsterComponent, children: [
       { path: 'view', component: MonsterPageComponent },
       { path: 'build', component: MonsterBuilderComponent },
-      // { path: 'modify', component: ModifierBuilderComponent },
+      { path: 'modify', component: ModifierBuilderComponent },
     ]
   },
   {

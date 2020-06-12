@@ -1,4 +1,11 @@
 <p-table #dt [columns]="cols" [value]="monsters" [expandedRowKeys]="expandedRows" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="caption">
+        <div style="text-align: right">
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <!-- <p-inputSwitch [(ngModel)]="checked" (onChange)="dt.filter($event.checked, isComplete, 'equals')"></p-inputSwitch> -->
+            <!-- <p-inputSwitch [(ngModel)]="checked" (onChange)="testFunc($event, dt)"></p-inputSwitch> -->
+        </div>
+    </ng-template>
     <ng-template pTemplate="header" let-columns>
         <!-- <tr>
           <th [attr.colspan]="columns.length + 1">{{monsters.length}}</th>

@@ -105,6 +105,7 @@ import { ActionBuilderComponent } from './components/monster/stat-block/action-b
 import { StatBlockComponent } from './components/monster/stat-block/stat-block.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { SpellListComponent } from './components/Spells/spell-list/spell-list.component';
+import { ModifierDialogComponent } from './components/modifiers/modifier-dialog/modifier-dialog.component';
 // #endregion
 
 @NgModule({
@@ -125,7 +126,8 @@ import { SpellListComponent } from './components/Spells/spell-list/spell-list.co
     EquipmentComponent,
     WeaponComponent,
     NumberToWordsPipe,
-    ActionBuilderComponent
+    ActionBuilderComponent,
+    ModifierDialogComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),
@@ -212,7 +214,7 @@ import { SpellListComponent } from './components/Spells/spell-list/spell-list.co
     AppRoutingModule
   ],
   entryComponents: [
-    ModifierBuilderComponent
+    ModifierDialogComponent
   ],
   providers: [
     PythonService,

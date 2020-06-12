@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
-import { ModifiedMonster, CreatureModifier } from '../modifier/modifier.component';
+import { ModifiedMonster, CreatureModifier } from '../modifier/modifier.model';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Monster } from 'src/models/monsters/final-monster/monster.model';
+import { JSONService } from 'src/app/services/json.service';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 // import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
 
 
@@ -11,25 +15,40 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrls: ['./modifier-builder.component.css']
 })
 export class ModifierBuilderComponent implements OnInit {
-  public modifiedCreature: ModifiedMonster;
-  public modifications: CreatureModifier[];
-  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
+  @Input() modifiedCreature: ModifiedMonster;
+  @Input() modifications: CreatureModifier[] = [];
+  @Input() Monster: Monster;
+  @Input() inDialog = false;
+  options = [];
+  constructor(
+    private jsonService: JSONService) { }
 
   ngOnInit() {
-    if (this.config.data.modifications) {
-      this.modifiedCreature = this.config.data.modifiedCreature;
-      this.modifications = this.config.data.modifications;
+    if (this.inDialog) {
+      if (!this.modifiedCreature && this.Monster) {
+        this.modifiedCreature = ModifiedMonster.FromMonster(this.Monster);
+      } else if (this.modifiedCreature && !this.Monster) {
+        this.Monster = this.modifiedCreature;
+      }
     } else {
-      // this.modifiedCreature = this.config.data;
-      this.modifications = [];
-      this.modifiedCreature = new ModifiedMonster(this.config.data);
+      forkJoin(...['monsterManualAdditions',
+        'srdMonsterAdditions',
+        'voloMonsterAdditions'].map(n => this.jsonService.getJSON(n))).pipe(
+          map((d: Monster[][]) => {
+            let s = [];
+            d.forEach((element: MonsterCreature[]) =>
+              s = s.concat(...element) // .map(m => new MonsterCreature(m)));
+            );
+            return s;
+          })
+        ).subscribe(data => {
+          console.log(data.filter(f => !f.isComplete));
+          this.options = data;
+        });
     }
+
     // console.log(this.config.data);
     // console.log(this.ref);
-  }
-
-  selectCar() {
-    this.ref.close();
   }
 
   // public get

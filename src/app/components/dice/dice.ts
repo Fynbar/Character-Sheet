@@ -54,6 +54,7 @@ export class Die {
         } else if (this.constant < 0) {
             conMod = `${this.constant}`;
         }
+        // console.log(`${this.avg} (${this.diceNum}d${this.diceType}${conMod})`);
         return `${this.avg} (${this.diceNum}d${this.diceType}${conMod})`;
     }
 

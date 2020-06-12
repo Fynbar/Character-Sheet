@@ -1,4 +1,4 @@
-<span (click)="rollDice($event)" innerHTML="{{diceString}}"></span>
+<span (click)="rollDice($event)">{{makeString}}</span>
 <p-dialog header="Dice Roll" [(visible)]="displayDice" [style]="{width: '50vw'}" [baseZIndex]="10000">
     {{diceRoll| json}}
     <p-footer>

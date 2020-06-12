@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
       console.log(d)
     );
 
-    this.service.saveJSONFile('test2', { name: 'Greg' }).subscribe(d =>
+    this.service.saveJSONFile('Bet/test2', { name: 'Greg' }).subscribe(d =>
       console.log(d)
     );
 

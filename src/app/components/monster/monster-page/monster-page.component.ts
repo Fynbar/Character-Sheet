@@ -9,6 +9,7 @@ import { forkJoin } from 'rxjs';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicDialog';
 import { MessageService } from 'primeng/api';
 import { ModifierBuilderComponent } from '../../modifiers/modifier-builder/modifier-builder.component';
+import { ModifierDialogComponent } from '../../modifiers/modifier-dialog/modifier-dialog.component';
 
 @Component({
   selector: 'app-monster-page',
@@ -23,16 +24,17 @@ export class MonsterPageComponent implements OnInit {
   ];
   public monsters: MonsterCreature[];
   public expandedRows = {};
+  public checked = false;
   constructor(
     private jsonService: JSONService, public dialogService: DialogService) { }
 
   ref: DynamicDialogRef;
 
-  editMonster(rowData, i) {
+  editMonster(rowData: MonsterCreature, i: number) {
     // show() {
-    this.ref = this.dialogService.open(ModifierBuilderComponent, {
+    this.ref = this.dialogService.open(ModifierDialogComponent, {
       data: rowData,
-      header: 'Choose a Car',
+      header: `Modify ${rowData.name}`,
       width: '70%',
       // tslint:disable-next-line:object-literal-key-quotes
       contentStyle: { 'max-height': '350px', 'overflow': 'auto' }
@@ -68,13 +70,17 @@ export class MonsterPageComponent implements OnInit {
           return s;
         })
       ).subscribe(data => {
-        console.log(data);
-        this.monsters = data;
+        console.log(data.filter(f => !f.isComplete));
+        this.monsters = data.filter(f => !f.isComplete).concat(data.filter(f => f.isComplete));
+
         // this.expandedRows[this.monsters[0].name] = true;
       });
   }
 
-
+  testFunc(event, dt) {
+    console.log(event);
+    dt.filter(event.value, 'isComplete', 'equals');
+  }
   //   console.log(rowData);
   // }
 }
