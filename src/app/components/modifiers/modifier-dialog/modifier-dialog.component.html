@@ -1,5 +1,5 @@
 <ng-template [ngIf]="showable" [ngIfElse]="loading">
-    <app-modifier-builder [modifications]="modifications" [modifiedCreature]=modifiedCreature [inDialog]="true"></app-modifier-builder>
+    <app-modifier-builder [inputModifications]="modifications" [modifiedCreature]=modifiedCreature [inDialog]="true"></app-modifier-builder>
 </ng-template>
 
 <ng-template #loading>...Loading...</ng-template>

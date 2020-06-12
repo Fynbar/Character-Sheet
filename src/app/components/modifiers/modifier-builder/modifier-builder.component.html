@@ -1,6 +1,6 @@
-<div *ngIf="!inDialog">
+<ng-template [ngIf]="!inDialog">
     <h3>Select a Monster</h3>
-    <p-dropdown [options]="options" [(ngModel)]="Monster" filter="true" optionLabel="name" (onBlur)="setNewMonster($event)">
+    <p-dropdown [options]="options" [(ngModel)]="Monster" filter="true" optionLabel="name" (onChange)="setNewMonster($event)">
         <!-- <ng-template let-item pTemplate="selectedItem">
         <img src="assets/showcase/images/demo/car/{{item.label}}.png" style="width:16px;vertical-align:middle" />
         <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
@@ -12,8 +12,12 @@
         </div>
     </ng-template> -->
     </p-dropdown>
-</div>
-{{modifiedCreature | json}}
-<p *ngFor="let mod of modifications; let i = index">
-    {{i}}
-</p>
+</ng-template>
+<ng-template [ngIf]="modifiedCreature">
+    {{modifiedCreature.name}} {{modifiedCreature | json}}
+    <p *ngFor="let mod of modifications; let i = index">
+        {{i}}
+    </p>
+    <app-stat-block *ngIf="checked" [Monster]="modifiedCreature.outputMonster">
+    </app-stat-block>
+</ng-template>

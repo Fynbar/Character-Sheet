@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
 })
 export class ModifierBuilderComponent implements OnInit {
   @Input() modifiedCreature: ModifiedMonster;
-  @Input() modifications: CreatureModifier[] = [];
+  @Input() inputModifications: CreatureModifier[] = [];
   @Input() Monster: Monster;
   @Input() inDialog = false;
   options = [];
@@ -29,28 +29,36 @@ export class ModifierBuilderComponent implements OnInit {
         this.modifiedCreature = ModifiedMonster.FromMonster(this.Monster);
       } else if (this.modifiedCreature && !this.Monster) {
         this.Monster = this.modifiedCreature;
+        // this.modifications = this.modifiedCreature.modifications;
       }
     } else {
-      forkJoin(...['monsterManualAdditions',
-        'srdMonsterAdditions',
-        'voloMonsterAdditions'].map(n => this.jsonService.getJSON(n))).pipe(
-          map((d: Monster[][]) => {
-            let s = [];
-            d.forEach((element: MonsterCreature[]) =>
-              s = s.concat(...element) // .map(m => new MonsterCreature(m)));
-            );
-            return s;
-          })
-        ).subscribe(data => {
-          console.log(data.filter(f => !f.isComplete));
-          this.options = data;
-        });
+      forkJoin(...['monsterManualAdditions', 'srdMonsterAdditions', 'voloMonsterAdditions'].map(n => this.jsonService.getJSON(n))).pipe(
+        map((d: Monster[][]) => {
+          let s = [];
+          d.forEach((element: MonsterCreature[]) => s = s.concat(...element));
+          return s;
+        })
+      ).subscribe(data => {
+        console.log(data.filter(f => !f.isComplete));
+        this.options = data;
+      });
+    }
+    if (this.inputModifications) {
+      this.modifiedCreature.modifications = this.inputModifications;
     }
 
     // console.log(this.config.data);
     // console.log(this.ref);
   }
 
+  public get modifications() {
+    return this.modifiedCreature.modifications;
+  }
+  public setNewMonster(event) {
+    console.log(event.value, this.Monster);
+    this.modifiedCreature = ModifiedMonster.FromMonster(this.Monster);
+    this.modifiedCreature.name = 'Larry';
+  }
   // public get
 
 }

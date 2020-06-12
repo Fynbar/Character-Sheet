@@ -57,7 +57,7 @@ MultiAttackers: {{multiAttackers}}
                 <td [attr.colspan]="columns.length + 2">
                     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
                         <!-- {{i}} -->
-                        <app-stat-block *ngIf="checked" (updatedCreature)="updateMonster($event, i)" [Monster]="jsonMonstersFormatted[i]">
+                        <app-stat-block (updatedCreature)="updateMonster($event, i)" [Monster]="jsonMonstersFormatted[i]">
                         </app-stat-block>
 
                         <!-- <textarea [(ngModel)]="rowData.name" autoResize="true"></textarea> -->
