@@ -59,17 +59,9 @@ export class MonsterPageComponent implements OnInit {
 
   ngOnInit() {
     // console.log(data);
-    forkJoin(...['monsterManualAdditions',
-      'srdMonsterAdditions',
-      'voloMonsterAdditions'].map(n => this.jsonService.getJSON(n))).pipe(
-        map((d: MonsterCreature[][]) => {
-          let s = [];
-          d.forEach((element: MonsterCreature[]) => {
-            s = s.concat(...element.map(m => new MonsterCreature(m)));
-          });
-          return s;
-        })
-      ).subscribe(data => {
+    this.jsonService.getAllMonsters().pipe(
+        map(ms => ms.map(m => new MonsterCreature(m))))
+        .subscribe(data => {
         console.log(data.filter(f => !f.isComplete));
         this.monsters = data.filter(f => !f.isComplete).concat(data.filter(f => f.isComplete));
 

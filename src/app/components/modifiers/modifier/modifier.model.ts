@@ -1,4 +1,3 @@
-import { Component, OnInit } from '@angular/core';
 import {
   Abilities,
   ActionElement,
@@ -11,13 +10,12 @@ import {
   Speed,
   Trait
 } from '../../../../models/monsters/final-monster/monster.model';
-import { ConditionImmunity } from '../../../../models/rules/condition.enum';
-import { DamageType } from '../../../../models/rules/damage-type';
+import { ConditionImmunity, Condition } from '../../../../models/rules/condition.enum';
+import { DamageType, lowerDamageType } from '../../../../models/rules/damage-type';
 // import { Senses } from '../../../../models/monsters/api-monster/apiMonster.model';
 import { Page } from '../../../../models/spells/spell.model';
 import { Die } from '../../dice/dice';
 // import { Meta } from '@angular/platform-browser';
-import { JSONService } from '../../../services/json.service';
 import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
 
 enum ModType {
@@ -33,10 +31,8 @@ enum ModType {
 type ModValue = number | string | ConditionImmunity | DamageType | ActionElement | ReactionElement | LegendaryActionElement | Trait;
 
 export class ModifiedMonster implements Monster {
-  // public modifiedProperty: string;
   public modifications: CreatureModifier[];
   public modifiedCreature: MonsterCreature;
-  // name: string;
   meta?: Meta;
   page: Page;
   speed?: Speed;
@@ -51,26 +47,22 @@ export class ModifiedMonster implements Monster {
   passivePerception?: number;
   flavorText: string;
   armorType?: string;
-  damageImmunities?: string[];
   savingThrows?: Abilities;
   legendary?: LegendaryActionElement[];
   legendaryRules?: string;
-  conditionImmunities?: ConditionImmunity[];
-  damageResistances?: string[];
   reactions?: ReactionElement[];
-  damageVulnerabilities?: string[];
+  // damageVulnerabilities?: DamageType[];
+
   outputMonster?: MonsterCreature;
-  constructor(private monster: MonsterCreature) {
+  constructor(monster: MonsterCreature) {
     this.modifiedCreature = monster;
     this.modifications = [];
-
   }
+
   public static FromMonster(monster: Monster) {
-    let s;
-    s = new MonsterCreature(monster);
-    console.log(Object.keys(s));
+    const s = new MonsterCreature(monster);
+    // console.log(Object.keys(s));
     return new ModifiedMonster(s);
-    // return new ModifiedMonster(new MonsterCreature(monster));
   }
 
   private addModification(
@@ -83,16 +75,56 @@ export class ModifiedMonster implements Monster {
       modificationType: modType,
       modifiedValue: modVal
     });
-    this.outputMonster = this.solve();
+    this.solve();
   }
 
   public get name() {
     return this.modifiedCreature.name;
   }
   public set name(str) {
-    // this.addModification('name', ModType.remove, str);
     this.addModification('name', ModType.base, str);
   }
+
+  public get conditionImmunities(): ConditionImmunity[] {
+    return this.modifiedCreature.conditionImmunities ? this.modifiedCreature.conditionImmunities : null;
+  }
+  public set conditionImmunities(strs: ConditionImmunity[]) {
+    this.modifiedCreature.conditionImmunities.filter(f => strs.indexOf(f) < 0)
+      .forEach((str: ConditionImmunity) => this.addModification('name', ModType.remove, Condition[str]));
+    strs.filter(f => this.modifiedCreature.conditionImmunities.indexOf(f) < 0)
+      .forEach((str: ConditionImmunity) => this.addModification('name', ModType.add, Condition[str]));
+  }
+
+  public get damageImmunities(): DamageType[] {
+    return this.modifiedCreature.damageImmunities ? this.modifiedCreature.damageImmunities : null;
+  }
+  public set damageImmunities(strs: DamageType[]) {
+    this.modifiedCreature.damageImmunities.filter(f => strs.indexOf(f) < 0)
+      .forEach((str: DamageType) => this.addModification('name', ModType.remove, lowerDamageType[str]));
+    strs.filter(f => this.modifiedCreature.damageImmunities.indexOf(f) < 0)
+      .forEach((str: DamageType) => this.addModification('name', ModType.add, lowerDamageType[str]));
+  }
+
+  public get damageResistances(): DamageType[] {
+    return this.modifiedCreature.damageResistances ? this.modifiedCreature.damageResistances : null;
+  }
+  public set damageResistances(strs: DamageType[]) {
+    this.modifiedCreature.damageResistances.filter(f => strs.indexOf(f) < 0)
+      .forEach((str: DamageType) => this.addModification('name', ModType.remove, lowerDamageType[str]));
+    strs.filter(f => this.modifiedCreature.damageResistances.indexOf(f) < 0)
+      .forEach((str: DamageType) => this.addModification('name', ModType.add, lowerDamageType[str]));
+  }
+
+  public get damageVulnerabilities(): DamageType[] {
+    return this.modifiedCreature.damageVulnerabilities ? this.modifiedCreature.damageVulnerabilities : null;
+  }
+  public set damageVulnerabilities(strs: DamageType[]) {
+    this.modifiedCreature.damageVulnerabilities.filter(f => strs.indexOf(f) < 0)
+      .forEach((str: DamageType) => this.addModification('name', ModType.remove, lowerDamageType[str]));
+    strs.filter(f => this.modifiedCreature.damageVulnerabilities.indexOf(f) < 0)
+      .forEach((str: DamageType) => this.addModification('name', ModType.add, lowerDamageType[str]));
+  }
+
 
   public solve() {
     let properties = this.modifications.map(m => m.modifiedProperty);
@@ -102,13 +134,17 @@ export class ModifiedMonster implements Monster {
     console.log(modObj);
     let modifiedCreature = this.modifiedCreature;
     this.modifications.forEach(mod => modifiedCreature = this.applyModification(modifiedCreature, mod));
-    return modifiedCreature;
+    this.outputMonster = modifiedCreature;
   }
 
   public applyModification(modifiedCreature: MonsterCreature, modification: CreatureModifier) {
     switch (modification.modificationType) {
       case ModType.add:
-        modifiedCreature[modification.modifiedProperty] = modifiedCreature[modification.modifiedProperty] + modification.modifiedValue;
+        if (modification.modifiedValue instanceof Array) {
+          modifiedCreature[modification.modifiedProperty].push(modification.modifiedValue);
+        } else {
+          modifiedCreature[modification.modifiedProperty] = modifiedCreature[modification.modifiedProperty] + modification.modifiedValue;
+        }
         break;
       case ModType.subtract:
         modifiedCreature[modification.modifiedProperty] =

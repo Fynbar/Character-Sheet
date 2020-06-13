@@ -2,6 +2,7 @@ import { ConditionImmunity } from '../../rules/condition.enum';
 import { Page } from '../../spells/spell.model';
 import { Die } from 'src/app/components/dice/dice';
 import { Dc, Spellcasting, SpecialAbilityUsage, Options, ActionDamage, ActionUsage, Attack } from '../api-monster/apiMonster.model';
+import { DamageType } from 'src/models/rules/damage-type';
 
 export interface Monster {
     name: string;
@@ -19,14 +20,14 @@ export interface Monster {
     passivePerception?: number;
     flavorText: string;
     armorType?: string;
-    damageImmunities?: string[];
+    damageImmunities?: DamageType[];
     savingThrows?: Abilities;
     legendary?: LegendaryActionElement[];
     legendaryRules?: string;
     conditionImmunities?: ConditionImmunity[];
-    damageResistances?: string[];
+    damageResistances?: DamageType[];
     reactions?: ReactionElement[];
-    damageVulnerabilities?: string[];
+    damageVulnerabilities?: DamageType[];
 }
 
 export interface Abilities {
@@ -161,6 +162,15 @@ export interface Speed {
     '60'?: null;
 }
 
+interface Action {
+    name: string;
+    desc: string;
+    otherActions?: string[];
+    attackBonus?: number;
+    damage?: ActionDamage[];
+    dc?: Dc;
+}
+
 export interface Trait extends Action {
     spellcasting?: Spellcasting;
     usage?: SpecialAbilityUsage;
@@ -177,13 +187,5 @@ export interface LegendaryActionElement extends Action {
     points: number;
 }
 
-interface Action {
-    name: string;
-    desc: string;
-    otherActions?: string[];
-    attackBonus?: number;
-    damage?: ActionDamage[];
-    dc?: Dc;
-}
 
 export type ReactionElement = Action;

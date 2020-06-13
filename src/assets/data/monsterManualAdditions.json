@@ -147,7 +147,11 @@
             },
             {
                 "name": "Keen Smell",
-                "desc": "The yeti has advantage on Wisdom (Perception) checks that rely on smell. Snow Camouflage. The yeti has advantage on Dexterity (Stealth) checks made to hide in snowy terrain. "
+                "desc": "The yeti has advantage on Wisdom (Perception) checks that rely on smell."
+            },
+            {
+                "name": "Snow Camouflage",
+                "desc": "The yeti has advantage on Dexterity (Stealth) checks made to hide in snowy terrain."
             }
         ],
         "actions": [{
@@ -273,7 +277,7 @@
         "traits": [],
         "actions": [],
         "abilities": {},
-        "flavorText": "DEMILICH The immortality granted to a lich lasts only as long as it feeds mortal souls to its phylactery. If it falters or fails in that task, its bones turn to dust until only its skull remains. This \"demilich\" contains only a fragment of the lich's malevolent life force-just enough so that if it is disturbed, these remains rise into the air and assume a wraithlike form. The skull then emits a terrifying howl that can slay the weak-hearted and leave others trembling with fear. Left alone, it sinks back down and returns to the empty peace of its existence. Few liches seek to become demiliches, for it means an end to the existence they hoped to preserve by becoming undead. However, time can erode the lich's reason and memory, causing it to retreat into its ancient tomb and forget to feed on souls. The spells it once knew fade from its mind, and it no longer channels the arcane energy it wielded as a lich. However, even as a mere skull it remains a deadly and vexing enemy. Enduring Existence. Even after a lich is reduced to a demilich state, its phylactery survives. As long as its phylactery is intact, the demilich can't be permanently destroyed. Its skull reforms after 1d10 days, restoring the creature to its wretched state. If it has the presence of mind to do so, a demilich can reclaim its former power by feeding just one soul to its phylactery. Doing so restores the demilich to lich form, reconstituting its undead body. Undead Nature. A demilich doesn't require air, food, drink, or sleep. So great is a demilich's will to survive that it always has the maximum number of hit points for its Hit Dice, instead of average hit points. A DEMILICH's LAIR A demilich hides its earthly remains and treasures in a labyrinthine tomb guarded by monsters and traps. At the heart of this labyrinth rests the demilich's skull and the dust from its other bones. In its crypt, a demilich has access to lair actions and additional uses for its legendary actions. Its whole lair also has unique traits. A demilich in its lair has a challenge rating of 20 (24,500 XP). LAIR ACTIONS On initiative count 20 (losing initiative ties), the demilich rolls a d20. On a result of 11 or higher, the demilich takes a lair action to cause one of the following effects. It can't use the same effect two rounds in a row. The tomb trembles violently for a moment. Each ture on the floor of the tomb must succeed on a DC 19 Dexterity saving throw or be knocked prone. The demilich targets one creature it can see within 60 feet of it. An antimagic field fills the space of the target, moving with it until initiative count 20 on the next round. The demilich targets any number of creatures it can see within 30 feet of it. No target can regain hit points until initiative count 20 on the next round. LAIR TRAITS A demilich's tomb might have any or all of the following effects in place: The first time a non-evil creature enters the tomb's area, the creature takes 16 (3d10) necrotic damage. Ł Monsters in the tomb have advantage on saving throws against being charmed or frightened, and ag!linst features that turn undead. Ł The tomb is warded against the magical travel of creatures the demilich hasn't authorized. Such tures can't teleport into or out of the tomb's area or use planar travel to enter or leave it. Effects that allow teleportation or planar travel work within the tomb as long as they aren't used to leave or enter the tomb's area. If the demilich is destroyed, these effects fade over the course of 10 days. ACERERAK AND HIS DISCIPLES The transformation into a demilich isn't a bitter end for allliches that experience it. Made as a conscious choice, the path of the demilich becomes the next step in a dark evolution. The lich Acererak-a powerful wizard and demonologist and the infamous master of the Tomb of Horrors-anticipated his own transformation, preparing for it by setting enchanted gemstones into his skull's eye sockets and teeth. Each of these soul gems possessed the power to capture the souls on which his phylactery would feed. Acererak abandoned his physical body, accepting that it would molder and dissolve to dust while he traveled the planes as a disembodied consciousness. lfthe skull that was his last physical remains was ever disturbed, its gems would claim the souls of the insolent intruders to his tomb, magically transferring them to his phylactery. Liches who follow Acererak's path believe that by becoming free of their bodies, they can continue their quest for power beyond the mortal world. As their patron did, they secure their remains within well-guarded vaults, using soul gems to maintain their phylacteries and destroy the adventurers who disturb their lairs. ",
+        "flavorText": "DEMILICH The immortality granted to a lich lasts only as long as it feeds mortal souls to its phylactery. If it falters or fails in that task, its bones turn to dust until only its skull remains. This \"demilich\" contains only a fragment of the lich's malevolent life force-just enough so that if it is disturbed, these remains rise into the air and assume a wraithlike form. The skull then emits a terrifying howl that can slay the weak-hearted and leave others trembling with fear. Left alone, it sinks back down and returns to the empty peace of its existence. Few liches seek to become demiliches, for it means an end to the existence they hoped to preserve by becoming undead. However, time can erode the lich's reason and memory, causing it to retreat into its ancient tomb and forget to feed on souls. The spells it once knew fade from its mind, and it no longer channels the arcane energy it wielded as a lich. However, even as a mere skull it remains a deadly and vexing enemy. Enduring Existence. Even after a lich is reduced to a demilich state, its phylactery survives. As long as its phylactery is intact, the demilich can't be permanently destroyed. Its skull reforms after 1d10 days, restoring the creature to its wretched state. If it has the presence of mind to do so, a demilich can reclaim its former power by feeding just one soul to its phylactery. Doing so restores the demilich to lich form, reconstituting its undead body. Undead Nature. A demilich doesn't require air, food, drink, or sleep. So great is a demilich's will to survive that it always has the maximum number of hit points for its Hit Dice, instead of average hit points. A DEMILICH's LAIR A demilich hides its earthly remains and treasures in a labyrinthine tomb guarded by monsters and traps. At the heart of this labyrinth rests the demilich's skull and the dust from its other bones. In its crypt, a demilich has access to lair actions and additional uses for its legendary actions. Its whole lair also has unique traits. A demilich in its lair has a challenge rating of 20 (24,500 XP). LAIR ACTIONS On initiative count 20 (losing initiative ties), the demilich rolls a d20. On a result of 11 or higher, the demilich takes a lair action to cause one of the following effects. It can't use the same effect two rounds in a row. The tomb trembles violently for a moment. Each ture on the floor of the tomb must succeed on a DC 19 Dexterity saving throw or be knocked prone. The demilich targets one creature it can see within 60 feet of it. An antimagic field fills the space of the target, moving with it until initiative count 20 on the next round. The demilich targets any number of creatures it can see within 30 feet of it. No target can regain hit points until initiative count 20 on the next round. LAIR TRAITS A demilich's tomb might have any or all of the following effects in place: The first time a non-evil creature enters the tomb's area, the creature takes 16 (3d10) necrotic damage. Ł Monsters in the tomb have advantage on saving throws against being charmed or frightened, and ag!linst features that turn undead. Ł The tomb is warded against the magical travel of creatures the demilich hasn't authorized. Such tures can't teleport into or out of the tomb's area or use planar travel to enter or leave it. Effects that allow teleportation or planar travel work within the tomb as long as they aren't used to leave or enter the tomb's area. If the demilich is destroyed, these effects fade over the course of 10 days. ACERERAK AND HIS DISCIPLES The transformation into a demilich isn't a bitter end for allliches that experience it. Made as a conscious choice, the path of the demilich becomes the next step in a dark evolution. The lich Acererak-a powerful wizard and demonologist and the infamous master of the Tomb of Horrors-anticipated his own transformation, preparing for it by setting enchanted gemstones into his skull's eye sockets and teeth. Each of these soul gems possessed the power to capture the souls on which his phylactery would feed. Acererak abandoned his physical body, accepting that it would molder and dissolve to dust while he traveled the planes as a disembodied consciousness. lfthe skull that was his last physical remains was ever disturbed, its gems would claim the souls of the insolent intruders to his tomb, magically transferring them to his phylactery. Liches who follow Acererak's path believe that by becoming free of their bodies, they can continue their quest for power beyond the mortal world. As their patron did, they secure their remains within well-guarded vaults, using soul gems to maintain their phylacteries and destroy the adventurers who disturb their lairs.",
         "completed": true
     },
     {
@@ -308,7 +312,7 @@
         "challenge": "17",
         "traits": [{
                 "name": "Legendary Resistance",
-                "desc": "If the dracolich fails a saving throw, it can choose to succeed instead. ",
+                "desc": "If the dracolich fails a saving throw, it can choose to succeed instead.",
                 "usage": {
                     "type": "per day",
                     "times": 3
@@ -316,7 +320,7 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The dracolich has advantage on saving throws against spells and other magical effects. "
+                "desc": "The dracolich has advantage on saving throws against spells and other magical effects."
             }
         ],
         "actions": [{
@@ -474,7 +478,7 @@
         "damageResistances": [
             "necrotic"
         ],
-        "legendaryRules": "The dracolich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dracolich regains spent legendary actions at the start of its turn. "
+        "legendaryRules": "The dracolich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dracolich regains spent legendary actions at the start of its turn."
     },
     {
         "name": "Arcanaloth",
@@ -549,7 +553,7 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The arcanaloth has advantage on saving throws against spells and other magical effects. Magic Weapons. The arcanaloth's weapon attacks are magical. "
+                "desc": "The arcanaloth has advantage on saving throws against spells and other magical effects. Magic Weapons. The arcanaloth's weapon attacks are magical."
             },
             {
                 "name": "Spellcasting",
@@ -760,11 +764,11 @@
         "challenge": "12",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The arch mage has advantage on saving throws against spells and other magical effects. "
+                "desc": "The arch mage has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Spellcasting",
-                "desc": "The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The arch mage can cast disguise self and invisibility at will and has the following wizard spells prepared: Cantrips (at will):.fire bolt, light, mage hand, prestidigitation, shocking grasp 1st level (4 slots): detect magic, identify, mage armor,1' magic missile 2nd level (3 slots): detect thoughts, mirror image, misty step 3rd level (3 slots): counterspell,Jly, lightning bolt 4th level (3 slots): banishment, fire shield, 5th level (3 slots): cone of cold, scrying, wall of force 6th level.(1 slot): globe of invulnerability 7th level (l slot): teleport 8th level (l slot): mind blank1< 9th level (l slot): time stop 1<The archmage casts these spells on itself before combat. ",
+                "desc": "The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The arch mage can cast disguise self and invisibility at will and has the following wizard spells prepared: Cantrips (at will):.fire bolt, light, mage hand, prestidigitation, shocking grasp 1st level (4 slots): detect magic, identify, mage armor,1' magic missile 2nd level (3 slots): detect thoughts, mirror image, misty step 3rd level (3 slots): counterspell,Jly, lightning bolt 4th level (3 slots): banishment, fire shield, 5th level (3 slots): cone of cold, scrying, wall of force 6th level.(1 slot): globe of invulnerability 7th level (l slot): teleport 8th level (l slot): mind blank1< 9th level (l slot): time stop 1<The archmage casts these spells on itself before combat.",
                 "spellcasting": {
                     "spells": [{
                             "name": ".fire bolt",
@@ -1032,7 +1036,7 @@
             },
             {
                 "name": "Running Leap",
-                "desc": "The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet when it has a running start. "
+                "desc": "The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet when it has a running start."
             }
         ],
         "actions": [{
@@ -1143,7 +1147,7 @@
         "challenge": "13",
         "traits": [{
             "name": "Antimagic Cone",
-            "desc": "The beholder's central eye creates an area of antimagic, as in the anti magic field spell, in a 150-foot cone. At the start of each of its turns, the beholder decides which way the cone faces and whether the cone is active. The area works against the beholder's own eye rays. "
+            "desc": "The beholder's central eye creates an area of antimagic, as in the anti magic field spell, in a 150-foot cone. At the start of each of its turns, the beholder decides which way the cone faces and whether the cone is active. The area works against the beholder's own eye rays."
         }],
         "actions": [{
                 "name": "Bite",
@@ -1309,7 +1313,7 @@
         "conditionImmunities": [
             "prone"
         ],
-        "legendaryRules": "The beholder can take 3 legendary actions, using the Eye Ray option below. It can take only one legendary action at a time and only at the end of another creature's turn. The beholder regains spent legendary actions at the start of its turn. "
+        "legendaryRules": "The beholder can take 3 legendary actions, using the Eye Ray option below. It can take only one legendary action at a time and only at the end of another creature's turn. The beholder regains spent legendary actions at the start of its turn."
     },
     {
         "name": "Beholder Zombie",
@@ -1337,7 +1341,7 @@
         "challenge": "5",
         "traits": [{
             "name": "Undead Fortitude",
-            "desc": "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 +the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead. "
+            "desc": "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 +the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead."
         }],
         "actions": [{
                 "name": "Bite",
@@ -1460,11 +1464,11 @@
         "challenge": "7",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The slaad has advantage on saving throws against spells and other magical effects. "
+                "desc": "The slaad has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Regeneration",
-                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point. "
+                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point."
             }
         ],
         "actions": [{
@@ -1663,7 +1667,7 @@
             "CHA": 16
         },
         "passivePerception": 12,
-        "flavorText": "NAG AS Nagas are intelligent serpents that inhabit the ruins of the past, amassing arcane treasures and knowledge. The first nagas were created as immortal guardians by a humanoid race long lost to history. When this race died out, the nagas deemed themselves the rightful inheritors of their masters' treasures and magical lore. Industrious and driven, nagas occasionally venture out from their lairs to track down magic items or rare spellbooks. Nagas never feel the ravages of time or succumb to sickness. Even if it is struck down, a naga's immortal spirit reforms in a new body in a matter of days, ready to continue its eternal work. Benevolent Dictators and Brutal Tyrants. A naga rules its domain with absolute authority. Whether it rules with compassion or by terrorizing its subjects, the naga believes itself the master of all other creatures that inhabit its domain. Rivalry. Nagas have a long-standing enmity with the yuan-ti, with each race seeing itself as the epitome of serpentine evolution. Though cooperation between them is rare, nagas and yuan-ti sometimes set aside their differences to work toward common objectives. However, yuan-ti always chafe under a naga's authority. Immortal Nature. A naga doesn't require air, food, drink, or sleep. BONE NAGA In response to the long history of conflict between the yuan-ti and the nagas, yuan-ti created a necromantic ritual that could halt a naga's resurrection by transforming the living naga into a skeletal undead servitor. A bone naga retains only a few of the spells it knew in life. GUARDIAN NAGA Wise and good, the beautiful guardian nagas protect sacred places and items of magical power from falling into evil hands. In their hidden redoubts, they research spells and hatch convoluted plots to thwart the evil designs of their enemies. A guardian naga doesn't seek out violence, warning off intruders rather than attacking. Only if its foes persist does the naga attack, accosting enemies with its spells and poisonous spittle. SPIRIT NAGA Spirit nagas live in gloom and spitefulness, constantly plotting vengeance against creatures that have wronged them-or that they believe have wronged them. Lairing in dismal caverns and ruins, they devote their time to developing new spells and enslaving the mortals with which they surround themselves. A spirit naga likes to charm its foes, drawing them close so that it can sink its poisonous fangs into their flesh. ",
+        "flavorText": "NAG AS Nagas are intelligent serpents that inhabit the ruins of the past, amassing arcane treasures and knowledge. The first nagas were created as immortal guardians by a humanoid race long lost to history. When this race died out, the nagas deemed themselves the rightful inheritors of their masters' treasures and magical lore. Industrious and driven, nagas occasionally venture out from their lairs to track down magic items or rare spellbooks. Nagas never feel the ravages of time or succumb to sickness. Even if it is struck down, a naga's immortal spirit reforms in a new body in a matter of days, ready to continue its eternal work. Benevolent Dictators and Brutal Tyrants. A naga rules its domain with absolute authority. Whether it rules with compassion or by terrorizing its subjects, the naga believes itself the master of all other creatures that inhabit its domain. Rivalry. Nagas have a long-standing enmity with the yuan-ti, with each race seeing itself as the epitome of serpentine evolution. Though cooperation between them is rare, nagas and yuan-ti sometimes set aside their differences to work toward common objectives. However, yuan-ti always chafe under a naga's authority. Immortal Nature. A naga doesn't require air, food, drink, or sleep. BONE NAGA In response to the long history of conflict between the yuan-ti and the nagas, yuan-ti created a necromantic ritual that could halt a naga's resurrection by transforming the living naga into a skeletal undead servitor. A bone naga retains only a few of the spells it knew in life. GUARDIAN NAGA Wise and good, the beautiful guardian nagas protect sacred places and items of magical power from falling into evil hands. In their hidden redoubts, they research spells and hatch convoluted plots to thwart the evil designs of their enemies. A guardian naga doesn't seek out violence, warning off intruders rather than attacking. Only if its foes persist does the naga attack, accosting enemies with its spells and poisonous spittle. SPIRIT NAGA Spirit nagas live in gloom and spitefulness, constantly plotting vengeance against creatures that have wronged them-or that they believe have wronged them. Lairing in dismal caverns and ruins, they devote their time to developing new spells and enslaving the mortals with which they surround themselves. A spirit naga likes to charm its foes, drawing them close so that it can sink its poisonous fangs into their flesh.",
         "armorType": "natural armor",
         "damageImmunities": [
             "poison"
@@ -1707,15 +1711,15 @@
         "challenge": "3",
         "traits": [{
                 "name": "Brute",
-                "desc": "A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack). "
+                "desc": "A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack)."
             },
             {
                 "name": "Heart of Hruggek",
-                "desc": "The bugbear has advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep. "
+                "desc": "The bugbear has advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep."
             },
             {
                 "name": "Surprise Attack",
-                "desc": "If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack. "
+                "desc": "If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack."
             }
         ],
         "actions": [{
@@ -1889,19 +1893,19 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Amphibious",
-                "desc": "The bullywug can breathe air and water. "
+                "desc": "The bullywug can breathe air and water."
             },
             {
                 "name": "Speak with Frogs and Toads",
-                "desc": "The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug. "
+                "desc": "The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug."
             },
             {
                 "name": "Swamp Camouflage",
-                "desc": "The bullywug has advantage on Dexterity (Stealth) checks made to hide in swampy terrain. "
+                "desc": "The bullywug has advantage on Dexterity (Stealth) checks made to hide in swampy terrain."
             },
             {
                 "name": "Standing Leap",
-                "desc": "The bullywug's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start. "
+                "desc": "The bullywug's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start."
             }
         ],
         "actions": [{
@@ -2032,7 +2036,7 @@
             "CHA": 7
         },
         "passivePerception": 10,
-        "flavorText": "BULLYWUG Life as a bullywug is nasty, brutish, and wet. These headed amphibious humanoids must stay constantly moist, dwelling in rainy forests, marshes, and damp caves. Always hungry and thoroughly evil, bullywugs overwhelm opponents with superior numbers when they can, but they flee from serious threats to search for easier prey. Bullywugs have green, gray, or mottled yellow skin that shifts through shades of gray, green, and brown, allowing them to blend in with their surroundings. They wear crude armor and wield simple weapons, and can deliver a powerful bite to foes that press too close. Foul Aristocracy. Bullywugs consider themselves the right and proper rulers of the swamps. They follow an etiquette of sorts when dealing with outsiders and each other, subject to the whims and fancies of their leader-a self-styled lord of the muck. Bullywugs introduce themselves with grand-sounding titles, make great shows of bowing and debasing themselves before their superiors, and endlessly vie to win their superiors' favor. A bullywug has two ways to advance among its kind. It can either murder its rivals, though it must take pains to keep its criminal deeds secret, or it can find a treasure or magic item and present it as tribute or a token of obeisance to its liege. A bullywug that murders its rivals without cunning is likely to be executed, so it's more common for bullywugs to stage raids against caravans and settlements, with the goal of securing precious baubles to impress their lords and win their good graces. Invariably, such fine goods.are reduced to filthy tatters throug.h abuse and neglect. Once a gift loses its sheen, a bullywug lord invariably demands that its subjects bring it more treasure as tribute. Unruly Diplomacy. Bullywugs love nothing more than lording over those who trespass on their territories. Their warriors attempt to capture intruders rather than simply slaying them. Captives are dragged before the king or queen-a bullywug of unusually large size-and forced to beg for mercy. Bribes, treasure, and flattery can trick the bullywug ruler into letting its captives go, but not before it tries to impress its \"guests\" with the majesty of its treasure and its realm. Struck with a deep inferiority complex, bullywug lords fancy themselves as kings and queens, but desperately crave the fear and respect of outsiders. Amphibian Allies. Bullywugs speak a language that allows them to communicate over large areas by croaking like frogs. News of intruders or other events in the swamp spread within minutes across this crude communication system. Simple concepts in the language are understandable to frogs and toads. Bullywugs use this capability to form strong bonds with giant frogs, which they train as guardians and hunters. Larger specimens are sometimes used as mounts as well. The frogs' ability to swallow creatures whole provides a bullywug hunting band an easy means of carrying prey back to their villages. ",
+        "flavorText": "BULLYWUG Life as a bullywug is nasty, brutish, and wet. These headed amphibious humanoids must stay constantly moist, dwelling in rainy forests, marshes, and damp caves. Always hungry and thoroughly evil, bullywugs overwhelm opponents with superior numbers when they can, but they flee from serious threats to search for easier prey. Bullywugs have green, gray, or mottled yellow skin that shifts through shades of gray, green, and brown, allowing them to blend in with their surroundings. They wear crude armor and wield simple weapons, and can deliver a powerful bite to foes that press too close. Foul Aristocracy. Bullywugs consider themselves the right and proper rulers of the swamps. They follow an etiquette of sorts when dealing with outsiders and each other, subject to the whims and fancies of their leader-a self-styled lord of the muck. Bullywugs introduce themselves with grand-sounding titles, make great shows of bowing and debasing themselves before their superiors, and endlessly vie to win their superiors' favor. A bullywug has two ways to advance among its kind. It can either murder its rivals, though it must take pains to keep its criminal deeds secret, or it can find a treasure or magic item and present it as tribute or a token of obeisance to its liege. A bullywug that murders its rivals without cunning is likely to be executed, so it's more common for bullywugs to stage raids against caravans and settlements, with the goal of securing precious baubles to impress their lords and win their good graces. Invariably, such fine goods.are reduced to filthy tatters throug.h abuse and neglect. Once a gift loses its sheen, a bullywug lord invariably demands that its subjects bring it more treasure as tribute. Unruly Diplomacy. Bullywugs love nothing more than lording over those who trespass on their territories. Their warriors attempt to capture intruders rather than simply slaying them. Captives are dragged before the king or queen-a bullywug of unusually large size-and forced to beg for mercy. Bribes, treasure, and flattery can trick the bullywug ruler into letting its captives go, but not before it tries to impress its \"guests\" with the majesty of its treasure and its realm. Struck with a deep inferiority complex, bullywug lords fancy themselves as kings and queens, but desperately crave the fear and respect of outsiders. Amphibian Allies. Bullywugs speak a language that allows them to communicate over large areas by croaking like frogs. News of intruders or other events in the swamp spread within minutes across this crude communication system. Simple concepts in the language are understandable to frogs and toads. Bullywugs use this capability to form strong bonds with giant frogs, which they train as guardians and hunters. Larger specimens are sometimes used as mounts as well. The frogs' ability to swallow creatures whole provides a bullywug hunting band an easy means of carrying prey back to their villages.",
         "armorType": "hide armor, shield",
         "completed": true
     },
@@ -2069,7 +2073,7 @@
         "challenge": "5",
         "traits": [{
                 "name": "Fiendish Blessing",
-                "desc": "The AC of the cambion includes its Charisma bonus. "
+                "desc": "The AC of the cambion includes its Charisma bonus."
             },
             {
                 "name": "Innate Spellcasting",
@@ -2247,7 +2251,7 @@
             "CHA": 16
         },
         "passivePerception": 14,
-        "flavorText": "OAMBION CAMBION ,.THEY CRAWL FROM THEIR MOTHERS' WOMBS TO Sr>REAO CORRUr>TION THROUGHOUT THE MULTIVERSE. WHAT's NOT TO LOVE?\" A cambion is the offspring of a fiend (usually a succubus or incubus) and a humanoid (usually a human). Cambions inherit aspects of both parents, but their horns, leathery wings, and sinewy tails are hallmarks of their otherworldly parentage. Born to Be Bad. Cambions grow into ruthless adults whose wickedness and perversion horrifies even the most devoted mortal parent. Even as a youth, a cambion identifies its rightful place as an overlord of mortals. It might orchestrate uprisings in towns and cities, gathering gangs of humanoids and lesser devils to serve it. Pawns of the Mighty. A cambion forced to serve its fiendish parent does so out of admiration and dread, but also with the expectation that it will one day rise to a place of prominence. Cambions raised in the Nine Hells serve as soldiers, envoys, and personal attendants to greater devils. In the Abyss, a cambion carries only as much authority as it can muster through sheer strength and force of will. Spawn ofGraz'zt. The demon lord Graz'zt is fond of procreating with humanoids who have made pacts with fiends, and he has sired many cambions who help him sow chaos across the multiverse. These cambions are characterized by charcoal-black skin, cloven hooves, fingered hands, and unearthly beauty. ",
+        "flavorText": "OAMBION CAMBION ,.THEY CRAWL FROM THEIR MOTHERS' WOMBS TO Sr>REAO CORRUr>TION THROUGHOUT THE MULTIVERSE. WHAT's NOT TO LOVE?\" A cambion is the offspring of a fiend (usually a succubus or incubus) and a humanoid (usually a human). Cambions inherit aspects of both parents, but their horns, leathery wings, and sinewy tails are hallmarks of their otherworldly parentage. Born to Be Bad. Cambions grow into ruthless adults whose wickedness and perversion horrifies even the most devoted mortal parent. Even as a youth, a cambion identifies its rightful place as an overlord of mortals. It might orchestrate uprisings in towns and cities, gathering gangs of humanoids and lesser devils to serve it. Pawns of the Mighty. A cambion forced to serve its fiendish parent does so out of admiration and dread, but also with the expectation that it will one day rise to a place of prominence. Cambions raised in the Nine Hells serve as soldiers, envoys, and personal attendants to greater devils. In the Abyss, a cambion carries only as much authority as it can muster through sheer strength and force of will. Spawn ofGraz'zt. The demon lord Graz'zt is fond of procreating with humanoids who have made pacts with fiends, and he has sired many cambions who help him sow chaos across the multiverse. These cambions are characterized by charcoal-black skin, cloven hooves, fingered hands, and unearthly beauty.",
         "armorType": "scale mail",
         "savingThrows": {
             "Str": 7,
@@ -2293,7 +2297,7 @@
         "challenge": "2",
         "traits": [{
             "name": "Keen Smell",
-            "desc": "The carrion crawler has advantage on Wisdom (Perception) checks that rely on smell. Spider Climb. The carrion crawler can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. "
+            "desc": "The carrion crawler has advantage on Wisdom (Perception) checks that rely on smell. Spider Climb. The carrion crawler can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -2394,7 +2398,7 @@
         "challenge": "2",
         "traits": [{
             "name": "Keen Smell",
-            "desc": "The bear has advantage on Wisdom (Perception) checks that rely on smell. "
+            "desc": "The bear has advantage on Wisdom (Perception) checks that rely on smell."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -2493,11 +2497,11 @@
         "challenge": "6",
         "traits": [{
                 "name": "Drone",
-                "desc": "The chasme produces a horrid droning sound to which demons are immune. Any other creature that starts its turn within 30 feet of the chasme must succeed on a DC 12 Constitution saving throw or fall unconscious for 10 minutes. A creature that can't hear the drone automatically succeeds on the save. The effect on the creature ends if it takes damage or if another creature takes an action to splash it with holy water. If a creature's saving throw is successful or the effect ends for it, it is immune to the drone for the next 24 hours. Magic Resistance. The chasme has advantage on saving throws against spells and other magical effects. "
+                "desc": "The chasme produces a horrid droning sound to which demons are immune. Any other creature that starts its turn within 30 feet of the chasme must succeed on a DC 12 Constitution saving throw or fall unconscious for 10 minutes. A creature that can't hear the drone automatically succeeds on the save. The effect on the creature ends if it takes damage or if another creature takes an action to splash it with holy water. If a creature's saving throw is successful or the effect ends for it, it is immune to the drone for the next 24 hours. Magic Resistance. The chasme has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Spider Climb",
-                "desc": "The chasme can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. "
+                "desc": "The chasme can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
             }
         ],
         "actions": [{
@@ -2593,7 +2597,7 @@
         "challenge": "0",
         "traits": [{
             "name": "Turn Immunity",
-            "desc": "The claw is immune to effects that turn undead. "
+            "desc": "The claw is immune to effects that turn undead."
         }],
         "actions": [{
             "name": "Claw",
@@ -2660,15 +2664,15 @@
         "challenge": "11",
         "traits": [{
                 "name": "Earth Glide",
-                "desc": "The dao can burrow through nonmagical, unworked earth and stone. While doing so, the dao doesn't disturb the material it moves through. "
+                "desc": "The dao can burrow through nonmagical, unworked earth and stone. While doing so, the dao doesn't disturb the material it moves through."
             },
             {
                 "name": "Elemental Demise",
-                "desc": "If the dao dies, its body disintegrates into crystalline powder, leaving behind only equipment the dao was wearing or carrying. "
+                "desc": "If the dao dies, its body disintegrates into crystalline powder, leaving behind only equipment the dao was wearing or carrying."
             },
             {
                 "name": "Innate Spellcasting",
-                "desc": "The dao's innate speilcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It can innately cast the following spells, requiring no material components: At will: detect evil and good, detect magic, stone shape 3/day each: passwall, move earth, tongues 1/day each: conjure elemental (earth elemental only), gaseous form, invisibility, phantasmal killer, plane shift, wall of stone Sure-Footed. The dao has advantage on Strength and Dexterity saving throws made against effects that would knock it prone. ",
+                "desc": "The dao's innate speilcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It can innately cast the following spells, requiring no material components: At will: detect evil and good, detect magic, stone shape 3/day each: passwall, move earth, tongues 1/day each: conjure elemental (earth elemental only), gaseous form, invisibility, phantasmal killer, plane shift, wall of stone Sure-Footed. The dao has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.",
                 "spellcasting": {
                     "spells": [{
                             "name": "detect evil and good",
@@ -2890,11 +2894,11 @@
         "challenge": "17",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The death knight has advantage on saving throws against spells and other magical effects. "
+                "desc": "The death knight has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Marshal Undead",
-                "desc": "Unless the death knight is incapacitated, it and undead creatures of its choice within 60 feet of it have advantage on saving throws against features that turn undead. "
+                "desc": "Unless the death knight is incapacitated, it and undead creatures of its choice within 60 feet of it have advantage on saving throws against features that turn undead."
             },
             {
                 "name": "Spellcasting",
@@ -3136,7 +3140,7 @@
         "challenge": "10",
         "traits": [{
                 "name": "Shapechanger",
-                "desc": "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             },
             {
                 "name": "Innate Spellcasting",
@@ -3222,11 +3226,11 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The slaad has advantage on saving throws against spells and other magical effects. Magic Weapons. The slaad's weapon attacks are magical. "
+                "desc": "The slaad has advantage on saving throws against spells and other magical effects. Magic Weapons. The slaad's weapon attacks are magical."
             },
             {
                 "name": "Regeneration",
-                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point. "
+                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point."
             }
         ],
         "actions": [{
@@ -3424,7 +3428,7 @@
         "challenge": "14",
         "traits": [{
             "name": "Negative Energy Cone",
-            "desc": "The death tyrant's central eye emits an invisible, magical 150-foot cone of negative energy. At the start of each of its turns, the tyrant decides which way the cone faces and whether the cone is active. Any creature in that area can't regain hit points. Any humanoid that dies there becomes a zombie under the tyrant's command. The dead humanoid retains its place in the initiative order and animates at the start of its next turn, provided that its body hasn't been completely destroyed. "
+            "desc": "The death tyrant's central eye emits an invisible, magical 150-foot cone of negative energy. At the start of each of its turns, the tyrant decides which way the cone faces and whether the cone is active. Any creature in that area can't regain hit points. Any humanoid that dies there becomes a zombie under the tyrant's command. The dead humanoid retains its place in the initiative order and animates at the start of its next turn, provided that its body hasn't been completely destroyed."
         }],
         "actions": [{
             "name": "Bite",
@@ -3609,11 +3613,11 @@
         "challenge": "18",
         "traits": [{
                 "name": "Avoidance",
-                "desc": "If the demilich is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. "
+                "desc": "If the demilich is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails."
             },
             {
                 "name": "Legendary Resistance",
-                "desc": "If the demilich fails a saving throw, it can choose to succeed instead. Turn Immunity. The demilich is immune to effects that turn undead. ",
+                "desc": "If the demilich fails a saving throw, it can choose to succeed instead. Turn Immunity. The demilich is immune to effects that turn undead.",
                 "usage": {
                     "type": "per day",
                     "times": 3
@@ -3725,7 +3729,7 @@
             "piercing",
             "and slashing from magic weapons"
         ],
-        "legendaryRules": "The demilich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The demilich regains spent legendary actions at the start of its turn. "
+        "legendaryRules": "The demilich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The demilich regains spent legendary actions at the start of its turn."
     },
     {
         "name": "Diseased Giant Rat",
@@ -3751,11 +3755,11 @@
         "challenge": "1/8",
         "traits": [{
                 "name": "Keen Smell",
-                "desc": "The rat has advantage on Wisdom (Perception) checks that rely on smell. "
+                "desc": "The rat has advantage on Wisdom (Perception) checks that rely on smell."
             },
             {
                 "name": "Pack Tactics",
-                "desc": "The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally isn't incapacitated. "
+                "desc": "The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally isn't incapacitated."
             }
         ],
         "actions": [{
@@ -3812,11 +3816,11 @@
         "challenge": "3",
         "traits": [{
                 "name": "Avoidance",
-                "desc": "If the displacer beast is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails. "
+                "desc": "If the displacer beast is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails."
             },
             {
                 "name": "Displacement",
-                "desc": "The displacer beast projects a magical illusion that makes it appear to be standing near its actual location, causing attack rolls against it to have disadvantage. If it is hit by an attack, this trait is disrupted until the end of its next turn. This trait is also disrupted while the displacer beast is incapacitated or has a speed ofO. "
+                "desc": "The displacer beast projects a magical illusion that makes it appear to be standing near its actual location, causing attack rolls against it to have disadvantage. If it is hit by an attack, this trait is disrupted until the end of its next turn. This trait is also disrupted while the displacer beast is incapacitated or has a speed ofO."
             }
         ],
         "actions": [{
@@ -3922,7 +3926,7 @@
         "challenge": "5",
         "traits": [{
                 "name": "Fey Ancestry",
-                "desc": "The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep. "
+                "desc": "The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep."
             },
             {
                 "name": "Innate Spellcasting",
@@ -3963,7 +3967,7 @@
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             }
         ],
         "actions": [{
@@ -4129,7 +4133,7 @@
             },
             {
                 "name": "Spellcasting",
-                "desc": "The drow is a 10th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The drow has the following wizard spells prepared: Cantrips (at will): mage hand, minor illusion, poison spray, ray of frost lst level (4 slots): mage armor, magic missile, shield, witch bolt 2nd level (3 slots): alter self, misty step, web 3rd level (3 slots):fly, lightning bolt 4th level (3 slots): Evard's black tentacles, greater invisibility 5th level (2 slots): c/oudki/1 Sunlight Sensitivity. While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. ",
+                "desc": "The drow is a 10th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The drow has the following wizard spells prepared: Cantrips (at will): mage hand, minor illusion, poison spray, ray of frost lst level (4 slots): mage armor, magic missile, shield, witch bolt 2nd level (3 slots): alter self, misty step, web 3rd level (3 slots):fly, lightning bolt 4th level (3 slots): Evard's black tentacles, greater invisibility 5th level (2 slots): c/oudki/1 Sunlight Sensitivity. While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",
                 "spellcasting": {
                     "spells": [{
                             "name": "mage hand",
@@ -4288,7 +4292,7 @@
         "challenge": "8",
         "traits": [{
                 "name": "Fey Ancestry",
-                "desc": "The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep. "
+                "desc": "The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep."
             },
             {
                 "name": "Innate Spellcasting",
@@ -4385,7 +4389,7 @@
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             }
         ],
         "actions": [{
@@ -4481,11 +4485,11 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Axiomatic Mind",
-                "desc": "The duodrone can't be compelled to act in a manner contrary to its nature or its instructions. "
+                "desc": "The duodrone can't be compelled to act in a manner contrary to its nature or its instructions."
             },
             {
                 "name": "Disintegration",
-                "desc": "If the duodrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying. "
+                "desc": "If the duodrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
             }
         ],
         "actions": [{
@@ -4689,7 +4693,7 @@
             },
             {
                 "name": "Legendary Resistance",
-                "desc": "If the empyrean fails a saving throw, it can choose to succeed instead. Magic Resistance. The empyrean has advantage on saving throws against spells and other magical effects. Magic Weapons. The empyrean's weapon attacks are magical. ",
+                "desc": "If the empyrean fails a saving throw, it can choose to succeed instead. Magic Resistance. The empyrean has advantage on saving throws against spells and other magical effects. Magic Weapons. The empyrean's weapon attacks are magical.",
                 "usage": {
                     "type": "per day",
                     "times": 3
@@ -4779,7 +4783,7 @@
             "CHA": 27
         },
         "passivePerception": 16,
-        "flavorText": "EMPYREAN Empyreans are the celestial children of the gods of the Upper Planes. They are universally beautiful, statuesque, and self-assured. Manifest Emotion. An empyrean can experience deity-like fits of serenity or rage. It can affect the environment around it by its mood. When an empyrt';,an is unhappy, the clouds might cry tears of salt water, the wildflowers in surrounding meadows might wilt, dead fish might wash ashore in lakes or rivers, or a nearby forest might lose the leaves from its trees. When an empyrean is jubilant, sunlight follows it everywhere, small animals frolic in its footsteps, and birds fill the sky with their pleasing songs. Evil Empyreans. A few empyreans have turned to evil after venturing to the Lower Planes and becoming corrupted, or as the result of being cursed by evil gods. An evil empyrean can't survive long on the Upper Planes and usually retreats to the Material Plane, where it can rule over a kingdom of mortals as an indomitable tyrant. Immortal Titans. Empyreans don't age but can be slain. Because few empyreans can imagine their own demise, they fight fearlessly when drawn into battle, refusing to believe that the end is upon them even when standing at death's door. When an empyrean dies, its spirit returns to its home plane. There, one of the fallen empyrean's parents resurrects the empyrean unless he or she has a good reason not to. ",
+        "flavorText": "EMPYREAN Empyreans are the celestial children of the gods of the Upper Planes. They are universally beautiful, statuesque, and self-assured. Manifest Emotion. An empyrean can experience deity-like fits of serenity or rage. It can affect the environment around it by its mood. When an empyrt';,an is unhappy, the clouds might cry tears of salt water, the wildflowers in surrounding meadows might wilt, dead fish might wash ashore in lakes or rivers, or a nearby forest might lose the leaves from its trees. When an empyrean is jubilant, sunlight follows it everywhere, small animals frolic in its footsteps, and birds fill the sky with their pleasing songs. Evil Empyreans. A few empyreans have turned to evil after venturing to the Lower Planes and becoming corrupted, or as the result of being cursed by evil gods. An evil empyrean can't survive long on the Upper Planes and usually retreats to the Material Plane, where it can rule over a kingdom of mortals as an indomitable tyrant. Immortal Titans. Empyreans don't age but can be slain. Because few empyreans can imagine their own demise, they fight fearlessly when drawn into battle, refusing to believe that the end is upon them even when standing at death's door. When an empyrean dies, its spirit returns to its home plane. There, one of the fallen empyrean's parents resurrects the empyrean unless he or she has a good reason not to.",
         "armorType": "natural armor",
         "damageImmunities": [
             "bludgeoning",
@@ -4809,7 +4813,7 @@
                 "desc": "The empyrean strikes the ground with its maul, triggering an earth tremor. All other creatures on the ground within 60 feet of the empyrean must succeed on a DC 25 Strength saving throw or be knocked prone."
             }
         ],
-        "legendaryRules": "The empyrean can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The empyrean regains spent legendary actions at the start of its turn. "
+        "legendaryRules": "The empyrean can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The empyrean regains spent legendary actions at the start of its turn."
     },
     {
         "name": "Faerie Dragon",
@@ -4842,15 +4846,15 @@
         "challenge": "1",
         "traits": [{
                 "name": "Superior Invisibility",
-                "desc": "As a bonus action, the dragon can magically turn invisible until its concentration ends (as if concentrating on a spell). Any equipment the dragon wears or carries is invisible with it. "
+                "desc": "As a bonus action, the dragon can magically turn invisible until its concentration ends (as if concentrating on a spell). Any equipment the dragon wears or carries is invisible with it."
             },
             {
                 "name": "Limited Telepathy",
-                "desc": "Using telepathy, the dragon can magically communicate with any other faerie dragon within 60 feet of it. "
+                "desc": "Using telepathy, the dragon can magically communicate with any other faerie dragon within 60 feet of it."
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The dragon has advantage on saving throws against spells and other magical effects. "
+                "desc": "The dragon has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Innate Spellcasting",
@@ -4939,7 +4943,7 @@
         "challenge": "1",
         "traits": [{
             "name": "Heated Body",
-            "desc": "A creature that touches the snake or hits it with a melee attack while within 5 feet of it takes 3 (1d6) fire damage. "
+            "desc": "A creature that touches the snake or hits it with a melee attack while within 5 feet of it takes 3 (1d6) fire damage."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -5021,7 +5025,7 @@
             "CHA": 8
         },
         "passivePerception": 10,
-        "flavorText": "SALAMANDERS Salamanders slither across the Sea of Ash on the Elemental Plane of Fire, their sinuous coils and jagged spines smoldering. Intense heat washes off their bodies, while their yellow eyes glow like candles in the deep-set hollows of their hawkish faces. Salamanders adore power, and they delight in setting fire to things. Outside their home plane, they play among the burning skeletons of charred trees as forest fires rage around them, or slither down the slopes of erupting volcanoes to linger in fire pits and magma floes. Fire Snakes. Salamanders hatch from eggs that are two-foot-diameter spheres of smoldering obsidian. When a salamander is ready to hatch, it melts its way through the egg's thick shell and emerges as a fire snake. A fire snake matures into a salamander adult within a year. Slaves of the Efreet. Long ago, the efreet hired azers to build the fabled City of Brass, but then failed in their attempt to enslave that mystical race when the azers' work was done. Turning instead to strike against the salamanders, the efreet had better luck in establishing a slave race, which they use to unleash war and destruction across the planes. Salamanders despise the azers, believing that if the efreet had succeeded in dominating that race of elemental crafters, the salamanders would still be free. The efreet use this enmity to their own advantage, stoking the salamanders' hatred and pitting them against the efreets' former servants. The efreet suffer salamanders to serve no other master; when efreet encounter salamanders dedicated to the cults of Elemental Evil, they slay them rather than taking them as slaves. Domineering Nobles. Although salamanders follow the destructive impulses of their fiery nature, slavery under the efreet has impacted the culture of free salamanders. They rule their own societies according to the efreet model, in which larger and stronger salamanders claim dominion over their lesser kin. As salamanders age, they increase in size and status, . rising to positions of power as cruel nobles among their kind. Nobles rule wandering bands of salamanders, which move across the Elemental Plane of Fire like desert nomads, raiding other communities for treasure. Living Forges. Salamanders generate intense heat, and when they fight, their weapons glow red and sear the bodies of their enemies on contact. Even approaching a salamander is dangerous, since flesh blisters and burns in its proximity. This inherent heat is an asset to salamanders' skill as smiths, allowing them to soften and shape iron and steel with their bare hands. Although not as meticulous as azers, salamanders number among the greatest metalsmiths in all the planes. Powerful creatures summon them as warriors, but others enlist the salamanders for their crafting skills, or bind them to forges and ovens to generate limitless heat. ",
+        "flavorText": "SALAMANDERS Salamanders slither across the Sea of Ash on the Elemental Plane of Fire, their sinuous coils and jagged spines smoldering. Intense heat washes off their bodies, while their yellow eyes glow like candles in the deep-set hollows of their hawkish faces. Salamanders adore power, and they delight in setting fire to things. Outside their home plane, they play among the burning skeletons of charred trees as forest fires rage around them, or slither down the slopes of erupting volcanoes to linger in fire pits and magma floes. Fire Snakes. Salamanders hatch from eggs that are two-foot-diameter spheres of smoldering obsidian. When a salamander is ready to hatch, it melts its way through the egg's thick shell and emerges as a fire snake. A fire snake matures into a salamander adult within a year. Slaves of the Efreet. Long ago, the efreet hired azers to build the fabled City of Brass, but then failed in their attempt to enslave that mystical race when the azers' work was done. Turning instead to strike against the salamanders, the efreet had better luck in establishing a slave race, which they use to unleash war and destruction across the planes. Salamanders despise the azers, believing that if the efreet had succeeded in dominating that race of elemental crafters, the salamanders would still be free. The efreet use this enmity to their own advantage, stoking the salamanders' hatred and pitting them against the efreets' former servants. The efreet suffer salamanders to serve no other master; when efreet encounter salamanders dedicated to the cults of Elemental Evil, they slay them rather than taking them as slaves. Domineering Nobles. Although salamanders follow the destructive impulses of their fiery nature, slavery under the efreet has impacted the culture of free salamanders. They rule their own societies according to the efreet model, in which larger and stronger salamanders claim dominion over their lesser kin. As salamanders age, they increase in size and status, . rising to positions of power as cruel nobles among their kind. Nobles rule wandering bands of salamanders, which move across the Elemental Plane of Fire like desert nomads, raiding other communities for treasure. Living Forges. Salamanders generate intense heat, and when they fight, their weapons glow red and sear the bodies of their enemies on contact. Even approaching a salamander is dangerous, since flesh blisters and burns in its proximity. This inherent heat is an asset to salamanders' skill as smiths, allowing them to soften and shape iron and steel with their bare hands. Although not as meticulous as azers, salamanders number among the greatest metalsmiths in all the planes. Powerful creatures summon them as warriors, but others enlist the salamanders for their crafting skills, or bind them to forges and ovens to generate limitless heat.",
         "armorType": "natural armor",
         "damageImmunities": [
             "fire"
@@ -5067,11 +5071,11 @@
         "challenge": "1/8",
         "traits": [{
                 "name": "Advanced Telepathy",
-                "desc": "The flumph can perceive the content of any telepathic communication used within 60 feet of it, and it can't be surprised by creatures with any form of telepathy. Prone Deficiency. If the flumph is knocked prone, roll a die. On an odd result, the flu mph lands upside-down and is incapacitated. At the end of each of its turns, the flu mph can make a DC 10 Dexterity saving throw, righting itself and ending the incapacitated condition if it succeeds. "
+                "desc": "The flumph can perceive the content of any telepathic communication used within 60 feet of it, and it can't be surprised by creatures with any form of telepathy. Prone Deficiency. If the flumph is knocked prone, roll a die. On an odd result, the flu mph lands upside-down and is incapacitated. At the end of each of its turns, the flu mph can make a DC 10 Dexterity saving throw, righting itself and ending the incapacitated condition if it succeeds."
             },
             {
                 "name": "Telepathic Shroud",
-                "desc": "The flu mph is immune to any effect that would sense its emotions or read its thoughts, as well as all divination spells. "
+                "desc": "The flu mph is immune to any effect that would sense its emotions or read its thoughts, as well as all divination spells."
             }
         ],
         "actions": [{
@@ -5317,11 +5321,11 @@
         "challenge": "6",
         "traits": [{
                 "name": "False Appearance",
-                "desc": "While the galeb duhr remains motionless, it is indistinguishable from a normal boulder. "
+                "desc": "While the galeb duhr remains motionless, it is indistinguishable from a normal boulder."
             },
             {
                 "name": "Rolling Charge",
-                "desc": "If the galeb duhr rolls at least 20 feet straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 7 (2d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone. "
+                "desc": "If the galeb duhr rolls at least 20 feet straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 7 (2d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone."
             }
         ],
         "actions": [{
@@ -5403,11 +5407,11 @@
         "challenge": "1/2",
         "traits": [{
                 "name": "Death Burst",
-                "desc": "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease. Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12 +the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days. "
+                "desc": "The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease. Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12 +the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days."
             },
             {
                 "name": "Eerie Resemblance",
-                "desc": "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check. "
+                "desc": "The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check."
             }
         ],
         "actions": [{
@@ -5546,7 +5550,7 @@
             "CHA": 15
         },
         "passivePerception": 12,
-        "flavorText": "Medium humanoid (gith), lawful evil Armor Class 17 (half plate) Hit Points 49 (9d8 + 9) Speed 30ft. STR 15 (+2) DEX 14 (+2) CON 12 (+1) INT 13 (+1) Saving Throws Con +3, lnt +3, Wis +3 Senses passive Perception 11 Languages Gith Challenge 3 (700 XP) WIS 13 (+1) CHA 10 (+0) Innate Spel/casting (Psionics). The githyanki's innate spellcasting ability is Intelligence. It can innately cast the following spells, requiring no components: At will: mage hand (the hand is invisible) 3/day each: jump, misty step, nondetection (self only) ACTIONS Multiattack. The githyanki makes two greatsword attacks. Greatsword. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage plus 7 (2d6) psychic damage. ",
+        "flavorText": "Medium humanoid (gith), lawful evil Armor Class 17 (half plate) Hit Points 49 (9d8 + 9) Speed 30ft. STR 15 (+2) DEX 14 (+2) CON 12 (+1) INT 13 (+1) Saving Throws Con +3, lnt +3, Wis +3 Senses passive Perception 11 Languages Gith Challenge 3 (700 XP) WIS 13 (+1) CHA 10 (+0) Innate Spel/casting (Psionics). The githyanki's innate spellcasting ability is Intelligence. It can innately cast the following spells, requiring no components: At will: mage hand (the hand is invisible) 3/day each: jump, misty step, nondetection (self only) ACTIONS Multiattack. The githyanki makes two greatsword attacks. Greatsword. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage plus 7 (2d6) psychic damage.",
         "armorType": "plate",
         "savingThrows": {
             "Con": 5,
@@ -5752,7 +5756,7 @@
             },
             {
                 "name": "Psychic Defense",
-                "desc": "While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier. "
+                "desc": "While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier."
             }
         ],
         "actions": [{
@@ -5905,7 +5909,7 @@
             },
             {
                 "name": "Psychic Defense",
-                "desc": "While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier. "
+                "desc": "While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier."
             }
         ],
         "actions": [{
@@ -5995,7 +5999,7 @@
         "challenge": "4",
         "traits": [{
             "name": "Rampage",
-            "desc": "When the gnoll reduces a creature to 0 hit points with a melee attack on its turn, the gnoll can take a bonus action to move up to half its speed and make a bite attack. "
+            "desc": "When the gnoll reduces a creature to 0 hit points with a melee attack on its turn, the gnoll can take a bonus action to move up to half its speed and make a bite attack."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -6107,7 +6111,7 @@
         "challenge": "2",
         "traits": [{
             "name": "Rampage",
-            "desc": "When the gnoll reduces a creature to 0 hit points with a melee attack on its turn, the gnoll can take a bonus action to move up to half its speed and make a bite attack. "
+            "desc": "When the gnoll reduces a creature to 0 hit points with a melee attack on its turn, the gnoll can take a bonus action to move up to half its speed and make a bite attack."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -6311,7 +6315,7 @@
         "challenge": "1",
         "traits": [{
             "name": "Nimble Escape",
-            "desc": "The goblin can take the Disengage or Hide action as a bonus action on each of its turns. "
+            "desc": "The goblin can take the Disengage or Hide action as a bonus action on each of its turns."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -6483,19 +6487,19 @@
         "challenge": "17",
         "traits": [{
                 "name": "Charge",
-                "desc": "If the goristro moves at least 15 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 38 (7d10) piercing damage. If the target is a creature, it must succeed on a DC saving throw or be pushed up to 20 feet. away and knocked prone. "
+                "desc": "If the goristro moves at least 15 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 38 (7d10) piercing damage. If the target is a creature, it must succeed on a DC saving throw or be pushed up to 20 feet. away and knocked prone."
             },
             {
                 "name": "Labyrinthine Recall",
-                "desc": "The goristro can perfectly recall any path it has traveled. "
+                "desc": "The goristro can perfectly recall any path it has traveled."
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The goristro has advantage on saving throws against spells and other magical effects. "
+                "desc": "The goristro has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Siege Monster",
-                "desc": "The goristro deals double damage to objects and structures. "
+                "desc": "The goristro deals double damage to objects and structures."
             }
         ],
         "actions": [{
@@ -6632,7 +6636,7 @@
         "challenge": "9",
         "traits": [{
                 "name": "Shapechanger",
-                "desc": "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             },
             {
                 "name": "Innate Spellcasting",
@@ -6711,11 +6715,11 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The slaad has advantage on saving throws against spells and other magical effects. "
+                "desc": "The slaad has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Magic Weapons",
-                "desc": "The slaad's weapon attacks are magical. Regeneration. The slaad regains 10 hit points at the start of its turn if it has at least l hit point. "
+                "desc": "The slaad's weapon attacks are magical. Regeneration. The slaad regains 10 hit points at the start of its turn if it has at least l hit point."
             }
         ],
         "actions": [{
@@ -6888,7 +6892,7 @@
         "challenge": "8",
         "traits": [{
                 "name": "Shapechanger",
-                "desc": "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             },
             {
                 "name": "Innate Spellcasting",
@@ -6934,11 +6938,11 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The slaad has advantage on saving throws against spells and other magical effects. "
+                "desc": "The slaad has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Regeneration",
-                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point. "
+                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point."
             }
         ],
         "actions": [{
@@ -7170,7 +7174,7 @@
         "challenge": "7",
         "traits": [{
             "name": "Stone Camouflage",
-            "desc": "The grick has advantage on Dexterity (Stealth) checks made to hide in rocky terrain. "
+            "desc": "The grick has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -7274,7 +7278,7 @@
         },
         "traits": [{
                 "name": "Senses",
-                "desc": "The half-dragon gains blindsight with a radius of 10 feet and darkvision with a radius of 60 feet. Resistances. The half-dragon gains resistance to a type of damage based on its color. Color Black or copper Blue or bronze . Brass, gold, or red Green Silver or white . "
+                "desc": "The half-dragon gains blindsight with a radius of 10 feet and darkvision with a radius of 60 feet. Resistances. The half-dragon gains resistance to a type of damage based on its color. Color Black or copper Blue or bronze . Brass, gold, or red Green Silver or white ."
             },
             {
                 "name": "",
@@ -7287,7 +7291,7 @@
         ],
         "actions": [],
         "abilities": {},
-        "flavorText": "HALF-RED DRAGON VETERAN Medium humanoid (human), any alignment Armor Class 18 (plate) Hit Points 65 (10d8 + 20) Speed 30ft. STR 16 (+3) DEX 13 (+1) CON 14 (+2) Saving Throws Str +5, Con +4 Skills Athletics +5, Perception +2 Damage Resistances fire INT 10 (+0) WIS 11 (+0) CHA 10 (+0) Senses blindsight 10 ft., darkvision 60ft., passive Perception 12 Languages Common, Draconic Challenge 5 (1,800 XP) ACTIONS Multiattack. The veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack. Longsword. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands. Shortsword. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage. Heavy Crossbow. Ranged Weapon Attack: +3 to hit, range 100/400 ft., one target. Hit: 6 (1d10 + 1) piercing damage. Fire Breath (Recharge 5-6). The veteran exhales fire in a 15·foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 24 (7d6) fire damage on a failed save, or half as much damage on a successful one. REACTIONS Parry. The veteran adds 3 to its AC against one melee attack that would hit it. To do so, the veteran must see the attacker and be wielding a melee weapon. HALF-DRAGON Ł r ' \\ HALF:... DRAGON When a in polymorphed form mates with another creature, the union sometimes produces dragon offspring. A creature might also transform into a half-dragon as a result of a mad wizard's spell or a ritual bath in dragon's blood. In all these cases, the result is a creature that combines the essence of a dragon with the form of its original race. Regardless of their origins, all half-dragons have similar features and appearance, gaining special senses, resistance to destructive energy, and a breath weapon. Draconic Nature. Half-dragons are incapable of having natural born offspring. Those that wish to propagate must find other ways to do so, almost always involving magic. By way of compensation, dragons are blessed with long life. Barring unforeseen misfortune, a typical half-dragon's life expectancy is twice that of its nondraconic line, so that a half-dragon human might live more than a century and a half. Half-dragons inherit personality traits common to their draconic heritage, so that half-gold dragons are often shy and secretive, while half-copper dragons are impish and playful. Half-green dragons are deceitful, while half-white dragons are often dim-witted brutes. These traits are tempered by a half-dragon's other lineage, but greed, arrogance, and paranoia are qualities that even good-aligned half-dragons often possess. ",
+        "flavorText": "HALF-RED DRAGON VETERAN Medium humanoid (human), any alignment Armor Class 18 (plate) Hit Points 65 (10d8 + 20) Speed 30ft. STR 16 (+3) DEX 13 (+1) CON 14 (+2) Saving Throws Str +5, Con +4 Skills Athletics +5, Perception +2 Damage Resistances fire INT 10 (+0) WIS 11 (+0) CHA 10 (+0) Senses blindsight 10 ft., darkvision 60ft., passive Perception 12 Languages Common, Draconic Challenge 5 (1,800 XP) ACTIONS Multiattack. The veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack. Longsword. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands. Shortsword. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage. Heavy Crossbow. Ranged Weapon Attack: +3 to hit, range 100/400 ft., one target. Hit: 6 (1d10 + 1) piercing damage. Fire Breath (Recharge 5-6). The veteran exhales fire in a 15·foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 24 (7d6) fire damage on a failed save, or half as much damage on a successful one. REACTIONS Parry. The veteran adds 3 to its AC against one melee attack that would hit it. To do so, the veteran must see the attacker and be wielding a melee weapon. HALF-DRAGON Ł r ' \\ HALF:... DRAGON When a in polymorphed form mates with another creature, the union sometimes produces dragon offspring. A creature might also transform into a half-dragon as a result of a mad wizard's spell or a ritual bath in dragon's blood. In all these cases, the result is a creature that combines the essence of a dragon with the form of its original race. Regardless of their origins, all half-dragons have similar features and appearance, gaining special senses, resistance to destructive energy, and a breath weapon. Draconic Nature. Half-dragons are incapable of having natural born offspring. Those that wish to propagate must find other ways to do so, almost always involving magic. By way of compensation, dragons are blessed with long life. Barring unforeseen misfortune, a typical half-dragon's life expectancy is twice that of its nondraconic line, so that a half-dragon human might live more than a century and a half. Half-dragons inherit personality traits common to their draconic heritage, so that half-gold dragons are often shy and secretive, while half-copper dragons are impish and playful. Half-green dragons are deceitful, while half-white dragons are often dim-witted brutes. These traits are tempered by a half-dragon's other lineage, but greed, arrogance, and paranoia are qualities that even good-aligned half-dragons often possess.",
         "completed": true,
         "damageResistances": [
             "Acid Lightning Fire Poison Cold"
@@ -7489,11 +7493,11 @@
         "challenge": "4",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The helmed horror has advantage on saving throws against spells and other magical effects. "
+                "desc": "The helmed horror has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Spell Immunity",
-                "desc": "The helmed horror is immune to three spells chosen by its creator. Typical immunities include fireball, heat metal, and lightning bolt. "
+                "desc": "The helmed horror is immune to three spells chosen by its creator. Typical immunities include fireball, heat metal, and lightning bolt."
             }
         ],
         "actions": [{
@@ -7649,7 +7653,7 @@
         "challenge": "3",
         "traits": [{
             "name": "Martial Advantage",
-            "desc": "Once per turn, the hobgoblin can deal an extra 10 (3d6) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the hobgoblin that isn't incapacitated. "
+            "desc": "Once per turn, the hobgoblin can deal an extra 10 (3d6) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the hobgoblin that isn't incapacitated."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -7820,7 +7824,7 @@
         "challenge": "6",
         "traits": [{
             "name": "Martial Advantage",
-            "desc": "Once per turn, the hobgoblin can deal an extra 14 (4d6) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the hobgoblin that isn't incapacitated. "
+            "desc": "Once per turn, the hobgoblin can deal an extra 14 (4d6) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the hobgoblin that isn't incapacitated."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -8052,11 +8056,11 @@
         "challenge": "3",
         "traits": [{
                 "name": "Echolocation",
-                "desc": "The hook horror can't use its blindsight while deafened. "
+                "desc": "The hook horror can't use its blindsight while deafened."
             },
             {
                 "name": "Keen Hearing",
-                "desc": "The hook horror has advantage on Wisdom (Perception) checks that rely on hearing. "
+                "desc": "The hook horror has advantage on Wisdom (Perception) checks that rely on hearing."
             }
         ],
         "actions": [{
@@ -8142,15 +8146,15 @@
         "challenge": "4",
         "traits": [{
                 "name": "Telepathic Bond",
-                "desc": "The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence. "
+                "desc": "The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence."
             },
             {
                 "name": "Shapechanger",
-                "desc": "The fiend can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form . Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The fiend can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form . Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             },
             {
                 "name": "Claw",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage. ",
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Fiend Form Only"
@@ -8162,7 +8166,7 @@
             },
             {
                 "name": "Draining Kiss",
-                "desc": "The fiend kisses a creature charmed by it or a willing creature. The target must make a DC 15 Constitution saving throw against this magic, taking 32 (5d10 + 5) psychic damage on a failed save, or half as much damage on a successful one. The target's hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0. "
+                "desc": "The fiend kisses a creature charmed by it or a willing creature. The target must make a DC 15 Constitution saving throw against this magic, taking 32 (5d10 + 5) psychic damage on a failed save, or half as much damage on a successful one. The target's hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
             },
             {
                 "name": "Etherealness",
@@ -8223,7 +8227,7 @@
         "challenge": "2",
         "traits": [{
             "name": "Detect Sentience",
-            "desc": "The intellect devourer can sense the presence and location of any creature within 300 feet of it that has an Intelligence of 3 or higher, regardless of interposing barriers, unless the creature is protected by a mind blank spell. "
+            "desc": "The intellect devourer can sense the presence and location of any creature within 300 feet of it that has an Intelligence of 3 or higher, regardless of interposing barriers, unless the creature is protected by a mind blank spell."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -8332,15 +8336,15 @@
         "challenge": "1/2",
         "traits": [{
                 "name": "Shapechanger",
-                "desc": "The jackalwere can use its action to polymorph into a specific Medium human or a jackal-humanoid hybrid, or back into its true form (that of a Small jackal). Other than its size, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The jackalwere can use its action to polymorph into a specific Medium human or a jackal-humanoid hybrid, or back into its true form (that of a Small jackal). Other than its size, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             },
             {
                 "name": "Keen Hearing and Smell",
-                "desc": "The jackalwere has advantage on Wisdom (Perception) checks that rely on hearing or smell. "
+                "desc": "The jackalwere has advantage on Wisdom (Perception) checks that rely on hearing or smell."
             },
             {
                 "name": "Pack Tactics",
-                "desc": "The jackalwere has advantage on an attack roll against a creature if at least one of the jackalwere's allies is within 5 feet of the creature and the ally isn't incapacitated. "
+                "desc": "The jackalwere has advantage on an attack roll against a creature if at least one of the jackalwere's allies is within 5 feet of the creature and the ally isn't incapacitated."
             }
         ],
         "actions": [{
@@ -8429,7 +8433,7 @@
             "CHA": 10
         },
         "passivePerception": 12,
-        "flavorText": " jACKAL WERE Ordinary jackals tainted by demonic power,jackalweres haunt roads and trails, waylaying and murdering those they meet. Ajackalwere has three physical forms that it shifts between. In its true form, it is indistinguishable from a normal jackal. It can take human form, often appearing gaunt and affecting a wretched demeanor to beg goodwill from strangers. When travelers welcome a jackal were into their midst, the monster adopts its human-sjzed hybrid form, with the fur and head of a jackal but standing on two legs as it attacks. Beguilers and Cowards. The demon lord Graz'zt created jackalweres to serve his devoted servants, the lamias. Reaching out from the Abyss, he bestowed jackals with the gift of speech and the ability to assume humanoid forms. Ajackalwere is born to lie, and perceptive creatures might notice it wincing in pain when it speaks the truth. A jackalwere prefers to fight alongside jackals and others of its kind. Under the direction of jackalweres, jackals are fierce and loyal companions. Supernatural Servants. Jackalweres kidnap humanoids for their lamia masters, condemning victims to'a lifetime of slavery or an agonizing death. A jackalwere's magical gaze renders a foe unconscious, allowing the monster to bind a creature or drag it away. Ajackalwere might also use its gaze to incapacitate a deadly enemy long enough to make good its escape. ",
+        "flavorText": " jACKAL WERE Ordinary jackals tainted by demonic power,jackalweres haunt roads and trails, waylaying and murdering those they meet. Ajackalwere has three physical forms that it shifts between. In its true form, it is indistinguishable from a normal jackal. It can take human form, often appearing gaunt and affecting a wretched demeanor to beg goodwill from strangers. When travelers welcome a jackal were into their midst, the monster adopts its human-sjzed hybrid form, with the fur and head of a jackal but standing on two legs as it attacks. Beguilers and Cowards. The demon lord Graz'zt created jackalweres to serve his devoted servants, the lamias. Reaching out from the Abyss, he bestowed jackals with the gift of speech and the ability to assume humanoid forms. Ajackalwere is born to lie, and perceptive creatures might notice it wincing in pain when it speaks the truth. A jackalwere prefers to fight alongside jackals and others of its kind. Under the direction of jackalweres, jackals are fierce and loyal companions. Supernatural Servants. Jackalweres kidnap humanoids for their lamia masters, condemning victims to'a lifetime of slavery or an agonizing death. A jackalwere's magical gaze renders a foe unconscious, allowing the monster to bind a creature or drag it away. Ajackalwere might also use its gaze to incapacitate a deadly enemy long enough to make good its escape.",
         "damageImmunities": [
             "bludgeoning",
             "piercing",
@@ -8460,11 +8464,11 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Ambusher",
-                "desc": "The kenku has advantage on attack rolls against any creature it has surprised. "
+                "desc": "The kenku has advantage on attack rolls against any creature it has surprised."
             },
             {
                 "name": "Mimicry",
-                "desc": "The kenku can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check. "
+                "desc": "The kenku can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check."
             }
         ],
         "actions": [{
@@ -8699,15 +8703,15 @@
         "challenge": "1",
         "traits": [{
                 "name": "Otherworldly Perception",
-                "desc": "The kuo-toa can sense the presence of any creature within 30 feet of it that is invisible or on the Ethereal Plane. It can pinpoint such a creature that is moving. "
+                "desc": "The kuo-toa can sense the presence of any creature within 30 feet of it that is invisible or on the Ethereal Plane. It can pinpoint such a creature that is moving."
             },
             {
                 "name": "Slippery",
-                "desc": "The kuo-toa has advantage on ability checks and saving throws made to escape a grapple. "
+                "desc": "The kuo-toa has advantage on ability checks and saving throws made to escape a grapple."
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the kuo-toa has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the kuo-toa has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             },
             {
                 "name": "Spellcasting",
@@ -8812,7 +8816,7 @@
             "CHA": 11
         },
         "passivePerception": 16,
-        "flavorText": "Armor Class 13 (natural armor) Hit Points 97 (13d8 + 39) Speed 30ft., swim 30ft. STR 16 (+3) DEX 14 (+2) CON 16 (+3) Skills Perception +9, Religion +6 INT 13 (+1) WIS 16 (+3) Senses darkvision 120ft., passive Perception 19 Languages Undercommon Challenge 6 (2:300 XP) CHA 14 (+2) Amphibious. The kuo-toa can breathe air and water. Otherworldly Perception. The kuo-toa can sense the presence of any creature within 30 feet of it that is invisible or on the Ethereal Plane. It can pinpoint such a creature that is moving. Slippery. The kuo-toa has advantage on ability checks and saving throws made to escape a grapple. Sunlight Sensitivity. While in sunlight, the kuo-toa has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. Spellcasting. The kuo-toa is a lOth-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). The kuo-toa has the following cleric spells prepared: Cantrips (at will): guidance, sacred flame, thaumaturgy lst level (4 slots): detect magic, sanctuary, shield of faith 2nd level (3 slots): hold person, spiritual weapon 3rd level (3 slots): spirit guardians, tongues 4th level (3 slots): control water, divination 5th level (2 slots): mass cure wounds, scrying Multiattack. The kuo-toa makes two melee attacks. Scepter. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage plus 14 (4d6) lightning damage. Unarmed Strike. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage. ",
+        "flavorText": "Armor Class 13 (natural armor) Hit Points 97 (13d8 + 39) Speed 30ft., swim 30ft. STR 16 (+3) DEX 14 (+2) CON 16 (+3) Skills Perception +9, Religion +6 INT 13 (+1) WIS 16 (+3) Senses darkvision 120ft., passive Perception 19 Languages Undercommon Challenge 6 (2:300 XP) CHA 14 (+2) Amphibious. The kuo-toa can breathe air and water. Otherworldly Perception. The kuo-toa can sense the presence of any creature within 30 feet of it that is invisible or on the Ethereal Plane. It can pinpoint such a creature that is moving. Slippery. The kuo-toa has advantage on ability checks and saving throws made to escape a grapple. Sunlight Sensitivity. While in sunlight, the kuo-toa has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. Spellcasting. The kuo-toa is a lOth-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). The kuo-toa has the following cleric spells prepared: Cantrips (at will): guidance, sacred flame, thaumaturgy lst level (4 slots): detect magic, sanctuary, shield of faith 2nd level (3 slots): hold person, spiritual weapon 3rd level (3 slots): spirit guardians, tongues 4th level (3 slots): control water, divination 5th level (2 slots): mass cure wounds, scrying Multiattack. The kuo-toa makes two melee attacks. Scepter. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage plus 14 (4d6) lightning damage. Unarmed Strike. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage.",
         "armorType": "natural armor",
         "completed": true
     },
@@ -8848,11 +8852,11 @@
         "challenge": "4",
         "traits": [{
                 "name": "Hold Breath",
-                "desc": "The lizardfolk can hold its breath for 15 minutes. "
+                "desc": "The lizardfolk can hold its breath for 15 minutes."
             },
             {
                 "name": "Skewer",
-                "desc": "Once per turn, when the lizardfolk makes a melee attack with its trident and hits, the target takes an extra 10 (3d6) damage, and the lizardfolk gains temporary hit points equal to the extra damage dealt. "
+                "desc": "Once per turn, when the lizardfolk makes a melee attack with its trident and hits, the target takes an extra 10 (3d6) damage, and the lizardfolk gains temporary hit points equal to the extra damage dealt."
             }
         ],
         "actions": [{
@@ -9039,7 +9043,7 @@
         "challenge": "2",
         "traits": [{
                 "name": "Hold Breath",
-                "desc": "The lizardfolk can hold its breath for 15 minutes. "
+                "desc": "The lizardfolk can hold its breath for 15 minutes."
             },
             {
                 "name": "Spellcasting",
@@ -9260,11 +9264,11 @@
         "challenge": "11",
         "traits": [{
                 "name": "Amphibious",
-                "desc": "The marid can breathe air and water. "
+                "desc": "The marid can breathe air and water."
             },
             {
                 "name": "Elemental Demise",
-                "desc": "If the marid dies, its body disintegrates into a burst of water and foam, leaving behind only equipment the marid was wearing or carrying. "
+                "desc": "If the marid dies, its body disintegrates into a burst of water and foam, leaving behind only equipment the marid was wearing or carrying."
             },
             {
                 "name": "Innate Spellcasting",
@@ -9533,11 +9537,11 @@
         "challenge": "5",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The mezzoloth has advantage on saving I throws against spells and other magical effects. "
+                "desc": "The mezzoloth has advantage on saving I throws against spells and other magical effects."
             },
             {
                 "name": "Magic Weapons",
-                "desc": "The mezzoloth's weapon attacks are magical. "
+                "desc": "The mezzoloth's weapon attacks are magical."
             }
         ],
         "actions": [{
@@ -9735,7 +9739,7 @@
         "challenge": "8",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The mind flayer has advantage on saving throws against spells and other magical effects. "
+                "desc": "The mind flayer has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Innate Spellcasting",
@@ -9949,11 +9953,11 @@
         "challenge": "1/8",
         "traits": [{
                 "name": "Axiomatic Mind",
-                "desc": "The monodrone can't be compelled to act in a manner contrary to its nature or its instructions. "
+                "desc": "The monodrone can't be compelled to act in a manner contrary to its nature or its instructions."
             },
             {
                 "name": "Disintegration",
-                "desc": "If the monodrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying. "
+                "desc": "If the monodrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
             }
         ],
         "actions": [{
@@ -10110,11 +10114,11 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Death Burst",
-                "desc": "When the mephit dies, it explodes in a burst of sticky mud. Each Medium or smaller creature within 5 feet of it must succeed on a DC 11 Dexterity saving throw or be restrained until the end of the creature's next turn. "
+                "desc": "When the mephit dies, it explodes in a burst of sticky mud. Each Medium or smaller creature within 5 feet of it must succeed on a DC 11 Dexterity saving throw or be restrained until the end of the creature's next turn."
             },
             {
                 "name": "False Appearance",
-                "desc": "While the mephit remains motionless, it is indistinguishable from an ordinary mound of mud. "
+                "desc": "While the mephit remains motionless, it is indistinguishable from an ordinary mound of mud."
             }
         ],
         "actions": [{
@@ -10198,11 +10202,11 @@
         "challenge": "1/2",
         "traits": [{
                 "name": "Distress Spores",
-                "desc": "When the myconid takes damage, all other myconids within 240 feet of it can sense its pain. "
+                "desc": "When the myconid takes damage, all other myconids within 240 feet of it can sense its pain."
             },
             {
                 "name": "Sun Sickness",
-                "desc": "While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight. "
+                "desc": "While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight."
             }
         ],
         "actions": [{
@@ -10289,7 +10293,7 @@
         "challenge": "2",
         "traits": [{
             "name": "\\Distress Spores",
-            "desc": "When the myconid takes damage, all other myconids within 240 feet of it can sense its pain. Sun Sickness. While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight. "
+            "desc": "When the myconid takes damage, all other myconids within 240 feet of it can sense its pain. Sun Sickness. While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -10392,7 +10396,7 @@
             "CHA": 10
         },
         "passivePerception": 12,
-        "flavorText": "Medium plant, lawful neutral ·Armor Class 12 (natural armor) · Hit Points 22 (4d8 + 4) Speed 20ft. STR 10 (+0) DEX 10 (+0) CON 12 (+1) INT 10 (+0) WIS 13 (+1) Senses darkvision 120ft., passive Perception 11 Languages -Challenge 1/2 (100 XP) CHA 7 (-2) Distress Spores. When the myconid takes damage, all other myconids within 240 feet of it can sense its pain. Sun Sickness. While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight. Fist. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 5 (2d4) bludgeoning damage plus 5 (2d4) poison damage. Pacifying Spores (3/day). The myconid ejects spores at one creature it can see within 5 feet of it. The target must succeed on a DC 11 Constitution saving throw or be stunned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Rapport Spores. A 20-foot radius of spores extends from the myconid. These spores can go around corners and affect only creatures with an Intelligence of 2 or higher that aren't undead, constructs, or elementals. Affected creatures can communicate telepathically with one another while they are within 30 feet of each other. The effect lasts for 1 hour. ",
+        "flavorText": "Medium plant, lawful neutral ·Armor Class 12 (natural armor) · Hit Points 22 (4d8 + 4) Speed 20ft. STR 10 (+0) DEX 10 (+0) CON 12 (+1) INT 10 (+0) WIS 13 (+1) Senses darkvision 120ft., passive Perception 11 Languages -Challenge 1/2 (100 XP) CHA 7 (-2) Distress Spores. When the myconid takes damage, all other myconids within 240 feet of it can sense its pain. Sun Sickness. While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight. Fist. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 5 (2d4) bludgeoning damage plus 5 (2d4) poison damage. Pacifying Spores (3/day). The myconid ejects spores at one creature it can see within 5 feet of it. The target must succeed on a DC 11 Constitution saving throw or be stunned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Rapport Spores. A 20-foot radius of spores extends from the myconid. These spores can go around corners and affect only creatures with an Intelligence of 2 or higher that aren't undead, constructs, or elementals. Affected creatures can communicate telepathically with one another while they are within 30 feet of each other. The effect lasts for 1 hour.",
         "armorType": "natural armor",
         "completed": true
     },
@@ -10591,11 +10595,11 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The nycaloth has advantage on saving throws against spells and other magical effects. "
+                "desc": "The nycaloth has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Magic Weapons",
-                "desc": "The nycaloth's weapon attacks are magical. "
+                "desc": "The nycaloth's weapon attacks are magical."
             }
         ],
         "actions": [{
@@ -10791,11 +10795,11 @@
         "challenge": "2",
         "traits": [{
                 "name": "Aggressive",
-                "desc": "As a bonus action, the ore can move up to its speed toward a hostile creature that it can see. "
+                "desc": "As a bonus action, the ore can move up to its speed toward a hostile creature that it can see."
             },
             {
                 "name": "Gruumsh's Fury",
-                "desc": "The ore deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attack). "
+                "desc": "The ore deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attack)."
             },
             {
                 "name": "Spellcasting",
@@ -10973,11 +10977,11 @@
         "challenge": "4",
         "traits": [{
                 "name": "Aggressive",
-                "desc": "As a bonus action, the ore can move up to its speed toward a hostile creature that it can see. "
+                "desc": "As a bonus action, the ore can move up to its speed toward a hostile creature that it can see."
             },
             {
                 "name": "Gruumsh's Fury",
-                "desc": "The ore deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks). "
+                "desc": "The ore deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks)."
             }
         ],
         "actions": [{
@@ -11196,7 +11200,7 @@
         "challenge": "2",
         "traits": [{
             "name": "Aggressive",
-            "desc": "As a bonus action, the orog can move up to its speed toward a hostile creature that it can see. "
+            "desc": "As a bonus action, the orog can move up to its speed toward a hostile creature that it can see."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -11357,11 +11361,11 @@
         "challenge": "2",
         "traits": [{
                 "name": "Axiomatic Mind",
-                "desc": "The pentadrone can't be compelled to act in a manner contrary to its nature or its instructions. "
+                "desc": "The pentadrone can't be compelled to act in a manner contrary to its nature or its instructions."
             },
             {
                 "name": "Disintegration",
-                "desc": "If the pentadrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying. "
+                "desc": "If the pentadrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
             }
         ],
         "actions": [{
@@ -11455,15 +11459,15 @@
         "challenge": "2",
         "traits": [{
                 "name": "Dive Attack",
-                "desc": "If the peryton is flying and dives at least 30 feet straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target. "
+                "desc": "If the peryton is flying and dives at least 30 feet straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target."
             },
             {
                 "name": "Flyby",
-                "desc": "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach. "
+                "desc": "The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach."
             },
             {
                 "name": "Keen Sight and Smell",
-                "desc": "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell. "
+                "desc": "The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell."
             }
         ],
         "actions": [{
@@ -11565,11 +11569,11 @@
         "challenge": "1/2",
         "traits": [{
                 "name": "False Appearance",
-                "desc": "While the piercer remains motionless on the ceiling, it is indistinguishable from a normal stalactite. "
+                "desc": "While the piercer remains motionless on the ceiling, it is indistinguishable from a normal stalactite."
             },
             {
                 "name": "Spider Climb",
-                "desc": "The piercer can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. "
+                "desc": "The piercer can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
             }
         ],
         "actions": [{
@@ -11654,7 +11658,7 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The pixie has advantage on saving throws against spells and other magical effects. "
+                "desc": "The pixie has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Innate Spe/lcasting",
@@ -11708,11 +11712,11 @@
         "challenge": "1",
         "traits": [{
                 "name": "Incorporeal Movement",
-                "desc": "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object. "
+                "desc": "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             }
         ],
         "actions": [{
@@ -11757,7 +11761,7 @@
             "CHA": 11
         },
         "passivePerception": 10,
-        "flavorText": "SPECTER A specter is the angry, unfettered spirit of a humanoid that has been prevented from passing to the afterlife. Specters no longer possess connections to who or what they were, yet are condemned to walk the world forever. Some are spawned when dark magic or the touch of a wraith rips a soul from a living body. Beyond Redemption. When a ghost's unfinished business is completed, it can rest at last. No such rest or redemption awaits a specter. It is doomed to the Material Plane, its only end the oblivion that comes with the destruction of its soul. Until then, it bears out its lonely life in forlorn places, carrying on forgotten through the ages of the world. Undying Hatred. Living creatures remind the specter that life is beyond its grasp. The mere sight of the living overwhelms a specter with sorrow and wrath, which can be abated only by destroying said life. A specter kills quickly and mercilessly, for only by depriving others of life can it gain the slightest satisfaction. However, no matter how many lives it extinguishes, a specter always succumbs to its hatred and sorrow. DweJ/ers in Darkness. Sunlight represents a source of life that no specter can ever hope to douse, and it pains them. When night falls, they leave their final resting places in search of living creatures to slay, knowing that few weapons can harm them in return. At the first light of dawn, they retreat back into the darkness, where they remain until night falls again. Undead Nature. A specter doesn't require air, food, drink, or sleep. VARIANT: POLTERGEIST A poltergeist is a different kind of specter-the confused, invisible spirit of an individual with no sense of how he or she died. A poltergeist expresses its rage by hurling creatures and objects using the power of its shattered psyche. A poltergeist has a challenge rating of 2 (450 XP) and gains the following additional trait: Invisibility. The poltergeist is invisible. I The poltergeist has the following action options in place of the Life Drain: Forceful Slam. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 10 (3d6) force damage. Telekinetic Thrust. The poltergeist targets a creature or unattended object within 30 feet of it. A creature must be Medium or smaller to be affected by this magic, and an object can weigh up to 150 pounds. If the target is a creature, the poltergeist makes a Charisma check contested by the target's Strength check. If the poltergeist wins the contest, the poltergeist hurls the target up to 30 feet in any direction, including upward. If the target then comes into contact with a hard surface or heavy object, the target takes 1 d6 damage per 10 feet moved. If the target is an object that isn't being worn or carried, the poltergeist hurls it up to 30 feet in any direction. The poltergeist can use the object as a ranged weapon, attacking one creature along the object's path (+4 to hit) and dealing 5 (2d4) bludgeoning damage on a hit. ",
+        "flavorText": "SPECTER A specter is the angry, unfettered spirit of a humanoid that has been prevented from passing to the afterlife. Specters no longer possess connections to who or what they were, yet are condemned to walk the world forever. Some are spawned when dark magic or the touch of a wraith rips a soul from a living body. Beyond Redemption. When a ghost's unfinished business is completed, it can rest at last. No such rest or redemption awaits a specter. It is doomed to the Material Plane, its only end the oblivion that comes with the destruction of its soul. Until then, it bears out its lonely life in forlorn places, carrying on forgotten through the ages of the world. Undying Hatred. Living creatures remind the specter that life is beyond its grasp. The mere sight of the living overwhelms a specter with sorrow and wrath, which can be abated only by destroying said life. A specter kills quickly and mercilessly, for only by depriving others of life can it gain the slightest satisfaction. However, no matter how many lives it extinguishes, a specter always succumbs to its hatred and sorrow. DweJ/ers in Darkness. Sunlight represents a source of life that no specter can ever hope to douse, and it pains them. When night falls, they leave their final resting places in search of living creatures to slay, knowing that few weapons can harm them in return. At the first light of dawn, they retreat back into the darkness, where they remain until night falls again. Undead Nature. A specter doesn't require air, food, drink, or sleep. VARIANT: POLTERGEIST A poltergeist is a different kind of specter-the confused, invisible spirit of an individual with no sense of how he or she died. A poltergeist expresses its rage by hurling creatures and objects using the power of its shattered psyche. A poltergeist has a challenge rating of 2 (450 XP) and gains the following additional trait: Invisibility. The poltergeist is invisible. I The poltergeist has the following action options in place of the Life Drain: Forceful Slam. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 10 (3d6) force damage. Telekinetic Thrust. The poltergeist targets a creature or unattended object within 30 feet of it. A creature must be Medium or smaller to be affected by this magic, and an object can weigh up to 150 pounds. If the target is a creature, the poltergeist makes a Charisma check contested by the target's Strength check. If the poltergeist wins the contest, the poltergeist hurls the target up to 30 feet in any direction, including upward. If the target then comes into contact with a hard surface or heavy object, the target takes 1 d6 damage per 10 feet moved. If the target is an object that isn't being worn or carried, the poltergeist hurls it up to 30 feet in any direction. The poltergeist can use the object as a ranged weapon, attacking one creature along the object's path (+4 to hit) and dealing 5 (2d4) bludgeoning damage on a hit.",
         "damageImmunities": [
             "necrotic",
             "poison"
@@ -11812,15 +11816,15 @@
         "challenge": "1/2",
         "traits": [{
                 "name": "Amorphous",
-                "desc": "The ooze can move through a space as narrow as 1 inch wide without squeezing. "
+                "desc": "The ooze can move through a space as narrow as 1 inch wide without squeezing."
             },
             {
                 "name": "Corrode Metal",
-                "desc": "Any non magical weapon made of metal that hits the ooze corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage roll s. If its penalty drops to -5, the weapon is destroyed. Non magical ammunition made of metal that hits the ooze is destroyed after dealing damage. The ooze can eat through 2-inch-thick, non magical metal in 1 round. "
+                "desc": "Any non magical weapon made of metal that hits the ooze corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage roll s. If its penalty drops to -5, the weapon is destroyed. Non magical ammunition made of metal that hits the ooze is destroyed after dealing damage. The ooze can eat through 2-inch-thick, non magical metal in 1 round."
             },
             {
                 "name": "False Appearance",
-                "desc": "While the ooze remains motionless, it is indistinguishable from an oily pool or wet rock. "
+                "desc": "While the ooze remains motionless, it is indistinguishable from an oily pool or wet rock."
             }
         ],
         "actions": [{
@@ -11931,11 +11935,11 @@
         "challenge": "1",
         "traits": [{
                 "name": "Axiomatic Mind",
-                "desc": "The quadrone can't be compelled to act in a manner contrary to its nature or its instructions. "
+                "desc": "The quadrone can't be compelled to act in a manner contrary to its nature or its instructions."
             },
             {
                 "name": "Disintegration",
-                "desc": "If the quadrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying. "
+                "desc": "If the quadrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
             }
         ],
         "actions": [{
@@ -12066,7 +12070,7 @@
         "challenge": "2",
         "traits": [{
             "name": "Wounded Fury",
-            "desc": "While it has 10 hit points or fewer, the quaggoth has advantage on attack rolls. In addition, it deals an extra 7 (2d6) damage to any target it hits with a melee attack. "
+            "desc": "While it has 10 hit points or fewer, the quaggoth has advantage on attack rolls. In addition, it deals an extra 7 (2d6) damage to any target it hits with a melee attack."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -12417,11 +12421,11 @@
         "challenge": "5",
         "traits": [{
                 "name": "Magic Resistance",
-                "desc": "The slaad has advantage on saving throws against spells and other magical effects. "
+                "desc": "The slaad has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Regeneration",
-                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point. "
+                "desc": "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point."
             }
         ],
         "actions": [{
@@ -12526,15 +12530,15 @@
         "challenge": "5",
         "traits": [{
                 "name": "Regeneration",
-                "desc": "The revenant regains 10 hit points at the start of its turn. If the revenant takes fire or radiant damage, this trait doesn't function at the start of the revenant's next turn. The revenant's body is destroyed only if it starts its turn with 0 hit points and doesn't regenerate. "
+                "desc": "The revenant regains 10 hit points at the start of its turn. If the revenant takes fire or radiant damage, this trait doesn't function at the start of the revenant's next turn. The revenant's body is destroyed only if it starts its turn with 0 hit points and doesn't regenerate."
             },
             {
                 "name": "Rejuvenation",
-                "desc": "When the revenant's body is destroyed, its soul lingers. After 24 hours, the soul inhabits and animates another corpse on the same plane of existence and regains all its hit points. While the soul is bodiless, a wish spell can be used to force the soul to go to the afterlife and not return. Turn Immunity. The revenant is immune to effects that turn undead. "
+                "desc": "When the revenant's body is destroyed, its soul lingers. After 24 hours, the soul inhabits and animates another corpse on the same plane of existence and regains all its hit points. While the soul is bodiless, a wish spell can be used to force the soul to go to the afterlife and not return. Turn Immunity. The revenant is immune to effects that turn undead."
             },
             {
                 "name": "Vengeful Tracker",
-                "desc": "The revenant knows the distance to and direction of any creature against which it seeks revenge, even if the creature and the revenant are on different planes of existence. If the creature being tracked by the revenant dies, the revenant knows. "
+                "desc": "The revenant knows the distance to and direction of any creature against which it seeks revenge, even if the creature and the revenant are on different planes of existence. If the creature being tracked by the revenant dies, the revenant knows."
             }
         ],
         "actions": [{
@@ -12645,11 +12649,11 @@
         "challenge": "1/8",
         "traits": [{
                 "name": "Axiomatic Mind",
-                "desc": "The monodrone can't be compelled to act in a manner contrary to its nature or its instructions. "
+                "desc": "The monodrone can't be compelled to act in a manner contrary to its nature or its instructions."
             },
             {
                 "name": "Disintegration",
-                "desc": "If the monodrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying. "
+                "desc": "If the monodrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
             }
         ],
         "actions": [{
@@ -12803,15 +12807,15 @@
         "challenge": "5",
         "traits": [{
                 "name": "Blood Frenzy",
-                "desc": "The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points. "
+                "desc": "The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points."
             },
             {
                 "name": "Limited Amphibiousness",
-                "desc": "The sahuagin can breathe air and water, but he needs to be submerged at least once every 4 hours to avoid suffocating. "
+                "desc": "The sahuagin can breathe air and water, but he needs to be submerged at least once every 4 hours to avoid suffocating."
             },
             {
                 "name": "Shark Telepathy",
-                "desc": "The sahuagin can magically command any shark within 120 feet of him, using a limited telepathy. "
+                "desc": "The sahuagin can magically command any shark within 120 feet of him, using a limited telepathy."
             }
         ],
         "actions": [{
@@ -12963,7 +12967,7 @@
             "CHA": 17
         },
         "passivePerception": 17,
-        "flavorText": "' SAHU:AGIN PRIESTESS Medium numanoid (sahuagin), lawful evil Armor Class 12 (natural armor) Hit Points 33 (6d8 + 6) Speed 30ft., swim 40ft. STR 13 (+1) DEX 11 (+0) CON 12 (+1) Skills Perception +6, Religion +3 INT 12 (+1) WIS 14 (+2) Senses darkvision 120ft., passive Perception 16 Languages Sahuagin Challenge 2 (450 XP) CHA 13 (+1) Blood Frenzy. The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points. Limited Amphibiousness. The sahuagin can breathe air and water, but she needs to be submerged at least once every 4 hours to avoid suffocating. Shark Telepathy. The sahuagin can magically command any shark within 120 feet of her, using a limited telepathy. Spellcasting. The sahuagin is a 6th-level spellcaster. Her spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). She has the following cleric spells prepared: Cantrips (at will): guidance, thaumaturgy 1st level (4 slots): bless, detect magic, guiding bolt 2nd level (3 slots): hold person, spiritual weapon (trident) 3rd level (3 slots): mass healing word, tongues Multiattack. The sahuagin makes two attacks: one with her bite and one with her claws. Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage. Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage. ",
+        "flavorText": "' SAHU:AGIN PRIESTESS Medium numanoid (sahuagin), lawful evil Armor Class 12 (natural armor) Hit Points 33 (6d8 + 6) Speed 30ft., swim 40ft. STR 13 (+1) DEX 11 (+0) CON 12 (+1) Skills Perception +6, Religion +3 INT 12 (+1) WIS 14 (+2) Senses darkvision 120ft., passive Perception 16 Languages Sahuagin Challenge 2 (450 XP) CHA 13 (+1) Blood Frenzy. The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points. Limited Amphibiousness. The sahuagin can breathe air and water, but she needs to be submerged at least once every 4 hours to avoid suffocating. Shark Telepathy. The sahuagin can magically command any shark within 120 feet of her, using a limited telepathy. Spellcasting. The sahuagin is a 6th-level spellcaster. Her spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). She has the following cleric spells prepared: Cantrips (at will): guidance, thaumaturgy 1st level (4 slots): bless, detect magic, guiding bolt 2nd level (3 slots): hold person, spiritual weapon (trident) 3rd level (3 slots): mass healing word, tongues Multiattack. The sahuagin makes two attacks: one with her bite and one with her claws. Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage. Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage.",
         "armorType": "breastplate",
         "savingThrows": {
             "Dex": 5,
@@ -13046,7 +13050,7 @@
         "challenge": "1",
         "traits": [{
             "name": "False Appearance",
-            "desc": "While the scarecrow remains motionless, it is indistinguishable from an ordinary, inanimate scarecrow. "
+            "desc": "While the scarecrow remains motionless, it is indistinguishable from an ordinary, inanimate scarecrow."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -13106,7 +13110,7 @@
             "CHA": 13
         },
         "passivePerception": 10,
-        "flavorText": "At harvest time, when death revisits the twilit world and summer's blossoms bow their withered heads, eerie scarecrows loom in silent vigil over empty fields. With immortal patience, these stoic sentinels hold their posts through wind, storm, and flood, bound to their master's command, eager to terrify prey with its sackcloth visage and rend victims with its razor-sharp claws. Spirit-Powered Constructs. A scarecrow is animated by the bound spirit of a slain evil creature, granting it purpose and mobility. It is this uncanny presence from beyond death that allows a scarecrow to inspire fear in those it gazes upon. Hags and witches often bind scarecrows with the spirits of demons, but any evil spirit will do. Although aspects of the spirit's personality might surface, a scarecrow's spirit doesn't recall the memories it had as a creature, and its will is focused solely on serving its creator. If its creator dies, the spirit inhabiting a scarecrow either continues to follow its last commands, seeks revenge for its creator's death, or destroys itself. Construct Nature. A scarecrow doesn't require air, food, drink, or sleep. 1--..,; ' -1 -·-' SCARECROW . ",
+        "flavorText": "At harvest time, when death revisits the twilit world and summer's blossoms bow their withered heads, eerie scarecrows loom in silent vigil over empty fields. With immortal patience, these stoic sentinels hold their posts through wind, storm, and flood, bound to their master's command, eager to terrify prey with its sackcloth visage and rend victims with its razor-sharp claws. Spirit-Powered Constructs. A scarecrow is animated by the bound spirit of a slain evil creature, granting it purpose and mobility. It is this uncanny presence from beyond death that allows a scarecrow to inspire fear in those it gazes upon. Hags and witches often bind scarecrows with the spirits of demons, but any evil spirit will do. Although aspects of the spirit's personality might surface, a scarecrow's spirit doesn't recall the memories it had as a creature, and its will is focused solely on serving its creator. If its creator dies, the spirit inhabiting a scarecrow either continues to follow its last commands, seeks revenge for its creator's death, or destroys itself. Construct Nature. A scarecrow doesn't require air, food, drink, or sleep. 1--..,; ' -1 -·-' SCARECROW .",
         "damageImmunities": [
             "poison"
         ],
@@ -13158,15 +13162,15 @@
         "challenge": "4",
         "traits": [{
                 "name": "Incorporeal Movement",
-                "desc": "The demon can move through other creatures and objects as if they were difficult terrain. It takes 5 (1 d1 0) force damage if it ends its turn inside an object. "
+                "desc": "The demon can move through other creatures and objects as if they were difficult terrain. It takes 5 (1 d1 0) force damage if it ends its turn inside an object."
             },
             {
                 "name": "Light Sensitivity",
-                "desc": "While in bright light, the demon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in bright light, the demon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             },
             {
                 "name": "Shadow Stealth",
-                "desc": "While in dim light or darkness, the demon can take the Hide action as a bonus action. "
+                "desc": "While in dim light or darkness, the demon can take the Hide action as a bonus action."
             }
         ],
         "actions": [{
@@ -13260,15 +13264,15 @@
         "challenge": "13",
         "traits": [{
                 "name": "Living Shadow",
-                "desc": "While in dim light or darkness, the dragon has resistance to damage that isn't force, psychic, or radiant. "
+                "desc": "While in dim light or darkness, the dragon has resistance to damage that isn't force, psychic, or radiant."
             },
             {
                 "name": "Shadow Stealth",
-                "desc": "While in dim light or darkness, the dragon can take the Hide action as a bonus action. "
+                "desc": "While in dim light or darkness, the dragon can take the Hide action as a bonus action."
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the dragon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the dragon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             }
         ],
         "actions": [{
@@ -13428,7 +13432,7 @@
         "challenge": "1/8",
         "traits": [{
             "name": "Magic Resistance",
-            "desc": "The slaad has advantage on saving throws against spells and other magical effects. "
+            "desc": "The slaad has advantage on saving throws against spells and other magical effects."
         }],
         "actions": [{
             "name": "Bite",
@@ -13498,11 +13502,11 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Death Burst",
-                "desc": "When the mephit dies, it leaves behind a cloud of smoke that fills a 5-foot-radius sphere centered on its space. The sphere is heavily obscured. Wind disperses the cloud, which otherwise lasts for 1 minute. "
+                "desc": "When the mephit dies, it leaves behind a cloud of smoke that fills a 5-foot-radius sphere centered on its space. The sphere is heavily obscured. Wind disperses the cloud, which otherwise lasts for 1 minute."
             },
             {
                 "name": "Innate Spellcasting",
-                "desc": "The mephit can innately cast dancing lights, requiring no material components. Its innate spellcasting ability is Charisma. ",
+                "desc": "The mephit can innately cast dancing lights, requiring no material components. Its innate spellcasting ability is Charisma.",
                 "usage": {
                     "type": "per day",
                     "times": 1
@@ -13599,19 +13603,19 @@
         "challenge": "2",
         "traits": [{
                 "name": "Devi/'s Sight",
-                "desc": "Magical darkness doesn't impede the devil's darkvision. "
+                "desc": "Magical darkness doesn't impede the devil's darkvision."
             },
             {
                 "name": "Flyby",
-                "desc": "The devil doesn't provoke an opportunity attack when it flies out of an enemy's reach. "
+                "desc": "The devil doesn't provoke an opportunity attack when it flies out of an enemy's reach."
             },
             {
                 "name": "Limited Spines",
-                "desc": "The devil has twelve tail spines. Used spines regrow by the time the devil finishes a long rest. "
+                "desc": "The devil has twelve tail spines. Used spines regrow by the time the devil finishes a long rest."
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The devil has advantage on saving throws against spells and other magical effects. "
+                "desc": "The devil has advantage on saving throws against spells and other magical effects."
             }
         ],
         "actions": [{
@@ -13806,11 +13810,11 @@
         "challenge": "4",
         "traits": [{
                 "name": "Telepathic Bond",
-                "desc": "The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence. "
+                "desc": "The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence."
             },
             {
                 "name": "Shapechanger",
-                "desc": "The fiend can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The fiend can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             }
         ],
         "actions": [{
@@ -13931,7 +13935,7 @@
         "challenge": "1",
         "traits": [{
             "name": "Chameleon Carapace",
-            "desc": "The thri-kreen can change the color of its carapace to match the color and texture of its surroundings. As a result, it has advantage on Dexterity (Stealth) checks made to hide. Standing Leap. The thri-kreen's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start. "
+            "desc": "The thri-kreen can change the color of its carapace to match the color and texture of its surroundings. As a result, it has advantage on Dexterity (Stealth) checks made to hide. Standing Leap. The thri-kreen's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -14052,11 +14056,11 @@
         "challenge": "1/2",
         "traits": [{
                 "name": "Axiomatic Mind",
-                "desc": "The tridrone can't be compelled to act in a manner contrary to its nature or its instructions. "
+                "desc": "The tridrone can't be compelled to act in a manner contrary to its nature or its instructions."
             },
             {
                 "name": "Disintegration",
-                "desc": "If the tridrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying. "
+                "desc": "If the tridrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
             }
         ],
         "actions": [{
@@ -14191,15 +14195,15 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Chameleon Skin",
-                "desc": "The troglodyte has advantage on Dexterity (Stealth) checks made to hide. "
+                "desc": "The troglodyte has advantage on Dexterity (Stealth) checks made to hide."
             },
             {
                 "name": "Stench",
-                "desc": "Any creature other than a troglodyte that starts its turn within 5 feet of the troglodyte must succeed on a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for 1 hour. "
+                "desc": "Any creature other than a troglodyte that starts its turn within 5 feet of the troglodyte must succeed on a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for 1 hour."
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             }
         ],
         "actions": [{
@@ -14401,7 +14405,7 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The ultroloth has advantage on saving throws against spells and other magical effects. Magic Weapons. The ultroloth's weapon attacks are magical. "
+                "desc": "The ultroloth has advantage on saving throws against spells and other magical effects. Magic Weapons. The ultroloth's weapon attacks are magical."
             }
         ],
         "actions": [{
@@ -14573,7 +14577,7 @@
         "challenge": "5",
         "traits": [{
             "name": "Confusing Gaze",
-            "desc": "When a creature starts its turn within 30 feet of the umber hulk and is able to see the umber hulk's eyes, the umber hulk can magically force it to make a DC 15 Charisma saving throw, unless the umber hulk is incapacitated. On a failed saving throw, the creature can't take reactions until the start of its next turn and rolls a d8 to determine what it does during that turn. On a 1 to 4, the creature does nothing. On a 5 or 6, the creature takes no action but uses all its movement to move in a random direction. On a 7 or 8, the creature makes one melee attack against a random creature, or it does nothing if no creature is within reach. Unless surprised, a creature can avert its eyes to avoid the saving throw at the start of its turn. If the creature does so, it can't see the umber hulk until the start of its next turn, when it can avert its eyes again. If the creature looks at the umber hulk in the meantime, it must immediately make the save. "
+            "desc": "When a creature starts its turn within 30 feet of the umber hulk and is able to see the umber hulk's eyes, the umber hulk can magically force it to make a DC 15 Charisma saving throw, unless the umber hulk is incapacitated. On a failed saving throw, the creature can't take reactions until the start of its next turn and rolls a d8 to determine what it does during that turn. On a 1 to 4, the creature does nothing. On a 5 or 6, the creature takes no action but uses all its movement to move in a random direction. On a 7 or 8, the creature makes one melee attack against a random creature, or it does nothing if no creature is within reach. Unless surprised, a creature can avert its eyes to avoid the saving throw at the start of its turn. If the creature does so, it can't see the umber hulk until the start of its next turn, when it can avert its eyes again. If the creature looks at the umber hulk in the meantime, it must immediately make the save."
         }],
         "actions": [{
                 "name": "Multiattack",
@@ -14680,7 +14684,7 @@
         "challenge": "1/2",
         "traits": [{
             "name": "False Appearance",
-            "desc": "While the blight remains motionless, it is indistinguishable from a tangle of vines. "
+            "desc": "While the blight remains motionless, it is indistinguishable from a tangle of vines."
         }],
         "actions": [{
                 "name": "Constrict",
@@ -14768,11 +14772,11 @@
         "challenge": "3",
         "traits": [{
                 "name": "Invisible in Water",
-                "desc": "The water weird is invisible while fully immersed in water. "
+                "desc": "The water weird is invisible while fully immersed in water."
             },
             {
                 "name": "Water Bound",
-                "desc": "The water weird dies if it leaves the water to which it is bound or if that water is destroyed. "
+                "desc": "The water weird dies if it leaves the water to which it is bound or if that water is destroyed."
             }
         ],
         "actions": [{
@@ -14808,7 +14812,7 @@
             "CHA": 10
         },
         "passivePerception": 10,
-        "flavorText": "WATER WEIRD A water weird is an elemental guardian bound to a specific water-filled location, such as a pool or founfain. Invisible while immersed in water, its serpentine shape becomes clear only when it emerges to attack, using its coils to crush any creature other than its summoner and those its summoner declares as off limits. When slain, a water weird becomes an inanimate pool of water. Good and Evil Weirds. Like most elementals, a water weird has no concept of good or evil. However, a water weird bound to a sacred or befouled source of water begins to take on the nature of that site, becoming neutral good or neutral evil. A neutral good water weird tries to frighten away interlopers rather than kill them, while a neutral evil water weird kills its victims for pleasure and might turn against its summoner. A water weird loses its evil alignment if its waters are cleansed with a purify food and drink spell. Elemental Nature. A water weird doesn't require air, food, drink, or sleep. ",
+        "flavorText": "WATER WEIRD A water weird is an elemental guardian bound to a specific water-filled location, such as a pool or founfain. Invisible while immersed in water, its serpentine shape becomes clear only when it emerges to attack, using its coils to crush any creature other than its summoner and those its summoner declares as off limits. When slain, a water weird becomes an inanimate pool of water. Good and Evil Weirds. Like most elementals, a water weird has no concept of good or evil. However, a water weird bound to a sacred or befouled source of water begins to take on the nature of that site, becoming neutral good or neutral evil. A neutral good water weird tries to frighten away interlopers rather than kill them, while a neutral evil water weird kills its victims for pleasure and might turn against its summoner. A water weird loses its evil alignment if its waters are cleansed with a purify food and drink spell. Elemental Nature. A water weird doesn't require air, food, drink, or sleep.",
         "armorType": "1",
         "damageImmunities": [
             "poison"
@@ -14856,11 +14860,11 @@
         "challenge": "1/4",
         "traits": [{
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             },
             {
                 "name": "Pack Tactics",
-                "desc": "The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't incapacitated. "
+                "desc": "The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't incapacitated."
             }
         ],
         "actions": [{
@@ -14980,19 +14984,19 @@
         "challenge": "10",
         "traits": [{
                 "name": "Shapechanger",
-                "desc": "The yochlol can use its action to polymorph into a form that resembles a female drow or giant spider, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies. "
+                "desc": "The yochlol can use its action to polymorph into a form that resembles a female drow or giant spider, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The yochlol has advantage on saving throws against spells and other magical effects. "
+                "desc": "The yochlol has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Spider Climb",
-                "desc": "The yochlol can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. "
+                "desc": "The yochlol can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
             },
             {
                 "name": "Innate Spellcasting",
-                "desc": "The yochlol's spellcasting ability is Charisma (spell save DC 14). The yochlol can innately cast the following spells, requiring no material components: At will: detect thoughts, web 1/day: dominate person Web Walker. The yochlol ignores movement restrictions caused by webbing. ",
+                "desc": "The yochlol's spellcasting ability is Charisma (spell save DC 14). The yochlol can innately cast the following spells, requiring no material components: At will: detect thoughts, web 1/day: dominate person Web Walker. The yochlol ignores movement restrictions caused by webbing.",
                 "spellcasting": {
                     "spells": [{
                             "name": "detect thoughts",
@@ -15141,15 +15145,15 @@
         "challenge": "13",
         "traits": [{
                 "name": "Living Shadow",
-                "desc": "While in dim light or darkness, the dragon has resistance to damage that isn't force, psychic, or radiant. "
+                "desc": "While in dim light or darkness, the dragon has resistance to damage that isn't force, psychic, or radiant."
             },
             {
                 "name": "Shadow Stealth",
-                "desc": "While in dim light or darkness, the dragon can take the Hide action as a bonus action. "
+                "desc": "While in dim light or darkness, the dragon can take the Hide action as a bonus action."
             },
             {
                 "name": "Sunlight Sensitivity",
-                "desc": "While in sunlight, the dragon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. "
+                "desc": "While in sunlight, the dragon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
             }
         ],
         "actions": [{
@@ -15291,7 +15295,7 @@
         "challenge": "5",
         "traits": [{
             "name": "Heated Body",
-            "desc": "A creature that touches the remorhaz or hits it with a melee attack while within 5 feet of it takes 7 (2d6) fire damage. "
+            "desc": "A creature that touches the remorhaz or hits it with a melee attack while within 5 feet of it takes 7 (2d6) fire damage."
         }],
         "actions": [{
             "name": "Bite",
@@ -15403,7 +15407,7 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The yuan-ti has advantage on saving throws against.spells and other magical effects. "
+                "desc": "The yuan-ti has advantage on saving throws against.spells and other magical effects."
             }
         ],
         "actions": [{
@@ -15637,7 +15641,7 @@
         "challenge": "3",
         "traits": [{
                 "name": "Shapechanger",
-                "desc": "The yuan-ti can use its action to polymorph into a Medium snake, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It doesn't change form if it dies. "
+                "desc": "The yuan-ti can use its action to polymorph into a Medium snake, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It doesn't change form if it dies."
             },
             {
                 "name": "Innate Spellcasting",
@@ -15668,7 +15672,7 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The yuan-ti has advantage on saving throws against spells and other magical effects. "
+                "desc": "The yuan-ti has advantage on saving throws against spells and other magical effects."
             },
             {
                 "name": "Malison Type",
@@ -15680,7 +15684,7 @@
             },
             {
                 "name": "Multiattack",
-                "desc": "The yuan-ti makes two ranged attacks or two melee attacks, but can use its bite only once. ",
+                "desc": "The yuan-ti makes two ranged attacks or two melee attacks, but can use its bite only once.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Yuan-ti Form Only"
@@ -15688,11 +15692,11 @@
             },
             {
                 "name": "Bite",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage. "
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage."
             },
             {
                 "name": "Scimitar",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage. ",
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Yuan-ti Form Only"
@@ -15700,7 +15704,7 @@
             },
             {
                 "name": "Longbow",
-                "desc": "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage plus 7 (2d6) poison damage. ",
+                "desc": "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage plus 7 (2d6) poison damage.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Yuan-ti Form Only"
@@ -15712,7 +15716,7 @@
             },
             {
                 "name": "Multiattack",
-                "desc": "The yuan-ti makes two bite attacks using its snake arms. ",
+                "desc": "The yuan-ti makes two bite attacks using its snake arms.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Yuan-ti Form Only"
@@ -15720,7 +15724,7 @@
             },
             {
                 "name": "Bite",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage. "
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage."
             },
             {
                 "name": "",
@@ -15728,7 +15732,7 @@
             },
             {
                 "name": "Multiattack",
-                "desc": "The yuan-ti makes two ranged attacks or two melee attacks, but can constrict only once. ",
+                "desc": "The yuan-ti makes two ranged attacks or two melee attacks, but can constrict only once.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Yuan-ti Form Only"
@@ -15736,7 +15740,7 @@
             },
             {
                 "name": "Bite",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage. ",
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Snake Form Only"
@@ -15744,11 +15748,11 @@
             },
             {
                 "name": "Constrict",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the yuan-ti can't constrict another target. "
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the yuan-ti can't constrict another target."
             },
             {
                 "name": "Scimitar",
-                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage. ",
+                "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.",
                 "usage": {
                     "type": "other restriction",
                     "restrictionsDesc": "Yuan-ti Form Only"
@@ -15850,7 +15854,7 @@
             },
             {
                 "name": "Magic Resistance",
-                "desc": "The yuan·ti has advantage on saving throws against spells and other magical effects. "
+                "desc": "The yuan·ti has advantage on saving throws against spells and other magical effects."
             }
         ],
         "actions": [{

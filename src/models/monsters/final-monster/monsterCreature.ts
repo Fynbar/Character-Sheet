@@ -8,7 +8,7 @@ import { Die } from '../../../app/components/dice/dice';
 import { characterClass } from '../../characterClass.enum';
 import { ability, abilityAbbrev } from '../../rules/ability.enum';
 import { Condition, ConditionImmunity } from '../../rules/condition.enum';
-import { lowerDamageType } from '../../rules/damage-type';
+import { lowerDamageType, DamageType } from '../../rules/damage-type';
 import { Book } from '../../rules/sourceBook.enum';
 import { Page } from '../../spells/spell.model';
 import { ActionDamage, APIMonster, betterComponentsRequired, FluffyType, Proficiency, PurpleType, RESTType, SuccessType, Trait, Dc } from '../api-monster/apiMonster.model';
@@ -60,14 +60,14 @@ export class MonsterCreature implements Monster {
     passivePerception?: number;
     flavorText: string;
     armorType?: string;
-    damageImmunities?: string[];
+    damageImmunities?: DamageType[];
     savingThrows?: Abilities;
     legendary?: LegendaryActionElement[];
     legendaryRules?: string;
     conditionImmunities?: ConditionImmunity[];
-    damageResistances?: string[];
+    damageResistances?: DamageType[];
     reactions?: ReactionElement[];
-    damageVulnerabilities?: string[];
+    damageVulnerabilities?: DamageType[];
     completed?: boolean;
 
     constructor(obj?: Monster | APIMonster) {
@@ -127,13 +127,13 @@ export class MonsterCreature implements Monster {
         const hitDice: number[] = m.hit_dice.split('d').map(d => Number(d));
         monster.hitPoints = new Die(hitDice[1], hitDice[0], hitDice[0] * monster.abilitiesModifiers.CON);
         if (m.damage_vulnerabilities.length > 0) {
-            monster.damageVulnerabilities = m.damage_vulnerabilities;
+            monster.damageVulnerabilities = m.damage_vulnerabilities.map(d => lowerDamageType[d.toLowerCase()]);
         }
         if (m.damage_resistances.length > 0) {
-            monster.damageResistances = m.damage_resistances;
+            monster.damageResistances = m.damage_resistances.map(d => lowerDamageType[d.toLowerCase()]);
         }
         if (m.damage_immunities.length > 0) {
-            monster.damageImmunities = m.damage_immunities;
+            monster.damageImmunities = m.damage_immunities.map(d => lowerDamageType[d.toLowerCase()]);
         }
         if (m.condition_immunities.length > 0) {
             monster.conditionImmunities = m.condition_immunities.map(c => c.name).filter(c => Condition[c]);

@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 // import { ThermoStateData } from '../models/thermo-state.model';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { Item } from 'src/models/equipment/equipment.model';
 import { WeaponComponent } from '../components/equipment/weapon/weapon.component';
 import { Weapon } from 'src/models/equipment/weapon.model';
+import { Monster } from 'src/models/monsters/final-monster/monster.model';
 // import { EndCondition } from './deform/beam-bending/beam-bending.component';
 
 enum EquipmentCategory {
@@ -50,6 +51,16 @@ export class JSONService {
       ));
     }
     return response;
+  }
+  public getAllMonsters(): Observable<Monster[]> {
+    return forkJoin(...['monsterManualAdditions', 'srdMonsterAdditions', 'voloMonsterAdditions']
+      .map(n => this.getJSON(n))).pipe(
+        map((d: Monster[][]) => {
+          let s = [];
+          d.forEach((element: Monster[]) => s = s.concat(...element));
+          return s;
+        })
+      );
   }
 
   public getWeaponJSON(): Observable<Weapon[]> {

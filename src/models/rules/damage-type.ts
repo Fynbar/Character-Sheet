@@ -18,20 +18,20 @@ export enum DamageType {
 }
 
 export enum lowerDamageType {
-    acid = 'Acid',
-    bludgeoning = 'Bludgeoning',
-    cold = 'Cold',
-    fire = 'Fire',
-    lightning = 'Lightning',
-    necrotic = 'Necrotic',
-    piercing = 'Piercing',
-    poison = 'Poison',
+    acid = DamageType.Acid,
+    bludgeoning = DamageType.Bludgeoning,
+    cold = DamageType.Cold,
+    fire = DamageType.Fire,
+    lightning = DamageType.Lightning,
+    necrotic = DamageType.Necrotic,
+    piercing = DamageType.Piercing,
+    poison = DamageType.Poison,
     // Poisoned = 'Poisoned',
     // Prone = 'Prone',
-    psychic = 'Psychic',
-    radiant = 'Radiant',
+    psychic = DamageType.Psychic,
+    radiant = DamageType.Radiant,
     // Restrained = 'Restrained',
-    slashing = 'Slashing',
+    slashing = DamageType.Slashing,
     // Stunned = 'Stunned',
-    thunder = 'Thunder'
+    thunder = DamageType.Thunder
 }

@@ -139,6 +139,13 @@ export interface ActionUsage {
     minValue?: number;
     restTypes?: RESTType[];
 }
+interface Action {
+    name: string;
+    desc: string;
+    attack_bonus?: number;
+    damage?: ActionDamage[];
+    dc?: Dc;
+}
 
 export interface Trait extends Action {
     spellcasting?: Spellcasting;
@@ -154,15 +161,6 @@ export interface ActionElement extends Action {
 
 export interface LegendaryActionElement extends Action {
     points: number;
-}
-
-
-interface Action {
-    name: string;
-    desc: string;
-    attack_bonus?: number;
-    damage?: ActionDamage[];
-    dc?: Dc;
 }
 
 export type ReactionElement = Action;

@@ -1,12 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
 import { ModifiedMonster, CreatureModifier } from '../modifier/modifier.model';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Monster } from 'src/models/monsters/final-monster/monster.model';
 import { JSONService } from 'src/app/services/json.service';
-import { forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
-// import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
 
 
 @Component({
@@ -29,36 +24,23 @@ export class ModifierBuilderComponent implements OnInit {
         this.modifiedCreature = ModifiedMonster.FromMonster(this.Monster);
       } else if (this.modifiedCreature && !this.Monster) {
         this.Monster = this.modifiedCreature;
-        // this.modifications = this.modifiedCreature.modifications;
       }
     } else {
-      forkJoin(...['monsterManualAdditions', 'srdMonsterAdditions', 'voloMonsterAdditions'].map(n => this.jsonService.getJSON(n))).pipe(
-        map((d: Monster[][]) => {
-          let s = [];
-          d.forEach((element: MonsterCreature[]) => s = s.concat(...element));
-          return s;
-        })
-      ).subscribe(data => {
-        console.log(data.filter(f => !f.isComplete));
+      this.jsonService.getAllMonsters().subscribe(data => {
         this.options = data;
       });
     }
-    if (this.inputModifications) {
+    if (this.modifiedCreature && this.inputModifications) {
       this.modifiedCreature.modifications = this.inputModifications;
     }
-
-    // console.log(this.config.data);
-    // console.log(this.ref);
   }
 
   public get modifications() {
     return this.modifiedCreature.modifications;
   }
   public setNewMonster(event) {
-    console.log(event.value, this.Monster);
+    // console.log(event.value, this.Monster);
     this.modifiedCreature = ModifiedMonster.FromMonster(this.Monster);
-    this.modifiedCreature.name = 'Larry';
+    // this.modifiedCreature.name = 'Larry';
   }
-  // public get
-
 }
