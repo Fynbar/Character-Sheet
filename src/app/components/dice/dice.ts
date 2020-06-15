@@ -5,6 +5,7 @@ export class Die {
     constant: number;
     diceType: number;
     diceNum: number;
+    // dice: Dice, reroll?: number[], highest?: number, lowest?: number
     constructor(diceType?: number, diceNum?: number, constant?: number) {
         this.constant = constant ? Math.floor(constant) : 0;
         this.diceType = diceType ? Math.floor(diceType) : 4;
@@ -12,7 +13,7 @@ export class Die {
     }
 
 
-    public static RollMany(dice: Die[]): Roll[] {
+    public static RollMany(dice: Dice): Rolls {
         return dice.map(d => d.roll());
     }
 
@@ -59,20 +60,21 @@ export class Die {
     }
 
     public roll(): Roll {
-        const Rolls = [];
+        const dieRolls = [];
         for (let i = 0; i < this.diceNum; i++) {
-            Rolls[i] = Math.ceil(Math.random() * this.diceType);
+            dieRolls[i] = Math.ceil(Math.random() * this.diceType);
         }
         return {
-            rolls: Rolls,
-            total: this.constant + Rolls.reduce((sum, roll) => sum + roll, 0)
+            rolls: dieRolls,
+            total: this.constant + dieRolls.reduce((sum, roll) => sum + roll, 0)
         };
     }
 }
 
-
+export type Rolls = Roll[];
 
 export interface Roll {
     rolls: number[];
     total: number;
+    dice?: Die;
 }

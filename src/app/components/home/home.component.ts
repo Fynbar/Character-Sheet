@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PythonService } from 'src/app/services/python.service';
+import { DiceComponent } from '../dice/dice.component';
+import { Die } from '../dice/dice';
+import { Observable } from 'rxjs';
+import { TRISTATECHECKBOX_VALUE_ACCESSOR } from 'primeng/tristatecheckbox';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,19 +14,24 @@ import { PythonService } from 'src/app/services/python.service';
 export class HomeComponent implements OnInit {
 
   constructor(public service: PythonService) { }
-
+  tests = [];
   ngOnInit() {
-    this.service.sayHi().subscribe(d =>
-      console.log(d)
-    );
+    this.servicetester(this.service.sayHi());
 
-    this.service.saveHi().subscribe(d =>
-      console.log(d)
-    );
+    this.servicetester(this.service.rollDice(new Die(20, 2, 1)).pipe(tap(_ => this.servicetester(this.service.getDiceHistory()))));
+    // this.service.saveHi().subscribe(d =>
+    //   console.log(d)
+    // );
 
-    this.service.saveJSONFile('Bet/test2', { name: 'Greg' }).subscribe(d =>
-      console.log(d)
-    );
+    // this.service.saveJSONFile('Bet/test2', { name: 'Greg' }).subscribe(d =>
+    //   console.log(d)
+    // );
 
   }
+  public servicetester(serviceCall: Observable<any>) {
+    serviceCall.pipe(tap(d =>
+      console.log(d))
+    ).subscribe(d => this.tests.push(d));
+  }
+
 }

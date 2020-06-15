@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Die } from './dice';
+import { Die, Roll } from './dice';
 import { DomSanitizer } from '@angular/platform-browser';
+import { tap, flatMap } from 'rxjs/operators';
+import { PythonService } from 'src/app/services/python.service';
 
 @Component({
   selector: 'app-dice',
@@ -13,9 +15,9 @@ export class DiceComponent extends Die implements OnInit {
   @Input() diceType = 4;
   @Input() diceNum = 1;
   @Input() dice: Die;
-  diceRoll: any;
+  diceRoll: Roll;
   history = [];
-  constructor(private sanitized: DomSanitizer) {
+  constructor(public service: PythonService) {
     super();
   }
 
@@ -36,15 +38,34 @@ export class DiceComponent extends Die implements OnInit {
   }
 
   public rollDice($event): void {
-    this.diceRoll = this.roll();
+    this.service.rollDice(this.dice).pipe(flatMap(d => {
+      this.diceRoll = d;
+      console.log(d);
+      return this.service.getDiceHistory().pipe(tap(h => console.log(h.reverse())));
+    })).subscribe(h =>
+      this.history = h
+    );
   }
 
   public closeDiceDialog($event): void {
-    this.history.push(this.diceRoll);
     this.diceRoll = null;
   }
   public get displayDice() {
     return this.diceRoll ? true : false;
   }
 
+  public get displayDiceRollString() {
+    return this.diceRoll ?
+      this.diceRoll.rolls.map(n => String(n)).join(this.diceRoll.rolls.length > 1 ? ' + ' : '')
+      : '...';
+  }
+
+  public get displayDiceTotalString() {
+    return this.diceRoll ?
+      this.diceRoll.dice.constant !== 0 ?
+        `${this.diceRoll.total - this.diceRoll.dice.constant} ${this.diceRoll.dice.constant < 1 ? '-' : '+'
+        } ${Math.abs(this.diceRoll.dice.constant)} = ${this.diceRoll.total}`
+        : `${this.diceRoll.total}`
+      : '...';
+  }
 }
