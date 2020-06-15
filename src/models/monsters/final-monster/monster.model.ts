@@ -22,12 +22,15 @@ export interface Monster {
     armorType?: string;
     damageImmunities?: DamageType[];
     savingThrows?: Abilities;
+    actions: ActionElement[];
     legendary?: LegendaryActionElement[];
     legendaryRules?: string;
+    reactions?: ReactionElement[];
     conditionImmunities?: ConditionImmunity[];
     damageResistances?: DamageType[];
-    reactions?: ReactionElement[];
     damageVulnerabilities?: DamageType[];
+    expertise?: Skills[];
+    halfSkills?: Skills[];
 }
 
 export interface Abilities {

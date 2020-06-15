@@ -48,10 +48,12 @@ export class ModifiedMonster implements Monster {
   flavorText: string;
   armorType?: string;
   savingThrows?: Abilities;
+  actions: ActionElement[];
   legendary?: LegendaryActionElement[];
   legendaryRules?: string;
   reactions?: ReactionElement[];
-  // damageVulnerabilities?: DamageType[];
+  expertise?: Skills[];
+  halfSkills?: Skills[];
 
   outputMonster?: MonsterCreature;
   constructor(monster: MonsterCreature) {

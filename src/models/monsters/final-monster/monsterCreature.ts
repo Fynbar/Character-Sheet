@@ -69,6 +69,8 @@ export class MonsterCreature implements Monster {
     reactions?: ReactionElement[];
     damageVulnerabilities?: DamageType[];
     completed?: boolean;
+    expertise?: Skills[];
+    halfSkills?: Skills[];
 
     constructor(obj?: Monster | APIMonster) {
         if (obj) {
