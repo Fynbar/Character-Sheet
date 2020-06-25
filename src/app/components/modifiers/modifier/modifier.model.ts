@@ -132,11 +132,17 @@ export class ModifiedMonster implements Monster {
     let properties = this.modifications.map(m => m.modifiedProperty);
     properties = properties.filter((f, i) => properties.indexOf(f) <= i);
     const modObj: { [key: string]: CreatureModifier[] } = {};
-    properties.forEach(property => modObj[property] = this.modifications.filter(m => m.modifiedProperty === property));
-    console.log(modObj);
+    properties.forEach(property =>
+      modObj[property] = this.modificationCondenser(this.modifications.filter(m => m.modifiedProperty === property)));
+    // modObj = );
     let modifiedCreature = this.modifiedCreature;
     this.modifications.forEach(mod => modifiedCreature = this.applyModification(modifiedCreature, mod));
     this.outputMonster = modifiedCreature;
+  }
+
+  private modificationCondenser(properties: CreatureModifier[]) {
+    console.log(properties);
+    return properties;
   }
 
   public applyModification(modifiedCreature: MonsterCreature, modification: CreatureModifier) {

@@ -106,6 +106,7 @@ import { StatBlockComponent } from './components/monster/stat-block/stat-block.c
 import { NotesComponent } from './components/notes/notes.component';
 import { SpellListComponent } from './components/Spells/spell-list/spell-list.component';
 import { ModifierDialogComponent } from './components/modifiers/modifier-dialog/modifier-dialog.component';
+import { TableViewerComponent } from './components/table-viewer/table-viewer.component';
 // #endregion
 
 @NgModule({
@@ -127,7 +128,8 @@ import { ModifierDialogComponent } from './components/modifiers/modifier-dialog/
     WeaponComponent,
     NumberToWordsPipe,
     ActionBuilderComponent,
-    ModifierDialogComponent
+    ModifierDialogComponent,
+    TableViewerComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),
