@@ -38,6 +38,10 @@ export function cap(str: string): string {
     return `${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
+export function capEach(str: string): string {
+    return breakBySubstrings(str, ' ').map(s => cap(s)).join(' ');
+}
+
 export function breakBySubstrings(bodyStr: string, ...strs: string[]) {
     const idx = [];
     for (const i in strs) {

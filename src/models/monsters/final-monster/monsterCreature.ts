@@ -15,6 +15,7 @@ import { ActionDamage, APIMonster, betterComponentsRequired, FluffyType, Profici
 import { MonsterMonMan } from '../mon-man-text-monster/monsterMonMan';
 import { Abilities, ActionElement, LegendaryActionElement, Meta, Monster, ReactionElement, Senses, Skills, Speed } from './monster.model';
 import { someisNan } from 'src/app/common/boolean.functions';
+import { InputNumberModule } from 'primeng/inputnumber';
 // import { someisNan } from './allisNan';
 // tslint:enable:max-line-length
 
@@ -71,6 +72,8 @@ export class MonsterCreature implements Monster {
     completed?: boolean;
     expertise?: Skills[];
     halfSkills?: Skills[];
+    initBonus?: number;
+    init?: number;
 
     constructor(obj?: Monster | APIMonster) {
         if (obj) {
@@ -1015,6 +1018,14 @@ export class MonsterCreature implements Monster {
         return modObj;
     }
 
+    public get initativeBonus(): number {
+        return this.initBonus ? this.initBonus : this.abilitiesModifiers.DEX;
+    }
+
+    public set initativeBonus(n: number) {
+        this.initBonus = n;
+    }
+
     public get metaString() {
         return `${this.meta.size} ${this.meta.monsterType}, ${this.meta.alignment}`;
     }
@@ -1102,6 +1113,19 @@ export class MonsterCreature implements Monster {
             return '';
         }
     }
+    public get pageString() {
+        let s: string;
+        if (this.page) {
+            s = this.page.book ? this.page.book : Book.Hb;
+            if (this.page.page) {
+                s = s + ` p.${this.page.page}`;
+            }
+        } else {
+            s = 'Homebrew';
+        }
+        return s;
+    }
+
 
     public get isComplete() {
         const s: boolean[] = [];

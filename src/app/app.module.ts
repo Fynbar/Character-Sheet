@@ -107,6 +107,10 @@ import { NotesComponent } from './components/notes/notes.component';
 import { SpellListComponent } from './components/Spells/spell-list/spell-list.component';
 import { ModifierDialogComponent } from './components/modifiers/modifier-dialog/modifier-dialog.component';
 import { TableViewerComponent } from './components/table-viewer/table-viewer.component';
+import { CombatComponent } from './components/combat/combat.component';
+import { InitTrackerComponent } from './components/combat/init-tracker/init-tracker.component';
+import { EncounterBuilderComponent } from './components/combat/encounter-builder/encounter-builder.component';
+import { EncounterViewerComponent } from './components/combat/encounter-viewer/encounter-viewer.component';
 // #endregion
 
 @NgModule({
@@ -129,7 +133,11 @@ import { TableViewerComponent } from './components/table-viewer/table-viewer.com
     NumberToWordsPipe,
     ActionBuilderComponent,
     ModifierDialogComponent,
-    TableViewerComponent
+    TableViewerComponent,
+    CombatComponent,
+    InitTrackerComponent,
+    EncounterBuilderComponent,
+    EncounterViewerComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),

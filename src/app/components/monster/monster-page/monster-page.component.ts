@@ -10,6 +10,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicDialog';
 import { MessageService } from 'primeng/api';
 import { ModifierBuilderComponent } from '../../modifiers/modifier-builder/modifier-builder.component';
 import { ModifierDialogComponent } from '../../modifiers/modifier-dialog/modifier-dialog.component';
+import { ChallengeRating } from 'src/models/rules/challengeRating.enum';
 
 @Component({
   selector: 'app-monster-page',
@@ -25,6 +26,10 @@ export class MonsterPageComponent implements OnInit {
   public monsters: MonsterCreature[];
   public expandedRows = {};
   public checked = false;
+  public categories = [{ label: 'All Challenge Ratings', value: null }]
+    .concat(...Object.keys(ChallengeRating.challengeRating)
+      .map(ec => ({ label: ec, value: ec })));
+
   constructor(
     private jsonService: JSONService, public dialogService: DialogService) { }
 
@@ -60,8 +65,8 @@ export class MonsterPageComponent implements OnInit {
   ngOnInit() {
     // console.log(data);
     this.jsonService.getAllMonsters().pipe(
-        map(ms => ms.map(m => new MonsterCreature(m))))
-        .subscribe(data => {
+      map(ms => ms.map(m => new MonsterCreature(m))))
+      .subscribe(data => {
         console.log(data.filter(f => !f.isComplete));
         this.monsters = data.filter(f => !f.isComplete).concat(data.filter(f => f.isComplete));
 
@@ -75,4 +80,16 @@ export class MonsterPageComponent implements OnInit {
   }
   //   console.log(rowData);
   // }
+
+  get allExpanded(): boolean {
+    return this.monsters ? this.monsters.every(e => this.expandedRows[e.name] ? true : false) : false;
+  }
+
+  public expandAllRows() {
+    if (!this.allExpanded) {
+      this.monsters.forEach(e => this.expandedRows[e.name] = true);
+    } else {
+      this.expandedRows = {};
+    }
+  }
 }

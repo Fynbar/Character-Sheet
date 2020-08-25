@@ -12930,7 +12930,7 @@
             "name": "Mace",
             "attackBonus": 3
         }],
-        "armorClass": ",i~(lS",
+        "armorClass": "12",
         "hitPoints": {
             "constant": 24,
             "diceType": 8,
@@ -12946,7 +12946,7 @@
         },
         "passivePerception": 11,
         "flavorText": "WARLOCK OF l'HEARCHFE Warlocks of the archfey gain their powers through ical pacts forged with lords of the Feywild. These locks commonly associate with lesser fey creatures such as boggles, quicklings, redcaps, satyrs, and sprites. WARLOCK OF THE FIEND Warlocks of the fiend gain their powers through magical pacts forged with archfiends of the Lower Planes. These warlocks often keep imps or quasits as companions, and they tend toward extremes of behavior: consorting with fiend-worshiping cultists or dedicating their lives to stroying fiendish cults. WARLOCK OF THE ARCHFEY Medium humanoid (any race), any alignment Armor Class 11 (14 with mage armor) Hit Points 49 (11d8) Speed 30 ft. STR 9 (-1) DEX 13 (+1) CON 11 (+0) Saving Throws Wis +3, Cha +6 INT 11 (+0) WIS 12 (+1) CHA 18 (+4) Skills Arcana +2, Deception +6, Nature +2, Persuasion +6 Condition Immunities charmed Senses passive Perception 11 Languages any two languages (usually Sylvan) Challenge 4 (1,100 XP) Innate Spellcasting. The warlock's innate spellcasting ability is Charisma. It can innately cast the following spells (spell save DC 15), requiring no material components: At will: disguise self. mage armor (self only), silent image, speak with animals 1/day: conjure fey Spellcasting. The warlock is a 11th-level spellcaster. Its casting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It regains its expended spell slots when it ishe~ a short or long rest. It knows the following warlock spells: Cantrips (at will): dancing lights, eldritch blast.friends, mage hand, minor illusion, prestidigitation, vicious mockery 1st-5th level (3 5th-level slots): blink, charm person, dimension door, dominate beast.faerie fire.fear, hold monster, misty step, phantasmal force, seeming, sleep ACTIONS Dagger. Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage. REACTIONS Misty Escape (Recharges after a Short or Long Rest). In sponse to taking damage, the warlock turns invisible and teleports up to 60 feet to an unoccupied space it can see. It re· mains invisible until the start of its next turn or until it attacks, makes a damage roll, or casts a spell. ",
-        "armorType": "ith mage armor",
+        "armorType": "15 with mage armor",
         "savingThrows": {
             "Wis": 4,
             "Cha": 7

@@ -15,9 +15,31 @@
             <th *ngFor="let col of columns">
                 {{col.header}}
             </th>
+            <th style="width: 3em"></th>
+        </tr>
+        <tr>
+            <th style="width: 3em">
+                <a href="#" (click)="expandAllRows()">
+                    <i [ngClass]="allExpanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                </a>
+            </th>
+
+            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'name'" id="float-input" pInputText type="text" size="30" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                <!-- <input id="float-input" type="text"  pInputText>  -->
+
+                <!-- <div *ngSwitchCase="'weight'">
+                {{weightFilter[0]}} {{weightFilter[1]}}
+                <i class="pi pi-times" (click)="weightFilter=[null, weightSlider[1]];dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="showWeightX"></i>
+                <p-slider *ngIf="weightSlider" range="true" [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="weightFilter" [min]="weightSlider[0]" [max]="weightSlider[1]" (onChange)="onWeightChange($event, dt)"></p-slider>
+            </div> -->
+                <p-dropdown *ngSwitchCase="'challenge'" [options]="categories" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+                <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
+                <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="dt.filter($event.target.value, col.field, 'custom')"> -->
+            </th>
             <!-- <th>
-              Filled
-          </th> -->
+          Filled
+      </th> -->
             <th style="width: 3em"></th>
         </tr>
     </ng-template>
@@ -32,10 +54,11 @@
             <td>{{rowData.name}}
             </td>
             <!-- <td>{{checked? rowData.page.book: 'SRD'}} -->
-            <td>{{rowData.page.book}} p.{{rowData.page.page}}
-            </td>
             <td>{{rowData.challenge}}
             </td>
+            <td>{{rowData.pageString}}
+            </td>
+
             <td>
                 <i class="pi pi-pencil" (click)="editMonster(rowData, i)"></i>
             </td>
