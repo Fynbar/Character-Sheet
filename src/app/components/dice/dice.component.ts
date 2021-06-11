@@ -54,6 +54,10 @@ export class DiceComponent extends Die implements OnInit {
     return this.diceRoll ? true : false;
   }
 
+  public set displayDice(s) {
+    console.log(s);
+  }
+
   public get displayDiceRollString() {
     return this.diceRoll ?
       this.diceRoll.rolls.map(n => String(n)).join(this.diceRoll.rolls.length > 1 ? ' + ' : '')

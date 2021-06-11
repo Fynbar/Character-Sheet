@@ -17,7 +17,7 @@ export class SpellListComponent implements OnInit {
     { field: 'brand', header: 'Brand' },
     { field: 'color', header: 'Color' }
   ];
-
+  cars=[]
   constructor() { }
 
 

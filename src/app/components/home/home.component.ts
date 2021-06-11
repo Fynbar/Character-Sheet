@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
               public JSON: JSONService) { }
   tests = [];
   monsters = [];
+  cols=[];
   ngOnInit() {
     this.servicetester(this.service.sayHi());
 

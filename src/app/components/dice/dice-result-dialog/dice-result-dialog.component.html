@@ -1,6 +1,6 @@
-<span (click)="rollDice($event)" innerHTML="{{diceString}}"></span>
-<p-dialog header="Dice Roll" [(visible)]="displayDice" [style]="{width: '50vw'}" [baseZIndex]="10000">
-    {{diceRoll| json}}
+<!-- <span (click)="rollDice($event)" innerHTML="{{diceString}}"></span> -->
+<p-dialog header="Dice Roll" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <!-- {{diceRoll| json}} -->
     <p-footer>
         <p-button icon="pi pi-times" (onClick)="closeDiceDialog($event)" label="Close"></p-button>
     </p-footer>

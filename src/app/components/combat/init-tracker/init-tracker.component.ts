@@ -51,7 +51,7 @@ export class InitTrackerComponent implements OnInit {
     // this.rollAll();
   }
 
-  public rollAll() {
+  public rollAll(event) {
     if (!this.encounter.rolled) {
       const calls = this.pythonService.rollDice(new Die(20, this.encounter.creatures.length));
       calls.subscribe(s => {

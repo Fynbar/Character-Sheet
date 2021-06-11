@@ -4,7 +4,6 @@ import { Item, EquipmentCategory } from '../../../models/equipment/equipment.mod
 import { Columns, generateFieldHTML } from '../../../models/column.model';
 import { enumKeysArray } from '../../common/enumKeysArray';
 import { Table } from 'primeng/table/table.d';
-import { FilterUtils } from 'primeng/utils';
 
 
 const categoriesNames = ['Adventuring Gear',

@@ -24,7 +24,7 @@ export class TableBuilder implements Table {
   tableviewing: { range: number[], values: string[] | number[] | Table[] }[];
   tablevalues: { values: string[] | number[] | Table[], valueType?: string }[];
   constructor(table: Table) {
-    this.name = name;
+    this.name = table.name;
     this.tablevalues = table.tablevalues;
   }
     // roll() {
