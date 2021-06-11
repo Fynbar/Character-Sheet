@@ -69,18 +69,10 @@ export class MonsterBuilderComponent implements OnInit {
         ;
       // console.log(this.jsonMonsters);
 
-
-      // console.log(data[2].length, this.jsonMonsters.length);
       this.jsonMonstersFormatted = this.jsonMonsters
         .filter(f => names.indexOf(f.name) < 0)
         .map(j =>
-          //  179 < j.page && j.page < 201 ? MonsterCreature.fromPageDesc(this.formatPageDesc(j), this.weapons) :
           MonsterCreature.fromPageDesc(j, this.weapons));
-      // this.formatPageDesc(
-      // const test: any = MonsterCreature.fromPageDesc(data[0]), this.weapons);
-      // test.defineActions();
-      // console.log(this.jsonMonsters, this.jsonMonstersFormatted);
-
       this.jsonMonstersFormatted.map(m => {
         m.defineActions();
         // console.log(this.jsonMonstersFormatted);

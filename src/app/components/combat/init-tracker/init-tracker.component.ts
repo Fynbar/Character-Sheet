@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { PythonService } from 'src/app/services/python.service';
-import { forkJoin } from 'rxjs';
-import { DiceComponent } from '../../dice/dice.component';
 import { Die } from '../../dice/dice';
-import { Columns } from '../../equipment/column.model';
+import { Columns } from '../../../../models/column.model';
 import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
+
+export interface Encounter {
+  rolled: boolean;
+  creatures: EncounterCreature[];
+  players: number;
+}
+
+export interface EncounterCreature {
+  initiativeBonus: number;
+  name: string;
+  init: number;
+}
 
 @Component({
   selector: 'app-init-tracker',
@@ -19,7 +29,7 @@ export class InitTrackerComponent implements OnInit {
     // {field: 'init', header: 'Initiative'}
   ];
   public readOnly = false;
-  public encounter = {
+  public encounter: Encounter = {
     rolled: false,
     creatures: [
       { initiativeBonus: 1, name: '1', init: null },
@@ -56,7 +66,6 @@ export class InitTrackerComponent implements OnInit {
       });
     }
   }
-
 
   public setOrder(): void {
     console.log('Order is set');

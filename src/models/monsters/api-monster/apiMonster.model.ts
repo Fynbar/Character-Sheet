@@ -106,10 +106,6 @@ export interface ActionDamage {
     from?: FromElement[];
 }
 
-// export enum DamageType {
-//     Damage = 'damage',
-// }
-
 export interface Options {
     choose: number;
     from: Array<From[]>;
@@ -150,6 +146,7 @@ interface Action {
 export interface Trait extends Action {
     spellcasting?: Spellcasting;
     usage?: ActionUsage;
+    prerequisite?: string;
 }
 
 export interface ActionElement extends Action {

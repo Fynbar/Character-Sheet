@@ -4,3 +4,17 @@
 <p *ngFor="let t of tests">
     {{t|json}}
 </p>
+
+<p-table #dt [columns]="cols" [value]="monsters" dataKey="name">
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
+        <tr>
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.hitPoints.diceNum}}</td>
+            <td>{{rowData.challenge}}</td>
+            <td>{{rowData.meta.size}}</td>
+            <td>{{rowData.meta.alignment}}</td>
+            <td>{{rowData.meta.monsterType}}</td>
+            <td>{{rowData.meta.monsterSubType? rowData.meta.monsterSubType: 'None'}}</td>
+        </tr>
+    </ng-template>
+</p-table>

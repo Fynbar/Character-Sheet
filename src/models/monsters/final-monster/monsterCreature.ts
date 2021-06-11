@@ -1052,7 +1052,7 @@ export class MonsterCreature implements Monster {
     }
 
     public get traitNames(): string[] {
-        return this.traits ? Object.keys(this.traits) : [];
+        return this.traits ? this.traits.map(t => t.name) : [];
     }
 
     public get proficiency(): number {

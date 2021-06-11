@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { JSONService } from '../../services/json.service';
 import { Item, EquipmentCategory } from '../../../models/equipment/equipment.model';
-import { Columns, generateFieldHTML } from './column.model';
+import { Columns, generateFieldHTML } from '../../../models/column.model';
 import { enumKeysArray } from '../../common/enumKeysArray';
 import { Table } from 'primeng/table/table.d';
 import { FilterUtils } from 'primeng/utils';

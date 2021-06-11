@@ -51,17 +51,4 @@ export class PythonService {
   public getDiceHistory(): Observable<any[]> {
     return this.http.get<any[]>(this.URL + 'diceHistory');
   }
-
-  // public getThermoStates(stateId?: number): Observable<ThermoStateData> {
-  //   const stateIdUrl = stateId ? `/${stateId}` : null;
-  //   return this.http.get<ThermoStateData>(this.URL + 'states' + stateIdUrl);
-  // }
-
-  // public getSaturationLimits(): Observable<ThermoStateData[]> {
-  //   return this.http.get<ThermoStateData[]>(this.URL + 'stateLimits').pipe(tap(data => console.log(data)));
-  // }
-
-  // public getAllBeamEndConditions(): Observable<EndCondition[]> {
-  //   return this.http.get<EndCondition[]>(this.URL + 'beamEnds');
-  // }
 }

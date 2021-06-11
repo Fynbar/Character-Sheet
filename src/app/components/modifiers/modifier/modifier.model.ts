@@ -12,10 +12,8 @@ import {
 } from '../../../../models/monsters/final-monster/monster.model';
 import { ConditionImmunity, Condition } from '../../../../models/rules/condition.enum';
 import { DamageType, lowerDamageType } from '../../../../models/rules/damage-type';
-// import { Senses } from '../../../../models/monsters/api-monster/apiMonster.model';
 import { Page } from '../../../../models/spells/spell.model';
 import { Die } from '../../dice/dice';
-// import { Meta } from '@angular/platform-browser';
 import { MonsterCreature } from 'src/models/monsters/final-monster/monsterCreature';
 
 enum ModType {

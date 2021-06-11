@@ -54,9 +54,7 @@
     <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
         <tr>
             <td [attr.colspan]="columns.length + 1">
-                <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
-                    <div></div>{{rowData| json}}
-                </div>
+                <app-equipment-viewer [piece]="rowData"></app-equipment-viewer>
             </td>
         </tr>
     </ng-template>
