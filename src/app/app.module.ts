@@ -112,6 +112,7 @@ import { InitTrackerComponent } from './components/combat/init-tracker/init-trac
 import { EncounterBuilderComponent } from './components/combat/encounter-builder/encounter-builder.component';
 import { EncounterViewerComponent } from './components/combat/encounter-viewer/encounter-viewer.component';
 import { EquipmentViewerComponent } from './components/equipment/equipment-viewer/equipment-viewer.component';
+import { MonsterConverterComponent } from './components/monster/monster-converter/monster-converter.component';
 // #endregion
 
 @NgModule({
@@ -139,7 +140,8 @@ import { EquipmentViewerComponent } from './components/equipment/equipment-viewe
     InitTrackerComponent,
     EncounterBuilderComponent,
     EncounterViewerComponent,
-    EquipmentViewerComponent
+    EquipmentViewerComponent,
+    MonsterConverterComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),
