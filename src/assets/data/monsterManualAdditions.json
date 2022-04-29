@@ -5307,7 +5307,6 @@
             "book": "mon man"
         },
         "speed": {
-            "60": null,
             "walk": 15,
             "hover": false
         },
