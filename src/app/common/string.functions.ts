@@ -42,7 +42,7 @@ export function capEach(str: string): string {
     return breakBySubstrings(str, ' ').map(s => cap(s)).join(' ');
 }
 
-export function breakBySubstrings(bodyStr: string, ...strs: string[]) {
+export function breakBySubstrings(bodyStr: string, ...strs: string[]): string[] {
     const idx = [];
     for (const i in strs) {
         if (strs[i]) {

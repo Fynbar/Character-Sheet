@@ -1,5 +1,5 @@
-export interface ToolsMonster {
-    monster: MonsterElement[];
+export interface ToolsFile {
+    monster: ToolsMonster[];
     _meta?: Meta;
     spell?: SpellElement[];
 }
@@ -24,6 +24,8 @@ export enum DMGElement {
     Mtf = 'MTF',
     Skt = 'SKT',
     Vgm = 'VGM',
+    Hb = 'HB',
+    Mpe = 'MPE'
 }
 
 export interface OtherSources {
@@ -50,10 +52,10 @@ export interface SourceClass {
     color: string;
 }
 
-export interface MonsterElement {
+export interface ToolsMonster {
     name: string;
     source: DMGElement;
-    page: number;
+    page?: number;
     otherSources?: Source[];
     size?: Size;
     type?: TypeClass | TypeTypeEnum;
@@ -89,16 +91,16 @@ export interface MonsterElement {
     traitTags?: string[];
     senseTags?: SenseTag[];
     actionTags?: ActionTag[];
-    conditionInflict?: ConditionImmune[];
-    conditionInflictLegendary?: ConditionImmune[];
+    conditionInflict?: Condition[];
+    conditionInflictLegendary?: Condition[];
     immune?: Array<ImmuneClass | ImmuneEnum>;
     spellcasting?: Spellcasting[];
     spellcastingTags?: SpellcastingTag[];
     group?: string;
     dragonCastingColor?: string;
     resist?: Array<ResistClass | DamageInflict>;
-    conditionImmune?: ConditionImmune[];
-    conditionInflictSpell?: ConditionImmune[];
+    conditionImmune?: Condition[];
+    conditionInflictSpell?: Condition[];
     variant?: Variant[];
     altArt?: AltArt[];
     vulnerable?: Array<VulnerableClass | DamageInflict>;
@@ -106,7 +108,7 @@ export interface MonsterElement {
     familiar?: boolean;
     legendaryHeader?: string[];
     alias?: string[];
-    conditionInflicted?: ConditionImmune[];
+    conditionInflicted?: Condition[];
     tokenUrl?: string;
     fluff?: Fluff;
     legendaryActions?: number;
@@ -115,6 +117,8 @@ export interface MonsterElement {
     isNamedCreature?: boolean;
     isNpc?: boolean;
 }
+
+
 
 export interface Copy {
     name: string;
@@ -319,7 +323,7 @@ export enum AltArtSource {
     Wdmm = 'WDMM',
 }
 
-export enum ConditionImmune {
+export enum Condition {
     Blinded = 'blinded',
     Charmed = 'charmed',
     Deafened = 'deafened',
@@ -341,6 +345,7 @@ export interface CRClass {
     cr: string;
     lair?: string;
     coven?: string;
+    xp?:string;
 }
 
 export enum DamageTag {
@@ -559,15 +564,7 @@ export interface Skill {
     nature?: string;
     performance?: string;
     'sleight of hand'?: string;
-    'perception+'?: string;
-    'intimidation+'?: string;
-    'arcana+'?: string;
-    'animalhandling+'?: string;
-    'arcana+9athletics'?: string;
-    'arcana+8athletics'?: string;
     'animal handling'?: string;
-    'survival+4conditionimmunties'?: ConditionImmune;
-    'survival+6conditionimmunties'?: ConditionImmune;
     other?: Other[];
 }
 
@@ -758,7 +755,7 @@ export interface SpellElement {
     areaTags: string[];
     classes?: Classes;
     damageInflict?: DamageInflict[];
-    conditionInflict?: ConditionImmune[];
+    conditionInflict?: Condition[];
     miscTags?: string[];
 }
 
@@ -796,4 +793,73 @@ export interface Range {
 export interface Time {
     number: number;
     unit: string;
+}
+
+export class ToolsMon implements ToolsMonster{
+    name: string;
+    source: DMGElement;
+    page?: number;
+    otherSources?: Source[];
+    size?: Size;
+    type?: TypeClass | TypeTypeEnum;
+    alignment?: Array<AlignmentClass | AlignmentEnum>;
+    ac?: Array<ACClass | number>;
+    hp?: HP;
+    speed?: Speed;
+    str?: number;
+    dex?: number;
+    con?: number;
+    int?: number;
+    wis?: number;
+    cha?: number;
+    skill?: Skill;
+    passive?: number;
+    languages?: string[];
+    cr?: CRClass | string;
+    trait?: TraitElement[];
+    action?: TraitElement[];
+    environment?: Environment[];
+    hasToken?: boolean;
+    soundClip?: SoundClip;
+    languageTags?: LanguageTag[];
+    damageTags?: DamageTag[];
+    miscTags?: MiscTag[];
+    hasFluff?: boolean;
+    hasFluffImages?: boolean;
+    srd?: boolean;
+    save?: Save;
+    senses?: string[];
+    legendary?: Legendary[];
+    legendaryGroup?: LegendaryGroup;
+    traitTags?: string[];
+    senseTags?: SenseTag[];
+    actionTags?: ActionTag[];
+    conditionInflict?: Condition[];
+    conditionInflictLegendary?: Condition[];
+    immune?: Array<ImmuneClass | ImmuneEnum>;
+    spellcasting?: Spellcasting[];
+    spellcastingTags?: SpellcastingTag[];
+    group?: string;
+    dragonCastingColor?: string;
+    resist?: Array<ResistClass | DamageInflict>;
+    conditionImmune?: Condition[];
+    conditionInflictSpell?: Condition[];
+    variant?: Variant[];
+    vulnerable?: Array<VulnerableClass | DamageInflict>;
+    reaction?: Legendary[];
+    familiar?: boolean;
+    legendaryHeader?: string[];
+    alias?: string[];
+    conditionInflicted?: Condition[];
+    fluff?: Fluff;
+    legendaryActions?: number;
+    shortName?: string;
+    _copy?: Copy;
+    isNamedCreature?: boolean;
+    isNpc?: boolean;
+
+    constructor() {
+    this.name='',
+    this.source=DMGElement.Mpe
+    }
 }
