@@ -6,7 +6,7 @@ import { abilityAbbrev } from 'src/models/rules/ability.enum';
 import { MonsterCreature } from '../../../../models/monsters/final-monster/monsterCreature';
 import { map } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicDialog';
+// import { DialogService, DynamicDialogRef } from 'primeng/dynamicDialog';
 import { MessageService } from 'primeng/api';
 import { ModifierBuilderComponent } from '../../modifiers/modifier-builder/modifier-builder.component';
 import { ModifierDialogComponent } from '../../modifiers/modifier-dialog/modifier-dialog.component';
@@ -31,25 +31,27 @@ export class MonsterPageComponent implements OnInit {
       .map(ec => ({ label: ec, value: ec })));
 
   constructor(
-    private jsonService: JSONService, public dialogService: DialogService) { }
+    private jsonService: JSONService
+    // , public dialogService: DialogService
+    ) { }
 
-  ref: DynamicDialogRef;
+  // ref: DynamicDialogRef;
 
   editMonster(rowData: MonsterCreature, i: number) {
-    // show() {
-    this.ref = this.dialogService.open(ModifierDialogComponent, {
-      data: rowData,
-      header: `Modify ${rowData.name}`,
-      width: '70%',
-      // tslint:disable-next-line:object-literal-key-quotes
-      contentStyle: { 'max-height': '350px', 'overflow': 'auto' }
-    });
+    // // show() {
+    // this.ref = this.dialogService.open(ModifierDialogComponent, {
+    //   data: rowData,
+    //   header: `Modify ${rowData.name}`,
+    //   width: '70%',
+    //   // tslint:disable-next-line:object-literal-key-quotes
+    //   contentStyle: { 'max-height': '350px', 'overflow': 'auto' }
+    // });
 
-    this.ref.onClose.subscribe((monster: MonsterCreature) => {
-      if (monster) {
-        this.monsters[i] = monster;
-      }
-    });
+    // this.ref.onClose.subscribe((monster: MonsterCreature) => {
+    //   if (monster) {
+    //     this.monsters[i] = monster;
+    //   }
+    // });
   }
 
   // ngOnDestroy() {

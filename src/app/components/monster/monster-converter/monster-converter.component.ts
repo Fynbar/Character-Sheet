@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TetraMonster } from '../../../../models/monsters/tetra-monster';
+import { JSONService } from 'src/app/services/json.service';
+import { TetraMon } from '../../../../models/monsters/tetra-monster';
 import { ToolsFile, ToolsMonster } from '../../../../models/monsters/tools-monster';
+// import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-monster-converter',
@@ -9,11 +12,19 @@ import { ToolsFile, ToolsMonster } from '../../../../models/monsters/tools-monst
 })
 export class MonsterConverterComponent implements OnInit {
   public checked = true;
-  public LoadedMon: TetraMonster[] = [];
+  public LoadedMon: TetraMon[] = [];
   public OutputMon: ToolsMonster[] = [];
-  constructor() { }
+  constructor(
+    private jsonService: JSONService
+    // , public dialogService: DialogService
+  ) { }
+  // ref: DynamicDialogRef;
 
   ngOnInit(): void {
     console.log()
+    this.jsonService.getJSON('the woman').pipe(
+      tap(m => console.log(m)),
+      map(ms => new TetraMon(ms).toToolMon())
+    ).subscribe(data => { this.OutputMon[0] = data })
   }
 }

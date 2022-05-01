@@ -1,5 +1,5 @@
-<span *ngIf="outputAction">
-    <!-- <h4 class="remove-bottom-margin">Actions</h4> -->
+<!-- <span *ngIf="outputAction">
+    <!-- <h4 class="remove-bottom-margin">Actions</h4> --
 
     <div *ngIf="readOnly; then thenBlock else elseBlock"></div>
 </span>
@@ -12,7 +12,7 @@
             <b>{{at.name}}:</b> {{at.desc}}
         </div>
     </div>
-    <!-- Content to render when condition is true. -->
+    <!-- Content to render when condition is true. --
 </ng-template>
 
 <ng-template #elseBlock>
@@ -23,17 +23,17 @@
                     <label for="{{outputAction.name}}">Name</label>
                     <input name="{{outputAction.name}}" id="{{outputAction.name}}" type="text" pInputText [(ngModel)]="outputAction.name">
                 </div>
-                <!-- CheckBoxes -->
+                <!-- CheckBoxes --
                 <div class="p-field p-col-4">
                     <div class="p-field-checkbox">
                         <p-checkbox name="usageRestriction" [(ngModel)]="hasUsageRestriction" binary="true">
                         </p-checkbox>
-                        <!-- inputId="usageRestriction"></p-checkbox> -->
+                        <!-- inputId="usageRestriction"></p-checkbox> --
                         <label for="usageRestriction">Usage Restriction</label>
                     </div>
                     <div class="p-field-checkbox">
                         <p-checkbox name="multiAttack" [(ngModel)]="isMultiattack" binary="true"></p-checkbox>
-                        <!-- <p-checkbox name="multiAttack" [(ngModel)]="isMultiattack" inputId="multiAttack" ></p-checkbox> -->
+                        <!-- <p-checkbox name="multiAttack" [(ngModel)]="isMultiattack" inputId="multiAttack" ></p-checkbox> --
                         <label for="multiAttack">Multiattack</label>
                     </div>
                 </div>
@@ -58,21 +58,21 @@
                         <div class="p-field p-col-4" *ngSwitchCase="'recharge after rest'">
                             dice?: Die; minValue?: number;
                             <!-- <label for="RestrictionDesc"></label>
-                            <input name="RestrictionDesc" id="{{outputAction.name}}" type="text" pInputText [(ngModel)]="outputAction.usage.times" pKeyFilter="int">/Day -->
+                            <input name="RestrictionDesc" id="{{outputAction.name}}" type="text" pInputText [(ngModel)]="outputAction.usage.times" pKeyFilter="int">/Day --
                         </div>
 
                         <div class="p-field p-col-4" *ngSwitchCase="'recharge after rest'">
-                            <!-- restTypes?: RESTType[]; -->
+                            <!-- restTypes?: RESTType[]; --
                             <!-- <label for="RestrictionDesc"></label>
-                            <input name="RestrictionDesc" id="{{outputAction.name}}" type="text" pInputText [(ngModel)]="outputAction.usage.times" pKeyFilter="int">/Day -->
+                            <input name="RestrictionDesc" id="{{outputAction.name}}" type="text" pInputText [(ngModel)]="outputAction.usage.times" pKeyFilter="int">/Day --
                         </div>
-                        <!-- restrictionsDesc?: string; -->
-                        <!-- times?: number; -->
+                        <!-- restrictionsDesc?: string; --
+                        <!-- times?: number; --
                         <div class="p-field p-col" *ngSwitchDefault>
                             {{outputAction.usage|json}}
                         </div>
-                        <!-- </ng-template> -->
-                        <!-- <some-element *ngSwitchDefault>...</some-element -->
+                        <!-- </ng-template> --
+                        <!-- <some-element *ngSwitchDefault>...</some-element --
                     </div>
 
                 </div>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="p-col-12" *ngIf="outputAction.name">
-                    <!-- Multi Attack -->
+                    <!-- Multi Attack --
                     <div *ngIf="isMultiattack" class="p-field p-col-12">
                         <label for="Choose">Choose</label>
                         <p-inputNumber name="Choose" id="actionname" type="text" pInputText [(ngModel)]="options.choose"></p-inputNumber>
@@ -101,9 +101,9 @@
                                 </div>
                                 <div class="p-col-5" *ngIf="givenActionNames">
                                     <label for="attack{{i}}.{{j}}">Attack {{i+1}}-{{j+1}}</label>
-                                    <!-- <p-dropdown id="type{{i}}.{{j}}" [options]="choiceTypes" [(ngModel)]="choice.type" (onChange)="typeDropdownChange($event, i, j)"></p-dropdown> -->
+                                    <!-- <p-dropdown id="type{{i}}.{{j}}" [options]="choiceTypes" [(ngModel)]="choice.type" (onChange)="typeDropdownChange($event, i, j)"></p-dropdown> --
                                     <p-dropdown id="attack{{i}}.{{j}}" [options]="attackTypes" [(ngModel)]="choice.name"></p-dropdown>
-                                    <!-- (onChange)="typeDropdownChange($event, i, j)"> </p-dropdown> -->
+                                    <!-- (onChange)="typeDropdownChange($event, i, j)"> </p-dropdown> --
                                 </div>
                                 <div class="p-col-3">
                                     <label for="type{{i}}.{{j}}">Type {{choice.name}}</label>
@@ -128,17 +128,17 @@
                         </ng-template>
                     </div>
                     <div *ngIf="isAttack" class="p-field p-col-12">
-                        <!-- <label for="Choose">Choose</label> -->
-                        <!-- <input name="Choose" id="actionname" type="text" [(ngModel)]="options.choose" pKeyFilter="int"> -->
+                        <!-- <label for="Choose">Choose</label> --
+                        <!-- <input name="Choose" id="actionname" type="text" [(ngModel)]="options.choose" pKeyFilter="int"> --
                         <div class="p-col-5" *ngIf="givenActionNames">
                             <label for="attack">Attack</label>
-                            <!-- <p-dropdown id="type{{i}}.{{j}}" [options]="choiceTypes" [(ngModel)]="choice.type" (onChange)="typeDropdownChange($event, i, j)"></p-dropdown> -->
+                            <!-- <p-dropdown id="type{{i}}.{{j}}" [options]="choiceTypes" [(ngModel)]="choice.type" (onChange)="typeDropdownChange($event, i, j)"></p-dropdown> --
                             <p-dropdown id="attack" [options]="weapons" [(ngModel)]="outputAction.weapon" [group]="true">
                                 <ng-template let-group pTemplate="group">
                                     <span style="text-align: center;">{{group.label}}</span>
                                 </ng-template>
                             </p-dropdown>
-                            <!-- (onChange)="typeDropdownChange($event, i, j)"> </p-dropdown> -->
+                            <!-- (onChange)="typeDropdownChange($event, i, j)"> </p-dropdown> --
                         </div>
                         <!-- <ng-template ngFor let-option [ngForOf]="outputAction.damage" let-i="index">
 
@@ -175,16 +175,16 @@
                                     </div>
                                 </div>
                             </div>
-                        </ng-template> -->
+                        </ng-template> --
                     </div>
-                    <!-- <span *ngSwitchDefault> -->
-                    <!-- {{outputAction.name===='Multiattack'}} -->
+                    <!-- <span *ngSwitchDefault> --
+                    <!-- {{outputAction.name===='Multiattack'}} --
                 </div>
 
                 <!-- <div class="p-col-2">
             <p-button icon="pi pi-plus" (onClick)="addState(i)"></p-button>
             <p-button icon="pi pi-minus" (onClick)="removeState(i)"></p-button>
-        </div> -->
+        </div> --
             </div>
         </p-accordionTab>
     </p-accordion>
@@ -192,4 +192,4 @@
 
 <ng-template #ifNameList>
 
-    <ng-template>
+    <ng-template> -->

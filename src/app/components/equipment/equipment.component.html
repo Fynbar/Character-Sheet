@@ -1,4 +1,4 @@
-<p-table #eqt [columns]="cols" [value]="items" dataKey="name" [paginator]="true" [rows]="30" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+<!-- <p-table #eqt [columns]="cols" [value]="items" dataKey="name" [paginator]="true" [rows]="30" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="header" let-columns>
 
         <tr>
@@ -14,7 +14,7 @@
                 <div *ngSwitchCase="'name'" class="ui-inputgroup">
                     <span class="ui-float-label">
                       <input id="float-input"  pInputText type="text" size="30" (input)="eqt.filter($event.target.value, col.field, 'contains')">
-                      <!-- <input id="float-input" type="text"  pInputText>  -->
+                      <!-- <input id="float-input" type="text"  pInputText>  --
                       <label for="float-input">Name</label>
                   </span>
                 </div>
@@ -22,10 +22,10 @@
                     {{weightFilter[0]}} {{weightFilter[1]}}
                     <i class="pi pi-times" (click)="weightFilter=[null, weightSlider[1]];eqt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="showWeightX"></i>
                     <p-slider *ngIf="weightSlider" range="true" [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="weightFilter" [min]="weightSlider[0]" [max]="weightSlider[1]" (onChange)="onWeightChange($event, eqt)"></p-slider>
-                </div> -->
+                </div> --
                 <p-dropdown *ngSwitchCase="'equipmentCategory'" [options]="categories" [style]="{'width':'100%'}" (onChange)="eqt.filter($event.value, col.field, 'equals')"></p-dropdown>
-                <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="eqt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
-                <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="eqt.filter($event.target.value, col.field, 'custom')"> -->
+                <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="eqt.filter($event.value, col.field, 'in')"></p-multiSelect> --
+                <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="eqt.filter($event.target.value, col.field, 'custom')"> --
             </th>
         </tr>
     </ng-template>
@@ -48,7 +48,7 @@
             </ng-template>
             <!-- <td>
           <i class="pi pi-check" *ngIf="rowData.flavor_text"></i>
-      </td> -->
+      </td> --
         </tr>
     </ng-template>
     <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
@@ -58,4 +58,4 @@
             </td>
         </tr>
     </ng-template>
-</p-table>
+</p-table> -->

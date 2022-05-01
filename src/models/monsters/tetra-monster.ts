@@ -1,4 +1,3 @@
-import { HtmlParser, ThisReceiver } from '@angular/compiler';
 import { breakBySubstrings, cap, isIn, spaceSplit } from 'src/app/common/string.functions';
 import { DamageType } from '../rules/damage-type';
 import { Condition, DamageInflict, DMGElement, ImmuneEnum, Size, Speed, ToolsMon, ToolsMonster, TypeTypeEnum } from './tools-monster';
@@ -192,11 +191,11 @@ export enum SizeToDie {
     gargantuan = 20,
 }
 
-export function toModifier(ability:number): number {
-   return Math.floor(ability/2)-5;
+export function toModifier(ability: number): number {
+    return Math.floor(ability / 2) - 5;
 };
 
-class TetraMon implements TetraMonster{
+export class TetraMon implements TetraMonster {
     name: string;
     size: string;
     type: string;
@@ -279,8 +278,9 @@ class TetraMon implements TetraMonster{
         const Tool = new ToolsMon();
         Tool.name = this.name;
         // Type/Tags
+        console.log('Tags');
         const monType = TypeTypeEnum[cap(this.type)]
-        if (this.tag.length>0) {
+        if (this.tag) {
             Tool.type = {
                 type: monType,
                 tags: [this.tag]
@@ -289,9 +289,11 @@ class TetraMon implements TetraMonster{
             Tool.type = monType
         }
         // Size
-        Tool.size=Size[this.size.charAt(0).toUpperCase()]
+        console.log('Size');
+        Tool.size = Size[this.size.charAt(0).toUpperCase()]
 
         // HP
+        console.log('HP');
         let HPstring = '';
         let HPavg = 0;
         if (this.customHP) {
@@ -299,38 +301,44 @@ class TetraMon implements TetraMonster{
             HPavg = +broken[0]
             HPstring = broken[1]
         } else {
-            HPstring = `(${this.hitDice}d${SizeToDie[this.size]}+${toModifier(+this.conPoints)*(+this.hitDice)})`;
-            HPavg = (SizeToDie[this.size]/2+toModifier(+this.conPoints))*(+this.hitDice);
+            HPstring = `(${this.hitDice}d${SizeToDie[this.size]}+${toModifier(+this.conPoints) * (+this.hitDice)})`;
+            HPavg = (SizeToDie[this.size] / 2 + toModifier(+this.conPoints)) * (+this.hitDice);
         }
-        Tool.hp = {formula: HPstring,
-                    average: HPavg }
+        Tool.hp = {
+            formula: HPstring,
+            average: HPavg
+        }
         // AC
-            // Tool.ac = {}
-
+        // Tool.ac = {}
+        console.log('AC in progress');
         // Speeds
-        const speedNames = ['fly', 'swim','climb','burrow']
-        const speedObj:Speed={};
-        if (this.customSpeed){
+        console.log('Speed');
+        const speedNames = ['fly', 'swim', 'climb', 'burrow']
+        const speedObj: Speed = {};
+        if (this.customSpeed) {
             alert(`${this.name} has a janky speed. idk, don't make me do this`);
         } else {
-            if (this.speed!=='0'){speedObj.walk= (+this.speed)}
+            if (this.speed !== '0') { speedObj.walk = (+this.speed) }
             speedNames.forEach(sp => {
-                if (this[sp+'Speed']!=='0'){speedObj[sp]=this[sp+'speed']};
+                if (this[sp + 'Speed'] !== '0') { speedObj[sp] = this[sp + 'speed'] };
             });
-            if (this.hover){speedObj.canHover= (this.hover)}
+            if (this.hover) { speedObj.canHover = (this.hover) }
         }
-        Tool.speed=speedObj
+        Tool.speed = speedObj
 
         // Abilities
+        console.log('Abilities');
         const Abilities = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
         Abilities.forEach(abil => {
-            Tool[abil] = this[abil+'Points']
+            // console.log(abil, this[abil + 'Points'])
+            Tool[abil] = this[abil + 'Points']
         });
 
         // CR
-        if (this.cr!=='*') {
+        console.log('CR');
+        if (this.cr !== '*') {
             Tool.cr = this.cr
-            this.customProf = Math.ceil((+this.cr)/4)+1
+            this.customProf = Math.ceil((+this.cr) / 4) + 1
         } else if (isIn(this.customCr, 'lair')) {
             // 'customCr': '19 (22,000 XP) or 20 (25,000 XP) when encountered in lair',
             const broken = spaceSplit(this.customCr)
@@ -338,7 +346,7 @@ class TetraMon implements TetraMonster{
                 cr: broken[0],
                 lair: broken[4]
             }
-        } else  {
+        } else {
             const broken = spaceSplit(this.customCr)
             Tool.cr = {
                 cr: broken[0],
@@ -346,47 +354,61 @@ class TetraMon implements TetraMonster{
             }
         }
         // Saves
-        this.sthrows.forEach(st => {
-            Tool.save[st.name] = (toModifier(this[st.name+'Points'])+this.customProf).toString();
-        });
-
-        // Skills
-            let a = 0;
-            this.skills.forEach(sk => {
-                a = sk.hasOwnProperty('note')? 2:1;
-                Tool.skill[sk.name] = toModifier(this[sk.stat+'Points'])+this.customProf*a
+        console.log('Saves');
+        console.log(this.sthrows);
+        if (this.sthrows.length > 0) {
+            Tool.save = {}
+            this.sthrows.forEach(st => {
+                const s = toModifier(this[st.name + 'Points']) + this.customProf;
+                Tool.save[st.name] = `${s>=0?'+':''}${s}`
             });
+        }
+        // Skills
+        console.log('Skills');
+        let a = 0;
+        if (this.skills.length > 0) {
+            Tool.skill = {}
+            this.skills.forEach(sk => {
+                a = sk.hasOwnProperty('note') ? 2 : 1;
+                const s = toModifier(this[sk.stat + 'Points']) + this.customProf * a
+                Tool.skill[sk.name] = `${s>=0?'+':''}${s}`
+            });
+        }
 
         // Res/Imm/Vuln
-        const imm = this.specialdamage.filter(dam=> dam.type==='i').map(dam => DamageType[cap(dam.name)])
-        const res = this.damagetypes.filter(dam=> dam.type==='r').map(dam => DamageType[cap(dam.name)])
-        const vul = this.damagetypes.filter(dam=> dam.type==='v').map(dam => DamageType[cap(dam.name)])
-        if(imm.length > 0){Tool.immune=imm};
-        if(res.length > 0){Tool.resist=res};
-        if(vul.length > 0){Tool.vulnerable=vul};
+        console.log('Resistances');
+        const imm = this.specialdamage.filter(dam => dam.type === 'i').map(dam => DamageType[cap(dam.name)])
+        const res = this.damagetypes.filter(dam => dam.type === 'r').map(dam => DamageType[cap(dam.name)])
+        const vul = this.damagetypes.filter(dam => dam.type === 'v').map(dam => DamageType[cap(dam.name)])
+        if (imm.length > 0) { Tool.immune = imm };
+        if (res.length > 0) { Tool.resist = res };
+        if (vul.length > 0) { Tool.vulnerable = vul };
 
         // CondImm
-        if(this.conditions.length > 0){
-            Tool.conditionImmune=this.conditions.map(cond => Condition[cap(cond.name)])
+        console.log('Conditions');
+        if (this.conditions.length > 0) {
+            Tool.conditionImmune = this.conditions.map(cond => Condition[cap(cond.name)])
         }
 
         // Languages
-        const speakLang = this.languages.filter(lan=> lan.speaks).map(lan =>cap(lan.name))
-        const knownLang = this.languages.filter(lan=> !lan.speaks).map(lan =>cap(lan.name))
-        if(speakLang.length > 0){
+        console.log('Languages');
+        const speakLang = this.languages.filter(lan => lan.speaks).map(lan => cap(lan.name))
+        const knownLang = this.languages.filter(lan => !lan.speaks).map(lan => cap(lan.name))
+        if (speakLang.length > 0) {
             // Tool.languages= [...speakLang, ...knownLang]
         } else {
-            Tool.languages=speakLang
+            Tool.languages = speakLang
         }
 
         // Sense
+        console.log('Senses');
         const tetraSenses = ['darkvision', 'blindsight', 'tremorsense', 'truesight']
-        Tool.senses = tetraSenses.filter(s=>this[s]!=='0').map(s=>{
+        Tool.senses = tetraSenses.filter(s => this[s] !== '0').map(s => {
             let sText: string;
-            if (s!== 'blindsight') {
+            if (s !== 'blindsight') {
                 sText = `${s} ${this[s]} ft.`
             } else {
-                sText = `${s} ${this[s]} ft.${this.blind?' (blind beyond this radius)':''}`
+                sText = `${s} ${this[s]} ft.${this.blind ? ' (blind beyond this radius)' : ''}`
             }
             return sText
         });

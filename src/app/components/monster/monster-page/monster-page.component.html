@@ -1,15 +1,15 @@
-<p-table #dt [columns]="cols" [value]="monsters" [expandedRowKeys]="expandedRows" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+<!-- <p-table #dt [columns]="cols" [value]="monsters" [expandedRowKeys]="expandedRows" dataKey="name" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
     <ng-template pTemplate="caption">
         <div style="text-align: right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <!-- <p-inputSwitch [(ngModel)]="checked" (onChange)="dt.filter($event.checked, isComplete, 'equals')"></p-inputSwitch> -->
-            <!-- <p-inputSwitch [(ngModel)]="checked" (onChange)="testFunc($event, dt)"></p-inputSwitch> -->
+            <!-- <p-inputSwitch [(ngModel)]="checked" (onChange)="dt.filter($event.checked, isComplete, 'equals')"></p-inputSwitch> --
+            <!-- <p-inputSwitch [(ngModel)]="checked" (onChange)="testFunc($event, dt)"></p-inputSwitch> --
         </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
         <!-- <tr>
           <th [attr.colspan]="columns.length + 1">{{monsters.length}}</th>
-      </tr> -->
+      </tr> --
         <tr>
             <th style="width: 3em"></th>
             <th *ngFor="let col of columns">
@@ -26,20 +26,20 @@
 
             <th *ngFor="let col of columns" [ngSwitch]="col.field">
                 <input *ngSwitchCase="'name'" id="float-input" pInputText type="text" size="30" (input)="dt.filter($event.target.value, col.field, 'contains')">
-                <!-- <input id="float-input" type="text"  pInputText>  -->
+                <!-- <input id="float-input" type="text"  pInputText>  --
 
                 <!-- <div *ngSwitchCase="'weight'">
                 {{weightFilter[0]}} {{weightFilter[1]}}
                 <i class="pi pi-times" (click)="weightFilter=[null, weightSlider[1]];dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="showWeightX"></i>
                 <p-slider *ngIf="weightSlider" range="true" [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="weightFilter" [min]="weightSlider[0]" [max]="weightSlider[1]" (onChange)="onWeightChange($event, dt)"></p-slider>
-            </div> -->
+            </div> --
                 <p-dropdown *ngSwitchCase="'challenge'" [options]="categories" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-                <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
-                <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="dt.filter($event.target.value, col.field, 'custom')"> -->
+                <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect> --
+                <!-- <input *ngSwitchCase="'weight'" pInputText type="text" placeholder="Custom - Greater Than" (input)="dt.filter($event.target.value, col.field, 'custom')"> --
             </th>
             <!-- <th>
           Filled
-      </th> -->
+      </th> --
             <th style="width: 3em"></th>
         </tr>
     </ng-template>
@@ -50,10 +50,10 @@
                     <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
                 </a>
             </td>
-            <!-- </td> -->
+            <!-- </td> --
             <td>{{rowData.name}}
             </td>
-            <!-- <td>{{checked? rowData.page.book: 'SRD'}} -->
+            <!-- <td>{{checked? rowData.page.book: 'SRD'}} --
             <td>{{rowData.challenge}}
             </td>
             <td>{{rowData.pageString}}
@@ -71,4 +71,4 @@
             </td>
         </tr>
     </ng-template>
-</p-table>
+</p-table> -->

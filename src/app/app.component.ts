@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MegaMenuItem, MenuItem } from 'primeng/api';
 import { AppRoutingModule } from './app-routing.module';
+// import {MenubarModule} from 'primeng/menubar';
+
 
 
 @Component({

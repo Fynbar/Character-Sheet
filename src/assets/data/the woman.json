@@ -1,0 +1,247 @@
+{
+    "name": "The Woman",
+    "size": "medium",
+    "type": "humanoid",
+    "tag": "",
+    "alignment": "chaotic evil",
+    "hitDice": "19",
+    "armorName": "other",
+    "shieldBonus": 0,
+    "natArmorBonus": 4,
+    "otherArmorDesc": "20 (_robe of the stranger_)",
+    "speed": "30",
+    "burrowSpeed": "0",
+    "climbSpeed": "0",
+    "flySpeed": "0",
+    "hover": false,
+    "swimSpeed": "0",
+    "customHP": true,
+    "customSpeed": false,
+    "hpText": "325 (19d6 + 247)",
+    "speedDesc": "30 ft.",
+    "strPoints": "8",
+    "dexPoints": "14",
+    "conPoints": "21",
+    "intPoints": "22",
+    "wisPoints": "10",
+    "chaPoints": "12",
+    "blindsight": "0",
+    "blind": false,
+    "darkvision": "0",
+    "tremorsense": "0",
+    "truesight": "0",
+    "telepathy": 0,
+    "cr": "*",
+    "customCr": "24 (62,000 XP) or 25 (75,000 XP) when encountered in lair",
+    "customProf": 6,
+    "isLegendary": true,
+    "legendariesDescription": "The [MON] can take 5 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The [MON] regains spent legendary actions at the start of its turn.",
+    "isLair": true,
+    "lairDescription": "When fighting inside its lair, the [MON] can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the [MON] can take one lair action to cause one of the following effects:",
+    "lairDescriptionEnd": "The [MON] can't repeat an effect until they have all been used, and it can't use the same effect two rounds in a row.",
+    "isRegional": false,
+    "regionalDescription": "The region containing the lich's lair is warped by the creature's presence, which creates one or more of the following effects:",
+    "regionalDescriptionEnd": "If the lich dies, the first two effects fade over the course of 3d10 days.",
+    "properties": [],
+    "abilities": [{
+            "name": "Eyes Beyond Time",
+            "desc": "The [MON] has advantage on Intelligence (History) checks."
+        },
+        {
+            "name": "Magical Resistance",
+            "desc": "The [MON] has advantage on saving throws against spells and other magical effects."
+        },
+        {
+            "name": "Robe of Stars",
+            "desc": "The [MON] has a +1 bonus to saving throws."
+        },
+        {
+            "name": "Stanger's Veil",
+            "desc": "The [MON] has advantage on all checks made to hide their identity. In addition, after interacting with the [MON], creatures must succeed a DC 19 Wisdom saving throw or forget the interaction over the next few days. A creature attuned to a Nighteye Dagger automatically succeeds."
+        },
+        {
+            "name": "Temporal Awareness",
+            "desc": "The [MON] adds **[INT]** to their initiative rolls."
+        },
+        {
+            "name": "War Caster",
+            "desc": "The [MON] has advantage on Constitution saving throws made to maintain your concentration on a spell."
+        },
+        {
+            "name": "Wreathed in the Unknowable",
+            "desc": "The [MON] is hidden from divination magic and can't be perceived through magical scrying sensors. When a creature targets the [MON] using the scrying spell or similar spell, it must make a Wisdom saving throw against it's own save DC or take [3d8] psychic damage."
+        },
+        {
+            "name": "Spellcasting",
+            "desc": "The [MON] is an 19th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC [INT SAVE + 2], [INT ATK + 2] to hit with spell attacks). The [MON] has the following wizard spells prepared:\n\n>Cantrip (at will): _light, mage hand, prestidigitation, sapping sting, toll the dead_\n>Ritual Spells (at will): _comprehend languages, find familiar, identify, leomund's tiny hut, \nrary's telepathic bond, unseen servant_\n>1st (4 slots): _chromatic orb, color spray, disguise self, shield_\n>2nd (3 slots): _fortune's favor, mirror image, misty step^, scorching ray_\n>3rd (3 slots): _counterspell, fireball, tongues_\n>4th (2 slots): _**arcane eye**, dimension door, **greater invisibility**_\n>5th (2 slots): _**bigby's hand**, **modify memory**, temporal shunt_\n>6th (1 slot): _chain lightning, disintegrate_\n>7th (1 slot): _plane shift, **tether essence**_\n>8th (1 slot): **_maddening darkness**, **reality break**_\n>9th (1 slot): _time ravage, time stop_\n_bonus action^;**concentration**_"
+        },
+        {
+            "name": "Spell Mastery",
+            "desc": "The [MON] can cast the _shield_ spell and the _misty step_ spell without expending a spell slot."
+        }
+    ],
+    "actions": [{
+            "name": "Light Crossbow",
+            "desc": "_Ranged Weapon Attack:_ +7 to hit, (80/320), one creature. _Hit:_ [1d8+1] piercing damage."
+        },
+        {
+            "name": "Walk Through Planes",
+            "desc": "The [MON] enters the _Astral Plane_ and remains there until they use an action to return to the plane they were on. The [MON] reappears in the last space they occupied, or the nearest unoccupied space."
+        },
+        {
+            "name": "Tharizdun's Bolt (Recharge 6)",
+            "desc": "The [MON] selects one creature it can see that can see it with in 60 ft. The creature hit must succeed on a DC 19 Wisdom saving throw or experience short-term madness for 1 hour or long-term madness for 10 minutes. Consult the Short-Term and Long-Term Madness tables (see \"Madness Effects\" in chapter 8 of the Dungeon Master's Guide) to determine the form of the madness. The affected creature can repeat the saving throw at the end of every 10 minutes if inflicted with short-term madness or at the end of each minute for long-term madness, ending the effect on itself on a success."
+        },
+        {
+            "name": "Momentary Stasis (6/day)",
+            "desc": "The [MON] can force a Large or smaller creature within 60 feet to make a DC [INT SAVE] Constitution saving throw or be incapacitated and has a speed of 0 until the end of the [MON]'s next turn or until the creature takes any damage."
+        },
+        {
+            "name": "Robe of Stars (6 Charges; Recharges 1d6 at Dusk)",
+            "desc": "By expending a charge, the [MON] casts _magic missile_ as a 5th-level spell _(7 darts)_."
+        }
+    ],
+    "reactions": [{
+            "name": "Chronal Shift (2/day)",
+            "desc": "After anyone within 30 feet of the [MON] makes an attack roll, an ability check, or a saving throw, they can force the creature to reroll. The target must use the result of the second roll."
+        },
+        {
+            "name": "Convergent Future",
+            "desc": "When anyone makes an attack roll, an ability check, or a saving throw, within 60 feet of the [MON], they can use a reaction to ignore the die roll and decide whether the number rolled is the minimum needed to succeed or one less than that number. When the [MON] use this feature, they gain one level of exhaustion."
+        },
+        {
+            "name": "War Caster",
+            "desc": "When a creature's provokes an opportunity attack, the [MON] can cast a spell at the creature, rather than making an opportunity attack."
+        }
+    ],
+    "legendaries": [{
+            "name": "Cantrip",
+            "desc": "The [MON] casts a cantrip."
+        },
+        {
+            "name": "Reaction (Costs 2 Actions)",
+            "desc": "The [MON] regains their reaction."
+        },
+        {
+            "name": "Tharizdun's Bolt (Costs 3 Actions)",
+            "desc": "The [MON] recharges and uses _**Tharizdun's Bolt**_."
+        },
+        {
+            "name": "Cast Spell (Costs 1–3 Actions)",
+            "desc": "The [MON] uses a spell slot to cast a 1st-, 2nd-, or 3rd-level spell that it has prepared. Doing so costs 1 legendary action per level of the spell."
+        }
+    ],
+    "lairs": [{
+            "name": "Regain Spells",
+            "desc": "The [MON] rolls a d8 and regains a spell slot of that level or lower. If they have no spent spell slots of that level or lower, nothing happens."
+        },
+        {
+            "name": "Anti-Magic Field",
+            "desc": "The [MON] targets one 30 ft circle within 60. Blinky is forced to project its eye in that direction and that area is under the effect of the _anti-magic field_ spell until the next turn."
+        },
+        {
+            "name": "Temporal Anomoly",
+            "desc": "The [MON] exacerbates a temporal anomaly in its lair. This abnormality materializes around one creatures they can see within 60 feet of it. The target must succeed on a DC 18 Constitution saving throw, taking [15d6] force or psychic damage (your choice) on a failed save, or half as much damage on a success. The anomaly then disappears."
+        }
+    ],
+    "regionals": [],
+    "sthrows": [{
+            "name": "con",
+            "order": 2
+        },
+        {
+            "name": "int",
+            "order": 3
+        },
+        {
+            "name": "wis",
+            "order": 4
+        }
+    ],
+    "skills": [{
+            "name": "arcana",
+            "stat": "int",
+            "note": " (ex)"
+        },
+        {
+            "name": "deception",
+            "stat": "cha",
+            "note": " (ex)"
+        },
+        {
+            "name": "history",
+            "stat": "int"
+        },
+        {
+            "name": "insight",
+            "stat": "wis"
+        },
+        {
+            "name": "investigation",
+            "stat": "int"
+        },
+        {
+            "name": "perception",
+            "stat": "wis"
+        },
+        {
+            "name": "performance",
+            "stat": "cha",
+            "note": " (ex)"
+        },
+        {
+            "name": "religion",
+            "stat": "int"
+        }
+    ],
+    "damagetypes": [{
+            "name": "bludgeoning",
+            "note": " (Resistant)",
+            "type": "r"
+        },
+        {
+            "name": "piercing",
+            "note": " (Resistant)",
+            "type": "r"
+        },
+        {
+            "name": "psychic",
+            "note": " (Resistant)",
+            "type": "r"
+        },
+        {
+            "name": "slashing",
+            "note": " (Resistant)",
+            "type": "r"
+        }
+    ],
+    "specialdamage": [{
+        "name": "bludgeoning, piercing, and slashing from nonmagical attacks",
+        "note": " (Immune)",
+        "type": "i"
+    }],
+    "conditions": [],
+    "languages": [{
+            "name": "Celestial",
+            "speaks": true
+        },
+        {
+            "name": "Common",
+            "speaks": true
+        },
+        {
+            "name": "Deep Speech",
+            "speaks": true
+        },
+        {
+            "name": "Primordial",
+            "speaks": true
+        }
+    ],
+    "understandsBut": "",
+    "shortName": "Stranger",
+    "doubleColumns": true,
+    "separationPoint": 11,
+    "damage": [],
+    "pluralName": ""
+}

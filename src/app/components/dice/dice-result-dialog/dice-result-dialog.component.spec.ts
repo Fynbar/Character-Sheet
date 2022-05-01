@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiceResultDialogComponent } from './dice-result-dialog.component';
-import { Dialog, DialogModule } from 'primeng/dialog/dialog.d';
+// import { Dialog, DialogModule } from 'primeng/dialog/dialog.d';
 
 describe('DiceResultDialogComponent', () => {
   let component: DiceResultDialogComponent;
@@ -10,7 +10,9 @@ describe('DiceResultDialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DiceResultDialogComponent ],
-      imports: [DialogModule]
+      imports: [
+        // DialogModule
+      ]
     })
     .compileComponents();
   }));

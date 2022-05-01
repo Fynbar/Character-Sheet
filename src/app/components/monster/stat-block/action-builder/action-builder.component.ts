@@ -10,6 +10,7 @@ import { enumValuesArray } from '../../../../../app/common/enumKeysArray';
 import { WeaponAttack } from '../../../equipment/weapon/weapon-attack';
 import { Weapon, CategoryRange } from '../../../../../models/equipment/weapon.model';
 import { JSONService } from '../../../../services/json.service';
+
 const categoryRanges = enumValuesArray(CategoryRange);
 @Component({
   selector: 'app-action-builder',

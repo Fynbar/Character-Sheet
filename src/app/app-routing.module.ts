@@ -13,6 +13,7 @@ import { InitTrackerComponent } from './components/combat/init-tracker/init-trac
 import { EncounterBuilderComponent } from './components/combat/encounter-builder/encounter-builder.component';
 import { EncounterViewerComponent } from './components/combat/encounter-viewer/encounter-viewer.component';
 import { capEach } from './common/string.functions';
+import { MonsterConverterComponent } from './components/monster/monster-converter/monster-converter.component';
 
 
 
@@ -23,6 +24,7 @@ export const routes: Routes = [
       { path: 'view', component: MonsterPageComponent },
       { path: 'build', component: MonsterBuilderComponent },
       { path: 'modify', component: ModifierBuilderComponent },
+      { path: 'convert', component: MonsterConverterComponent },
     ]
   },
   {

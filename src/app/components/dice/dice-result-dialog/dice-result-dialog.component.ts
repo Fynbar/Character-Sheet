@@ -11,6 +11,6 @@ export class DiceResultDialogComponent implements OnInit {
 
   ngOnInit() {
   }
-  public closeDiceDialog($event): void {
-  }
+  // public closeDiceDialog($event): void {
+  // }
 }

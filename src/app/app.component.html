@@ -1,5 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<p-menubar [model]="items"></p-menubar>
+
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img src="assets\images\dndLogo.png" height="40" class="mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+        <input type="text" pInputText placeholder="Search">
+    </ng-template>
+</p-menubar>
 <div style="text-align:center">
     <h1>
         Welcome to {{ title }}!
