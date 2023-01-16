@@ -39,7 +39,6 @@ import { MonsterConverterComponent } from './components/monster/monster-converte
 // #region PrimeNG modules
 import { AccordionModule } from 'primeng/accordion/accordion';
 import { DynamicDialogModule, DialogService, DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicDialog';
-import { TableModule } from 'primeng/table/table';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox/checkbox';
@@ -54,6 +53,7 @@ import { SelectButtonModule } from 'primeng/selectButton';
 import { TooltipModule } from 'primeng/tooltip';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import {FileUploadModule} from 'primeng/fileupload';
+import { TableModule } from 'primeng/table';
 // #endregion
 
 
@@ -149,7 +149,7 @@ import {FileUploadModule} from 'primeng/fileupload';
     // SpinnerModule,
     // SplitButtonModule,
     // StepsModue,
-    // TableModule,
+    TableModule,
     // TabMenuModule,
     // TabViewModule,
     // TerminalModule,

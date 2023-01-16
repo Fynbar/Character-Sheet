@@ -1,13 +1,14 @@
 <p>Init Tracker</p>
 
-<!-- <p-inputSwitch [(ngModel)]="encounter.rolled"></p-inputSwitch>
-<p-button label="Click" (onClick)="rollAll($event)"></p-button>
+<p-inputSwitch [(ngModel)]="encounter.rolled"></p-inputSwitch>
+<p-button label="RollAll" (onClick)="rollAll($event)"></p-button>
 <p-table #eqt [columns]="cols" [value]="order" dataKey="name">
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th style="width: 3em"></th>
-            <th> Name </th>
-            <th> Initiative<br>Bonus </th>
+            <th>Name </th>
+            <th>Initiative<br>Bonus</th>
+            <th>Locked</th>
             <th *ngIf="encounter.rolled"> Initiative<br>Roll </th>
         </tr>
     </ng-template>
@@ -20,11 +21,15 @@
                 {{rowData.name}}
             </td>
             <td>
-                <p-inputNumber [(ngModel)]="rowData.initiativeBonus" [showButtons]="!readOnly" buttonLayout="horizontal" size="15" spinnerMode="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                <p-inputNumber [(ngModel)]="rowData.initiativeBonus" [showButtons]="!readOnly" buttonLayout="horizontal" size="3" spinnerMode="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
                     decrementButtonIcon="pi pi-minus">
                 </p-inputNumber>
             </td>
-            <td *ngIf="encounter.rolled&&rowData.init">
+            <td class="field-checkbox">
+                <p-checkbox [(ngModel)]="rowData.locked" [binary]="true" inputId="binary"></p-checkbox>
+                <label for="binary">{{checked}}</label>
+            </td>
+            <td *ngIf="rowData.locked&&rowData.init">
                 {{rowData.init+rowData.initiativeBonus}}
             </td>
         </tr>
@@ -32,7 +37,7 @@
     <tr>
         <td [attr.colspan]="colSpan">
             123
-            <!-- <app-stat-block [Monster]="rowData"></app-stat-block> --
+            <!-- <app-stat-block [Monster]="rowData"></app-stat-block> -- -->
         </td>
     </tr>
     <ng-template [ngIf]="!readOnly" pTemplate="footer">
@@ -42,4 +47,4 @@
             </td>
         </tr>
     </ng-template>
-</p-table> -->
+</p-table>

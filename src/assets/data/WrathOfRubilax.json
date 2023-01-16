@@ -4,9 +4,9 @@
             {
                 "json": "WOR",
                 "abbreviation": "WOR",
-                "full": "Wrath of Rubilax Unlocked Classes V.0.6",
+                "full": "Wrath of Rubilax - Online",
                 "authors": [
-                    "Connor AKA the prettiest girl at the party"
+                    "The prettiest girl at the party AKA Connor"
                 ],
                 "version": "1.0.0",
                 "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley",
@@ -797,7 +797,7 @@
                     "type": "entries",
                     "name": "Spell Slots",
                     "entries": [
-                        "The Dancer table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spellâ€™s level or higher. You regain all expended spell slots when you finish a long rest."
+                        "The Dancer table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spellÃ¢â‚¬â„¢s level or higher. You regain all expended spell slots when you finish a long rest."
                     ]
                 },
                 {
@@ -861,7 +861,7 @@
                     "type": "entries",
                     "name": "Dances",
                     "entries": [
-                        "Dances have two parts: An active effect, and a passive effect. The passive effect stays in effect until the dance ends, which is when you use another dance, become incapacitated, grappled, paralyzed, petrified, or restrained, you take a short or long rest, or after a certain amount of time has passed, unless stated otherwise. Each active effect costs a spell slot of 1st level or higher to use. The amount of time that a dance lasts for is determined by the level of spell slot expended: 1st level -1 minute; 2nd level â€“ 10 minutes; 3rd level â€“ 1 hour; 4th level â€“ 8 hours; 5th level â€“ Until the dance ends by any of the qualifying conditions or triggers.",
+                        "Dances have two parts: An active effect, and a passive effect. The passive effect stays in effect until the dance ends, which is when you use another dance, become incapacitated, grappled, paralyzed, petrified, or restrained, you take a short or long rest, or after a certain amount of time has passed, unless stated otherwise. Each active effect costs a spell slot of 1st level or higher to use. The amount of time that a dance lasts for is determined by the level of spell slot expended: 1st level -1 minute; 2nd level Ã¢â‚¬â€œ 10 minutes; 3rd level Ã¢â‚¬â€œ 1 hour; 4th level Ã¢â‚¬â€œ 8 hours; 5th level Ã¢â‚¬â€œ Until the dance ends by any of the qualifying conditions or triggers.",
                         "Some dances are complex enough to require a level of concentration to be maintained. This concentration functions the same as that of a spell, and as such, you must make concentration checks when injured and may not concentrate on both a dance and a spell that require concentration."
                     ]
                 }
@@ -2753,7 +2753,7 @@
                     "type": "entries",
                     "name": "Active",
                     "entries": [
-                        "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal necrotic damage to the target, in addition to the weaponâ€™s damage. The extra damage is {@dice 2d8} for a 1st-level spell slot, plus {@dice 1d8} for each spell level higher than 1st, to a maximum of 6d8."
+                        "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal necrotic damage to the target, in addition to the weaponÃ¢â‚¬â„¢s damage. The extra damage is {@dice 2d8} for a 1st-level spell slot, plus {@dice 1d8} for each spell level higher than 1st, to a maximum of 6d8."
                     ]
                 },
                 {
@@ -3293,6 +3293,22 @@
             ]
         }
     ],
+    "condition": [
+        {
+            "name": "Interdicted",
+            "source": "WOR",
+            "page": 1,
+            "entries": [
+                {
+                    "type": "list",
+                    "items": [
+                        "A creature afflicted with an {@class Illrigger|WOR|Illrigger's} Baleful Interdict is interdicted."
+                    ]
+                }
+            ],
+            "hasFluffImages": false
+        }
+    ],
     "spell": [
         {
             "name": "Aura of Desecration",
@@ -3332,6 +3348,14 @@
             ],
             "components": {
                 "v": true
+            },
+            "classes": {
+                "fromClassList": [
+                    {
+                        "name": "Illrigger",
+                        "source": "WOR"
+                    }
+                ]
             }
         },
         {
@@ -3389,7 +3413,15 @@
             ],
             "areaTags": [
                 "ST"
-            ]
+            ],
+            "classes": {
+                "fromClassList": [
+                    {
+                        "name": "Illrigger",
+                        "source": "WOR"
+                    }
+                ]
+            }
         },
         {
             "name": "Mote of Hell",
@@ -3437,7 +3469,15 @@
             ],
             "savingThrow": [
                 "wisdom"
-            ]
+            ],
+            "classes": {
+                "fromClassList": [
+                    {
+                        "name": "Illrigger",
+                        "source": "WOR"
+                    }
+                ]
+            }
         },
         {
             "name": "Single Combat",
@@ -3477,7 +3517,15 @@
             },
             "savingThrow": [
                 "charisma"
-            ]
+            ],
+            "classes": {
+                "fromClassList": [
+                    {
+                        "name": "Illrigger",
+                        "source": "WOR"
+                    }
+                ]
+            }
         },
         {
             "name": "Wall of Death",
@@ -3522,7 +3570,15 @@
             ],
             "savingThrow": [
                 "constitution"
-            ]
+            ],
+            "classes": {
+                "fromClassList": [
+                    {
+                        "name": "Illrigger",
+                        "source": "WOR"
+                    }
+                ]
+            }
         }
     ]
 }

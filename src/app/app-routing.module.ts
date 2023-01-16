@@ -19,26 +19,26 @@ import { MonsterConverterComponent } from './components/monster/monster-converte
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  {
-    path: 'monster', component: MonsterComponent, children: [
-      { path: 'view', component: MonsterPageComponent },
-      { path: 'build', component: MonsterBuilderComponent },
-      { path: 'modify', component: ModifierBuilderComponent },
-      { path: 'convert', component: MonsterConverterComponent },
-    ]
-  },
-  {
-    path: 'spells', children: [
-      { path: 'list', component: SpellListComponent },
-      // { path: 'psychro', component: PsychrometricComponent }
-    ]
-  },
-  {
-    path: 'equipment', component: EquipmentComponent, children: [
-      // { path: 'weapons', component: wea },
-      // { path: 'psychro', component: PsychrometricComponent }
-    ]
-  },
+  // {
+  //   path: 'monster', component: MonsterComponent, children: [
+  //     { path: 'view', component: MonsterPageComponent },
+  //     { path: 'build', component: MonsterBuilderComponent },
+  //     { path: 'modify', component: ModifierBuilderComponent },
+  //     { path: 'convert', component: MonsterConverterComponent },
+  //   ]
+  // },
+  // {
+  //   path: 'spells', children: [
+  //     { path: 'list', component: SpellListComponent },
+  //     // { path: 'psychro', component: PsychrometricComponent }
+  //   ]
+  // },
+  // {
+  //   path: 'equipment', component: EquipmentComponent, children: [
+  //     // { path: 'weapons', component: wea },
+  //     // { path: 'psychro', component: PsychrometricComponent }
+  //   ]
+  // },
   {
     path: 'combat', component: CombatComponent, children: [
       { path: 'Initiative Tracker', component: InitTrackerComponent },

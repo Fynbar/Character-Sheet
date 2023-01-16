@@ -8,12 +8,17 @@ export interface Encounter {
   rolled: boolean;
   creatures: EncounterCreature[];
   players: number;
+
 }
 
 export interface EncounterCreature {
   initiativeBonus: number;
   name: string;
   init: number;
+  conCheck:number;
+  hpMax:number;
+  hpCurrent:number;
+  locked:boolean;
 }
 
 @Component({
@@ -32,14 +37,14 @@ export class InitTrackerComponent implements OnInit {
   public encounter: Encounter = {
     rolled: false,
     creatures: [
-      { initiativeBonus: 1, name: '1', init: null },
-      { initiativeBonus: 5, name: '2', init: null },
-      { initiativeBonus: 2, name: '3', init: null },
-      { initiativeBonus: 3, name: '4', init: null },
-      { initiativeBonus: 4, name: '5', init: null },
-      { initiativeBonus: 1, name: '6', init: null },
-      { initiativeBonus: 3, name: '7', init: null },
-      { initiativeBonus: 6, name: '8', init: null }
+      { initiativeBonus: 1, name: '1', init: null, conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 5, name: '2', init: null , conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 2, name: '3', init: null , conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 3, name: '4', init: null , conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 4, name: '5', init: null , conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 1, name: '6', init: null , conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 3, name: '7', init: null , conCheck:2, hpMax:10, hpCurrent:10, locked: false},
+      { initiativeBonus: 6, name: '8', init: null, conCheck:2, hpMax:10, hpCurrent:10, locked: false}
     ],
     players: 3
   };

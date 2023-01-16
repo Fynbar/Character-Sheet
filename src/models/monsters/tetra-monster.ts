@@ -298,10 +298,11 @@ export class TetraMon implements TetraMonster {
         let HPavg = 0;
         if (this.customHP) {
             const broken = breakBySubstrings(this.hpText, '(', ')')
+            console.log(broken);
             HPavg = +broken[0]
-            HPstring = broken[1]
+            HPstring = broken[1].substring(1)
         } else {
-            HPstring = `(${this.hitDice}d${SizeToDie[this.size]}+${toModifier(+this.conPoints) * (+this.hitDice)})`;
+            HPstring = `${this.hitDice}d${SizeToDie[this.size]}+${toModifier(+this.conPoints) * (+this.hitDice)}`;
             HPavg = (SizeToDie[this.size] / 2 + toModifier(+this.conPoints)) * (+this.hitDice);
         }
         Tool.hp = {

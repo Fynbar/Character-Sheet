@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   cols=[];
   ngOnInit() {
     this.servicetester(this.service.sayHi());
-
     this.servicetester(this.service.rollDice(new Die(20, 2, 1)).pipe(tap(_ => this.servicetester(this.service.getDiceHistory()))));
     this.JSON.getAllMonsters().pipe(tap(d => console.log(d))).subscribe(d =>
       this.monsters = d.filter(m => m.hitPoints && m.meta)
@@ -38,4 +37,7 @@ export class HomeComponent implements OnInit {
     ).subscribe(d => this.tests.push(d));
   }
 
+  public get testOut() {
+    return this.tests.length < 3 ? this.tests  : ['Python API Works!!'];
+  }
 }
