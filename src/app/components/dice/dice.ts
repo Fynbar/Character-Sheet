@@ -78,3 +78,5 @@ export interface Roll {
     total: number;
     dice?: Die;
 }
+
+

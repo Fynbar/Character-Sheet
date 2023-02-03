@@ -19,9 +19,27 @@ export class HomeComponent implements OnInit {
   tests = [];
   monsters = [];
   cols=[];
+  dice = ''
   ngOnInit() {
     this.servicetester(this.service.sayHi());
-    this.servicetester(this.service.rollDice(new Die(20, 2, 1)).pipe(tap(_ => this.servicetester(this.service.getDiceHistory()))));
+    this.servicetester(this.service.stringRollDie('2d20kh1'));
+  //   this.servicetester(this.service.stringRollDice([
+  //     '{2d20; 10}kh1',
+  //     '{2d20}+5',
+  //         '{6d20}kh2',
+  //     '{6d20}dh2',
+  //     '{6d20}kl2',
+  //     '{6d20}dl2',
+  //     '2d20-1d4','2d20kh1', '5',
+  //         '6*2d20', '2d10/2','6d4kh(1d4)',
+  //     '{100d100; 5d2000}kh1',
+  //     '4d6e3',
+  //     '5d6r<=5',
+  //     '5d6ro>=3',
+  //     '1d20+4>=10',
+  //     '2d20kh1+5>=10'
+  // ]));
+    this.servicetester(this.service.getDiceHistory());
     this.JSON.getAllMonsters().pipe(tap(d => console.log(d))).subscribe(d =>
       this.monsters = d.filter(m => m.hitPoints && m.meta)
     );
@@ -29,8 +47,13 @@ export class HomeComponent implements OnInit {
     // this.service.saveJSONFile('Bet/test2', { name: 'Greg' }).subscribe(d =>
     //   console.log(d)
     // );
-
   }
+
+  public BlurRoll($event): void{
+    console.log('\"Rolling\" ' + this.dice)
+    // this.servicetester(this.service.stringRollDie(this.dice));
+  }
+
   public servicetester(serviceCall: Observable<any>) {
     serviceCall.pipe(tap(d =>
       console.log(d))

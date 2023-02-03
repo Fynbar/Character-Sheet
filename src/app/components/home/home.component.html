@@ -5,6 +5,12 @@
     {{t|json}}
 </p>
 
+<span class="p-float-label">
+    <input id="float-input" [(ngModel)]="dice" type="text"  pInputText> 
+    <label for="float-input">Enter Die Roll</label>
+    
+</span>
+<button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined" (onClick)="BlurRoll($event)"></button>
 <!-- <p-table #dt [columns]="cols" [value]="monsters" dataKey="name">
     <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
         <tr>

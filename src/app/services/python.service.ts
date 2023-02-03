@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, mergeMap } from 'rxjs/operators';
 // import { ThermoStateData } from '../models/thermo-state.model';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
-import { Die, Roll } from '../components/dice/dice';
+import { forkJoin, Observable } from 'rxjs';
+import { Dice, Die, Roll } from '../components/dice/dice';
+import { DiceHistory, SDice, SDie } from '../components/dice/stringDice';
 // import { EndCondition } from './deform/beam-bending/beam-bending.component';
 
 @Injectable({
@@ -48,7 +49,34 @@ export class PythonService {
     ;
   }
 
-  public getDiceHistory(): Observable<any[]> {
-    return this.http.get<any[]>(this.URL + 'diceHistory');
+  public postSDieRoll(dieString: string): Observable<string> {
+    return this.http.post<string>(this.URL + 'dice', {string: dieString});
+  }
+
+  public postSDiceRoll(dieString: string[]): Observable<string[]> {
+    return this.http.post<string[]>(this.URL + 'dice', {string: dieString});
+  }
+
+  public getSDieRoll(id: string): Observable<SDie> {
+    return this.http.get<SDie>(this.URL + 'dice/'+id);
+  }
+
+  public stringRollDie(dieString: string): Observable<SDie> {
+    // Post the string and then read the id number
+    return this.postSDieRoll(dieString).pipe(mergeMap(u => this.getSDieRoll(u)))
+  }
+
+  public stringRollDice(dieString: string[]): Observable<SDice> {
+    // Post the string and then read the id number
+    return this.postSDiceRoll(dieString).pipe(
+      // map(users => users.map(this.getOrdersForUser)),
+      // switchMap(userWithOrders$ => forkJoin(...userWithOrders$))
+      mergeMap(
+        u =>  forkJoin(u.map(s => this.getSDieRoll(s)))
+      )
+    )
+  }
+  public getDiceHistory(): Observable<DiceHistory> {
+    return this.http.get<DiceHistory>(this.URL + 'diceHistory');
   }
 }

@@ -41,7 +41,7 @@ import { AccordionModule } from 'primeng/accordion/accordion';
 import { DynamicDialogModule, DialogService, DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicDialog';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
-import { CheckboxModule } from 'primeng/checkbox/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { DialogModule } from 'primeng/dialog/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputSwitchModule } from 'primeng/inputswitch/inputswitch';
@@ -98,7 +98,7 @@ import { TableModule } from 'primeng/table';
     // CardModul,
     // CarouselModule,
     // ChartModule,
-    // CheckboxModule,
+    CheckboxModule,
     // ChipsModule,
     // CodeHighlighterModule,
     // ColorPickerModule,
