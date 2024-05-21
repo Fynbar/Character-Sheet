@@ -2,7 +2,7 @@ export type SDice = SDie[]
 
 export interface DiceHistory {
     [key: string]:{
-        value:number;
+        result:number;
         die:SDie;
         id:string
     }
@@ -19,6 +19,8 @@ export interface SDie {
     value:      number;
     ignoreRoll?: SDie;
     ignoreCond: string;
+    result: number;
+
 }
 
 export enum Sign {

@@ -58,13 +58,15 @@ export class InitTrackerComponent implements OnInit {
 
   public rollAll(event) {
     if (!this.encounter.rolled) {
-      const calls = this.pythonService.rollDice(new Die(20, this.encounter.creatures.length));
+      console.log(this.encounter.creatures.map(_ => "1d20"))
+      const calls = this.pythonService.stringRollDice(this.encounter.creatures.map(c => "1d20+"+c.initiativeBonus));
       calls.subscribe(s => {
+        console.log("Rolling");
         console.log(s);
-        s.rolls.forEach((n, index) => {
-          this.encounter.creatures[index].init = n;
-          console.log(n);
-          console.log(index, this.encounter.creatures[index]);
+        s.forEach((n, index) => {
+          this.encounter.creatures[index].init = n.result;
+        // //   console.log(n);
+        // //   console.log(index, this.encounter.creatures[index]);
         });
         this.setOrder();
         this.encounter.rolled = true;
@@ -77,7 +79,7 @@ export class InitTrackerComponent implements OnInit {
     const sortedCreatures = this.encounter.creatures.map(s => s);
     console.log(this.order);
     this.order = sortedCreatures.sort((a, b) => initSorter(a, b));
-    console.log(this.order);
+    console.log("Sorted", this.order.map(c => c.init+c.initiativeBonus));
   }
 
   public addCombatant(event) {
@@ -86,17 +88,13 @@ export class InitTrackerComponent implements OnInit {
   }
 
   public get colSpan() {
-    return this.encounter.rolled ? 4 : 3;
+    return 4 + (this.encounter.rolled ? 1 : 0);
   }
 }
 // function initSorter(a: MonsterCreature, b: MonsterCreature): number {
 function initSorter(a, b): number {
   let s = 1;
-  if (a.init + a.initiativeBonus === b.init + b.initiativeBonus) {
-    s = a.initiativeBonus <= b.initiativeBonus ? 1 : -1;
-  } else {
-    s = a.init + a.initiativeBonus < b.init + b.initiativeBonus ? 1 : -1;
-  }
+  s = a.init + a.initiativeBonus*1.01 < b.init + b.initiativeBonus*1.01 ? 1 : -1;
   return s;
 }
 

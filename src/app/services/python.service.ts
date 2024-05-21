@@ -61,6 +61,7 @@ export class PythonService {
     return this.http.get<SDie>(this.URL + 'dice/'+id);
   }
 
+
   public stringRollDie(dieString: string): Observable<SDie> {
     // Post the string and then read the id number
     return this.postSDieRoll(dieString).pipe(mergeMap(u => this.getSDieRoll(u)))

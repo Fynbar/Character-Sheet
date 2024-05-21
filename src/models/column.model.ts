@@ -1,4 +1,4 @@
-import { splitByCapital } from 'src/app/common/string.functions';
+import { splitByCapital } from '../app/common/string.functions';
 interface Column {
     field: string;
     header: string;

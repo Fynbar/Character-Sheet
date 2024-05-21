@@ -1,5 +1,5 @@
 <p>Init Tracker</p>
-
+<!-- <p-checkbox></p-checkbox> -->
 <p-inputSwitch [(ngModel)]="encounter.rolled"></p-inputSwitch>
 <p-button label="RollAll" (onClick)="rollAll($event)"></p-button>
 <p-table #eqt [columns]="cols" [value]="order" dataKey="name">
@@ -9,13 +9,12 @@
             <th>Name </th>
             <th>Initiative<br>Bonus</th>
             <th>Locked</th>
-            <th *ngIf="encounter.rolled"> Initiative<br>Roll </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-i="rowIndex">
         <tr>
-            <td>
-                {{i}}
+            <td [ngIf]>
+                {{encounter.rolled ? i : rowData.init+rowData.init}}
             </td>
             <td>
                 {{rowData.name}}
@@ -25,12 +24,9 @@
                     decrementButtonIcon="pi pi-minus">
                 </p-inputNumber>
             </td>
-            <td class="field-checkbox">
-                <p-checkbox [(ngModel)]="rowData.locked" [binary]="true" inputId="binary"></p-checkbox>
-                <label for="binary">{{checked}}</label>
-            </td>
-            <td *ngIf="rowData.locked&&rowData.init">
-                {{rowData.init+rowData.initiativeBonus}}
+            <td>
+                checkbox
+                <p-checkbox [(ngModel)]="rowData.locked"></p-checkbox>
             </td>
         </tr>
     </ng-template>
